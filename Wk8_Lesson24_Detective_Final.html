@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 24 — Detective Final: Mixed Review + Quiz | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4; --ink:#1b2a4a; --amber:#e8930c; --teal:#0e7c7b;
+    --card:#ffffff; --line:#e6e1d6; --amber-soft:#fdf0d9; --amber-edge:#f2c785;
+    --teal-soft:#e1efee; --ink-soft:#56607a; --good:#1f7a4d; --good-soft:#e3f3ea;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06); --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Atkinson Hyperlegible",system-ui,sans-serif; font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%}
+  h1,h2,h3,.eyebrow,.pill,.opt,.word-chip,.sort-card,.bucket-label{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  a{color:var(--teal)}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  header.band{background:var(--ink); color:#fff; padding:30px 22px 26px}
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px}
+  .band h1{font-family:"Space Grotesk"; font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em}
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:60ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1}
+
+  nav.pills{position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px}
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{font-family:"Space Grotesk"; font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto}
+  .lead{color:var(--ink-soft); max-width:66ch}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0}
+
+  button{font-family:inherit}
+  .btn{background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"}
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn.amber:hover{background:#d98509}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  input[type=text], textarea{font-family:"Atkinson Hyperlegible"; font-size:1.05rem; padding:11px 13px; border:1.5px solid var(--line); border-radius:10px; min-height:44px}
+  input[type=text]:focus-visible, textarea:focus-visible{outline:3px solid var(--amber); outline-offset:2px}
+  textarea{width:100%; min-height:130px; resize:vertical; line-height:1.55}
+
+  .fixup{margin-top:10px; background:var(--amber-soft); border-left:5px solid var(--amber); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none}
+  .fixup.show{display:block}
+  .fixup b{color:#a8540b}
+  .goodnote{margin-top:10px; background:var(--good-soft); border-left:5px solid var(--good); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none}
+  .goodnote.show{display:block}
+  .scorebar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:12px 16px}
+  .scorebar strong{font-family:"Space Grotesk"; font-size:1.15rem}
+
+  /* ---------- memory sprint ---------- */
+  .sprint-timer{font-family:"Space Grotesk"; font-weight:700; font-size:2.6rem; letter-spacing:-.02em; color:var(--teal)}
+  .sprint-timer.low{color:#c0392b}
+  .word-chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+  .word-chip{border:1.5px solid var(--line); background:#fcfbf7; color:var(--ink-soft); border-radius:999px; padding:8px 14px; font-size:.9rem; font-weight:600}
+  .word-chip.hit{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .word-chip.missed{background:var(--amber-soft); border-color:var(--amber); color:#a8540b}
+  .use-count{font-family:"Space Grotesk"; font-weight:700}
+  .use-count.ok{color:var(--good)}
+
+  /* ---------- generalisation sorter ---------- */
+  .buckets{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px}
+  @media(max-width:720px){.buckets{grid-template-columns:1fr}}
+  .bucket{border:2px dashed var(--line); border-radius:12px; padding:12px; min-height:120px; background:#fcfbf7; cursor:pointer}
+  .bucket:hover{border-color:var(--teal)}
+  .bucket.armed{border-color:var(--amber); border-style:solid; background:var(--amber-soft)}
+  .bucket-label{font-weight:700; font-size:.92rem; margin:0 0 8px; display:block}
+  .bucket .placed{display:flex; flex-wrap:wrap; gap:6px}
+  .sort-tray{display:flex; flex-wrap:wrap; gap:9px; margin-top:6px}
+  .sort-card{min-height:46px; padding:9px 15px; font-size:1rem; font-weight:700; background:#fff; border:2px solid var(--line); border-radius:10px; cursor:pointer; color:var(--ink)}
+  .sort-card:hover{border-color:var(--teal)}
+  .sort-card.selected{border-color:var(--amber); background:var(--amber-soft); color:#a8540b}
+  .sort-card.placed-chip{background:var(--good-soft); border-color:var(--good); color:var(--good); cursor:default; min-height:38px; padding:6px 12px; font-size:.9rem}
+
+  /* ---------- test ---------- */
+  .test-item{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .test-item.right{border-color:var(--good)}
+  .test-item .sentence{font-size:1.05rem}
+  .test-item .gap{display:inline-block; min-width:120px; border-bottom:3px solid var(--amber); text-align:center; font-weight:700}
+  .test-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; align-items:center}
+  .diff{font-family:"Space Grotesk"; font-size:1.15rem; letter-spacing:.1em; margin-top:8px}
+  .diff .ok{color:var(--good)}
+  .diff .bad{color:#c0392b; text-decoration:underline}
+
+  .evidence{display:flex; gap:12px; align-items:flex-start; background:var(--amber-soft); border:1px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:16px 0; font-size:.95rem}
+  .help-reveal{display:none; margin-top:12px}
+  .help-reveal.show{display:block}
+  .locked-note{display:none; margin-top:12px}
+  .locked-note.show{display:block}
+  .exemplar{background:#fbfaf6; border:1px dashed var(--teal); border-radius:12px; padding:14px}
+  .used-chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px}
+
+  .check-list{list-style:none; padding:0; margin:.5em 0}
+  .check-list li{display:flex; gap:10px; align-items:flex-start; padding:7px 0}
+  .check-list input{width:22px; height:22px; margin-top:2px; accent-color:var(--teal)}
+  .confi{display:flex; gap:8px; flex-wrap:wrap}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:999px; padding:10px 16px; min-height:44px; cursor:pointer; font-size:.92rem}
+  .confi button[aria-pressed="true"]{background:var(--teal); border-color:var(--teal); color:#fff}
+
+  footer{border-top:1px solid var(--line); color:var(--ink-soft); font-size:.82rem; padding:18px 22px 34px; text-align:center}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Word Detectives · Week 8 · Session 3 · Unit Finale</p>
+    <h1>Detective Final: Mixed Review + Quiz</h1>
+    <p class="hook">Eight weeks of word detecting comes down to this. Sprint your memory, sort the generalisations, write across the subjects — then sit the final.</p>
+    <div class="meta-row">
+      <span>Year 6 · Spelling</span><span>AC9E6LY08 · AC9E6LY09</span><span>20 minutes</span><span>Review week · Final quiz</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Lesson sections">
+  <div class="pills-inner">
+    <a class="pill" href="#sprint">1 · Memory Sprint</a>
+    <a class="pill" href="#sorter">2 · Sort the Files</a>
+    <a class="pill" href="#writing">3 · Cross-Subject Sentences</a>
+    <a class="pill" href="#proofread">4 · Proofread</a>
+    <a class="pill" href="#test">5 · Final Quiz</a>
+    <a class="pill" href="#closed">6 · Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ===================== 1. MEMORY SPRINT ===================== -->
+  <section id="sprint">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>30-Second Memory Sprint</h2><p class="lead">Final warm-up of the term: type as many of this week's eight focus words as you can in 30 seconds. Bonus glory for any focus word you remember from earlier weeks — jot those in your book after the buzzer.</p></div></div>
+
+    <div class="card">
+      <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap">
+        <div class="sprint-timer" id="sprintTimer" aria-live="polite">30</div>
+        <button class="btn amber" id="sprintStart">Start my 30-second sprint</button>
+      </div>
+      <div style="margin-top:14px">
+        <label for="sprintInput" style="display:block; font-size:.9rem; color:var(--ink-soft); margin-bottom:6px">Type each word, then press space or Enter:</label>
+        <input type="text" id="sprintInput" autocomplete="off" autocapitalize="none" spellcheck="false" disabled aria-label="Type focus words from memory during the sprint" style="width:min(420px,100%)">
+      </div>
+      <p style="margin-top:10px">Week 8 words captured: <span class="use-count" id="sprintCount">0</span> / 8</p>
+      <div class="word-chips" id="sprintChips" aria-live="polite"></div>
+      <div class="goodnote" id="sprintDone"></div>
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>This page doesn't save.</b> Screenshot your sprint result and upload it to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. GENERALISATION SORTER ===================== -->
+  <section id="sorter">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Sort the Files</h2><p class="lead">Every word this week follows one of three case patterns. Tap a word, then tap the file it belongs in. Wrong files bounce it back with a clue.</p></div></div>
+
+    <div class="card">
+      <p style="margin-top:0">Filed correctly: <strong style="font-family:'Space Grotesk'; color:var(--teal)"><span id="sortCount">0</span> / 8</strong></p>
+      <div class="sort-tray" id="sortTray" role="group" aria-label="Words waiting to be sorted"></div>
+      <div class="buckets" id="buckets">
+        <div class="bucket" data-bucket="ise" role="button" tabindex="0" aria-label="File: the -ise family">
+          <span class="bucket-label">📁 The -ise family<br><span style="font-weight:400; color:var(--ink-soft)">regular Australian -ise verbs</span></span>
+          <div class="placed"></div>
+        </div>
+        <div class="bucket" data-bucket="yse" role="button" tabindex="0" aria-label="File: the -yse rebel">
+          <span class="bucket-label">📁 The -yse rebel<br><span style="font-weight:400; color:var(--ink-soft)">keeps its y (Greek lysis family)</span></span>
+          <div class="placed"></div>
+        </div>
+        <div class="bucket" data-bucket="mnemonic" role="button" tabindex="0" aria-label="File: mnemonic traps">
+          <span class="bucket-label">📁 Mnemonic traps<br><span style="font-weight:400; color:var(--ink-soft)">no rule — you need a memory trick</span></span>
+          <div class="placed"></div>
+        </div>
+      </div>
+      <div class="fixup" id="sortFix" aria-live="polite"></div>
+      <div class="goodnote" id="sortGood" aria-live="polite"></div>
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Screenshot your three completed files</b> and upload to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. CROSS-SUBJECT SENTENCES ===================== -->
+  <section id="writing">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>Cross-Subject Sentences</h2><p class="lead">Use at least three -ise (or -yse) verbs in science, maths or HASS contexts — like a real report would. The counter tracks your verbs.</p></div></div>
+
+    <div class="card">
+      <label for="writeBox" style="display:block; font-weight:700; margin-bottom:6px">Your sentences:</label>
+      <textarea id="writeBox" spellcheck="false" aria-label="Write sentences using at least three -ise verbs in subject contexts"></textarea>
+      <p style="margin-top:8px">-ise family verbs used: <span class="use-count" id="useCount">0</span> / 3 minimum</p>
+      <div class="used-chips" id="usedChips" aria-live="polite"></div>
+
+      <div class="test-row">
+        <button class="btn ghost" id="helpBtn">I need help — show me sentence starters</button>
+        <button class="btn" id="exemplarBtn" disabled>Unlock an example (write something first)</button>
+      </div>
+
+      <div class="help-reveal" id="helpBox">
+        <div class="exemplar">
+          <h3 style="margin-top:0">Sentence starters</h3>
+          <p>· Scientists ________ their results before ________. <span style="color:var(--ink-soft)">(science)</span></p>
+          <p>· In maths, we ________ the data into groups so that ________. <span style="color:var(--ink-soft)">(maths)</span></p>
+          <p>· Historians ________ that the event happened because ________. <span style="color:var(--ink-soft)">(HASS)</span></p>
+          <p>· Before the test, I ________ my notes by ________. <span style="color:var(--ink-soft)">(any subject)</span></p>
+          <p style="margin-bottom:0; color:var(--ink-soft); font-size:.88rem">Fill the gaps with verbs from the -ise family: organise, recognise, summarise, analyse, hypothesise, categorise…</p>
+        </div>
+      </div>
+
+      <div class="locked-note" id="exemplarBox">
+        <div class="exemplar">
+          <h3 style="margin-top:0">One way it could look</h3>
+          <p>Scientists <u>analyse</u> their results before they <u>hypothesise</u> about the cause. In maths we <u>organise</u> survey data into a table, then <u>summarise</u> what it shows in one clear sentence.</p>
+          <p style="margin-bottom:0; color:var(--ink-soft); font-size:.88rem">That's four -ise family verbs across two subjects — yours needs three. Check each ending: s, not z (and analyse keeps its y).</p>
+        </div>
+      </div>
+
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>This box does not save.</b> Screenshot your sentences now and upload to OneNote before the quiz.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. PROOFREAD ===================== -->
+  <section id="proofread">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>Proofread Swap</h2><p class="lead">The success criterion this week: find and fix at least <strong>two</strong> errors. Read like a stranger wrote it.</p></div></div>
+
+    <div class="card">
+      <ul class="check-list">
+        <li><input type="checkbox" id="p1"><label for="p1">Every -ise verb ends in s (not z) — and analyse keeps its y</label></li>
+        <li><input type="checkbox" id="p2"><label for="p2">I checked separate, definitely and necessary against their mnemonics if I used them</label></li>
+        <li><input type="checkbox" id="p3"><label for="p3">I found and fixed at least two errors — or read everything twice and found none</label></li>
+        <li><input type="checkbox" id="p4"><label for="p4">My partner (or my backwards read-through) confirms the spelling</label></li>
+      </ul>
+      <p style="color:var(--ink-soft); font-size:.92rem; margin-bottom:0">Detective habit for finals: read backwards, last word to first — your brain can't skim, so slips stand out.</p>
+    </div>
+  </section>
+
+  <!-- ===================== 5. FINAL QUIZ ===================== -->
+  <section id="test">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>Final Dictation Quiz</h2><p class="lead">The last eight sentences of the term. Your teacher may read each one aloud twice — or read it yourself below. Type only the missing word. It marks itself.</p></div></div>
+
+    <div class="card">
+      <p style="color:var(--ink-soft); font-size:.92rem; margin-top:0"><b>Rules:</b> No scrolling back up — this is the final. Type your answer <em>before</em> the check button will work. Your first attempt counts for your score; you can retry to fix up afterwards. (Detective bonus: some sentences smuggle in their own memory trick — stay sharp.)</p>
+      <div id="testItems"></div>
+      <div class="scorebar">
+        <div>My score (first attempts): <strong id="testScore">0</strong> / 8</div>
+        <span id="testMsg" style="font-size:.92rem; color:var(--ink-soft)"></span>
+      </div>
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Screenshot your marked final and score</b> and upload to OneNote — this is the unit's headline evidence. Record your score out of 8 in your book.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. CASE CLOSED ===================== -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">06</span><div><h2>Case Closed: End of the Unit</h2><p class="lead">Eight weeks. Sixty-four focus words. Roots, suffixes, tricky parts, generalisations and mnemonics — you've built a detective's toolkit you'll use in every subject from here on.</p></div></div>
+
+    <div class="card">
+      <h3>Evidence to capture (screenshot or photograph each one)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">My Memory Sprint result</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My three completed files in Sort the Files</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">My cross-subject sentences with three -ise verbs</label></li>
+        <li><input type="checkbox" id="c4"><label for="c4">My proofread checklist, honestly ticked</label></li>
+        <li><input type="checkbox" id="c5"><label for="c5">My marked Final Quiz with score out of 8, recorded in my book</label></li>
+      </ul>
+
+      <h3 style="margin-top:18px">My detective's verdict on the whole unit</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating for the unit">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+      <p style="color:var(--ink-soft); font-size:.92rem; margin-top:14px">One last task in your book: write the <strong>two strategies</strong> from this term you'll keep using — and the one word that still hunts you, with the trick you'll use to catch it.</p>
+
+      <div class="evidence" style="margin-top:18px; margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing on this page is saved.</b> Take your final screenshots now, then upload everything to OneNote. Closing the tab clears it all — but what you've learned doesn't.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Year 6 Spelling · Word Detectives · Lesson 24: Detective Final — Mixed Review + Quiz · Linked to ACARA v9 AC9E6LY08 &amp; AC9E6LY09. All content original.</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var FOCUS = ["organise","recognise","summarise","analyse","hypothesise","separate","definitely","necessary"];
+
+  /* ---------- memory sprint ---------- */
+  var sprintTimerEl = document.getElementById("sprintTimer");
+  var sprintStart = document.getElementById("sprintStart");
+  var sprintInput = document.getElementById("sprintInput");
+  var sprintCount = document.getElementById("sprintCount");
+  var sprintChips = document.getElementById("sprintChips");
+  var sprintDone = document.getElementById("sprintDone");
+  var sprintHits = {};
+  var sprintTicker = null;
+  var sprintSeconds = 30;
+  var sprintRunning = false;
+
+  var chipEls = {};
+  FOCUS.forEach(function(w){
+    var chip = document.createElement("span");
+    chip.className = "word-chip";
+    chip.textContent = "?????";
+    chip.setAttribute("data-word", w);
+    sprintChips.appendChild(chip);
+    chipEls[w] = chip;
+  });
+
+  function captureSprintWord(raw){
+    var w = raw.trim().toLowerCase().replace(/[^a-z]/g, "");
+    if(!w) return;
+    if(FOCUS.indexOf(w) !== -1 && !sprintHits[w]){
+      sprintHits[w] = true;
+      chipEls[w].textContent = w;
+      chipEls[w].classList.add("hit");
+      sprintCount.textContent = String(Object.keys(sprintHits).length);
+    }
+  }
+
+  function endSprint(){
+    sprintRunning = false;
+    clearInterval(sprintTicker);
+    captureSprintWord(sprintInput.value);
+    sprintInput.value = "";
+    sprintInput.disabled = true;
+    sprintTimerEl.textContent = "0";
+    var got = Object.keys(sprintHits).length;
+    FOCUS.forEach(function(w){
+      if(!sprintHits[w]){
+        chipEls[w].textContent = w;
+        chipEls[w].classList.add("missed");
+      }
+    });
+    var msg;
+    if(got === 8){ msg = "<b>All eight — a detective at full power!</b> Straight to the sorter."; }
+    else if(got >= 5){ msg = "<b>" + got + " out of 8 — strong finish.</b> The amber chips are your misses: whisper each one's tricky part twice before the final quiz."; }
+    else { msg = "<b>" + got + " captured.</b> The amber chips show exactly what to revise — give them one focused minute before the final quiz."; }
+    sprintDone.innerHTML = msg;
+    sprintDone.classList.add("show");
+    sprintStart.textContent = "Sprint again";
+    sprintStart.disabled = false;
+  }
+
+  sprintStart.addEventListener("click", function(){
+    sprintHits = {};
+    FOCUS.forEach(function(w){
+      chipEls[w].textContent = "?????";
+      chipEls[w].classList.remove("hit","missed");
+    });
+    sprintCount.textContent = "0";
+    sprintDone.classList.remove("show");
+    sprintSeconds = 30;
+    sprintTimerEl.textContent = "30";
+    sprintTimerEl.classList.remove("low");
+    sprintInput.disabled = false;
+    sprintInput.value = "";
+    sprintInput.focus();
+    sprintStart.disabled = true;
+    sprintRunning = true;
+    sprintTicker = setInterval(function(){
+      sprintSeconds--;
+      sprintTimerEl.textContent = String(sprintSeconds);
+      if(sprintSeconds <= 5) sprintTimerEl.classList.add("low");
+      if(sprintSeconds <= 0) endSprint();
+    }, 1000);
+  });
+
+  sprintInput.addEventListener("keydown", function(e){
+    if(!sprintRunning) return;
+    if(e.key === " " || e.key === "Enter"){
+      e.preventDefault();
+      captureSprintWord(sprintInput.value);
+      sprintInput.value = "";
+    }
+  });
+
+  /* ---------- generalisation sorter ---------- */
+  var SORT = [
+    { word:"organise",    bucket:"ise",
+      good:"Regular citizen of the -ise family.",
+      bad:{ yse:"No y in this one \u2014 it's a regular -ise verb.", mnemonic:"No trick needed \u2014 it follows the -ise rule perfectly." } },
+    { word:"separate",    bucket:"mnemonic",
+      good:"Filed \u2014 no rule saves you here; only the rat does (sep-A-RAT-e).",
+      bad:{ ise:"Check the ending \u2014 no -ise here. This one needs its rat.", yse:"No y, no -yse \u2014 this word needs a memory trick instead." } },
+    { word:"analyse",     bucket:"yse",
+      good:"The rebel, filed correctly \u2014 Greek lysis family, keeps its y.",
+      bad:{ ise:"So close \u2014 but this is THE rebel. It never joined the -ise family: anal-y-se.", mnemonic:"It does follow a rule \u2014 just a rarer one. Which family keeps its y?" } },
+    { word:"recognise",   bucket:"ise",
+      good:"Regular -ise verb \u2014 filed.",
+      bad:{ yse:"No y in recognise \u2014 regular -ise family.", mnemonic:"The -ise rule covers this one; no trick required." } },
+    { word:"definitely",  bucket:"mnemonic",
+      good:"Filed \u2014 the rule-free zone. Your trick: the finite hiding inside.",
+      bad:{ ise:"It ends in -ly, not -ise \u2014 this is a memory-trick word.", yse:"No -yse here \u2014 look for the hidden word 'finite' instead." } },
+    { word:"summarise",   bucket:"ise",
+      good:"Regular -ise family member \u2014 filed.",
+      bad:{ yse:"No y \u2014 summarise is a regular -ise verb.", mnemonic:"No trick needed: the -ise generalisation handles it." } },
+    { word:"necessary",   bucket:"mnemonic",
+      good:"Filed with its shirt: one collar, two sleeves.",
+      bad:{ ise:"Ends in -ary, not -ise \u2014 this one lives in the trick file.", yse:"No -yse \u2014 count collars and sleeves instead." } },
+    { word:"hypothesise", bucket:"ise",
+      good:"Longest word in the family, still regular \u2014 filed.",
+      bad:{ yse:"Tempting \u2014 but the y in hypothesise sits in the MIDDLE (hypo), not the ending. The ending is regular -ise.", mnemonic:"The -ise rule covers it \u2014 no trick needed." } }
+  ];
+
+  var tray = document.getElementById("sortTray");
+  var buckets = document.querySelectorAll("#buckets .bucket");
+  var sortFix = document.getElementById("sortFix");
+  var sortGood = document.getElementById("sortGood");
+  var sortCountEl = document.getElementById("sortCount");
+  var sortCount = 0;
+  var selected = null;
+
+  SORT.forEach(function(item){
+    var b = document.createElement("button");
+    b.className = "sort-card";
+    b.type = "button";
+    b.textContent = item.word;
+    b.setAttribute("data-word", item.word);
+    b.addEventListener("click", function(){
+      if(b.disabled) return;
+      Array.prototype.slice.call(tray.querySelectorAll(".sort-card")).forEach(function(c){ c.classList.remove("selected"); });
+      b.classList.add("selected");
+      selected = item;
+      Array.prototype.slice.call(buckets).forEach(function(bk){ bk.classList.add("armed"); });
+      sortFix.classList.remove("show");
+      sortGood.classList.remove("show");
+    });
+    tray.appendChild(b);
+  });
+
+  function tryFile(bucketEl){
+    if(!selected) {
+      sortGood.classList.remove("show");
+      sortFix.innerHTML = "<b>Pick a word first</b> \u2014 tap a word card, then tap the file it belongs in.";
+      sortFix.classList.add("show");
+      return;
+    }
+    var chosen = bucketEl.getAttribute("data-bucket");
+    var item = selected;
+    var cardBtn = tray.querySelector('.sort-card[data-word="' + item.word + '"]');
+    if(chosen === item.bucket){
+      cardBtn.classList.remove("selected");
+      cardBtn.disabled = true;
+      cardBtn.style.display = "none";
+      var chip = document.createElement("span");
+      chip.className = "sort-card placed-chip";
+      chip.textContent = item.word;
+      bucketEl.querySelector(".placed").appendChild(chip);
+      sortFix.classList.remove("show");
+      sortGood.innerHTML = "<b>" + item.word + " filed.</b> " + item.good;
+      sortGood.classList.add("show");
+      sortCount++;
+      sortCountEl.textContent = String(sortCount);
+      selected = null;
+      Array.prototype.slice.call(buckets).forEach(function(bk){ bk.classList.remove("armed"); });
+      if(sortCount === SORT.length){
+        sortGood.innerHTML = "<b>All eight filed \u2014 that's an above-standard skill, sorting words by their generalisation.</b> Screenshot your files.";
+      }
+    } else {
+      sortGood.classList.remove("show");
+      sortFix.innerHTML = "<b>" + item.word + " bounced back.</b> " + (item.bad[chosen] || "Not that file \u2014 think about which pattern the ending follows.");
+      sortFix.classList.add("show");
+    }
+  }
+
+  Array.prototype.slice.call(buckets).forEach(function(bk){
+    bk.addEventListener("click", function(){ tryFile(bk); });
+    bk.addEventListener("keydown", function(e){
+      if(e.key === "Enter" || e.key === " "){ e.preventDefault(); tryFile(bk); }
+    });
+  });
+
+  /* ---------- cross-subject sentences ---------- */
+  var ISE_VERBS = ["organise","recognise","summarise","analyse","hypothesise","categorise","characterise","realise","revise","visualise","generalise","emphasise","criticise","memorise","theorise"];
+  var writeBox = document.getElementById("writeBox");
+  var useCount = document.getElementById("useCount");
+  var usedChips = document.getElementById("usedChips");
+  var helpBtn = document.getElementById("helpBtn");
+  var helpBox = document.getElementById("helpBox");
+  var exemplarBtn = document.getElementById("exemplarBtn");
+  var exemplarBox = document.getElementById("exemplarBox");
+
+  function refreshWriting(){
+    var text = writeBox.value.toLowerCase();
+    var seen = {};
+    ISE_VERBS.forEach(function(v){
+      // match the verb stem so organises / organised / organising all count
+      if(text.indexOf(v.replace(/e$/,"")) !== -1) seen[v.replace(/e$/,"")] = v;
+    });
+    var used = Object.keys(seen);
+    useCount.textContent = String(used.length);
+    useCount.classList.toggle("ok", used.length >= 3);
+    usedChips.innerHTML = "";
+    used.forEach(function(stem){
+      var chip = document.createElement("span");
+      chip.className = "word-chip hit";
+      chip.textContent = seen[stem];
+      usedChips.appendChild(chip);
+    });
+    var hasAttempt = writeBox.value.trim().length >= 15;
+    exemplarBtn.disabled = !hasAttempt;
+    exemplarBtn.textContent = hasAttempt ? "Unlock an example" : "Unlock an example (write something first)";
+  }
+  writeBox.addEventListener("input", refreshWriting);
+
+  helpBtn.addEventListener("click", function(){
+    helpBox.classList.toggle("show");
+    helpBtn.textContent = helpBox.classList.contains("show") ? "Hide the sentence starters" : "I need help \u2014 show me sentence starters";
+  });
+  exemplarBtn.addEventListener("click", function(){
+    if(exemplarBtn.disabled) return;
+    exemplarBox.classList.add("show");
+  });
+
+  /* ---------- final quiz ---------- */
+  var TEST = [
+    { word:"organise", display:"organise",
+      before:"In Australian English we ", after:" our work, spelt with an s.",
+      tip:"organ + ise \u2014 s, even though it sounds like /z/." },
+    { word:"recognise", display:"recognise",
+      before:"Good detectives ", after:" a spelling pattern straight away.",
+      tip:"rec-og-nise \u2014 g before n, Australian -ise." },
+    { word:"summarise", display:"summarise",
+      before:"Please ", after:" the main idea of the paragraph in one sentence.",
+      tip:"summary \u2192 drop the y, add -ise." },
+    { word:"analyse", display:"analyse",
+      before:"Scientists ", after:" their results before making a conclusion.",
+      tip:"The rebel: -yse, keeps its y." },
+    { word:"hypothesise", display:"hypothesise",
+      before:"We ", after:" that the plant will grow faster in sunlight.",
+      tip:"hypothes + ise \u2014 the y lives in the middle, the ending is regular -ise." },
+    { word:"separate", display:"separate",
+      before:"Remember there is \u2018a rat\u2019 hidden in the word ", after:".",
+      tip:"sep-A-RAT-e \u2014 the sentence handed you the trick!" },
+    { word:"definitely", display:"definitely",
+      before:"The word ", after:" contains the smaller word finite.",
+      tip:"de + finite + ly \u2014 and again, the clue was in the sentence." },
+    { word:"necessary", display:"Necessary",
+      before:"", after:" has one collar and two sleeves \u2013 one c and two s\u2019s.",
+      tip:"One c, double s \u2014 the shirt trick, straight from the sentence." }
+  ];
+
+  var testHost = document.getElementById("testItems");
+  var testScoreEl = document.getElementById("testScore");
+  var testMsg = document.getElementById("testMsg");
+  var testScore = 0;
+  var answeredCount = 0;
+
+  function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function letterDiff(target, attempt){
+    var html = "";
+    var maxLen = Math.max(target.length, attempt.length);
+    for(var i=0; i<maxLen; i++){
+      var a = attempt[i] || "\u00B7";
+      if(attempt[i] !== undefined && attempt[i] === target[i]) html += '<span class="ok">' + esc(a) + '</span>';
+      else html += '<span class="bad">' + esc(a) + '</span>';
+    }
+    return html;
+  }
+
+  TEST.forEach(function(item, i){
+    var div = document.createElement("div");
+    div.className = "test-item";
+
+    var sentence = document.createElement("p");
+    sentence.className = "sentence";
+    var beforeSpan = document.createElement("span");
+    beforeSpan.textContent = (i+1) + ". " + item.before;
+    var gap = document.createElement("span");
+    gap.className = "gap";
+    gap.textContent = "\u00A0";
+    gap.setAttribute("aria-label","missing word");
+    var afterSpan = document.createElement("span");
+    afterSpan.textContent = item.after;
+    sentence.appendChild(beforeSpan);
+    sentence.appendChild(gap);
+    sentence.appendChild(afterSpan);
+    div.appendChild(sentence);
+
+    var row = document.createElement("div");
+    row.className = "test-row";
+    var input = document.createElement("input");
+    input.type = "text";
+    input.autocomplete = "off";
+    input.autocapitalize = "none";
+    input.spellcheck = false;
+    input.setAttribute("aria-label", "Answer for sentence " + (i+1));
+    input.style.width = "min(280px,100%)";
+    var btn = document.createElement("button");
+    btn.className = "btn amber";
+    btn.textContent = "Check (type your answer first)";
+    btn.disabled = true;
+    row.appendChild(input);
+    row.appendChild(btn);
+    div.appendChild(row);
+
+    var diff = document.createElement("div");
+    diff.className = "diff";
+    diff.setAttribute("aria-live","polite");
+    div.appendChild(diff);
+    var fix = document.createElement("div");
+    fix.className = "fixup";
+    div.appendChild(fix);
+    var good = document.createElement("div");
+    good.className = "goodnote";
+    div.appendChild(good);
+
+    var firstAttemptMade = false;
+
+    input.addEventListener("input", function(){
+      var has = input.value.trim().length > 0;
+      btn.disabled = !has;
+      btn.textContent = has ? "Check" : "Check (type your answer first)";
+    });
+    input.addEventListener("keydown", function(e){
+      if(e.key === "Enter" && !btn.disabled){ e.preventDefault(); btn.click(); }
+    });
+
+    btn.addEventListener("click", function(){
+      var attempt = input.value.trim().toLowerCase();
+      if(attempt === "") return;
+      var correct = (attempt === item.word);
+      diff.innerHTML = letterDiff(item.word, attempt);
+      if(!firstAttemptMade){
+        firstAttemptMade = true;
+        answeredCount++;
+        if(correct){
+          testScore++;
+          testScoreEl.textContent = String(testScore);
+        }
+        if(answeredCount === TEST.length){
+          if(testScore === 8) testMsg.textContent = "A perfect final \u2014 8/8. Case closed in style!";
+          else if(testScore >= 6) testMsg.textContent = "Target met (6+/8). Fix up any misses, then screenshot your final.";
+          else testMsg.textContent = "Under 6 this time \u2014 retry your misses now, and note them for your revision list.";
+        }
+      }
+      if(correct){
+        div.classList.add("right");
+        gap.textContent = item.display;
+        fix.classList.remove("show");
+        good.innerHTML = "<b>Correct.</b> " + esc(item.tip);
+        good.classList.add("show");
+        input.disabled = true;
+        btn.disabled = true;
+      } else {
+        fix.innerHTML = "<b>Fix-up:</b> the word is <b>" + item.word + "</b>. " + esc(item.tip) + " The underlined letters show where your attempt drifted \u2014 rewrite it and check again (your first-attempt score is already recorded).";
+        fix.classList.add("show");
+        good.classList.remove("show");
+      }
+    });
+
+    testHost.appendChild(div);
+  });
+
+  /* ---------- confidence buttons ---------- */
+  var confi = document.getElementById("confi");
+  Array.prototype.slice.call(confi.querySelectorAll("button")).forEach(function(b){
+    b.addEventListener("click", function(){
+      Array.prototype.slice.call(confi.querySelectorAll("button")).forEach(function(o){ o.setAttribute("aria-pressed","false"); });
+      b.setAttribute("aria-pressed","true");
+    });
+  });
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 22 — The -ise Files: Australian Spelling Generalisations | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4; --ink:#1b2a4a; --amber:#e8930c; --teal:#0e7c7b;
+    --card:#ffffff; --line:#e6e1d6; --amber-soft:#fdf0d9; --amber-edge:#f2c785;
+    --teal-soft:#e1efee; --ink-soft:#56607a; --good:#1f7a4d; --good-soft:#e3f3ea;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06); --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Atkinson Hyperlegible",system-ui,sans-serif; font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%}
+  h1,h2,h3,.eyebrow,.pill,.opt,.word-chip,.stamp{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  a{color:var(--teal)}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  header.band{background:var(--ink); color:#fff; padding:30px 22px 26px}
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px}
+  .band h1{font-family:"Space Grotesk"; font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em}
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:60ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1}
+
+  nav.pills{position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px}
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{font-family:"Space Grotesk"; font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto}
+  .lead{color:var(--ink-soft); max-width:66ch}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0}
+
+  button{font-family:inherit}
+  .btn{background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"}
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn.amber:hover{background:#d98509}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  input[type=text]{font-family:"Atkinson Hyperlegible"; font-size:1.05rem; padding:11px 13px; border:1.5px solid var(--line); border-radius:10px; min-height:44px}
+  input[type=text]:focus-visible{outline:3px solid var(--amber); outline-offset:2px}
+
+  .q{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .q .stem{font-weight:700; margin-bottom:10px}
+  .opts{display:grid; gap:8px}
+  .opt{text-align:left; background:#fcfbf7; border:1.5px solid var(--line); color:var(--ink); padding:11px 14px; border-radius:10px; cursor:pointer; min-height:44px; font-size:.95rem}
+  .opt:hover{border-color:var(--teal)}
+  .opt.correct{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .opt.wrong{background:#fdeceb; border-color:#c0392b; color:#a8261b}
+  .opt[disabled]{cursor:default}
+  .fixup{margin-top:10px; background:var(--amber-soft); border-left:5px solid var(--amber); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none}
+  .fixup.show{display:block}
+  .fixup b{color:#a8540b}
+  .goodnote{margin-top:10px; background:var(--good-soft); border-left:5px solid var(--good); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none}
+  .goodnote.show{display:block}
+  .scorebar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:12px 16px}
+  .scorebar strong{font-family:"Space Grotesk"; font-size:1.15rem}
+
+  .teach-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+  @media(max-width:680px){.teach-grid{grid-template-columns:1fr}}
+  .teach .svg-wrap{background:#fbfaf6; border:1px solid var(--line); border-radius:12px; padding:14px; margin:.4em 0 .7em; text-align:center}
+  .remember{background:var(--teal-soft); border:1px solid #bfdedc; border-radius:10px; padding:10px 13px; font-size:.92rem; margin-top:8px}
+  .remember b{color:var(--teal)}
+
+  /* ---------- customs checkpoint ---------- */
+  .customs-item{border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:10px 0; background:#fff; display:flex; flex-wrap:wrap; align-items:center; gap:12px}
+  .customs-item.done{border-color:var(--good)}
+  .customs-word{font-family:"Space Grotesk"; font-weight:700; font-size:1.3rem; min-width:170px}
+  .stamp{border:2px solid var(--line); background:#fcfbf7; color:var(--ink); border-radius:10px; padding:9px 14px; min-height:44px; cursor:pointer; font-weight:700; font-size:.88rem}
+  .stamp:hover{border-color:var(--teal)}
+  .stamp.picked-good{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .stamp.picked-bad{background:#fdeceb; border-color:#c0392b; color:#a8261b}
+  .stamp[disabled]{cursor:default}
+  .customs-note{flex-basis:100%; font-size:.9rem}
+  .customs-note .fixup, .customs-note .goodnote{margin-top:6px}
+
+  /* ---------- verb builder ---------- */
+  .build-item{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .build-item.right{border-color:var(--good)}
+  .build-base{font-family:"Space Grotesk"; font-weight:700; font-size:1.15rem}
+  .build-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; align-items:center}
+  .diff{font-family:"Space Grotesk"; font-size:1.15rem; letter-spacing:.1em; margin-top:8px}
+  .diff .ok{color:var(--good)}
+  .diff .bad{color:#c0392b; text-decoration:underline}
+
+  .word-chip{border:1.5px solid var(--line); background:#fcfbf7; color:var(--ink-soft); border-radius:999px; padding:8px 14px; font-size:.9rem; font-weight:600}
+  .word-chip.hit{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+
+  .evidence{display:flex; gap:12px; align-items:flex-start; background:var(--amber-soft); border:1px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:16px 0; font-size:.95rem}
+  .locked-note{display:none; margin-top:12px}
+  .locked-note.show{display:block}
+
+  .check-list{list-style:none; padding:0; margin:.5em 0}
+  .check-list li{display:flex; gap:10px; align-items:flex-start; padding:7px 0}
+  .check-list input{width:22px; height:22px; margin-top:2px; accent-color:var(--teal)}
+  .confi{display:flex; gap:8px; flex-wrap:wrap}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:999px; padding:10px 16px; min-height:44px; cursor:pointer; font-size:.92rem}
+  .confi button[aria-pressed="true"]{background:var(--teal); border-color:var(--teal); color:#fff}
+
+  footer{border-top:1px solid var(--line); color:var(--ink-soft); font-size:.82rem; padding:18px 22px 34px; text-align:center}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Word Detectives · Week 8 · Session 1</p>
+    <h1>The -ise Files: Australian Spelling Generalisations</h1>
+    <p class="hook">Organise or organize? Only one clears Australian customs. Learn the rule, spot the American imports, and stamp every word correctly.</p>
+    <div class="meta-row">
+      <span>Year 6 · Spelling</span><span>AC9E6LY09</span><span>20 minutes</span><span>Review week · All subjects</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Lesson sections">
+  <div class="pills-inner">
+    <a class="pill" href="#briefing">1 · The Briefing</a>
+    <a class="pill" href="#notes">2 · Case Notes</a>
+    <a class="pill" href="#customs">3 · Customs Checkpoint</a>
+    <a class="pill" href="#builder">4 · Verb Builder</a>
+    <a class="pill" href="#closed">5 · Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ===================== 1. BRIEFING ===================== -->
+  <section id="briefing">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>The Briefing</h2><p class="lead">The showdown that starts the case — plus a quick retrieval check on last week's theme words.</p></div></div>
+
+    <div class="card" id="quiz">
+      <div class="q" data-answer="0">
+        <p class="stem">1. The showdown: which spelling belongs in <em>Australian</em> writing?</p>
+        <div class="opts">
+          <button class="opt">organise</button>
+          <button class="opt">organize</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> In Australia we write organ<b>ise</b> with an <b>s</b>. The z version isn't wrong everywhere — it's standard in America — but it's the wrong passport for Australian writing.</div>
+      </div>
+
+      <div class="q" data-answer="2">
+        <p class="stem">2. Retrieval from Week 7: which is the correct spelling?</p>
+        <div class="opts">
+          <button class="opt">sanctury</button>
+          <button class="opt">sancturay</button>
+          <button class="opt">sanctuary</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> sanc-tu-<b>a</b>-ry — the hidden a before -ry. Robot-talk it if your ears try to skip it.</div>
+      </div>
+
+      <div class="q" data-answer="1">
+        <p class="stem">3. Which word is the <em>rebel</em> that takes -yse instead of -ise?</p>
+        <div class="opts">
+          <button class="opt">recognise</button>
+          <button class="opt">analyse</button>
+          <button class="opt">summarise</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> Anal<b>yse</b> is the rebel — it comes from a different Greek family (the same one as <em>paralyse</em>), so it keeps its y. Recognise and summarise are regular -ise citizens.</div>
+      </div>
+
+      <div class="q" data-answer="0">
+        <p class="stem">4. What does <em>summarise</em> mean?</p>
+        <div class="opts">
+          <button class="opt">To state the main ideas briefly, in your own words</button>
+          <button class="opt">To copy a text out word for word</button>
+          <button class="opt">To add up a column of numbers</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> To summarise is to shrink something to its main ideas — a summary. Copying word-for-word isn't summarising, and adding numbers is <em>summing</em>, a different word.</div>
+      </div>
+
+      <div class="q" data-answer="2">
+        <p class="stem">5. Why do these verbs trip spellers up? When you say <em>organise</em>, the -ise ending sounds like…</p>
+        <div class="opts">
+          <button class="opt">/s/ as in bus</button>
+          <button class="opt">/sh/ as in wish</button>
+          <button class="opt">/z/ as in buzz</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> The s in -ise <em>sounds</em> like /z/ — organi<b>ze</b> is exactly what your ears hear. That's why you can't trust them here: this is an eyes-and-rules job, not a sounding-out job.</div>
+      </div>
+
+      <div class="scorebar">
+        <div>Score: <strong id="score">0</strong> / 5</div>
+        <button class="btn ghost" id="jumpFix" disabled>Jump to my first fix-up</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. CASE NOTES ===================== -->
+  <section id="notes">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Case Notes</h2><p class="lead">Four cards: the rule, where it came from, the rebels, and how to handle American imports.</p></div></div>
+
+    <div class="teach-grid">
+      <div class="card teach">
+        <h3>The rule: Australia writes -ise</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 300 110" width="100%" style="max-width:290px" role="img" aria-label="Four verbs stacked: organise, recognise, summarise, hypothesise, each with the ise ending highlighted in teal">
+            <text x="150" y="26" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="19" fill="#1b2a4a">organ<tspan fill="#0e7c7b">ise</tspan>  ·  recogn<tspan fill="#0e7c7b">ise</tspan></text>
+            <text x="150" y="58" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="19" fill="#1b2a4a">summar<tspan fill="#0e7c7b">ise</tspan></text>
+            <text x="150" y="90" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="19" fill="#1b2a4a">hypothes<tspan fill="#0e7c7b">ise</tspan></text>
+          </svg>
+        </div>
+        <p>Verbs that mean "to make or to do something" — organise, recognise, summarise, hypothesise — take <strong>-ise</strong> in Australian English. It's a <strong>generalisation</strong>: a rule that works across thousands of words, in every subject you study.</p>
+        <p class="remember"><b>Remember:</b> If you're writing in Australia, the ending is -ise. Every subject, every time.</p>
+      </div>
+
+      <div class="card teach">
+        <h3>Why two spellings exist</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 300 118" width="100%" style="max-width:290px" role="img" aria-label="A family tree: an ancient Greek ending izein at the top splits into two branches, British and Australian ise on one side and American ize on the other">
+            <rect x="96" y="8" width="108" height="32" rx="8" fill="#1b2a4a"/>
+            <text x="150" y="29" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="14" fill="#fff">Greek -izein</text>
+            <line x1="120" y1="42" x2="72" y2="70" stroke="#56607a" stroke-width="2.5"/>
+            <line x1="180" y1="42" x2="228" y2="70" stroke="#56607a" stroke-width="2.5"/>
+            <rect x="10" y="72" width="126" height="38" rx="8" fill="#e1efee" stroke="#0e7c7b" stroke-width="2.5"/>
+            <text x="73" y="88" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="11" fill="#0e7c7b">UK + Australia</text>
+            <text x="73" y="103" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="14" fill="#0e7c7b">-ise</text>
+            <rect x="164" y="72" width="126" height="38" rx="8" fill="#f3f1ec" stroke="#c9c3b4" stroke-width="2"/>
+            <text x="227" y="88" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="11" fill="#56607a">United States</text>
+            <text x="227" y="103" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="14" fill="#56607a">-ize</text>
+          </svg>
+        </div>
+        <p>Both endings grew from the same ancient Greek verb ending. Centuries later, English split: American dictionaries standardised <strong>-ize</strong>, while British English — which Australian English follows — settled on <strong>-ise</strong>. Neither is "broken"; they're two branches of one family tree. Your job is to write on the Australian branch.</p>
+        <p class="remember"><b>Remember:</b> -ise and -ize are cousins. Australia sides with the British cousin.</p>
+      </div>
+
+      <div class="card teach">
+        <h3>The -yse rebels</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 300 100" width="100%" style="max-width:290px" role="img" aria-label="The word analyse with the yse ending in an amber warning badge, next to its cousin paralyse">
+            <rect x="30" y="24" width="150" height="46" rx="10" fill="#fdf0d9" stroke="#e8930c" stroke-width="3"/>
+            <text x="105" y="54" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="22" fill="#1b2a4a">anal<tspan fill="#a8540b">yse</tspan></text>
+            <text x="240" y="44" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#56607a">paral<tspan fill="#a8540b">yse</tspan></text>
+            <text x="150" y="92" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="13" fill="#56607a">a different Greek family: keep the y</text>
+          </svg>
+        </div>
+        <p>A small gang of words never joined the -ise family: <strong>analyse</strong> (and its cousin <em>paralyse</em>) come from the Greek word <em>lysis</em>, meaning "loosening apart". They keep their <strong>y</strong>: <strong>-yse</strong>. Writing "analise" or "analize" gets stopped at the border either way.</p>
+        <p class="remember"><b>Remember:</b> anal<b>yse</b> — when you analyse, you loosen a problem apart. Keep the y.</p>
+      </div>
+
+      <div class="card teach">
+        <h3>Reading vs writing</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 300 100" width="100%" style="max-width:290px" role="img" aria-label="An open book showing the word realize with a small reading-is-fine tick, and a pencil writing realise with a larger tick">
+            <rect x="18" y="22" width="122" height="56" rx="8" fill="#f3f1ec" stroke="#c9c3b4" stroke-width="2"/>
+            <text x="79" y="44" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="12" fill="#56607a">in an American book</text>
+            <text x="79" y="66" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#56607a">realize</text>
+            <rect x="160" y="22" width="122" height="56" rx="8" fill="#e1efee" stroke="#0e7c7b" stroke-width="2.5"/>
+            <text x="221" y="44" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="12" fill="#0e7c7b">in your writing</text>
+            <text x="221" y="66" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#0e7c7b">realise ✓</text>
+          </svg>
+        </div>
+        <p>You <em>will</em> meet -ize in the wild — American books, websites and games use it constantly, and it's correct <em>there</em>. A good word detective does two different jobs: <strong>recognise</strong> -ize when reading (don't panic, it's the same word) and <strong>choose</strong> -ise when writing.</p>
+        <p class="remember"><b>Remember:</b> Read both. Write -ise.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. CUSTOMS CHECKPOINT ===================== -->
+  <section id="customs">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>Customs Checkpoint</h2><p class="lead">Ten words are queuing at the Australian writing border. Stamp each one: <strong>Cleared</strong> if it's already correct Australian spelling, or <strong>Convert it</strong> if it needs changing. Wrong stamps just earn you a clue.</p></div></div>
+
+    <div class="card">
+      <p>Stamped correctly: <strong style="font-family:'Space Grotesk'; color:var(--teal)"><span id="customsCount">0</span> / 10</strong> <span style="color:var(--ink-soft); font-size:.9rem">(includes two stretch words for sharp-eyed detectives)</span></p>
+      <div id="customsQueue"></div>
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>This page doesn't save.</b> When all ten are stamped, <b>screenshot the checkpoint</b> and upload it to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. VERB BUILDER ===================== -->
+  <section id="builder">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>Verb Builder</h2><p class="lead">Turn each base word into its Australian -ise (or -yse!) verb. Type your build — the check unlocks once you've had a go.</p></div></div>
+
+    <div class="card">
+      <div id="buildItems"></div>
+    </div>
+
+    <div class="card">
+      <h3>Exit ticket: two -ise words from across our subjects</h3>
+      <p style="color:var(--ink-soft); font-size:.95rem">Think across science, maths, English and HASS. Type two different verbs from the -ise family (stretch words count!).</p>
+      <div class="build-row">
+        <input type="text" id="exit1" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="First -ise word" placeholder="first word" style="width:min(240px,100%)">
+        <input type="text" id="exit2" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Second -ise word" placeholder="second word" style="width:min(240px,100%)">
+        <button class="btn amber" id="exitCheck" disabled>Check (type both words first)</button>
+      </div>
+      <div class="fixup" id="exitFix"></div>
+      <div class="goodnote" id="exitGood"></div>
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Screenshot your builds and exit ticket</b> and upload to OneNote before closing.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. CASE CLOSED ===================== -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>Case Closed</h2><p class="lead">Evidence list and your confidence call for the -ise files.</p></div></div>
+
+    <div class="card">
+      <h3>Evidence to capture (screenshot or photograph each one)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">Briefing score and any fix-up notes I read</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My Customs Checkpoint — all ten words stamped</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">My five Verb Builder builds, all green</label></li>
+        <li><input type="checkbox" id="c4"><label for="c4">My exit ticket: two -ise words from different subjects</label></li>
+      </ul>
+
+      <h3 style="margin-top:18px">How confident am I with the -ise generalisation?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+
+      <div class="evidence" style="margin-top:18px; margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing on this page is saved.</b> Take your final screenshots now, then upload everything to OneNote. Closing the tab clears it all.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Year 6 Spelling · Word Detectives · Lesson 22: The -ise Files — Australian Spelling Generalisations · Linked to ACARA v9 AC9E6LY09. All content original.</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- warm-up quiz ---------- */
+  (function(){
+    var root = document.getElementById("quiz");
+    var scoreEl = document.getElementById("score");
+    var jumpBtn = document.getElementById("jumpFix");
+    var qs = Array.prototype.slice.call(root.querySelectorAll(".q"));
+    var score = 0, firstFix = null;
+    qs.forEach(function(q){
+      var ans = parseInt(q.getAttribute("data-answer"), 10);
+      var opts = Array.prototype.slice.call(q.querySelectorAll(".opt"));
+      var fix = q.querySelector(".fixup");
+      var answered = false;
+      opts.forEach(function(opt, i){
+        opt.addEventListener("click", function(){
+          if(answered) return;
+          if(i === ans){
+            answered = true;
+            opt.classList.add("correct");
+            opts.forEach(function(o){ o.disabled = true; });
+            score++;
+            scoreEl.textContent = String(score);
+          } else {
+            opt.classList.add("wrong");
+            opt.disabled = true;
+            fix.classList.add("show");
+            if(!firstFix){ firstFix = q; jumpBtn.disabled = false; }
+          }
+        });
+      });
+    });
+    jumpBtn.addEventListener("click", function(){
+      if(firstFix){ firstFix.scrollIntoView({behavior:"smooth", block:"center"}); }
+    });
+  })();
+
+  /* ---------- customs checkpoint ---------- */
+  var CUSTOMS = [
+    { shown:"organise",     cleared:true,
+      good:"Cleared — correct Australian -ise.",
+      bad:"Look again: this one already has the s. It's wearing the right passport." },
+    { shown:"recognize",    cleared:false, convert:"recognise",
+      good:"Good eye — that z is an American import. Australian spelling: recognise.",
+      bad:"Zoom in on the ending: that's a z. In Australian writing this one needs converting to recognise." },
+    { shown:"summarise",    cleared:true,
+      good:"Cleared — summar + ise, all correct.",
+      bad:"Check the ending again — it's already -ise with an s. Nothing to convert." },
+    { shown:"analyze",      cleared:false, convert:"analyse",
+      good:"Sharp — double trouble here: it needs the s AND this word is a -yse rebel. Australian spelling: analyse.",
+      bad:"This is the rebel word in disguise. It has a z, and it belongs to the -yse family: analyse." },
+    { shown:"hypothesise",  cleared:true,
+      good:"Cleared — hypothesise takes regular -ise.",
+      bad:"Look at the ending: -ise with an s is already there. This one's a legal Australian citizen." },
+    { shown:"organize",     cleared:false, convert:"organise",
+      good:"Caught it — same word as number 1, wrong passport. Australian spelling: organise.",
+      bad:"Compare it with the first word in the queue — spot the difference at the end? The z makes this an import: organise." },
+    { shown:"analise",      cleared:false, convert:"analyse",
+      good:"Excellent — sneaky one. The s looks Australian, but analyse is a -yse rebel: it must keep its y.",
+      bad:"This one is a trap: the s looks right, but analyse belongs to the -yse family. 'Analise' is wrong everywhere." },
+    { shown:"realise",      cleared:true,
+      good:"Cleared — realise with an s is correct Australian spelling.",
+      bad:"Check the ending — that's already an s. You might have seen 'realize' in American books, but this version is the Australian one." },
+    { shown:"categorize",   cleared:false, convert:"categorise",
+      good:"Stretch word stamped correctly — categorise with an s in Australia.",
+      bad:"Stretch word — zoom on the ending: z. Convert it to categorise." },
+    { shown:"characterise", cleared:true,
+      good:"Stretch word cleared — characterise is correct Australian spelling.",
+      bad:"Stretch word — but look closely: the s is already in place. Cleared as is." }
+  ];
+
+  var customsHost = document.getElementById("customsQueue");
+  var customsCountEl = document.getElementById("customsCount");
+  var customsCount = 0;
+
+  CUSTOMS.forEach(function(item, i){
+    var row = document.createElement("div");
+    row.className = "customs-item";
+
+    var w = document.createElement("span");
+    w.className = "customs-word";
+    w.textContent = (i+1) + ". " + item.shown;
+    row.appendChild(w);
+
+    var clearBtn = document.createElement("button");
+    clearBtn.className = "stamp";
+    clearBtn.textContent = "Cleared \u2713 Australian";
+    var convertBtn = document.createElement("button");
+    convertBtn.className = "stamp";
+    convertBtn.textContent = "Stop \u2014 convert it";
+    row.appendChild(clearBtn);
+    row.appendChild(convertBtn);
+
+    var note = document.createElement("div");
+    note.className = "customs-note";
+    var fix = document.createElement("div");
+    fix.className = "fixup";
+    var good = document.createElement("div");
+    good.className = "goodnote";
+    note.appendChild(fix);
+    note.appendChild(good);
+    row.appendChild(note);
+
+    function resolve(choseCleared, btn){
+      if(row.classList.contains("done")) return;
+      var correct = (choseCleared === item.cleared);
+      if(correct){
+        row.classList.add("done");
+        btn.classList.add("picked-good");
+        clearBtn.disabled = true;
+        convertBtn.disabled = true;
+        fix.classList.remove("show");
+        good.innerHTML = "<b>Correct stamp.</b> " + item.good + (item.convert ? " \u2192 <b>" + item.convert + "</b>" : "");
+        good.classList.add("show");
+        customsCount++;
+        customsCountEl.textContent = String(customsCount);
+      } else {
+        btn.classList.add("picked-bad");
+        btn.disabled = true;
+        good.classList.remove("show");
+        fix.innerHTML = "<b>Not that stamp.</b> " + item.bad;
+        fix.classList.add("show");
+      }
+    }
+    clearBtn.addEventListener("click", function(){ resolve(true, clearBtn); });
+    convertBtn.addEventListener("click", function(){ resolve(false, convertBtn); });
+
+    customsHost.appendChild(row);
+  });
+
+  /* ---------- verb builder ---------- */
+  var BUILDS = [
+    { base:"organ (as in getting things in order)", prompt:"organ \u2192 the verb meaning 'to arrange or put in order'", answer:"organise",
+      tip:"organ + ise. The s sounds like /z/ \u2014 write it anyway." },
+    { base:"summary", prompt:"summary \u2192 the verb meaning 'to give the main ideas briefly'", answer:"summarise",
+      tip:"Drop the y of summary, add -ise: summar + ise." },
+    { base:"recognition", prompt:"recognition \u2192 the verb meaning 'to know something when you see it'", answer:"recognise",
+      tip:"recogn + ise \u2014 keep the g and the n together." },
+    { base:"hypothesis", prompt:"hypothesis \u2192 the verb meaning 'to suggest a scientific explanation to test'", answer:"hypothesise",
+      tip:"Swap the final -is of hypothesis for -ise: hypothes + ise." },
+    { base:"analysis", prompt:"analysis \u2192 the verb meaning 'to examine something closely, piece by piece'", answer:"analyse",
+      tip:"The rebel! analysis \u2192 analyse keeps its y: -yse, never -ise or -ize." }
+  ];
+
+  var buildHost = document.getElementById("buildItems");
+
+  function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function letterDiff(target, attempt){
+    var html = "";
+    var maxLen = Math.max(target.length, attempt.length);
+    for(var i=0; i<maxLen; i++){
+      var a = attempt[i] || "\u00B7";
+      if(attempt[i] !== undefined && attempt[i] === target[i]) html += '<span class="ok">' + esc(a) + '</span>';
+      else html += '<span class="bad">' + esc(a) + '</span>';
+    }
+    return html;
+  }
+
+  BUILDS.forEach(function(item, i){
+    var div = document.createElement("div");
+    div.className = "build-item";
+    var p = document.createElement("p");
+    p.className = "build-base";
+    p.textContent = (i+1) + ". " + item.prompt;
+    div.appendChild(p);
+
+    var row = document.createElement("div");
+    row.className = "build-row";
+    var input = document.createElement("input");
+    input.type = "text";
+    input.autocomplete = "off";
+    input.autocapitalize = "none";
+    input.spellcheck = false;
+    input.setAttribute("aria-label", "Your build for item " + (i+1));
+    input.style.width = "min(280px,100%)";
+    var btn = document.createElement("button");
+    btn.className = "btn amber";
+    btn.textContent = "Check (type your build first)";
+    btn.disabled = true;
+    row.appendChild(input);
+    row.appendChild(btn);
+    div.appendChild(row);
+
+    var diff = document.createElement("div");
+    diff.className = "diff";
+    diff.setAttribute("aria-live","polite");
+    div.appendChild(diff);
+    var fix = document.createElement("div");
+    fix.className = "fixup";
+    div.appendChild(fix);
+    var good = document.createElement("div");
+    good.className = "goodnote";
+    div.appendChild(good);
+
+    input.addEventListener("input", function(){
+      var has = input.value.trim().length > 0;
+      btn.disabled = !has;
+      btn.textContent = has ? "Check" : "Check (type your build first)";
+    });
+    input.addEventListener("keydown", function(e){
+      if(e.key === "Enter" && !btn.disabled){ e.preventDefault(); btn.click(); }
+    });
+    btn.addEventListener("click", function(){
+      var attempt = input.value.trim().toLowerCase();
+      if(attempt === "") return;
+      diff.innerHTML = letterDiff(item.answer, attempt);
+      if(attempt === item.answer){
+        div.classList.add("right");
+        fix.classList.remove("show");
+        good.innerHTML = "<b>Built.</b> " + esc(item.tip);
+        good.classList.add("show");
+        input.disabled = true;
+        btn.disabled = true;
+      } else {
+        good.classList.remove("show");
+        fix.innerHTML = "<b>Not yet.</b> The build is <b>" + item.answer + "</b>. " + esc(item.tip) + " The underlined letters show where your attempt drifted \u2014 rewrite and check again.";
+        fix.classList.add("show");
+      }
+    });
+
+    buildHost.appendChild(div);
+  });
+
+  /* ---------- exit ticket ---------- */
+  var ACCEPTED = ["organise","recognise","summarise","hypothesise","analyse","categorise","characterise","realise","apologise","criticise","emphasise","specialise","memorise","revise","advertise","paralyse","visualise","generalise","colonise","civilise","finalise","maximise","minimise","energise","standardise","symbolise","theorise","fertilise","sterilise","vaporise","crystallise","itemise"];
+  var exit1 = document.getElementById("exit1");
+  var exit2 = document.getElementById("exit2");
+  var exitCheck = document.getElementById("exitCheck");
+  var exitFix = document.getElementById("exitFix");
+  var exitGood = document.getElementById("exitGood");
+
+  function exitGate(){
+    var ready = exit1.value.trim().length > 0 && exit2.value.trim().length > 0;
+    exitCheck.disabled = !ready;
+    exitCheck.textContent = ready ? "Check my exit ticket" : "Check (type both words first)";
+  }
+  exit1.addEventListener("input", exitGate);
+  exit2.addEventListener("input", exitGate);
+
+  exitCheck.addEventListener("click", function(){
+    var a = exit1.value.trim().toLowerCase();
+    var b = exit2.value.trim().toLowerCase();
+    if(!a || !b) return;
+    exitFix.classList.remove("show");
+    exitGood.classList.remove("show");
+    if(a === b){
+      exitFix.innerHTML = "<b>Two different words needed</b> \u2014 you've written the same one twice. Sweep another subject for a second -ise verb.";
+      exitFix.classList.add("show");
+      return;
+    }
+    function judge(w){
+      if(ACCEPTED.indexOf(w) !== -1) return "known";
+      if(/yze$|ize$/.test(w)) return "import";
+      if(/ise$|yse$/.test(w)) return "maybe";
+      return "no";
+    }
+    var ja = judge(a), jb = judge(b);
+    if(ja === "import" || jb === "import"){
+      var culprit = ja === "import" ? a : b;
+      exitFix.innerHTML = "<b>American import detected:</b> <b>" + esc(culprit) + "</b> ends in z. Convert it to the Australian -ise (or -yse) spelling and check again.";
+      exitFix.classList.add("show");
+      return;
+    }
+    if(ja === "no" || jb === "no"){
+      var odd = ja === "no" ? a : b;
+      exitFix.innerHTML = "<b>Check the ending:</b> <b>" + esc(odd) + "</b> doesn't end in -ise or -yse. Pick a verb from the -ise family (think: what do scientists, mathematicians and writers <em>do</em>?).";
+      exitFix.classList.add("show");
+      return;
+    }
+    var note;
+    if(ja === "known" && jb === "known"){
+      note = "<b>Exit ticket stamped \u2014 both are genuine -ise family verbs.</b> Screenshot this as your evidence.";
+    } else {
+      note = "<b>Endings check out (-ise/-yse).</b> One of your words isn't on my list, so do a dictionary double-check that it's a real verb \u2014 then screenshot as evidence.";
+    }
+    exitGood.innerHTML = note;
+    exitGood.classList.add("show");
+  });
+
+  /* ---------- confidence buttons ---------- */
+  var confi = document.getElementById("confi");
+  Array.prototype.slice.call(confi.querySelectorAll("button")).forEach(function(b){
+    b.addEventListener("click", function(){
+      Array.prototype.slice.call(confi.querySelectorAll("button")).forEach(function(o){ o.setAttribute("aria-pressed","false"); });
+      b.setAttribute("aria-pressed","true");
+    });
+  });
+
+})();
+</script>
+</body>
+</html>

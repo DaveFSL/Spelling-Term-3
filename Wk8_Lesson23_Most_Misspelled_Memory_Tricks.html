@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 23 — Most-Misspelled: Memory Tricks | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4; --ink:#1b2a4a; --amber:#e8930c; --teal:#0e7c7b;
+    --card:#ffffff; --line:#e6e1d6; --amber-soft:#fdf0d9; --amber-edge:#f2c785;
+    --teal-soft:#e1efee; --ink-soft:#56607a; --good:#1f7a4d; --good-soft:#e3f3ea;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06); --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Atkinson Hyperlegible",system-ui,sans-serif; font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%}
+  h1,h2,h3,.eyebrow,.pill,.opt,.chunk{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  a{color:var(--teal)}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  header.band{background:var(--ink); color:#fff; padding:30px 22px 26px}
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px}
+  .band h1{font-family:"Space Grotesk"; font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em}
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:60ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1}
+
+  nav.pills{position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px}
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{font-family:"Space Grotesk"; font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto}
+  .lead{color:var(--ink-soft); max-width:66ch}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0}
+
+  button{font-family:inherit}
+  .btn{background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"}
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn.amber:hover{background:#d98509}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  input[type=text]{font-family:"Atkinson Hyperlegible"; font-size:1.05rem; padding:11px 13px; border:1.5px solid var(--line); border-radius:10px; min-height:44px}
+  input[type=text]:focus-visible{outline:3px solid var(--amber); outline-offset:2px}
+
+  .q{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .q .stem{font-weight:700; margin-bottom:10px}
+  .opts{display:grid; gap:8px}
+  .opt{text-align:left; background:#fcfbf7; border:1.5px solid var(--line); color:var(--ink); padding:11px 14px; border-radius:10px; cursor:pointer; min-height:44px; font-size:.95rem}
+  .opt:hover{border-color:var(--teal)}
+  .opt.correct{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .opt.wrong{background:#fdeceb; border-color:#c0392b; color:#a8261b}
+  .opt[disabled]{cursor:default}
+  .fixup{margin-top:10px; background:var(--amber-soft); border-left:5px solid var(--amber); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none}
+  .fixup.show{display:block}
+  .fixup b{color:#a8540b}
+  .goodnote{margin-top:10px; background:var(--good-soft); border-left:5px solid var(--good); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none}
+  .goodnote.show{display:block}
+  .scorebar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:12px 16px}
+  .scorebar strong{font-family:"Space Grotesk"; font-size:1.15rem}
+
+  .teach-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+  @media(max-width:680px){.teach-grid{grid-template-columns:1fr}}
+  .teach .svg-wrap{background:#fbfaf6; border:1px solid var(--line); border-radius:12px; padding:14px; margin:.4em 0 .7em; text-align:center}
+  .remember{background:var(--teal-soft); border:1px solid #bfdedc; border-radius:10px; padding:10px 13px; font-size:.92rem; margin-top:8px}
+  .remember b{color:var(--teal)}
+
+  /* ---------- missing piece ---------- */
+  .piece-item{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .piece-item.done{border-color:var(--good)}
+  .piece-word{font-family:"Space Grotesk"; font-weight:700; font-size:1.7rem; letter-spacing:.05em; margin:6px 0 10px}
+  .piece-word .hole{display:inline-block; min-width:84px; border-bottom:3px dashed var(--amber); text-align:center; color:var(--amber)}
+  .piece-word .hole.filled{border-bottom:3px solid var(--good); color:var(--good)}
+  .chunks{display:flex; gap:9px; flex-wrap:wrap}
+  .chunk{min-height:48px; min-width:64px; padding:8px 16px; font-size:1.15rem; font-weight:700; background:#fcfbf7; border:2px solid var(--line); border-radius:10px; cursor:pointer; color:var(--ink)}
+  .chunk:hover{border-color:var(--teal)}
+  .chunk.good{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .chunk.bad{background:#fdeceb; border-color:#c0392b; color:#a8261b}
+  .chunk[disabled]{cursor:default}
+
+  /* ---------- LCWC ---------- */
+  .lcwc-stage{border:1px solid var(--line); border-radius:12px; padding:18px; background:#fff; text-align:center}
+  .lcwc-word{font-family:"Space Grotesk"; font-weight:700; font-size:2rem; letter-spacing:.04em; margin:10px 0}
+  .lcwc-word .hot{color:var(--amber); text-decoration:underline; text-decoration-thickness:3px; text-underline-offset:5px}
+  .lcwc-covered{font-size:1.4rem; letter-spacing:.35em; color:var(--ink-soft); margin:14px 0}
+  .diff{font-family:"Space Grotesk"; font-size:1.3rem; letter-spacing:.12em; margin-top:10px}
+  .diff .ok{color:var(--good)}
+  .diff .bad{color:#c0392b; text-decoration:underline}
+  .lcwc-progress{display:flex; gap:6px; justify-content:center; margin-top:12px; flex-wrap:wrap}
+  .lcwc-progress span{width:14px; height:14px; border-radius:50%; background:#eee7d9; border:1px solid var(--line)}
+  .lcwc-progress span.hit{background:var(--good); border-color:var(--good)}
+
+  .evidence{display:flex; gap:12px; align-items:flex-start; background:var(--amber-soft); border:1px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:16px 0; font-size:.95rem}
+  .locked-note{display:none; margin-top:12px}
+  .locked-note.show{display:block}
+
+  .check-list{list-style:none; padding:0; margin:.5em 0}
+  .check-list li{display:flex; gap:10px; align-items:flex-start; padding:7px 0}
+  .check-list input{width:22px; height:22px; margin-top:2px; accent-color:var(--teal)}
+  .confi{display:flex; gap:8px; flex-wrap:wrap}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:999px; padding:10px 16px; min-height:44px; cursor:pointer; font-size:.92rem}
+  .confi button[aria-pressed="true"]{background:var(--teal); border-color:var(--teal); color:#fff}
+
+  footer{border-top:1px solid var(--line); color:var(--ink-soft); font-size:.82rem; padding:18px 22px 34px; text-align:center}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Word Detectives · Week 8 · Session 2</p>
+    <h1>Most-Misspelled: Memory Tricks</h1>
+    <p class="hook">Separate. Definitely. Necessary. Three words that trip up adults every single day — until you know the tricks hiding inside them.</p>
+    <div class="meta-row">
+      <span>Year 6 · Spelling</span><span>AC9E6LY08</span><span>20 minutes</span><span>Review week · Memory strategies</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Lesson sections">
+  <div class="pills-inner">
+    <a class="pill" href="#briefing">1 · The Briefing</a>
+    <a class="pill" href="#notes">2 · Case Notes</a>
+    <a class="pill" href="#pieces">3 · The Missing Piece</a>
+    <a class="pill" href="#lcwc">4 · Look·Cover·Write·Check</a>
+    <a class="pill" href="#closed">5 · Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ===================== 1. BRIEFING ===================== -->
+  <section id="briefing">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>The Briefing</h2><p class="lead">The class-vote classics: five spellings adults get wrong all the time. Trust your eyes, not your ears.</p></div></div>
+
+    <div class="card" id="quiz">
+      <div class="q" data-answer="1">
+        <p class="stem">1. Which is correct?</p>
+        <div class="opts">
+          <button class="opt">seperate</button>
+          <button class="opt">separate</button>
+          <button class="opt">separete</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> sep-<b>a</b>-rate — the middle vowel is an <b>a</b>, not an e. The trick you'll learn today: there's <b>a rat</b> hiding in sep<b>arat</b>e.</div>
+      </div>
+
+      <div class="q" data-answer="2">
+        <p class="stem">2. Which is correct?</p>
+        <div class="opts">
+          <button class="opt">definately</button>
+          <button class="opt">definatly</button>
+          <button class="opt">definitely</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> def-<b>i</b>-nite-ly. The mumbled vowel is an <b>i</b> — and the whole word <b>finite</b> is hiding inside: de<b>finite</b>ly.</div>
+      </div>
+
+      <div class="q" data-answer="0">
+        <p class="stem">3. Which is correct?</p>
+        <div class="opts">
+          <button class="opt">necessary</button>
+          <button class="opt">neccessary</button>
+          <button class="opt">necesary</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> <b>One c, two s's</b> — ne<b>c</b>e<b>ss</b>ary. Today's trick: a shirt has one <b>c</b>ollar and two <b>s</b>leeves.</div>
+      </div>
+
+      <div class="q" data-answer="1">
+        <p class="stem">4. Retrieval from last lesson: which spelling clears Australian customs?</p>
+        <div class="opts">
+          <button class="opt">recognize</button>
+          <button class="opt">recognise</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> recogn<b>ise</b> — Australian English takes -ise. The z is the American import.</div>
+      </div>
+
+      <div class="q" data-answer="0">
+        <p class="stem">5. Why do words like <em>separate</em> and <em>definitely</em> trap so many spellers?</p>
+        <div class="opts">
+          <button class="opt">Their unstressed vowels mumble into "uh", so your ears can't tell you which letter to write</button>
+          <button class="opt">They're borrowed from languages with no vowels</button>
+          <button class="opt">They're spelt differently in every state of Australia</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> It's the mumbling-vowel problem (the <b>schwa</b>) from Week 7: say <em>sep'rate</em> fast and the middle vowel vanishes. That's why we build <b>memory tricks</b> — they tell your hand what your ears can't.</div>
+      </div>
+
+      <div class="scorebar">
+        <div>Score: <strong id="score">0</strong> / 5</div>
+        <button class="btn ghost" id="jumpFix" disabled>Jump to my first fix-up</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. CASE NOTES ===================== -->
+  <section id="notes">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Case Notes</h2><p class="lead">The Mnemonic Gallery: one trick per trap word, plus why tricks work at all.</p></div></div>
+
+    <div class="teach-grid">
+      <div class="card teach">
+        <h3>separate: there's a rat in it</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 300 104" width="100%" style="max-width:290px" role="img" aria-label="The word separate with the letters a r a t boxed in amber, and a small rat drawn from simple shapes beneath">
+            <text x="150" y="42" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="34" fill="#1b2a4a">sep<tspan fill="#a8540b">arat</tspan>e</text>
+            <rect x="112" y="14" width="92" height="38" rx="8" fill="none" stroke="#e8930c" stroke-width="3"/>
+            <ellipse cx="150" cy="82" rx="26" ry="12" fill="#56607a"/>
+            <circle cx="178" cy="78" r="8" fill="#56607a"/>
+            <circle cx="183" cy="75" r="1.8" fill="#fbf9f4"/>
+            <path d="M124 82 Q104 78 98 68" stroke="#56607a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <path d="M172 71 l4 -7 l4 6" fill="#56607a"/>
+          </svg>
+        </div>
+        <p>The vowel everyone gets wrong is the middle <strong>a</strong> — because your voice mumbles it. So catch the stowaway: sep<strong>ARAT</strong>e has <strong>a rat</strong> sitting right in the middle. Spot the rat, and you'll never write "seperate" again.</p>
+        <p class="remember"><b>Remember:</b> There's <b>a rat</b> in sep<b>arat</b>e.</p>
+      </div>
+
+      <div class="card teach">
+        <h3>definitely: finite inside</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 300 96" width="100%" style="max-width:290px" role="img" aria-label="The word definitely with the letters f i n i t e boxed in teal and labelled the word finite is hiding inside">
+            <text x="150" y="44" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="32" fill="#1b2a4a">de<tspan fill="#0e7c7b">finite</tspan>ly</text>
+            <rect x="84" y="16" width="122" height="38" rx="8" fill="none" stroke="#0e7c7b" stroke-width="3"/>
+            <text x="150" y="84" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="14" fill="#56607a">the word "finite" is hiding inside</text>
+          </svg>
+        </div>
+        <p>People write "definately" because the middle vowel mumbles. But this word is built from <strong>finite</strong> (meaning limited): de + <strong>finite</strong> + ly. If you can spell <em>finite</em>, the middle of <em>definitely</em> is done — no a anywhere.</p>
+        <p class="remember"><b>Remember:</b> de<b>FINITE</b>ly — spell the finite, and the word spells itself.</p>
+      </div>
+
+      <div class="card teach">
+        <h3>necessary: one collar, two sleeves</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 300 128" width="100%" style="max-width:290px" role="img" aria-label="A simple shirt diagram: one collar at the top labelled c, and two sleeves labelled s and s, above the word necessary with the c and double s highlighted">
+            <path d="M118 22 L150 34 L182 22 L196 30 L182 44 L182 84 L118 84 L118 44 L104 30 Z" fill="#e1efee" stroke="#0e7c7b" stroke-width="2.5"/>
+            <path d="M104 30 L74 48 L82 62 L118 44" fill="#e1efee" stroke="#0e7c7b" stroke-width="2.5"/>
+            <path d="M196 30 L226 48 L218 62 L182 44" fill="#e1efee" stroke="#0e7c7b" stroke-width="2.5"/>
+            <text x="150" y="18" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#a8540b">1 collar = c</text>
+            <text x="66" y="76" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#0e7c7b">s</text>
+            <text x="234" y="76" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#0e7c7b">s</text>
+            <text x="150" y="116" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="24" fill="#1b2a4a">ne<tspan fill="#a8540b">c</tspan>e<tspan fill="#0e7c7b">ss</tspan>ary</text>
+          </svg>
+        </div>
+        <p>How many c's? How many s's? Picture a shirt: it is <em>necessary</em> to wear one — and a shirt has <strong>one collar</strong> (one <strong>c</strong>) and <strong>two sleeves</strong> (two <strong>s</strong>'s). ne-<strong>c</strong>-e-<strong>ss</strong>-ary.</p>
+        <p class="remember"><b>Remember:</b> A shirt is necessary: 1 collar (c), 2 sleeves (ss).</p>
+      </div>
+
+      <div class="card teach">
+        <h3>Why memory tricks work</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 300 100" width="100%" style="max-width:290px" role="img" aria-label="A plain grey box labelled forgettable letters, an arrow, and a bright amber box labelled a picture plus a story equals sticky">
+            <rect x="14" y="30" width="110" height="44" rx="8" fill="#f3f1ec" stroke="#c9c3b4" stroke-width="2"/>
+            <text x="69" y="49" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="12" fill="#56607a">plain letters:</text>
+            <text x="69" y="66" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="13" fill="#56607a">forgettable</text>
+            <path d="M132 52 h28 m-8 -7 l8 7 l-8 7" stroke="#56607a" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <rect x="170" y="30" width="116" height="44" rx="8" fill="#fdf0d9" stroke="#e8930c" stroke-width="3"/>
+            <text x="228" y="49" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="12" fill="#a8540b">picture + story:</text>
+            <text x="228" y="66" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="13" fill="#a8540b">sticky</text>
+          </svg>
+        </div>
+        <p>Your brain forgets plain letter strings, but it's brilliant at pictures and little stories. A <strong>mnemonic</strong> converts the forgettable bit (which vowel? how many s's?) into something vivid — a rat, a shirt, a hidden word. The sillier the picture, the stickier it is.</p>
+        <p class="remember"><b>Remember:</b> Can't hear it? Make a picture for it. Silly = sticky.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. THE MISSING PIECE ===================== -->
+  <section id="pieces">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>The Missing Piece</h2><p class="lead">Each trap word has its danger zone punched out. Choose the piece that fits — wrong pieces bounce off with a clue.</p></div></div>
+
+    <div class="card">
+      <p>Solved: <strong style="font-family:'Space Grotesk'; color:var(--teal)"><span id="pieceCount">0</span> / 4</strong></p>
+      <div id="pieceItems"></div>
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>This page doesn't save.</b> When all four pieces are placed, <b>screenshot the board</b> and upload it to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. LOOK COVER WRITE CHECK ===================== -->
+  <section id="lcwc">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>Look · Cover · Write · Check</h2><p class="lead">The four trap words, two rounds each. Look at the danger zone, say the trick to yourself, cover, write, check.</p></div></div>
+
+    <div class="card">
+      <div class="lcwc-stage">
+        <p style="margin:0 0 4px"><span class="eyebrow" style="color:var(--teal)" id="lcwcStep">Step 1 · Look</span></p>
+        <p id="lcwcRound" style="margin:0; color:var(--ink-soft); font-size:.9rem">Word 1 of 4 · Round 1 of 2</p>
+        <div class="lcwc-word" id="lcwcWord" aria-live="polite"></div>
+        <p id="lcwcHint" style="color:var(--ink-soft); font-size:.92rem; max-width:52ch; margin:6px auto"></p>
+        <div id="lcwcControls">
+          <button class="btn" id="lcwcCover">I've looked — cover it</button>
+        </div>
+        <div id="lcwcWriteArea" style="display:none">
+          <p class="lcwc-covered" aria-hidden="true">▪ ▪ ▪ ▪ ▪ ▪</p>
+          <label for="lcwcInput" style="display:block; font-size:.9rem; color:var(--ink-soft); margin-bottom:6px">Type the word from memory:</label>
+          <input type="text" id="lcwcInput" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Type the covered word from memory" style="width:min(340px,100%)">
+          <div style="margin-top:10px"><button class="btn amber" id="lcwcCheck">Check my spelling</button></div>
+          <div class="diff" id="lcwcDiff" aria-live="polite"></div>
+          <div class="fixup" id="lcwcFix"></div>
+          <div style="margin-top:12px"><button class="btn ghost" id="lcwcNext" style="display:none">Next</button></div>
+        </div>
+        <div class="lcwc-progress" id="lcwcDots" aria-label="Progress through eight rounds"></div>
+      </div>
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Screenshot your finished progress dots</b> (all eight green) and upload to OneNote. Also write the four words once each in your book.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. CASE CLOSED ===================== -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>Case Closed</h2><p class="lead">Exit ticket on the trickiest of the lot, evidence list, confidence call.</p></div></div>
+
+    <div class="card">
+      <h3>Exit ticket: spell <em>necessary</em> from memory</h3>
+      <p style="color:var(--ink-soft); font-size:.95rem">Whisper the shirt trick to yourself first. No peeking above — type it, then unlock the check.</p>
+      <label for="exitInput" style="display:block; font-size:.9rem; color:var(--ink-soft); margin-bottom:6px">Your attempt:</label>
+      <input type="text" id="exitInput" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Spell the word necessary from memory" style="width:min(340px,100%)">
+      <div style="margin-top:10px">
+        <button class="btn amber" id="exitCheck" disabled>Unlock the check (type your attempt first)</button>
+      </div>
+      <div class="locked-note" id="exitResult">
+        <div class="fixup show" id="exitFix"></div>
+      </div>
+
+      <h3 style="margin-top:22px">Evidence to capture (screenshot or photograph each one)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">Briefing score and any fix-up notes I read</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My Missing Piece board — all four solved</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">Look·Cover·Write·Check progress dots (all eight green)</label></li>
+        <li><input type="checkbox" id="c4"><label for="c4">The four words written once each in my book</label></li>
+        <li><input type="checkbox" id="c5"><label for="c5">My exit-ticket attempt at <em>necessary</em></label></li>
+        <li><input type="checkbox" id="c6"><label for="c6">Bonus: my own invented mnemonic for any word that still trips me</label></li>
+      </ul>
+
+      <h3 style="margin-top:18px">How confident am I with these words?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+
+      <div class="evidence" style="margin-top:18px; margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing on this page is saved.</b> Take your final screenshots now, then upload everything to OneNote. Closing the tab clears it all.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Year 6 Spelling · Word Detectives · Lesson 23: Most-Misspelled — Memory Tricks · Linked to ACARA v9 AC9E6LY08. All content original.</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- warm-up quiz ---------- */
+  (function(){
+    var root = document.getElementById("quiz");
+    var scoreEl = document.getElementById("score");
+    var jumpBtn = document.getElementById("jumpFix");
+    var qs = Array.prototype.slice.call(root.querySelectorAll(".q"));
+    var score = 0, firstFix = null;
+    qs.forEach(function(q){
+      var ans = parseInt(q.getAttribute("data-answer"), 10);
+      var opts = Array.prototype.slice.call(q.querySelectorAll(".opt"));
+      var fix = q.querySelector(".fixup");
+      var answered = false;
+      opts.forEach(function(opt, i){
+        opt.addEventListener("click", function(){
+          if(answered) return;
+          if(i === ans){
+            answered = true;
+            opt.classList.add("correct");
+            opts.forEach(function(o){ o.disabled = true; });
+            score++;
+            scoreEl.textContent = String(score);
+          } else {
+            opt.classList.add("wrong");
+            opt.disabled = true;
+            fix.classList.add("show");
+            if(!firstFix){ firstFix = q; jumpBtn.disabled = false; }
+          }
+        });
+      });
+    });
+    jumpBtn.addEventListener("click", function(){
+      if(firstFix){ firstFix.scrollIntoView({behavior:"smooth", block:"center"}); }
+    });
+  })();
+
+  /* ---------- the missing piece ---------- */
+  var PIECES = [
+    { pre:"sep", post:"e", answer:"arat", options:["erat","arat","aret"],
+      tip:"There's A RAT in sepARATe.",
+      nudges:{ "erat":"That piece writes 'seperate' \u2014 the most common misspelling in English! Remember what animal is hiding in the middle.",
+               "aret":"Right start, wrong end \u2014 that scrambles the rat. Picture it: a-r-a-t." } },
+    { pre:"defin", post:"ly", answer:"ite", options:["ate","ite","att"],
+      tip:"deFINITEly \u2014 the word 'finite' is hiding inside.",
+      nudges:{ "ate":"That piece writes 'definately' \u2014 the classic trap. What smaller word is hiding inside de_____ly?",
+               "att":"No double t here \u2014 and the vowel matters. Find the hidden word 'finite'." } },
+    { pre:"ne", post:"ary", answer:"cess", options:["ccess","cess","cses"],
+      tip:"One collar (c), two sleeves (ss): neCESSary.",
+      nudges:{ "ccess":"Two c's is the 'success' pattern \u2014 different shirt! Necessary has ONE collar.",
+               "cses":"The sleeves come as a pair \u2014 keep the two s's together after the e." } },
+    { pre:"rec", post:"ise", answer:"ogn", options:["ong","ogn","on"],
+      tip:"rec-OG-nise \u2014 g before n, and Australian -ise at the end.",
+      nudges:{ "ong":"That writes 'recong\u2026' \u2014 the g and n have swapped seats. Robot-talk it: rec-og-nise.",
+               "on":"That drops the g \u2014 'reconise'. You barely hear the g, but it must be there: rec-OG-nise." } }
+  ];
+
+  var pieceHost = document.getElementById("pieceItems");
+  var pieceCountEl = document.getElementById("pieceCount");
+  var pieceCount = 0;
+
+  PIECES.forEach(function(item, i){
+    var box = document.createElement("div");
+    box.className = "piece-item";
+
+    var wordP = document.createElement("p");
+    wordP.className = "piece-word";
+    var preSpan = document.createElement("span");
+    preSpan.textContent = item.pre;
+    var hole = document.createElement("span");
+    hole.className = "hole";
+    hole.textContent = "?";
+    hole.setAttribute("aria-label","missing piece");
+    var postSpan = document.createElement("span");
+    postSpan.textContent = item.post;
+    wordP.appendChild(document.createTextNode((i+1) + ". "));
+    wordP.appendChild(preSpan);
+    wordP.appendChild(hole);
+    wordP.appendChild(postSpan);
+    box.appendChild(wordP);
+
+    var chunkRow = document.createElement("div");
+    chunkRow.className = "chunks";
+    chunkRow.setAttribute("role","group");
+    chunkRow.setAttribute("aria-label","Choose the missing piece for word " + (i+1));
+
+    var fix = document.createElement("div");
+    fix.className = "fixup";
+    fix.setAttribute("aria-live","polite");
+    var good = document.createElement("div");
+    good.className = "goodnote";
+    good.setAttribute("aria-live","polite");
+
+    var chunkBtns = [];
+    item.options.forEach(function(opt){
+      var b = document.createElement("button");
+      b.className = "chunk";
+      b.type = "button";
+      b.textContent = opt;
+      b.addEventListener("click", function(){
+        if(box.classList.contains("done")) return;
+        if(opt === item.answer){
+          box.classList.add("done");
+          b.classList.add("good");
+          chunkBtns.forEach(function(cb){ cb.disabled = true; });
+          hole.textContent = item.answer;
+          hole.classList.add("filled");
+          fix.classList.remove("show");
+          good.innerHTML = "<b>Piece fits!</b> " + item.tip;
+          good.classList.add("show");
+          pieceCount++;
+          pieceCountEl.textContent = String(pieceCount);
+        } else {
+          b.classList.add("bad");
+          b.disabled = true;
+          good.classList.remove("show");
+          fix.innerHTML = "<b>Doesn't fit.</b> " + (item.nudges[opt] || "Say the word slowly and try another piece.");
+          fix.classList.add("show");
+        }
+      });
+      chunkRow.appendChild(b);
+      chunkBtns.push(b);
+    });
+
+    box.appendChild(chunkRow);
+    box.appendChild(fix);
+    box.appendChild(good);
+    pieceHost.appendChild(box);
+  });
+
+  /* ---------- look cover write check ---------- */
+  var LCWC_WORDS = [
+    { word:"separate",   hot:[3,4], hint:"There's a rat in sep-a-rat-e." },
+    { word:"definitely", hot:[2,7], hint:"de + finite + ly \u2014 spell the finite." },
+    { word:"necessary",  hot:[2,5], hint:"One collar (c), two sleeves (ss)." },
+    { word:"recognise",  hot:[3,5], hint:"rec-og-nise \u2014 g before n, -ise at the end." }
+  ];
+  var TOTAL_ROUNDS = LCWC_WORDS.length * 2;
+  var lcwcIndex = 0;
+  var stageWord = document.getElementById("lcwcWord");
+  var stageHint = document.getElementById("lcwcHint");
+  var stageStep = document.getElementById("lcwcStep");
+  var stageRound = document.getElementById("lcwcRound");
+  var coverBtn = document.getElementById("lcwcCover");
+  var writeArea = document.getElementById("lcwcWriteArea");
+  var controls = document.getElementById("lcwcControls");
+  var input = document.getElementById("lcwcInput");
+  var checkBtn = document.getElementById("lcwcCheck");
+  var diffEl = document.getElementById("lcwcDiff");
+  var fixEl = document.getElementById("lcwcFix");
+  var nextBtn = document.getElementById("lcwcNext");
+  var dots = document.getElementById("lcwcDots");
+
+  for(var d=0; d<TOTAL_ROUNDS; d++){
+    dots.appendChild(document.createElement("span"));
+  }
+
+  function currentWord(){ return LCWC_WORDS[Math.floor(lcwcIndex/2)]; }
+  function currentRound(){ return (lcwcIndex % 2) + 1; }
+
+  function renderLook(){
+    var cw = currentWord();
+    var html = "";
+    cw.word.split("").forEach(function(ch, i){
+      if(i >= cw.hot[0] && i <= cw.hot[1]) html += '<span class="hot">' + ch + '</span>';
+      else html += ch;
+    });
+    stageWord.innerHTML = html;
+    stageWord.style.display = "";
+    stageHint.textContent = cw.hint;
+    stageStep.textContent = "Step 1 \u00B7 Look";
+    stageRound.textContent = "Word " + (Math.floor(lcwcIndex/2)+1) + " of 4 \u00B7 Round " + currentRound() + " of 2";
+    controls.style.display = "";
+    writeArea.style.display = "none";
+    diffEl.innerHTML = "";
+    fixEl.classList.remove("show");
+    fixEl.innerHTML = "";
+    nextBtn.style.display = "none";
+    input.value = "";
+  }
+
+  coverBtn.addEventListener("click", function(){
+    stageWord.style.display = "none";
+    stageHint.textContent = "";
+    stageStep.textContent = "Step 2 \u00B7 Cover, then Write";
+    controls.style.display = "none";
+    writeArea.style.display = "";
+    input.focus();
+  });
+
+  function letterDiff(target, attempt){
+    var html = "";
+    var maxLen = Math.max(target.length, attempt.length);
+    var allOk = (target === attempt);
+    for(var i=0; i<maxLen; i++){
+      var a = attempt[i] || "\u00B7";
+      if(attempt[i] !== undefined && attempt[i] === target[i]) html += '<span class="ok">' + a + '</span>';
+      else html += '<span class="bad">' + a + '</span>';
+    }
+    return { html: html, ok: allOk };
+  }
+
+  checkBtn.addEventListener("click", function(){
+    var attempt = input.value.trim().toLowerCase();
+    if(attempt === ""){
+      fixEl.innerHTML = "<b>Write first:</b> have a go from memory before checking \u2014 that's the whole trick of Look\u00B7Cover\u00B7Write\u00B7Check.";
+      fixEl.classList.add("show");
+      return;
+    }
+    var cw = currentWord();
+    stageStep.textContent = "Step 3 \u00B7 Check";
+    var res = letterDiff(cw.word, attempt);
+    diffEl.innerHTML = res.html;
+    if(res.ok){
+      fixEl.classList.remove("show");
+      fixEl.innerHTML = "";
+      dots.children[lcwcIndex].classList.add("hit");
+      if(lcwcIndex < TOTAL_ROUNDS - 1){
+        nextBtn.textContent = "Next";
+        nextBtn.style.display = "";
+      } else {
+        nextBtn.style.display = "none";
+        stageStep.textContent = "All eight rounds green \u2014 screenshot your dots!";
+      }
+    } else {
+      fixEl.innerHTML = "<b>Nearly.</b> The word is <b>" + cw.word + "</b> \u2014 the underlined letters show where your attempt drifted. " + cw.hint + " Look again, cover, and rewrite.";
+      fixEl.classList.add("show");
+      nextBtn.textContent = "Look again";
+      nextBtn.style.display = "";
+    }
+  });
+
+  nextBtn.addEventListener("click", function(){
+    if(nextBtn.textContent === "Next"){ lcwcIndex++; }
+    renderLook();
+  });
+
+  input.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){ e.preventDefault(); checkBtn.click(); }
+  });
+
+  renderLook();
+
+  /* ---------- exit ticket ---------- */
+  var exitInput = document.getElementById("exitInput");
+  var exitCheck = document.getElementById("exitCheck");
+  var exitResult = document.getElementById("exitResult");
+  var exitFix = document.getElementById("exitFix");
+
+  exitInput.addEventListener("input", function(){
+    var has = exitInput.value.trim().length > 0;
+    exitCheck.disabled = !has;
+    exitCheck.textContent = has ? "Check my spelling" : "Unlock the check (type your attempt first)";
+  });
+
+  exitCheck.addEventListener("click", function(){
+    var attempt = exitInput.value.trim().toLowerCase();
+    if(attempt === "") return;
+    if(attempt === "necessary"){
+      exitFix.innerHTML = "<b>Correct!</b> One collar, two sleeves \u2014 the shirt trick works. Screenshot this for your evidence.";
+    } else {
+      exitFix.innerHTML = "<b>Not this time.</b> You wrote <b>" + attempt.replace(/</g,"&lt;").replace(/>/g,"&gt;") + "</b>; the word is <b>necessary</b> \u2014 one c (the collar), double s (the sleeves). Picture the shirt and write it once more in your book.";
+    }
+    exitResult.classList.add("show");
+  });
+
+  /* ---------- confidence buttons ---------- */
+  var confi = document.getElementById("confi");
+  Array.prototype.slice.call(confi.querySelectorAll("button")).forEach(function(b){
+    b.addEventListener("click", function(){
+      Array.prototype.slice.call(confi.querySelectorAll("button")).forEach(function(o){ o.setAttribute("aria-pressed","false"); });
+      b.setAttribute("aria-pressed","true");
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
