@@ -36,6 +36,8 @@
   nav.pills{position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px}
   .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
   .pill{flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
+  .pill.nav-home{background:var(--amber-soft);border-color:var(--amber);color:#9a5f00;font-weight:700;}
+  .pill.nav-home:hover{background:var(--amber);color:#3a2400;}
   .pill:hover{border-color:var(--teal); color:var(--teal)}
 
   main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
@@ -133,6 +135,7 @@
 
 <nav class="pills" aria-label="Lesson sections">
   <div class="pills-inner">
+    <a class="pill nav-home" href="index.html">← All lessons</a>
     <a class="pill" href="#briefing">1 · The Briefing</a>
     <a class="pill" href="#notes">2 · Case Notes</a>
     <a class="pill" href="#customs">3 · Customs Checkpoint</a>

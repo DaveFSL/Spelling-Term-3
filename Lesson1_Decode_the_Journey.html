@@ -70,6 +70,8 @@
     padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500;
     cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center;
   }
+  .pill.nav-home{background:var(--amber-soft);border-color:var(--amber);color:#9a5f00;font-weight:700;}
+  .pill.nav-home:hover{background:var(--amber);color:#3a2400;}
   .pill:hover{border-color:var(--teal); color:var(--teal)}
 
   /* ---------- layout ---------- */
@@ -308,6 +310,7 @@
 
 <nav class="pills" aria-label="Jump to a section">
   <div class="pills-inner">
+    <a class="pill nav-home" href="index.html">← All lessons</a>
     <a class="pill" href="#briefing">The Briefing</a>
     <a class="pill" href="#casenotes">Case Notes</a>
     <a class="pill" href="#machine">Suffix Machine</a>

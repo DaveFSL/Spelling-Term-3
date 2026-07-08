@@ -149,6 +149,7 @@
 
 <nav class="pills" aria-label="Jump to a section">
   <div class="pills-inner">
+    <a class="pill nav-home" href="index.html">← All lessons</a>
     <a class="pill" href="#sprint">Memory Sprint</a>
     <a class="pill" href="#recall">Case Notes</a>
     <a class="pill" href="#detective">Error Detective</a>
@@ -336,7 +337,9 @@ startBtn.addEventListener("click",()=>{
       startBtn.textContent="Run it again ↺"; startBtn.disabled=false;
       announce("Time is up. Reveal the words and check your list.");
     }
-  },1000);
+  }
+  .pill.nav-home{background:var(--amber-soft);border-color:var(--amber);color:#9a5f00;font-weight:700;}
+  .pill.nav-home:hover{background:var(--amber);color:#3a2400;},1000);
 });
 revealBtn.addEventListener("click",revealWords);
 

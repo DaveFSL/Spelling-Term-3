@@ -156,6 +156,7 @@
 
 <nav class="pills" aria-label="Jump to a section">
   <div class="pills-inner">
+    <a class="pill nav-home" href="index.html">← All lessons</a>
     <a class="pill" href="#briefing">Eco Briefing</a>
     <a class="pill" href="#casenotes">Case Notes</a>
     <a class="pill" href="#explorer">Root Explorer</a>
@@ -431,7 +432,9 @@ $$(".end-tab").forEach(tab=>{
     $$(".end-tab").forEach(t=>t.setAttribute("aria-expanded","false"));
     $$(".end-panel").forEach(p=>p.classList.remove("show"));
     if(!open){ tab.setAttribute("aria-expanded","true"); panel.classList.add("show"); announce(tab.textContent+" revealed."); }
-  });
+  }
+  .pill.nav-home{background:var(--amber-soft);border-color:var(--amber);color:#9a5f00;font-weight:700;}
+  .pill.nav-home:hover{background:var(--amber);color:#3a2400;});
 });
 
 /* 4. MORPHEME FORGE */
