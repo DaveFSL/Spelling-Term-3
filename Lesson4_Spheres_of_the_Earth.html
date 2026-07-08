@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4 — Spheres of the Earth | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4; --ink:#1b2a4a; --amber:#e8930c; --teal:#0e7c7b; --card:#fff;
+    --line:#e6e1d6; --amber-soft:#fdf0d9; --amber-edge:#f2c785; --teal-soft:#e1efee;
+    --ink-soft:#56607a; --good:#1f7a4d; --good-soft:#e3f3ea; --bad:#c0392b; --bad-soft:#fdeceb;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06); --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Atkinson Hyperlegible",system-ui,sans-serif; font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%}
+  h1,h2,h3,.eyebrow,.pill,.root-tile,.end-tile,.layer-name,.forge-word,.pair-w,.lcwc-word{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  kbd{font-family:"Space Grotesk"; background:#eee7d8; border:1px solid #d8cfba; border-radius:5px; padding:1px 6px; font-size:.85em}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  header.band{background:var(--ink); color:#fff; padding:30px 22px 26px}
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px}
+  .band h1{font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em}
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:62ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1}
+
+  nav.pills{position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px}
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto; font-family:"Space Grotesk"}
+  .lead{color:var(--ink-soft); max-width:66ch}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0}
+
+  button{font-family:inherit}
+  .btn{background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"}
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  /* warm-up quiz */
+  .q{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .q .stem{font-weight:700; margin-bottom:10px}
+  .opts{display:grid; gap:8px}
+  .opt{text-align:left; background:#fcfbf7; border:1.5px solid var(--line); color:var(--ink); padding:11px 14px; border-radius:10px; cursor:pointer; min-height:44px; font-size:.95rem}
+  .opt:hover{border-color:var(--teal)}
+  .opt.correct{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .opt.wrong{background:var(--bad-soft); border-color:var(--bad); color:#a8261b}
+  .opt[disabled]{cursor:default}
+  .fixup{margin-top:10px; background:var(--amber-soft); border-left:5px solid var(--amber); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none}
+  .fixup.show{display:block}
+  .fixup b{color:#a8540b}
+  .scorebar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:12px 16px}
+  .scorebar strong{font-family:"Space Grotesk"; font-size:1.15rem}
+
+  /* teaching cards */
+  .teach-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  @media(max-width:760px){.teach-grid{grid-template-columns:1fr}}
+  .remember{background:var(--teal-soft); border:1px solid #bfdedc; border-radius:10px; padding:10px 13px; font-size:.9rem; margin-top:8px}
+  .remember b{color:var(--teal); font-family:"Space Grotesk"}
+  .root-key{display:flex; flex-wrap:wrap; gap:6px; margin-top:4px}
+  .root-key span{font-size:.82rem; background:#fbfaf6; border:1px solid var(--line); border-radius:8px; padding:4px 9px; font-family:"Space Grotesk"; font-weight:600}
+  .root-key b{color:var(--teal)}
+
+  /* earth cross-section */
+  .earth-wrap{display:grid; grid-template-columns:1.1fr 1fr; gap:18px; align-items:start}
+  @media(max-width:680px){.earth-wrap{grid-template-columns:1fr}}
+  .earth{display:flex; flex-direction:column; gap:4px; border-radius:14px; overflow:hidden; border:1px solid var(--line)}
+  .layer{border:none; text-align:left; padding:14px 16px; cursor:pointer; font-family:"Space Grotesk"; font-weight:700; font-size:1.02rem; color:#26344f; position:relative}
+  .layer:hover{filter:brightness(.97)}
+  .layer[aria-pressed=true]{outline:3px solid var(--ink); outline-offset:-3px}
+  .layer small{display:block; font-family:"Atkinson Hyperlegible"; font-weight:400; font-size:.78rem; color:#3d4a64}
+  .earth-info{background:#fbfaf6; border:1px solid var(--line); border-radius:14px; padding:18px; min-height:160px}
+  .earth-info .layer-name{font-size:1.4rem; font-weight:700; color:var(--ink)}
+  .earth-info .roots{margin:8px 0; font-family:"Space Grotesk"; font-weight:600; color:var(--teal)}
+  .earth-placeholder{color:var(--ink-soft)}
+
+  /* sphere forge */
+  .forge{display:grid; gap:16px}
+  .forge-cols{display:grid; grid-template-columns:1fr auto 1fr; gap:12px; align-items:center}
+  @media(max-width:620px){.forge-cols{grid-template-columns:1fr; }}
+  .forge-col h3{font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); margin-bottom:8px}
+  .root-tile,.end-tile{display:block; width:100%; text-align:center; margin-bottom:9px; border:2px solid var(--line); background:#fff; border-radius:12px; padding:13px; font-weight:700; font-size:1.15rem; cursor:pointer; min-height:50px; color:var(--ink)}
+  .root-tile small,.end-tile small{display:block; font-family:"Atkinson Hyperlegible"; font-weight:400; font-size:.78rem; color:var(--ink-soft)}
+  .root-tile[aria-pressed=true]{border-color:var(--teal); background:var(--teal-soft); color:var(--teal)}
+  .end-tile[aria-pressed=true]{border-color:var(--amber); background:var(--amber-soft); color:#a8540b}
+  .forge-plus{text-align:center; font-family:"Space Grotesk"; font-weight:700; font-size:1.6rem; color:var(--ink-soft)}
+  .forge-out{background:#fbfaf6; border:1px solid var(--line); border-radius:14px; padding:18px; text-align:center; min-height:96px}
+  .forge-word{font-size:2rem; font-weight:700}
+  .forge-word.target{color:var(--good)} .forge-word.bonus{color:var(--teal)} .forge-word.no{color:#a8540b}
+  .forge-mean{color:var(--ink-soft); margin-top:4px}
+  .forge-tally{font-family:"Space Grotesk"; font-weight:700; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:11px 16px}
+
+  /* definition pair match */
+  .pair-grid{display:grid; grid-template-columns:200px 1fr; gap:14px}
+  @media(max-width:640px){.pair-grid{grid-template-columns:1fr}}
+  .pair-col{display:flex; flex-direction:column; gap:9px}
+  .pair-w{border:2px solid var(--line); background:#fff; border-radius:11px; padding:13px; font-weight:700; cursor:pointer; min-height:48px; color:var(--ink); text-align:left}
+  .pair-w[aria-pressed=true]{border-color:var(--ink); background:#f1efe9}
+  .pair-w.done{background:var(--good-soft); border-color:var(--good); color:var(--good); cursor:default}
+  .pair-m{border:1.5px solid var(--line); background:#fcfbf7; border-radius:11px; padding:13px; cursor:pointer; min-height:48px; text-align:left; color:var(--ink); font-size:.96rem}
+  .pair-m:hover{border-color:var(--teal)}
+  .pair-m.done{background:var(--good-soft); border-color:var(--good); color:var(--good); cursor:default}
+  .pair-m.nope{background:var(--bad-soft); border-color:var(--bad)}
+  .pair-msg{font-family:"Space Grotesk"; font-weight:700; margin-top:10px}
+
+  /* LCWC slider (the polished version) */
+  .lcwc-stage{position:relative; overflow:hidden; border:1.5px solid var(--line); border-radius:14px; background:#fff; height:120px; display:flex; align-items:center; justify-content:center}
+  .lcwc-word{font-weight:700; font-size:2.1rem; letter-spacing:.01em; color:var(--ink)}
+  .lcwc-cover{position:absolute; inset:0; background:repeating-linear-gradient(45deg,var(--ink),var(--ink) 12px,#243a63 12px,#243a63 24px); transition:transform .05s linear; will-change:transform}
+  .lcwc-cover::after{content:"covered — write it now"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-family:"Space Grotesk"; font-weight:600; letter-spacing:.04em; font-size:.9rem}
+  .slider-wrap{margin-top:12px}
+  .slide-hint{display:inline-flex; align-items:center; gap:8px; font-family:"Space Grotesk"; font-weight:600; font-size:.82rem; color:var(--teal); background:var(--teal-soft); border:1px solid #bfdedc; border-radius:999px; padding:6px 13px; margin-bottom:9px}
+  .slide-hint .arrows{display:inline-block; font-size:1rem; animation:bob 1.3s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+  .slide-hint.gone{display:none}
+  @media (prefers-reduced-motion: reduce){ .slide-hint .arrows{animation:none} }
+  input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:36px; background:transparent; cursor:grab; margin:0; display:block}
+  input[type=range]:active{cursor:grabbing}
+  input[type=range]:focus{outline:none}
+  input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px var(--amber), 0 2px 6px rgba(27,42,74,.3)}
+  input[type=range]::-webkit-slider-runnable-track{height:18px; border-radius:999px; border:1px solid #cfc8ba; background:linear-gradient(90deg,var(--teal) 0 var(--fill,100%), #ece7dc var(--fill,100%) 100%)}
+  input[type=range]::-moz-range-track{height:18px; border-radius:999px; border:1px solid #cfc8ba; background:#ece7dc}
+  input[type=range]::-moz-range-progress{height:18px; border-radius:999px; background:var(--teal)}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:36px; height:36px; margin-top:-10px; border-radius:50%; background:#fff; border:3px solid var(--teal); box-shadow:0 2px 7px rgba(27,42,74,.3); background-image:repeating-linear-gradient(90deg,var(--teal) 0 2px,#fff 2px 5px); background-repeat:no-repeat; background-size:13px 14px; background-position:center}
+  input[type=range]::-moz-range-thumb{width:36px; height:36px; border-radius:50%; background:#fff; border:3px solid var(--teal); box-shadow:0 2px 7px rgba(27,42,74,.3); background-image:repeating-linear-gradient(90deg,var(--teal) 0 2px,#fff 2px 5px); background-repeat:no-repeat; background-size:13px 14px; background-position:center}
+  .slide-ends{display:flex; justify-content:space-between; font-family:"Space Grotesk"; font-weight:600; font-size:.78rem; color:var(--ink-soft); margin-top:5px}
+  .lcwc-controls{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:14px}
+  .counter{font-size:.85rem; color:var(--ink-soft)}
+
+  /* evidence + checklist */
+  .evidence{display:flex; gap:12px; align-items:flex-start; background:#fff7e9; border:1.5px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:14px 0; font-size:.92rem}
+  .evidence svg{flex:0 0 auto; margin-top:2px}
+  .evidence b{color:#a8540b}
+  .check-list{list-style:none; padding:0; margin:.4em 0}
+  .check-list li{display:flex; gap:11px; align-items:flex-start; padding:9px 0; border-bottom:1px dashed var(--line)}
+  .check-list input{width:24px; height:24px; margin-top:2px; accent-color:var(--teal); flex:0 0 auto}
+  .confi{display:flex; gap:9px; flex-wrap:wrap; margin-top:10px}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:10px 14px; min-height:44px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .confi button[aria-pressed=true]{background:var(--teal); color:#fff; border-color:var(--teal)}
+
+  footer{max-width:1000px; margin:0 auto; padding:24px 18px 50px; color:var(--ink-soft); font-size:.85rem}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Year 6 Spelling · Word Detectives · Lesson 4</p>
+    <h1>Spheres of the Earth</h1>
+    <p class="hook">New case, new science. Crack open the planet — Greek roots are the master key to reading and spelling the layers of the Earth.</p>
+    <div class="meta-row" aria-label="Lesson details">
+      <span>Science: Earth &amp; Space</span>
+      <span>Focus: Greek roots · geo-, -sphere</span>
+      <span>AC9E6LY09</span>
+      <span>20 minutes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Jump to a section">
+  <div class="pills-inner">
+    <a class="pill" href="#briefing">Mission Briefing</a>
+    <a class="pill" href="#layers">Layers of the Earth</a>
+    <a class="pill" href="#forge">Sphere Forge</a>
+    <a class="pill" href="#match">Definition Detective</a>
+    <a class="pill" href="#lcwc">Look · Cover · Write · Check</a>
+    <a class="pill" href="#closed">Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- 1. WARM-UP -->
+  <section id="briefing">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>Mission Briefing</h2><p class="lead">A quick briefing before you dig in. Tap an answer — a wrong one reveals an orange <b>fix-up</b> telling you exactly what to fix.</p></div></div>
+    <div id="quiz"></div>
+    <div class="scorebar" role="status" aria-live="polite">
+      <span>Score: <strong id="score">0</strong> / <strong id="total">5</strong></span>
+      <button class="btn ghost" id="jumpFix" disabled>Jump to my first fix-up ↧</button>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot before you close.</b> Nothing here is saved. Capture your score and any fix-ups, then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 2. LAYERS / TEACHING -->
+  <section id="layers">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Layers of the Earth</h2><p class="lead">Read the root toolkit, then tap each layer of the cross-section to see the root that builds its name.</p></div></div>
+
+    <div class="teach-grid">
+      <div class="card teach">
+        <h3>Greek root toolkit</h3>
+        <div class="root-key">
+          <span><b>geo-</b> earth</span><span><b>atmo-</b> air</span><span><b>hydro-</b> water</span>
+          <span><b>litho-</b> rock</span><span><b>bio-</b> life</span><span><b>-sphere</b> ball / layer</span><span><b>-logy</b> study of</span>
+        </div>
+        <div class="remember"><b>Remember:</b> learn the root once, unlock dozens of science words.</div>
+      </div>
+      <div class="card teach">
+        <h3>“ph” says /f/</h3>
+        <p>In <b>atmosphere</b> and <b>hydrosphere</b>, the letters <b>ph</b> make the /f/ sound — not “f”.</p>
+        <div class="remember"><b>Remember:</b> sphere is spelt s-p-h-e-r-e.</div>
+      </div>
+      <div class="card teach">
+        <h3>Two odd ones out</h3>
+        <p><b>rotation</b> = rotate + -ion (the spinning). <b>gravity</b> = from Latin <i>gravis</i>, “heavy”. No “-sphere” here!</p>
+        <div class="remember"><b>Remember:</b> not every Earth word is built from -sphere.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Interactive cross-section — tap a layer</h3>
+      <div class="earth-wrap">
+        <div class="earth" id="earth" role="group" aria-label="Earth cross-section layers"></div>
+        <div class="earth-info" id="earthInfo" role="status" aria-live="polite">
+          <p class="earth-placeholder">Tap any layer to reveal the word, its Greek root and what it means.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SPHERE FORGE -->
+  <section id="forge">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>Sphere Forge</h2><p class="lead">Forge real Earth-science words. Tap a <span style="color:var(--teal);font-weight:700">root</span>, then tap an <span style="color:#a8540b;font-weight:700">ending</span> — the forge tells you if you’ve built a real word and what it means. Hunt down all six target words.</p></div></div>
+
+    <div class="card forge">
+      <div class="forge-tally" role="status" aria-live="polite" id="forgeTally">Earth words forged: 0 of 6</div>
+      <div class="forge-cols">
+        <div class="forge-col"><h3>Roots</h3><div id="rootCol"></div></div>
+        <div class="forge-plus" aria-hidden="true">+</div>
+        <div class="forge-col"><h3>Endings</h3><div id="endCol"></div></div>
+      </div>
+      <div class="forge-out" id="forgeOut" aria-live="polite">
+        <span class="forge-word" style="color:var(--ink-soft);font-size:1.1rem">Pick a root and an ending…</span>
+      </div>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot all six forged.</b> Six target words = case cracked. Upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 4. DEFINITION DETECTIVE -->
+  <section id="match">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>Definition Detective</h2><p class="lead">Tap a word, then tap the meaning that matches it. Correct pairs lock in green; a wrong tap flashes red so you can rethink.</p></div></div>
+
+    <div class="card">
+      <div class="pair-grid">
+        <div class="pair-col" id="pairWords" aria-label="Words"></div>
+        <div class="pair-col" id="pairMeanings" aria-label="Meanings"></div>
+      </div>
+      <p class="pair-msg" id="pairMsg" role="status" aria-live="polite"></p>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot all-green.</b> Then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 5. LCWC -->
+  <section id="lcwc">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>Look · Cover · Write · Check</h2><p class="lead">Lock these long words into memory. <b>Slide right</b> to look, <b>slide left</b> to cover and write in your book, then <b>slide right</b> to check.</p></div></div>
+    <div class="card">
+      <div class="lcwc-stage">
+        <span class="lcwc-word" id="lcwcWord" aria-live="polite">atmosphere</span>
+        <div class="lcwc-cover" id="lcwcCover" aria-hidden="true"></div>
+      </div>
+      <div class="slider-wrap">
+        <div class="slide-hint" id="slideHint"><span class="arrows" aria-hidden="true">⟷</span> Drag the slider to cover &amp; reveal</div>
+        <label for="lcwcSlide" class="sr-only">Slide to cover or reveal the word</label>
+        <input type="range" id="lcwcSlide" min="0" max="100" value="100" aria-label="Cover or reveal the word">
+        <div class="slide-ends" aria-hidden="true"><span>◀ Covered</span><span>Revealed ▶</span></div>
+      </div>
+      <div class="lcwc-controls">
+        <button class="btn ghost" id="lcwcPrev">‹ Previous</button>
+        <span class="counter" id="lcwcCount">Word 1 of 8</span>
+        <button class="btn ghost" id="lcwcNext">Next ›</button>
+      </div>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Your written attempts live in your book.</b> Tick them off in Case Closed and snap a photo.</div>
+    </div>
+  </section>
+
+  <!-- 6. CASE CLOSED -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">06</span><div><h2>Case Closed</h2><p class="lead">Exit check. Tick your evidence, rate your confidence, capture everything.</p></div></div>
+    <div class="card">
+      <h3>Exit ticket — without looking back, can you…</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="x1"><label for="x1">Say what <b>geo-</b> and <b>-sphere</b> mean</label></li>
+        <li><input type="checkbox" id="x2"><label for="x2">Spell <b>atmosphere</b> and <b>hydrosphere</b> from memory (try it in your book)</label></li>
+        <li><input type="checkbox" id="x3"><label for="x3">Name one Earth word that is <b>not</b> built from -sphere</label></li>
+      </ul>
+      <h3 style="margin-top:18px">Evidence to capture (screenshot or photograph)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">Mission Briefing score + any fix-ups</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My six forged words</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">My all-green Definition Detective</label></li>
+      </ul>
+      <h3 style="margin-top:18px">How confident am I with these Greek-root words?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+      <div class="evidence" style="margin-top:18px;margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing here is saved.</b> Take your final screenshots now, then upload everything to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer><p>Year 6 Spelling · Word Detectives · Lesson 4: Spheres of the Earth · Linked to ACARA v9 AC9E6LY09 (also AC9E6LY08). All content original. Works offline — no data is collected or stored.</p></footer>
+
+<div class="sr-only" id="liveRegion" aria-live="assertive" style="position:fixed;bottom:0;left:0"></div>
+
+<script>
+"use strict";
+const $=(s,el=document)=>el.querySelector(s);
+const $$=(s,el=document)=>Array.from(el.querySelectorAll(s));
+const announce=(m)=>{const r=$("#liveRegion");r.textContent="";setTimeout(()=>r.textContent=m,30);};
+const shuffle=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(p=>p[1]);
+
+/* ---------- 1. WARM-UP ---------- */
+const QUIZ=[
+ {stem:"In spelling, a “root” is…",opts:["the last letter of a word","the core meaning-part of a word, often from Greek or Latin","a silent letter"],correct:1,
+  fix:"A root is the core meaning-part — like geo- (earth). Learn it once and you can read many words."},
+ {stem:"The Greek root “geo-” means…",opts:["water","earth","star"],correct:1,
+  fix:"geo- means earth — geology is the study of the Earth, geosphere is the solid Earth."},
+ {stem:"In atmosphere and biosphere, “-sphere” refers to…",opts:["a sharp point","a layer or ball around the Earth","a type of rock"],correct:1,
+  fix:"-sphere means a ball or layer. The atmosphere is the layer of air around the Earth."},
+ {stem:"Which spelling is correct?",opts:["atmosfere","atmosphear","atmosphere"],correct:2,
+  fix:"It’s “atmosphere”. The /f/ sound is spelt with “ph”, and it ends “-sphere”."},
+ {stem:"“hydro-” means water, so the “hydrosphere” is…",opts:["all the water on Earth","the air around Earth","the Earth’s core"],correct:0,
+  fix:"hydro- = water, so the hydrosphere is all the Earth’s water — oceans, rivers and ice."},
+];
+let score=0,firstFix=null;
+$("#total").textContent=QUIZ.length;
+const quizEl=$("#quiz");
+QUIZ.forEach((q,qi)=>{
+  const card=document.createElement("div");card.className="q";card.id="q"+qi;
+  const stem=document.createElement("p");stem.className="stem";stem.textContent=(qi+1)+". "+q.stem;
+  const opts=document.createElement("div");opts.className="opts";opts.setAttribute("role","group");opts.setAttribute("aria-label",q.stem);
+  q.opts.forEach((t,oi)=>{const b=document.createElement("button");b.className="opt";b.type="button";b.textContent=t;b.addEventListener("click",()=>ans(card,opts,b,q,qi,oi));opts.appendChild(b);});
+  const fix=document.createElement("div");fix.className="fixup";fix.id="fix"+qi;fix.innerHTML='<b>Fix-up:</b> '+q.fix;
+  card.append(stem,opts,fix);quizEl.appendChild(card);
+});
+function ans(card,opts,btn,q,qi,oi){
+  if(card.dataset.done)return;card.dataset.done="1";
+  $$(".opt",opts).forEach(b=>b.setAttribute("disabled",""));
+  opts.children[q.correct].classList.add("correct");
+  if(oi===q.correct){btn.classList.add("correct");score++;$("#score").textContent=score;announce("Correct. Score "+score);}
+  else{btn.classList.add("wrong");$("#fix"+qi).classList.add("show");if(firstFix===null){firstFix=qi;$("#jumpFix").disabled=false;}announce("Not quite. Read the fix-up.");}
+}
+$("#jumpFix").addEventListener("click",()=>{if(firstFix!==null)$("#q"+firstFix).scrollIntoView({block:"center"});});
+
+/* ---------- 2. EARTH CROSS-SECTION ---------- */
+const LAYERS=[
+ {name:"Atmosphere",root:"atmo- (air) + -sphere",mean:"The blanket of gases — the air — that surrounds the Earth.",bg:"#dce9f5"},
+ {name:"Hydrosphere",root:"hydro- (water) + -sphere",mean:"All the water on Earth: oceans, rivers, lakes and ice.",bg:"#cfe8e6"},
+ {name:"Biosphere",root:"bio- (life) + -sphere",mean:"The zone where every living thing on Earth exists.",bg:"#dcefdc"},
+ {name:"Lithosphere",root:"litho- (rock) + -sphere",mean:"The solid rocky outer shell — the crust and upper mantle.",bg:"#ece0cd"},
+ {name:"Geosphere",root:"geo- (earth) + -sphere",mean:"The whole solid Earth, from the crust right down to the core.",bg:"#ddd7c9"},
+];
+const earthEl=$("#earth");
+LAYERS.forEach((L,i)=>{
+  const b=document.createElement("button");b.type="button";b.className="layer";b.style.background=L.bg;b.setAttribute("aria-pressed","false");
+  b.innerHTML=L.name+"<small>"+L.root+"</small>";
+  b.addEventListener("click",()=>{
+    $$(".layer",earthEl).forEach(x=>x.setAttribute("aria-pressed","false"));
+    b.setAttribute("aria-pressed","true");
+    $("#earthInfo").innerHTML='<div class="layer-name">'+L.name+'</div><div class="roots">'+L.root+'</div><p>'+L.mean+'</p>';
+    announce(L.name+". "+L.root+". "+L.mean);
+  });
+  earthEl.appendChild(b);
+});
+
+/* ---------- 3. SPHERE FORGE ---------- */
+const ROOTS=[{r:"atmo",m:"air"},{r:"hydro",m:"water"},{r:"litho",m:"rock"},{r:"bio",m:"life"},{r:"geo",m:"earth"}];
+const ENDS=[{e:"sphere",lab:"-sphere",m:"ball / layer"},{e:"logy",lab:"-logy",m:"study of"}];
+const FORGE={
+ "atmo+sphere":{w:"atmosphere",k:"target",m:"The layer of air around the Earth."},
+ "hydro+sphere":{w:"hydrosphere",k:"target",m:"All the water on the Earth."},
+ "litho+sphere":{w:"lithosphere",k:"target",m:"The solid rocky outer shell of the Earth."},
+ "bio+sphere":{w:"biosphere",k:"target",m:"The zone where all living things exist."},
+ "geo+sphere":{w:"geosphere",k:"target",m:"The whole solid Earth, crust to core."},
+ "geo+logy":{w:"geology",k:"target",m:"The study of the Earth’s rocks and structure."},
+ "bio+logy":{w:"biology",k:"bonus",m:"The study of living things — a real word!"},
+ "hydro+logy":{w:"hydrology",k:"bonus",m:"The study of water — a real word!"},
+ "litho+logy":{w:"lithology",k:"bonus",m:"The study of rocks — a real (if rare) word!"},
+};
+const TARGETS=6;
+let forged=new Set(), pickR=null, pickE=null;
+const rootCol=$("#rootCol"), endCol=$("#endCol");
+ROOTS.forEach(o=>{const b=document.createElement("button");b.type="button";b.className="root-tile";b.dataset.r=o.r;b.innerHTML=o.r+"-<small>"+o.m+"</small>";
+  b.addEventListener("click",()=>{pickR=o.r;$$(".root-tile",rootCol).forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");tryForge();});rootCol.appendChild(b);});
+ENDS.forEach(o=>{const b=document.createElement("button");b.type="button";b.className="end-tile";b.dataset.e=o.e;b.innerHTML=o.lab+"<small>"+o.m+"</small>";
+  b.addEventListener("click",()=>{pickE=o.e;$$(".end-tile",endCol).forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");tryForge();});endCol.appendChild(b);});
+function tryForge(){
+  if(!pickR||!pickE)return;
+  const key=pickR+"+"+pickE;const hit=FORGE[key];
+  const out=$("#forgeOut");
+  if(hit){
+    out.innerHTML='<div class="forge-word '+hit.k+'">'+(hit.k==="target"?"✓ ":hit.k==="bonus"?"★ ":"")+hit.w+'</div><div class="forge-mean">'+hit.m+(hit.k==="bonus"?" (Bonus find — not one of today’s six.)":"")+'</div>';
+    if(hit.k==="target"&&!forged.has(hit.w)){forged.add(hit.w);$("#forgeTally").textContent="Earth words forged: "+forged.size+" of "+TARGETS;
+      if(forged.size===TARGETS)$("#forgeTally").textContent="🎉 All six forged! Screenshot your work.";}
+    announce(hit.w+". "+hit.m);
+  }else{
+    const built=pickR+pickE;
+    out.innerHTML='<div class="forge-word no">'+built+'?</div><div class="forge-mean">Hmm — “'+built+'” isn’t a word scientists use. Try another mix.</div>';
+    announce(built+" is not a word. Try another mix.");
+  }
+}
+
+/* ---------- 4. DEFINITION DETECTIVE ---------- */
+const PAIRS=[
+ {w:"atmosphere",m:"The layer of gases surrounding the Earth."},
+ {w:"hydrosphere",m:"All the water on the Earth."},
+ {w:"lithosphere",m:"The solid rocky outer layer of the Earth."},
+ {w:"biosphere",m:"The zone where all living things exist."},
+ {w:"rotation",m:"The spinning of the Earth that gives us day and night."},
+ {w:"gravity",m:"The force that pulls objects towards the Earth."},
+];
+let selW=null, matched=0;
+const wCol=$("#pairWords"), mCol=$("#pairMeanings");
+PAIRS.forEach(p=>{const b=document.createElement("button");b.type="button";b.className="pair-w";b.dataset.w=p.w;b.textContent=p.w;b.setAttribute("aria-pressed","false");
+  b.addEventListener("click",()=>{if(b.classList.contains("done"))return;selW=b;$$(".pair-w",wCol).forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");$("#pairMsg").textContent="Now tap the meaning of “"+p.w+"”.";});
+  wCol.appendChild(b);});
+shuffle(PAIRS).forEach(p=>{const b=document.createElement("button");b.type="button";b.className="pair-m";b.dataset.w=p.w;b.textContent=p.m;
+  b.addEventListener("click",()=>{
+    if(b.classList.contains("done"))return;
+    if(!selW){$("#pairMsg").textContent="Tap a word on the left first.";return;}
+    if(selW.dataset.w===p.w){
+      b.classList.add("done");selW.classList.add("done");selW.setAttribute("aria-pressed","false");
+      matched++;$("#pairMsg").textContent=matched===PAIRS.length?"🎉 All matched! Screenshot it.":"✓ Matched — "+matched+" of "+PAIRS.length+".";
+      announce("Correct match. "+p.w);selW=null;
+    }else{
+      b.classList.add("nope");setTimeout(()=>b.classList.remove("nope"),500);
+      $("#pairMsg").textContent="Not a match — try again.";announce("Not a match.");
+    }
+  });
+  mCol.appendChild(b);});
+
+/* ---------- 5. LCWC SLIDER ---------- */
+const LCWC=["atmosphere","hydrosphere","lithosphere","biosphere","geosphere","geology","rotation","gravity"];
+let li=0,hintGone=false;
+const cover=$("#lcwcCover"),slide=$("#lcwcSlide"),wordEl=$("#lcwcWord"),countEl=$("#lcwcCount"),slideHint=$("#slideHint");
+function paintCover(){const v=+slide.value;cover.style.transform="translateX("+v+"%)";slide.style.setProperty("--fill",v+"%");}
+function setWord(){wordEl.textContent=LCWC[li];countEl.textContent="Word "+(li+1)+" of "+LCWC.length;slide.value=100;paintCover();}
+slide.addEventListener("input",()=>{paintCover();if(!hintGone){slideHint.classList.add("gone");hintGone=true;}});
+$("#lcwcNext").addEventListener("click",()=>{li=(li+1)%LCWC.length;setWord();});
+$("#lcwcPrev").addEventListener("click",()=>{li=(li-1+LCWC.length)%LCWC.length;setWord();});
+setWord();
+
+/* ---------- 6. CONFIDENCE ---------- */
+$$("#confi button").forEach(b=>b.addEventListener("click",()=>{$$("#confi button").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");}));
+</script>
+</body>
+</html>

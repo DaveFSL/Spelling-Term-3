@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 15 — Data Report | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4; --ink:#1b2a4a; --amber:#e8930c; --teal:#0e7c7b; --card:#ffffff; --line:#e6e1d6;
+    --amber-soft:#fdf0d9; --amber-edge:#f2c785; --teal-soft:#e1efee; --ink-soft:#56607a;
+    --good:#1f7a4d; --good-soft:#e3f3ea; --bad:#c0392b; --bad-soft:#fdeceb;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06); --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:"Atkinson Hyperlegible",system-ui,sans-serif; font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%; }
+  h1,h2,h3,.eyebrow,.pill,.opt,.label-chip,.big,.wb{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  a{color:var(--teal)}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  /* header */
+  header.band{ background:var(--ink); color:#fff; padding:30px 22px 26px; }
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{ text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px; }
+  .band h1{ font-family:"Space Grotesk"; font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em; }
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:62ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1; }
+
+  /* nav */
+  nav.pills{ position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px; }
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{ flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center; }
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  /* layout */
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{ font-family:"Space Grotesk"; font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto; }
+  .lead{color:var(--ink-soft); max-width:68ch}
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0; }
+
+  /* buttons */
+  button{font-family:inherit}
+  .btn{ background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"; }
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn.amber:hover{background:#d98509}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  /* memory sprint */
+  .sprint-stage{display:flex; flex-wrap:wrap; align-items:center; gap:16px}
+  .sprint-timer{ font-family:"Space Grotesk"; font-weight:700; font-size:2.6rem; min-width:120px; text-align:center; color:var(--ink); background:#fbfaf6; border:1.5px solid var(--line); border-radius:14px; padding:10px 6px; }
+  .sprint-timer.go{color:var(--teal); border-color:var(--teal)}
+  .sprint-timer.done{color:var(--amber); border-color:var(--amber-edge)}
+  .sprint-side{flex:1 1 240px}
+  .sprint-list{display:none; flex-wrap:wrap; gap:8px; margin-top:12px}
+  .sprint-list.show{display:flex}
+  .sprint-word{font-family:"Space Grotesk"; font-weight:600; font-size:.95rem; background:var(--teal-soft); border:1px solid #bfdedc; color:var(--ink); border-radius:999px; padding:7px 13px}
+
+  /* teaching strip */
+  .strip{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px}
+  .strip div{background:#fbfaf6; border:1px solid var(--line); border-radius:12px; padding:11px 13px; font-size:.9rem}
+  .strip b{font-family:"Space Grotesk"; color:var(--teal)}
+
+  /* label-the-graph */
+  .graph-grid{display:grid; grid-template-columns:1fr; gap:18px}
+  @media(min-width:780px){.graph-grid{grid-template-columns:1fr 200px}}
+  .graph-wrap{background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:10px}
+  .label-bank{display:flex; flex-wrap:wrap; gap:9px; align-content:flex-start}
+  @media(min-width:780px){.label-bank{flex-direction:column}}
+  .label-chip{ font-family:"Space Grotesk"; font-weight:700; cursor:pointer; background:var(--teal); color:#fff; border:none; border-radius:10px; padding:11px 14px; min-height:46px; text-align:left; }
+  .label-chip:hover{background:#0b6160}
+  .label-chip.picked{outline:3px dashed var(--ink); outline-offset:3px}
+  .label-chip.used{opacity:.35; pointer-events:none}
+  .hotspot{ cursor:pointer; }
+  .hot-box{ fill:#fff; stroke:#bcd9d8; stroke-width:2; stroke-dasharray:6 4; rx:7; }
+  .hotspot.over .hot-box{ fill:var(--teal-soft); stroke:var(--teal); }
+  .hotspot.right .hot-box{ fill:var(--good-soft); stroke:var(--good); stroke-dasharray:none; }
+  .hotspot.nope .hot-box{ fill:var(--bad-soft); stroke:var(--bad); }
+  .hot-text{ font-family:"Space Grotesk"; font-weight:700; font-size:13px; fill:var(--ink-soft); }
+  .hotspot.right .hot-text{ fill:var(--good); }
+
+  /* weekly test */
+  .test-stats{display:flex; flex-wrap:wrap; align-items:center; gap:18px; margin-bottom:14px}
+  .test-stats .lab{display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft)}
+  .test-stats .big{font-family:"Space Grotesk"; font-weight:700; font-size:1.9rem; color:var(--ink)}
+  .progress-track{height:10px; background:#ece7dc; border-radius:999px; overflow:hidden; margin-top:5px}
+  .progress-fill{height:100%; width:0; background:var(--teal); border-radius:999px; transition:width .3s ease}
+  .test-card{border:1.5px solid var(--line); border-radius:12px; padding:16px; background:#fcfbf7}
+  .test-sentence{font-size:1.05rem; margin:0 0 12px}
+  .test-blank{display:inline-block; min-width:90px; border-bottom:3px solid var(--amber); margin:0 4px}
+  .test-row{display:flex; flex-wrap:wrap; gap:9px}
+  .test-input{ flex:1 1 220px; min-height:48px; border:1.5px solid var(--line); border-radius:10px; padding:11px 13px; font-family:"Atkinson Hyperlegible"; font-size:1.05rem; background:#fff; color:var(--ink); }
+  .test-fb{margin-top:10px; font-size:.95rem; min-height:1.2em}
+  .test-fb.good{color:var(--good); font-weight:700; font-family:"Space Grotesk"}
+  .test-fb.bad{color:var(--bad); font-weight:700; font-family:"Space Grotesk"}
+  .report{text-align:center; padding:6px}
+  .report .big{font-family:"Space Grotesk"; font-weight:700; font-size:2.6rem; color:var(--teal)}
+  .report ul{display:inline-block; text-align:left; margin:.3em 0}
+
+  /* writing / locked */
+  textarea{ width:100%; min-height:120px; border:1.5px solid var(--line); border-radius:12px; padding:13px; font-family:"Atkinson Hyperlegible"; font-size:1rem; resize:vertical; background:#fff; color:var(--ink); }
+  .wordbank-chips{display:flex; flex-wrap:wrap; gap:7px; margin:.5em 0}
+  .wb{font-size:.85rem; background:#fff; border:1.5px solid var(--line); border-radius:999px; padding:5px 11px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .wb:hover{border-color:var(--teal); color:var(--teal)}
+  .locked{ border:1.5px dashed var(--amber-edge); background:var(--amber-soft); border-radius:12px; padding:14px; margin-top:12px; text-align:center; color:#7a4a06; }
+  .reveal-box{display:none; margin-top:12px}
+  .reveal-box.show{display:block}
+  .help-box{display:none; margin-top:12px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:14px}
+  .help-box.show{display:block}
+  .remember{ background:var(--teal-soft); border:1px solid #bfdedc; border-radius:10px; padding:10px 13px; font-size:.92rem; margin-top:8px; }
+  .remember b{color:var(--teal); font-family:"Space Grotesk"}
+
+  /* evidence */
+  .evidence{ display:flex; gap:12px; align-items:flex-start; background:#fff7e9; border:1.5px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:14px 0; font-size:.92rem; }
+  .evidence svg{flex:0 0 auto; margin-top:2px}
+  .evidence b{color:#a8540b}
+
+  /* checklist / confidence */
+  .check-list{list-style:none; padding:0; margin:.4em 0}
+  .check-list li{display:flex; gap:11px; align-items:flex-start; padding:9px 0; border-bottom:1px dashed var(--line)}
+  .check-list input{width:24px; height:24px; margin-top:2px; accent-color:var(--teal); flex:0 0 auto}
+  .confi{display:flex; gap:9px; flex-wrap:wrap; margin-top:10px}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:10px 14px; min-height:44px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .confi button[aria-pressed=true]{background:var(--teal); color:#fff; border-color:var(--teal)}
+
+  footer{max-width:1000px; margin:0 auto; padding:24px 18px 50px; color:var(--ink-soft); font-size:.85rem}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+  .live{position:fixed; bottom:0; left:0}
+  kbd{font-family:"Space Grotesk"; font-size:.8rem; background:#fff; border:1px solid var(--line); border-bottom-width:2px; border-radius:6px; padding:1px 6px}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Year 6 Spelling · Word Detectives · Lesson 15</p>
+    <h1>Data Report</h1>
+    <p class="hook">Time to file the case. Warm up your memory, label a real data graph, write up your findings — then prove every word in the weekly dictation test.</p>
+    <div class="meta-row" aria-label="Lesson details">
+      <span>Maths: Statistics &amp; Data</span>
+      <span>Focus: apply in context + weekly test</span>
+      <span>AC9E6LY08 · AC9E6LY09</span>
+      <span>20 minutes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Jump to a section">
+  <div class="pills-inner">
+    <a class="pill" href="#sprint">Memory Sprint</a>
+    <a class="pill" href="#recall">Case Notes</a>
+    <a class="pill" href="#graph">Read the Graph</a>
+    <a class="pill" href="#report">Field Report</a>
+    <a class="pill" href="#test">The Weekly Test</a>
+    <a class="pill" href="#closed">Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ===================== 1. MEMORY SPRINT ===================== -->
+  <section id="sprint">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>Memory Sprint</h2><p class="lead">Thirty seconds on the clock. Press start, then write every focus word you can remember in your book — no peeking. When the buzzer goes, reveal the list and check.</p></div></div>
+
+    <div class="card">
+      <div class="sprint-stage">
+        <div class="sprint-timer" id="sprintTimer" aria-live="polite">0:30</div>
+        <div class="sprint-side">
+          <div style="display:flex; gap:9px; flex-wrap:wrap">
+            <button class="btn amber" id="sprintStart">Start the sprint ▶</button>
+            <button class="btn ghost" id="sprintReveal" disabled>Reveal the 8 words</button>
+          </div>
+          <p style="font-size:.85rem; color:var(--ink-soft); margin-bottom:0">Write in your book — the page can’t see your list. The reveal unlocks when the timer ends (or tap it any time you’re ready to check).</p>
+        </div>
+      </div>
+      <div class="sprint-list" id="sprintList" aria-label="The eight focus words"></div>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Count your score and snap your list.</b> How many of 8 did you recall correctly? Record it before you move on.</div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. CASE NOTES STRIP ===================== -->
+  <section id="recall">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Case Notes — quick recall</h2><p class="lead">A 20-second refresher on the traps before you write and test. Glance, then go.</p></div></div>
+    <div class="card">
+      <div class="strip">
+        <div><b>statistics</b> — sta·tis·tics. Two t-i pairs.</div>
+        <div><b>frequency</b> — keep the q-u team: fre·quen·cy.</div>
+        <div><b>percentage</b> — per + cent + age.</div>
+        <div><b>estimation</b> — ends -tion, said /shun/.</div>
+        <div><b>probability</b> — -ity = a quality; prob·a·bil·i·ty.</div>
+        <div><b>categorical</b> — -ical, not “-icle”.</div>
+        <div><b>average</b> — av·er·age (3 beats).</div>
+        <div><b>variable</b> — var·i·a·ble; ends -able.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. READ THE GRAPH (signature) ===================== -->
+  <section id="graph">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>Read the Graph</h2><p class="lead">Label the survey graph with the right data word. <b>Tap a word</b> from the bank, then <b>tap the box</b> it belongs to (or use <kbd>Tab</kbd> + <kbd>Enter</kbd>). Right answers lock in green; a wrong tap flashes red and sends the word back. Unlimited tries.</p></div></div>
+
+    <div class="card">
+      <div class="graph-grid">
+        <div class="graph-wrap">
+          <svg viewBox="0 0 460 320" width="100%" role="img" aria-label="A column graph titled Favourite Playground Game showing four bars of different heights, with empty label boxes to fill in.">
+            <!-- title -->
+            <text x="230" y="24" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#1b2a4a">Favourite Playground Game (Year 6 survey)</text>
+            <!-- axes -->
+            <line x1="70" y1="50" x2="70" y2="250" stroke="#1b2a4a" stroke-width="2"/>
+            <line x1="70" y1="250" x2="430" y2="250" stroke="#1b2a4a" stroke-width="2"/>
+            <!-- y ticks -->
+            <text x="60" y="255" text-anchor="end" font-family="Atkinson Hyperlegible" font-size="11" fill="#56607a">0</text>
+            <text x="60" y="195" text-anchor="end" font-family="Atkinson Hyperlegible" font-size="11" fill="#56607a">5</text>
+            <text x="60" y="135" text-anchor="end" font-family="Atkinson Hyperlegible" font-size="11" fill="#56607a">10</text>
+            <text x="60" y="75"  text-anchor="end" font-family="Atkinson Hyperlegible" font-size="11" fill="#56607a">15</text>
+            <!-- bars -->
+            <rect x="92"  y="130" width="48" height="120" fill="#0e7c7b"/>
+            <rect x="170" y="166" width="48" height="84"  fill="#0e7c7b"/>
+            <rect x="248" y="94"  width="48" height="156" fill="#e8930c"/>
+            <rect x="326" y="190" width="48" height="60"  fill="#0e7c7b"/>
+            <!-- category labels -->
+            <text x="116" y="266" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="11" fill="#56607a">Soccer</text>
+            <text x="194" y="266" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="11" fill="#56607a">Tag</text>
+            <text x="272" y="266" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="11" fill="#56607a">Handball</text>
+            <text x="350" y="266" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="11" fill="#56607a">Skipping</text>
+
+            <!-- HOTSPOT A: y-axis = frequency (how often / count) -->
+            <g class="hotspot" id="hotA" tabindex="0" role="button" aria-label="Label box for the vertical axis, which counts how many students chose each game">
+              <rect class="hot-box" x="10" y="92" width="28" height="116" rx="7"></rect>
+              <text class="hot-text" id="txtA" x="24" y="150" text-anchor="middle" transform="rotate(-90 24 150)">? ? ?</text>
+            </g>
+            <!-- HOTSPOT B: x-axis groups = categorical -->
+            <g class="hotspot" id="hotB" tabindex="0" role="button" aria-label="Label box for the game names along the bottom, which are sorted into groups">
+              <rect class="hot-box" x="150" y="284" width="160" height="30" rx="7"></rect>
+              <text class="hot-text" id="txtB" x="230" y="303" text-anchor="middle">? ? ?</text>
+            </g>
+            <!-- HOTSPOT C: tallest bar = highest frequency, but label as 'the variable measured'? -> use 'average' marker line -->
+            <!-- average line -->
+            <line x1="70" y1="150" x2="430" y2="150" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+            <g class="hotspot" id="hotC" tabindex="0" role="button" aria-label="Label box for the red dashed line drawn at the mean value">
+              <rect class="hot-box" x="356" y="135" width="92" height="30" rx="7"></rect>
+              <text class="hot-text" id="txtC" x="402" y="154" text-anchor="middle">? ? ?</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="label-bank" id="labelBank" aria-label="Data word labels"></div>
+      </div>
+      <div role="status" aria-live="polite" id="graphMsg" class="lead" style="margin-top:10px">0 of 3 boxes labelled.</div>
+      <div style="margin-top:6px"><button class="btn ghost" id="graphHint">Need a hint?</button></div>
+    </div>
+
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot your fully-labelled graph.</b> Three green boxes = three data words spelt and placed correctly.</div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. FIELD REPORT (writing) ===================== -->
+  <section id="report">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>Field Report</h2><p class="lead">Write up the survey. In 2–3 sentences, describe what the graph shows. Use at least <b>three</b> focus words and underline each one.</p></div></div>
+
+    <div class="card">
+      <p style="font-size:.85rem;color:var(--ink-soft);margin-top:0">Focus words: <b>statistics · frequency · percentage · average · estimation · variable · categorical · probability</b></p>
+      <label for="writebox" class="sr-only">Write your report</label>
+      <textarea id="writebox" placeholder="Start writing here… e.g. Our statistics showed that handball had the highest frequency…"></textarea>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+        <button class="btn ghost" id="helpBtn" aria-expanded="false">I need a hand ▾</button>
+        <button class="btn amber" id="exampleBtn" disabled>Show a worked example 🔒</button>
+      </div>
+
+      <div class="help-box" id="helpBox">
+        <h3 style="margin-top:0">Sentence starters</h3>
+        <p>• Our <b>statistics</b> showed that …<br>• The highest <b>frequency</b> was for …<br>• A large <b>percentage</b> of students chose …<br>• Favourite game is <b>categorical</b> data because …</p>
+        <p style="margin-bottom:4px"><b>Cloze — fill the gaps:</b></p>
+        <p style="font-style:italic">Our ______ showed that handball had the highest ______. A large ______ of the class picked it. Favourite game is ______ data because it sorts into groups.</p>
+        <div class="wordbank-chips" aria-label="Word bank">
+          <button class="wb">statistics</button><button class="wb">frequency</button><button class="wb">percentage</button><button class="wb">average</button><button class="wb">estimation</button><button class="wb">variable</button><button class="wb">categorical</button><button class="wb">probability</button>
+        </div>
+        <p style="font-size:.82rem;color:var(--ink-soft);margin-bottom:0">Tap a word to drop it into your report.</p>
+      </div>
+
+      <div class="locked" id="lockMsg">🔒 Write at least one sentence of your own first — then the worked example unlocks.</div>
+      <div class="reveal-box" id="exampleBox">
+        <div class="remember" style="background:#fff;border:1.5px solid var(--line)">
+          <b style="color:var(--ink)">Worked example (one way to do it):</b><br>
+          <span style="display:block;margin-top:6px">Our <u>statistics</u> showed that handball had the highest <u>frequency</u>, chosen by a large <u>percentage</u> of the class. Favourite game is <u>categorical</u> data, and the <u>average</u> bar height was about nine students.</span>
+          <span style="display:block;margin-top:8px;font-size:.85rem;color:var(--ink-soft)">That uses five focus words. Yours only needs three — check each against your Case Notes.</span>
+        </div>
+      </div>
+
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>This box does not save.</b> <b>Screenshot your report now</b> and upload to OneNote before you close the page.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. WEEKLY TEST ===================== -->
+  <section id="test">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>The Weekly Test</h2><p class="lead">Eight sentences, one missing word each. Read it, type the word, press <b>Check</b>. It marks itself — your running score is up top. Press <kbd>Enter</kbd> to check, then again for the next one.</p></div></div>
+    <div class="card">
+      <div class="test-stats">
+        <div><span class="lab">Score</span><span class="big" id="tScore">0</span></div>
+        <div style="flex:1 1 160px"><span class="lab" id="tProgLab">Question 1 of 8</span><div class="progress-track"><div class="progress-fill" id="tProg"></div></div></div>
+      </div>
+      <div id="testArea"></div>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot your report card.</b> Record your score out of 8 and any words to practise, then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. CASE CLOSED ===================== -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">06</span><div><h2>Case Closed</h2><p class="lead">Tick your evidence, rate your confidence, and capture everything.</p></div></div>
+    <div class="card">
+      <h3>Evidence to capture (screenshot or photograph each one)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">My Memory Sprint list and recall score (/8)</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My fully-labelled survey graph (3 green boxes)</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">My 2–3 sentence Field Report (focus words underlined)</label></li>
+        <li><input type="checkbox" id="c4"><label for="c4">My Weekly Test report card (score / 8)</label></li>
+      </ul>
+      <h3 style="margin-top:18px">How confident am I with this week’s data words?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+      <div class="evidence" style="margin-top:18px;margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing here is saved.</b> Take your final screenshots now, then upload everything to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer><p>Year 6 Spelling · Word Detectives · Lesson 15: Data Report · Linked to ACARA v9 AC9E6LY08 &amp; AC9E6LY09. All content original. Works offline — no data is collected or stored.</p></footer>
+
+<div class="live sr-only" id="liveRegion" aria-live="assertive"></div>
+
+<script>
+"use strict";
+const $=(s,el=document)=>el.querySelector(s);
+const $$=(s,el=document)=>Array.from(el.querySelectorAll(s));
+const announce=(m)=>{const r=$("#liveRegion");r.textContent="";setTimeout(()=>r.textContent=m,30);};
+const shuffle=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(p=>p[1]);
+const FOCUS=["statistics","frequency","percentage","average","estimation","variable","categorical","probability"];
+
+/* =================================================================
+   1. MEMORY SPRINT
+==================================================================*/
+const timerEl=$("#sprintTimer"), startBtn=$("#sprintStart"), revealBtn=$("#sprintReveal"), listEl=$("#sprintList");
+let sprintT=30, sprintTimer=null, sprintRunning=false;
+function fmt(s){return "0:"+String(s).padStart(2,"0");}
+function revealWords(){
+  if(listEl.classList.contains("show")) return;
+  listEl.classList.add("show");
+  FOCUS.forEach(w=>{const s=document.createElement("span"); s.className="sprint-word"; s.textContent=w; listEl.appendChild(s);});
+  revealBtn.disabled=true; revealBtn.textContent="Words revealed ✓";
+  announce("The eight words are revealed. Check your list and count your score.");
+}
+startBtn.addEventListener("click",()=>{
+  if(sprintRunning) return;
+  sprintRunning=true; sprintT=30;
+  timerEl.classList.add("go"); timerEl.classList.remove("done");
+  timerEl.textContent=fmt(sprintT);
+  startBtn.disabled=true; startBtn.textContent="Sprint running…"; revealBtn.disabled=false;
+  announce("Sprint started. Write every focus word you can remember.");
+  sprintTimer=setInterval(()=>{
+    sprintT--; timerEl.textContent=fmt(Math.max(sprintT,0));
+    if(sprintT<=0){
+      clearInterval(sprintTimer); sprintRunning=false;
+      timerEl.classList.remove("go"); timerEl.classList.add("done"); timerEl.textContent="Time!";
+      startBtn.textContent="Run it again ↺"; startBtn.disabled=false;
+      announce("Time is up. Reveal the words and check your list.");
+    }
+  },1000);
+});
+revealBtn.addEventListener("click",revealWords);
+
+/* =================================================================
+   3. READ THE GRAPH (tap-a-label, tap-a-box)
+==================================================================*/
+const HOTSPOTS=[
+  { id:"hotA", txt:"txtA", word:"frequency",
+    hint:"The vertical axis counts how often each game was chosen — that count is the …",
+    good:"✓ frequency — the up-the-side axis shows how often (the count)." },
+  { id:"hotB", txt:"txtB", word:"categorical",
+    hint:"The games along the bottom sort into named groups, not numbers — that kind of data is …",
+    good:"✓ categorical — data sorted into named groups." },
+  { id:"hotC", txt:"txtC", word:"average",
+    hint:"The red dashed line sits at the typical value (the mean) — that’s the …",
+    good:"✓ average — the dashed line marks the mean value." },
+];
+const DECOYS=["percentage","variable"];
+let picked=null, graphSolved=0;
+const bank=$("#labelBank");
+shuffle([...HOTSPOTS.map(h=>h.word),...DECOYS]).forEach(w=>{
+  const b=document.createElement("button"); b.type="button"; b.className="label-chip"; b.textContent=w; b.dataset.word=w;
+  b.addEventListener("click",()=>setPicked(b));
+  bank.appendChild(b);
+});
+function setPicked(b){
+  if(b.classList.contains("used")) return;
+  if(picked===b){ picked.classList.remove("picked"); picked=null; return; }
+  if(picked) picked.classList.remove("picked");
+  picked=b; b.classList.add("picked");
+  announce("Picked "+b.dataset.word+". Now tap the box it labels.");
+}
+HOTSPOTS.forEach(h=>{
+  const g=document.getElementById(h.id);
+  const place=()=>{
+    if(g.classList.contains("right")) return;
+    if(!picked){ $("#graphMsg").textContent="Tap a word from the bank first, then tap a box."; return; }
+    const word=picked.dataset.word;
+    if(word===h.word){
+      g.classList.remove("nope"); g.classList.add("right");
+      document.getElementById(h.txt).textContent=h.word;
+      picked.classList.add("used"); picked.classList.remove("picked"); picked=null;
+      graphSolved++;
+      $("#graphMsg").textContent=h.good+"  ("+graphSolved+" of 3)";
+      announce(h.good);
+      if(graphSolved===HOTSPOTS.length){ $("#graphMsg").textContent="🎉 All three boxes labelled! Screenshot your graph."; }
+    }else{
+      g.classList.add("nope");
+      setTimeout(()=>g.classList.remove("nope"),550);
+      picked.classList.remove("picked"); const w=picked.dataset.word; picked=null;
+      $("#graphMsg").textContent="“"+w+"” doesn’t fit that box — it went back to the bank. Read the box’s clue and try again.";
+      announce("Not a match. The word went back to the bank.");
+    }
+  };
+  g.addEventListener("click",place);
+  g.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); place(); } });
+});
+$("#graphHint").addEventListener("click",()=>{
+  const next=HOTSPOTS.find(h=>!document.getElementById(h.id).classList.contains("right"));
+  $("#graphMsg").textContent= next ? "Clue: "+next.hint+" "+next.word.charAt(0)+"…" : "All boxes already labelled. 🎉";
+  announce($("#graphMsg").textContent);
+});
+
+/* =================================================================
+   4. FIELD REPORT (help + locked example + word bank)
+==================================================================*/
+const writebox=$("#writebox");
+const exampleBtn=$("#exampleBtn"), lockMsg=$("#lockMsg"), exampleBox=$("#exampleBox");
+writebox.addEventListener("input",()=>{
+  if(writebox.value.trim().length>=15){
+    exampleBtn.disabled=false; exampleBtn.textContent="Show a worked example";
+    lockMsg.style.display="none";
+  }else{
+    exampleBtn.disabled=true; exampleBtn.textContent="Show a worked example 🔒";
+    if(!exampleBox.classList.contains("show")) lockMsg.style.display="block";
+  }
+});
+exampleBtn.addEventListener("click",()=>{ exampleBox.classList.add("show"); lockMsg.style.display="none"; exampleBox.scrollIntoView({block:"nearest"}); });
+const helpBtn=$("#helpBtn"), helpBox=$("#helpBox");
+helpBtn.addEventListener("click",()=>{
+  const open=helpBox.classList.toggle("show");
+  helpBtn.setAttribute("aria-expanded",open?"true":"false");
+  helpBtn.textContent=open?"Hide the hand ▴":"I need a hand ▾";
+});
+$$(".wb").forEach(chip=>{
+  chip.addEventListener("click",()=>{
+    const w=chip.textContent;
+    const needsSpace=writebox.value.length>0 && !/\s$/.test(writebox.value);
+    writebox.value+=(needsSpace?" ":"")+w+" ";
+    writebox.focus(); writebox.dispatchEvent(new Event("input"));
+  });
+});
+
+/* =================================================================
+   5. WEEKLY TEST  (Week 5 dictation sentences — verbatim from unit plan)
+==================================================================*/
+const TEST=[
+ {word:"statistics",  before:"We used ",                              after:" to make sense of our survey results."},
+ {word:"frequency",   before:"The ",                                  after:" table showed how often each colour was chosen."},
+ {word:"percentage",  before:"A large ",                              after:" of the class walks to school each day."},
+ {word:"average",     before:"We added the scores and divided to find the ", after:"."},
+ {word:"estimation",  before:"Our ",                                  after:" of the crowd size was close to the real number."},
+ {word:"variable",    before:"Temperature was the ",                  after:" we changed in the experiment."},
+ {word:"categorical", before:"Favourite sport is ",                   after:" data because it sorts into groups."},
+ {word:"probability", before:"The ",                                  after:" of rolling a six on a fair die is one in six."},
+];
+let tI=0,tScore=0,tMissed=[];
+const testArea=$("#testArea");
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function renderTest(){
+  const q=TEST[tI];
+  $("#tProgLab").textContent="Question "+(tI+1)+" of "+TEST.length;
+  $("#tProg").style.width=Math.round(tI/TEST.length*100)+"%";
+  testArea.innerHTML="";
+  const card=document.createElement("div");card.className="test-card";
+  const sent=document.createElement("p");sent.className="test-sentence";
+  sent.innerHTML=esc(q.before)+'<span class="test-blank">&nbsp;</span>'+esc(q.after);
+  const row=document.createElement("div");row.className="test-row";
+  const inp=document.createElement("input");inp.className="test-input";inp.type="text";inp.autocomplete="off";inp.autocapitalize="off";inp.spellcheck=false;
+  inp.setAttribute("aria-label","Type the missing word for question "+(tI+1));inp.placeholder="type the missing word…";
+  const btn=document.createElement("button");btn.className="btn";btn.textContent="Check";
+  row.append(inp,btn);
+  const fb=document.createElement("div");fb.className="test-fb";
+  card.append(sent,row,fb);testArea.appendChild(card);inp.focus();
+  function submit(){
+    if(card.dataset.done)return;
+    const val=inp.value.trim().toLowerCase();
+    if(!val){fb.textContent="Type the word first.";fb.className="test-fb bad";return;}
+    card.dataset.done="1";inp.setAttribute("disabled","");btn.textContent="Next ›";btn.classList.add("amber");
+    if(val===q.word){tScore++;fb.textContent="✓ Correct — "+q.word;fb.className="test-fb good";}
+    else{tMissed.push(q.word);fb.innerHTML="✗ Not quite. The word is <b>"+q.word+"</b>.";fb.className="test-fb bad";}
+    $("#tScore").textContent=tScore;announce(val===q.word?"Correct":"Incorrect, the word is "+q.word);
+    btn.onclick=()=>{tI++;if(tI<TEST.length)renderTest();else report();};
+  }
+  btn.addEventListener("click",submit);
+  inp.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();if(card.dataset.done){tI++;if(tI<TEST.length)renderTest();else report();}else submit();}});
+}
+function report(){
+  $("#tProg").style.width="100%";$("#tProgLab").textContent="Complete!";
+  const pct=Math.round(tScore/TEST.length*100);
+  let line=pct===100?"Perfect score — every word nailed!":pct>=75?"Strong work — at standard and beyond.":pct>=50?"Good effort — a few to practise.":"Keep going — practise these and try again.";
+  let prac=tMissed.length?'<p style="font-family:Space Grotesk;font-weight:600;margin-top:6px">Words to practise:</p><ul>'+[...new Set(tMissed)].map(w=>"<li>"+w+"</li>").join("")+"</ul>":'<p style="margin-top:6px">No words to re-practise. 🎉</p>';
+  testArea.innerHTML='<div class="report"><div class="big">'+tScore+' / '+TEST.length+'</div><p class="lead" style="margin:4px auto">'+line+'</p>'+prac+'<button class="btn amber" id="tAgain" style="margin-top:10px">Retake the test ↺</button></div>';
+  $("#tAgain").addEventListener("click",()=>{tI=0;tScore=0;tMissed=[];$("#tScore").textContent=0;renderTest();});
+}
+renderTest();
+
+/* =================================================================
+   6. CONFIDENCE
+==================================================================*/
+$$("#confi button").forEach(b=>b.addEventListener("click",()=>{$$("#confi button").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");}));
+</script>
+</body>
+</html>

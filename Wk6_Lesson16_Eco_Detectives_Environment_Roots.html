@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 16 — Eco Detectives: Environment Roots | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4; --ink:#1b2a4a; --amber:#e8930c; --teal:#0e7c7b; --card:#ffffff; --line:#e6e1d6;
+    --amber-soft:#fdf0d9; --amber-edge:#f2c785; --teal-soft:#e1efee; --ink-soft:#56607a;
+    --good:#1f7a4d; --good-soft:#e3f3ea; --bad:#c0392b; --bad-soft:#fdeceb;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06); --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:"Atkinson Hyperlegible",system-ui,sans-serif; font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%; }
+  h1,h2,h3,.eyebrow,.pill,.opt,.big,.wb,.forge-chip,.end-tab{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  a{color:var(--teal)}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  header.band{ background:var(--ink); color:#fff; padding:30px 22px 26px; }
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{ text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px; }
+  .band h1{ font-family:"Space Grotesk"; font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em; }
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:62ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1; }
+
+  nav.pills{ position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px; }
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{ flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center; }
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{ font-family:"Space Grotesk"; font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto; }
+  .lead{color:var(--ink-soft); max-width:68ch}
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0; }
+
+  button{font-family:inherit}
+  .btn{ background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"; }
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn.amber:hover{background:#d98509}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  /* warm-up */
+  .q{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .q .stem{font-weight:700; margin-bottom:10px}
+  .opts{display:grid; gap:8px}
+  .opt{ text-align:left; background:#fcfbf7; border:1.5px solid var(--line); color:var(--ink); padding:11px 14px; border-radius:10px; cursor:pointer; min-height:44px; font-size:.95rem; }
+  .opt:hover{border-color:var(--teal)}
+  .opt.correct{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .opt.wrong{background:var(--bad-soft); border-color:var(--bad); color:#a8261b}
+  .opt[disabled]{cursor:default}
+  .fixup{ margin-top:10px; background:var(--amber-soft); border-left:5px solid var(--amber); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none; }
+  .fixup.show{display:block}
+  .fixup b{color:#a8540b}
+  .scorebar{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:12px 16px; }
+  .scorebar strong{font-family:"Space Grotesk"; font-size:1.15rem}
+
+  /* teaching */
+  .teach-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+  @media(max-width:680px){.teach-grid{grid-template-columns:1fr}}
+  .teach .svg-wrap{background:#fbfaf6; border:1px solid var(--line); border-radius:12px; padding:14px; margin:.4em 0 .7em}
+  .remember{ background:var(--teal-soft); border:1px solid #bfdedc; border-radius:10px; padding:10px 13px; font-size:.92rem; margin-top:8px; }
+  .remember b{color:var(--teal); font-family:"Space Grotesk"}
+
+  /* root explorer (reveal tabs) */
+  .end-tabs{display:flex; flex-wrap:wrap; gap:9px; margin-bottom:6px}
+  .end-tab{ font-weight:700; font-size:1.05rem; background:#fff; color:var(--ink); border:1.5px solid var(--line); border-radius:12px; padding:12px 18px; min-height:48px; cursor:pointer; }
+  .end-tab:hover{border-color:var(--teal)}
+  .end-tab[aria-expanded=true]{background:var(--teal); color:#fff; border-color:var(--teal)}
+  .end-panel{display:none; margin-top:6px}
+  .end-panel.show{display:block}
+
+  /* morpheme forge (signature) */
+  .forge-row{margin:.6em 0}
+  .forge-label{font-family:"Space Grotesk"; font-weight:600; font-size:.8rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin-bottom:6px}
+  .forge-bank{display:flex; flex-wrap:wrap; gap:9px}
+  .forge-chip{ font-weight:700; font-size:1.02rem; cursor:pointer; background:#fff; border:1.5px solid var(--line); color:var(--ink); border-radius:11px; padding:11px 15px; min-height:46px; }
+  .forge-chip.root{border-color:var(--amber-edge)}
+  .forge-chip.end{border-color:#bfdedc}
+  .forge-chip:hover{border-width:2px}
+  .forge-chip.sel{outline:3px solid var(--ink); outline-offset:2px}
+  .forge-chip.root.sel{background:var(--amber-soft)}
+  .forge-chip.end.sel{background:var(--teal-soft)}
+  .forge-chip.done{background:var(--good-soft); border-color:var(--good); color:var(--good); opacity:.6; pointer-events:none}
+  .forge-stage{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:14px 0 4px; background:#fbfaf6; border:1.5px dashed var(--amber-edge); border-radius:12px; padding:13px 15px; min-height:60px; }
+  .forge-slot{font-family:"Space Grotesk"; font-weight:700; font-size:1.3rem; color:var(--ink)}
+  .forge-plus{color:var(--ink-soft); font-size:1.2rem}
+  .forge-ghost{color:var(--ink-soft); font-style:italic; font-family:"Atkinson Hyperlegible"; font-weight:400; font-size:1rem}
+  .forge-fb{margin-top:8px; font-size:.92rem; min-height:1.2em}
+  .forge-fb.bad{color:#a8540b}
+  .forge-fb.good{color:var(--good); font-weight:700; font-family:"Space Grotesk"}
+  .forged-list{display:grid; gap:9px; margin-top:14px}
+  .forged-item{ display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; background:var(--good-soft); border:1.5px solid var(--good); border-radius:11px; padding:11px 14px; }
+  .forged-item .w{font-family:"Space Grotesk"; font-weight:700; font-size:1.15rem; color:var(--good)}
+  .forged-item .m{font-size:.9rem; color:var(--ink)}
+  .forged-item .star{margin-left:auto; font-size:.78rem; font-family:"Space Grotesk"; font-weight:700; color:#8a5a00; background:#ffe9c2; border:1px solid var(--amber-edge); border-radius:999px; padding:2px 9px}
+
+  /* writing / locked */
+  textarea{ width:100%; min-height:120px; border:1.5px solid var(--line); border-radius:12px; padding:13px; font-family:"Atkinson Hyperlegible"; font-size:1rem; resize:vertical; background:#fff; color:var(--ink); }
+  .wordbank-chips{display:flex; flex-wrap:wrap; gap:7px; margin:.5em 0}
+  .wb{font-size:.85rem; background:#fff; border:1.5px solid var(--line); border-radius:999px; padding:5px 11px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .wb:hover{border-color:var(--teal); color:var(--teal)}
+  .locked{ border:1.5px dashed var(--amber-edge); background:var(--amber-soft); border-radius:12px; padding:14px; margin-top:12px; text-align:center; color:#7a4a06; }
+  .reveal-box{display:none; margin-top:12px}
+  .reveal-box.show{display:block}
+  .help-box{display:none; margin-top:12px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:14px}
+  .help-box.show{display:block}
+
+  .evidence{ display:flex; gap:12px; align-items:flex-start; background:#fff7e9; border:1.5px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:14px 0; font-size:.92rem; }
+  .evidence svg{flex:0 0 auto; margin-top:2px}
+  .evidence b{color:#a8540b}
+
+  .check-list{list-style:none; padding:0; margin:.4em 0}
+  .check-list li{display:flex; gap:11px; align-items:flex-start; padding:9px 0; border-bottom:1px dashed var(--line)}
+  .check-list input{width:24px; height:24px; margin-top:2px; accent-color:var(--teal); flex:0 0 auto}
+  .confi{display:flex; gap:9px; flex-wrap:wrap; margin-top:10px}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:10px 14px; min-height:44px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .confi button[aria-pressed=true]{background:var(--teal); color:#fff; border-color:var(--teal)}
+
+  footer{max-width:1000px; margin:0 auto; padding:24px 18px 50px; color:var(--ink-soft); font-size:.85rem}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+  .live{position:fixed; bottom:0; left:0}
+  kbd{font-family:"Space Grotesk"; font-size:.8rem; background:#fff; border:1px solid var(--line); border-bottom-width:2px; border-radius:6px; padding:1px 6px}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Year 6 Spelling · Word Detectives · Lesson 16</p>
+    <h1>Eco Detectives: Environment Roots</h1>
+    <p class="hook">Crack the code of green words. Two tiny roots — <em>bio</em> (life) and <em>eco</em> (home) — and a couple of endings unlock almost every word about caring for our planet.</p>
+    <div class="meta-row" aria-label="Lesson details">
+      <span>HASS: Geography — Environment &amp; Sustainability</span>
+      <span>Focus: roots &amp; meaning</span>
+      <span>AC9E6LY08 · AC9E6LY09</span>
+      <span>20 minutes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Jump to a section">
+  <div class="pills-inner">
+    <a class="pill" href="#briefing">Eco Briefing</a>
+    <a class="pill" href="#casenotes">Case Notes</a>
+    <a class="pill" href="#explorer">Root Explorer</a>
+    <a class="pill" href="#forge">Morpheme Forge</a>
+    <a class="pill" href="#crack">Crack the Case</a>
+    <a class="pill" href="#closed">Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- 1. WARM-UP -->
+  <section id="briefing">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>Eco Briefing</h2><p class="lead">Five quick clues to warm up. Tap an answer for instant feedback. Wrong? The orange <b>fix-up</b> names the slip and the fix.</p></div></div>
+    <div id="quiz"></div>
+    <div class="scorebar" role="status" aria-live="polite">
+      <span>Score: <strong id="score">0</strong> / <strong id="total">5</strong></span>
+      <button class="btn ghost" id="jumpFix" disabled>Jump to my first fix-up ↧</button>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot before you close.</b> This page never saves your work. Capture your score and any fix-ups, then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 2. CASE NOTES -->
+  <section id="casenotes">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Case Notes</h2><p class="lead">Four facts for your eco notebook. Learn these and the long words stop being scary.</p></div></div>
+    <div class="teach-grid">
+
+      <div class="card teach">
+        <h3>1 · bio- = life</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 320 104" width="100%" height="104" role="img" aria-label="bio means life; bio plus diversity makes biodiversity, the variety of living things.">
+            <rect x="10" y="18" width="58" height="34" rx="8" fill="#fbe7c8" stroke="#e8930c"/>
+            <text x="39" y="41" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#1b2a4a">bio</text>
+            <text x="78" y="41" font-family="Space Grotesk" font-size="18" fill="#0e7c7b">+</text>
+            <rect x="96" y="18" width="104" height="34" rx="8" fill="#e1efee" stroke="#0e7c7b"/>
+            <text x="148" y="41" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#0e7c7b">diversity</text>
+            <text x="14" y="79" font-family="Space Grotesk" font-weight="700" font-size="17" fill="#1f7a4d">→ biodiversity</text>
+            <text x="10" y="98" font-family="Atkinson Hyperlegible" font-size="12.5" fill="#56607a">life + variety = the variety of living things</text>
+          </svg>
+        </div>
+        <p><b>bio-</b> means <b>life</b>. It starts words about living things: <b>bio</b>diversity, <b>bio</b>logy, <b>bio</b>sphere.</p>
+        <div class="remember"><b>Remember:</b> see <b>bio-</b>, think <b>life</b>.</div>
+      </div>
+
+      <div class="card teach">
+        <h3>2 · eco- = home / environment</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 320 104" width="100%" height="104" role="img" aria-label="eco means home; eco plus system makes ecosystem, living things and their home together.">
+            <rect x="10" y="18" width="56" height="34" rx="8" fill="#fbe7c8" stroke="#e8930c"/>
+            <text x="38" y="41" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#1b2a4a">eco</text>
+            <text x="76" y="41" font-family="Space Grotesk" font-size="18" fill="#0e7c7b">+</text>
+            <rect x="94" y="18" width="92" height="34" rx="8" fill="#e1efee" stroke="#0e7c7b"/>
+            <text x="140" y="41" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#0e7c7b">system</text>
+            <text x="14" y="79" font-family="Space Grotesk" font-weight="700" font-size="17" fill="#1f7a4d">→ ecosystem</text>
+            <text x="10" y="98" font-family="Atkinson Hyperlegible" font-size="12.5" fill="#56607a">home + system = living things sharing a home</text>
+          </svg>
+        </div>
+        <p><b>eco-</b> comes from the Greek for <b>home</b>. It links geography and science: <b>eco</b>system, <b>eco</b>logy.</p>
+        <div class="remember"><b>Remember:</b> <b>eco-</b> = the <b>home</b> living things share.</div>
+      </div>
+
+      <div class="card teach">
+        <h3>3 · de- = remove / take away</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 320 104" width="100%" height="104" role="img" aria-label="de means remove; de plus forestation makes deforestation, removing forests.">
+            <rect x="10" y="18" width="44" height="34" rx="8" fill="#fbe7c8" stroke="#e8930c"/>
+            <text x="32" y="41" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#1b2a4a">de</text>
+            <text x="62" y="41" font-family="Space Grotesk" font-size="18" fill="#0e7c7b">+</text>
+            <rect x="80" y="18" width="122" height="34" rx="8" fill="#e1efee" stroke="#0e7c7b"/>
+            <text x="141" y="41" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#0e7c7b">forestation</text>
+            <text x="14" y="79" font-family="Space Grotesk" font-weight="700" font-size="17" fill="#1f7a4d">→ deforestation</text>
+            <text x="10" y="98" font-family="Atkinson Hyperlegible" font-size="12.5" fill="#56607a">de = remove · removing the forests</text>
+          </svg>
+        </div>
+        <p>The prefix <b>de-</b> means <b>remove</b>, <b>down</b> or <b>undo</b>: <b>de</b>forestation, <b>de</b>grade, <b>de</b>compose.</p>
+        <div class="remember"><b>Remember:</b> <b>de-</b> takes something <b>away</b>.</div>
+      </div>
+
+      <div class="card teach">
+        <h3>4 · -tion &amp; -ity build nouns</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 320 90" width="100%" height="90" role="img" aria-label="-tion makes a process, like pollution; -ity makes a quality, like sustainability.">
+            <text x="10" y="34" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#1b2a4a">pollute → pollu<tspan fill="#e8930c">tion</tspan></text>
+            <text x="180" y="34" font-family="Atkinson Hyperlegible" font-size="12" fill="#56607a">-tion = a process</text>
+            <text x="10" y="64" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#1b2a4a">sustain → sustainabil<tspan fill="#0e7c7b">ity</tspan></text>
+            <text x="10" y="84" font-family="Atkinson Hyperlegible" font-size="12" fill="#56607a">-ity = a state or quality</text>
+          </svg>
+        </div>
+        <p><b>-tion</b> turns a word into a <b>process</b> (pollu<b>tion</b>, conserva<b>tion</b>). <b>-ity</b> makes a <b>quality</b> (sustainabil<b>ity</b>).</p>
+        <div class="remember"><b>Remember:</b> -tion = a process · -ity = a quality.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. ROOT EXPLORER -->
+  <section id="explorer">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>Root Explorer</h2><p class="lead">Tap a root to reveal what it means and the words it builds. You’ll need these meanings in the Forge.</p></div></div>
+    <div class="card">
+      <div class="end-tabs" role="group" aria-label="Choose a root to explore">
+        <button class="end-tab" id="tab-bio" aria-expanded="false" aria-controls="panel-bio">bio-</button>
+        <button class="end-tab" id="tab-eco" aria-expanded="false" aria-controls="panel-eco">eco-</button>
+        <button class="end-tab" id="tab-de"  aria-expanded="false" aria-controls="panel-de">de-</button>
+      </div>
+      <div class="end-panel" id="panel-bio" role="region" aria-labelledby="tab-bio">
+        <div class="remember"><b>bio- → life.</b> Anything to do with living things.</div>
+        <p style="margin-top:8px">Builds: <b>bio</b>diversity (variety of life), <b>bio</b>logy (study of life), <b>bio</b>sphere (the zone where life exists).</p>
+      </div>
+      <div class="end-panel" id="panel-eco" role="region" aria-labelledby="tab-eco">
+        <div class="remember"><b>eco- → home / environment.</b> From the Greek <i>oikos</i>, meaning house.</div>
+        <p style="margin-top:8px">Builds: <b>eco</b>system (living things + their home), <b>eco</b>logy (study of how living things share a home).</p>
+      </div>
+      <div class="end-panel" id="panel-de" role="region" aria-labelledby="tab-de">
+        <div class="remember"><b>de- → remove / down / undo.</b> It reverses or reduces something.</div>
+        <p style="margin-top:8px">Builds: <b>de</b>forestation (removing forests), <b>de</b>grade (break down), <b>de</b>compose (rot down into parts).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. MORPHEME FORGE (signature) -->
+  <section id="forge">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>Morpheme Forge</h2><p class="lead">Build the word. <b>Tap a root</b>, then <b>tap an ending</b> — the forge tells you if they join into a real environment word and what it means. Find all <b>6 core words</b> (plus a bonus stretch word!). Wrong joins give a clue. Unlimited tries.</p></div></div>
+
+    <div class="card">
+      <div class="forge-row">
+        <div class="forge-label">Roots</div>
+        <div class="forge-bank" id="rootBank" role="group" aria-label="Root chips"></div>
+      </div>
+      <div class="forge-row">
+        <div class="forge-label">Endings</div>
+        <div class="forge-bank" id="endBank" role="group" aria-label="Ending chips"></div>
+      </div>
+
+      <div class="forge-stage" id="forgeStage" aria-live="polite">
+        <span class="forge-ghost" id="forgeGhost">Tap a root, then an ending…</span>
+        <span class="forge-slot" id="slotRoot" hidden></span>
+        <span class="forge-plus" id="slotPlus" hidden>+</span>
+        <span class="forge-slot" id="slotEnd" hidden></span>
+      </div>
+      <div class="forge-fb" id="forgeFb" role="status" aria-live="polite"></div>
+
+      <div style="margin-top:10px; display:flex; gap:9px; flex-wrap:wrap">
+        <button class="btn ghost" id="forgeHint">Need a hint?</button>
+        <span class="counter" id="forgeCount" style="align-self:center; color:var(--ink-soft); font-size:.9rem">0 of 6 core words forged.</span>
+      </div>
+
+      <div class="forged-list" id="forgedList" aria-label="Words you have forged"></div>
+    </div>
+
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot your forged words.</b> Each green card shows the word and its meaning — that’s your study map. The page won’t keep it.</div>
+    </div>
+  </section>
+
+  <!-- 5. CRACK THE CASE -->
+  <section id="crack">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>Crack the Case</h2><p class="lead">Put the words to work. Write 2–3 sentences about protecting an environment. Use at least <b>three</b> focus words and underline each one.</p></div></div>
+    <div class="card">
+      <p style="font-size:.85rem;color:var(--ink-soft);margin-top:0">Focus words: <b>environment · sustainability · ecosystem · biodiversity · conservation · vegetation · pollution · climate</b></p>
+      <label for="writebox" class="sr-only">Write your sentences</label>
+      <textarea id="writebox" placeholder="Start writing here… e.g. We can protect the environment by reducing pollution and looking after every ecosystem…"></textarea>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+        <button class="btn ghost" id="helpBtn" aria-expanded="false">I need a hand ▾</button>
+        <button class="btn amber" id="exampleBtn" disabled>Show a worked example 🔒</button>
+      </div>
+
+      <div class="help-box" id="helpBox">
+        <h3 style="margin-top:0">Sentence starters</h3>
+        <p>• We can protect the <b>environment</b> by …<br>• Reducing <b>pollution</b> helps the <b>ecosystem</b> because …<br>• <b>Conservation</b> matters because …<br>• A healthy <b>biodiversity</b> means …</p>
+        <p style="margin-bottom:4px"><b>Cloze — fill the gaps:</b></p>
+        <p style="font-style:italic">We must look after the ______. Too much ______ harms the ______ where animals live. ______ projects protect the ______ of plants and animals.</p>
+        <div class="wordbank-chips" aria-label="Word bank">
+          <button class="wb">environment</button><button class="wb">sustainability</button><button class="wb">ecosystem</button><button class="wb">biodiversity</button><button class="wb">conservation</button><button class="wb">vegetation</button><button class="wb">pollution</button><button class="wb">climate</button>
+        </div>
+        <p style="font-size:.82rem;color:var(--ink-soft);margin-bottom:0">Tap a word to drop it into your writing box.</p>
+      </div>
+
+      <div class="locked" id="lockMsg">🔒 Write at least one sentence of your own first — then the worked example unlocks.</div>
+      <div class="reveal-box" id="exampleBox">
+        <div class="remember" style="background:#fff;border:1.5px solid var(--line)">
+          <b style="color:var(--ink)">Worked example (one way to do it):</b><br>
+          <span style="display:block;margin-top:6px">We must protect the <u>environment</u> for the future. Cutting <u>pollution</u> keeps every <u>ecosystem</u> healthy, and <u>conservation</u> projects guard the <u>biodiversity</u> of our forests and reefs.</span>
+          <span style="display:block;margin-top:8px;font-size:.85rem;color:var(--ink-soft)">That uses five focus words. Yours only needs three — check each is spelt correctly using your Case Notes.</span>
+        </div>
+      </div>
+
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>This box does not save.</b> When your sentences are ready, <b>screenshot them now</b> and upload to OneNote before closing.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CASE CLOSED -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">06</span><div><h2>Case Closed</h2><p class="lead">Tick your evidence, rate your confidence, and capture everything before you go.</p></div></div>
+    <div class="card">
+      <h3>Evidence to capture (screenshot or photograph each one)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">Eco Briefing score and any fix-up notes I read</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My forged words (green cards) with their meanings</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">My 2–3 sentences (focus words underlined)</label></li>
+      </ul>
+      <h3 style="margin-top:18px">How confident am I with this week’s roots and meanings?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+      <div class="evidence" style="margin-top:18px;margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing here is saved.</b> Take your final screenshots now, then upload everything to OneNote. Closing the tab clears it all.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer><p>Year 6 Spelling · Word Detectives · Lesson 16: Eco Detectives — Environment Roots · Linked to ACARA v9 AC9E6LY08 &amp; AC9E6LY09. All content original. Works offline — no data is collected or stored.</p></footer>
+
+<div class="live sr-only" id="liveRegion" aria-live="assertive"></div>
+
+<script>
+"use strict";
+const $=(s,el=document)=>el.querySelector(s);
+const $$=(s,el=document)=>Array.from(el.querySelectorAll(s));
+const announce=(m)=>{const r=$("#liveRegion");r.textContent="";setTimeout(()=>r.textContent=m,30);};
+const shuffle=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(p=>p[1]);
+
+/* 1. WARM-UP */
+const QUIZ=[
+  { stem:"The root “bio-” means…", opts:["earth","life","water"], correct:1,
+    fix:"<b>bio-</b> means <b>life</b> — biodiversity is the variety of living things." },
+  { stem:"The root “eco-” is linked to…", opts:["a star","home / environment","a number"], correct:1,
+    fix:"<b>eco-</b> comes from the Greek for <b>home</b> — an ecosystem is the home living things share." },
+  { stem:"“biodiversity” means…", opts:["a kind of map","the variety of living things","a lack of water"], correct:1,
+    fix:"Break it up: <b>bio</b> (life) + diversity (variety) = the <b>variety of living things</b>." },
+  { stem:"The prefix “de-” (as in deforestation) means…", opts:["add more","remove / take down","join together"], correct:1,
+    fix:"<b>de-</b> means <b>remove</b> or <b>undo</b> — deforestation is the removing of forests." },
+  { stem:"Which word means “protecting and saving nature”?", opts:["pollution","conservation","vegetation"], correct:1,
+    fix:"<b>conservation</b> = protecting and saving. Pollution harms it; vegetation is the plant life." },
+];
+let score=0, firstFixIndex=null;
+const quizEl=$("#quiz"); $("#total").textContent=QUIZ.length;
+QUIZ.forEach((q,qi)=>{
+  const card=document.createElement("div"); card.className="q"; card.id="q"+qi;
+  const stem=document.createElement("p"); stem.className="stem"; stem.textContent=(qi+1)+". "+q.stem;
+  const opts=document.createElement("div"); opts.className="opts"; opts.setAttribute("role","group"); opts.setAttribute("aria-label",q.stem);
+  q.opts.forEach((text,oi)=>{ const b=document.createElement("button"); b.className="opt"; b.type="button"; b.textContent=text;
+    b.addEventListener("click",()=>handleAnswer(card,opts,b,q,qi,oi)); opts.appendChild(b); });
+  const fix=document.createElement("div"); fix.className="fixup"; fix.id="fix"+qi; fix.tabIndex=-1; fix.innerHTML='<b>Fix-up:</b> '+q.fix;
+  card.append(stem,opts,fix); quizEl.appendChild(card);
+});
+function handleAnswer(card,opts,btn,q,qi,oi){
+  if(card.dataset.done) return; card.dataset.done="1";
+  $$(".opt",opts).forEach(b=>b.setAttribute("disabled",""));
+  opts.children[q.correct].classList.add("correct");
+  if(oi===q.correct){ btn.classList.add("correct"); score++; $("#score").textContent=score; announce("Correct. Score "+score+" of "+QUIZ.length); }
+  else{ btn.classList.add("wrong"); $("#fix"+qi).classList.add("show");
+    if(firstFixIndex===null){ firstFixIndex=qi; $("#jumpFix").disabled=false; } announce("Not quite. Read the fix-up note."); }
+}
+$("#jumpFix").addEventListener("click",()=>{ if(firstFixIndex!==null){ $("#q"+firstFixIndex).scrollIntoView({block:"center"}); $("#fix"+firstFixIndex).focus(); } });
+
+/* 3. ROOT EXPLORER */
+$$(".end-tab").forEach(tab=>{
+  tab.addEventListener("click",()=>{
+    const panel=$("#"+tab.getAttribute("aria-controls")); const open=panel.classList.contains("show");
+    $$(".end-tab").forEach(t=>t.setAttribute("aria-expanded","false"));
+    $$(".end-panel").forEach(p=>p.classList.remove("show"));
+    if(!open){ tab.setAttribute("aria-expanded","true"); panel.classList.add("show"); announce(tab.textContent+" revealed."); }
+  });
+});
+
+/* 4. MORPHEME FORGE */
+const ROOTS=[
+  {id:"bio",     label:"bio",     mean:"life"},
+  {id:"eco",     label:"eco",     mean:"home"},
+  {id:"conserv", label:"conserv", mean:"protect / keep"},
+  {id:"veget",   label:"veget",   mean:"plant / grow"},
+  {id:"pollut",  label:"pollut",  mean:"make dirty"},
+  {id:"sustain", label:"sustain", mean:"keep going"},
+  {id:"de",      label:"de",      mean:"remove"},
+];
+const ENDS=[
+  {id:"diversity", label:"-diversity"},
+  {id:"system",    label:"-system"},
+  {id:"ation",     label:"-ation"},
+  {id:"ion",       label:"-ion"},
+  {id:"ability",   label:"-ability"},
+  {id:"forestation", label:"-forestation"},
+];
+// valid forges: rootId+endId -> {word, mean, stretch}
+const FORGE={
+  "bio|diversity":   {word:"biodiversity",   mean:"the variety of all living things"},
+  "eco|system":      {word:"ecosystem",      mean:"living things and the home they share"},
+  "conserv|ation":   {word:"conservation",   mean:"protecting and saving nature"},
+  "veget|ation":     {word:"vegetation",     mean:"the plants that cover an area"},
+  "pollut|ion":      {word:"pollution",      mean:"harmful substances in the environment"},
+  "sustain|ability": {word:"sustainability", mean:"using resources without wasting them"},
+  "de|forestation":  {word:"deforestation",  mean:"the removing of forests", stretch:true},
+};
+const CORE_TOTAL=6;
+let selRoot=null, selEnd=null, coreForged=0;
+const found=new Set();
+const rootBank=$("#rootBank"), endBank=$("#endBank");
+const slotRoot=$("#slotRoot"), slotEnd=$("#slotEnd"), slotPlus=$("#slotPlus"), ghost=$("#forgeGhost");
+const forgeFb=$("#forgeFb"), forgedList=$("#forgedList"), forgeCount=$("#forgeCount");
+
+shuffle(ROOTS).forEach(r=>{
+  const b=document.createElement("button"); b.type="button"; b.className="forge-chip root"; b.textContent=r.label; b.dataset.id=r.id;
+  b.setAttribute("aria-pressed","false");
+  b.addEventListener("click",()=>pickRoot(b,r)); rootBank.appendChild(b);
+});
+shuffle(ENDS).forEach(e=>{
+  const b=document.createElement("button"); b.type="button"; b.className="forge-chip end"; b.textContent=e.label; b.dataset.id=e.id;
+  b.setAttribute("aria-pressed","false");
+  b.addEventListener("click",()=>pickEnd(b,e)); endBank.appendChild(b);
+});
+function refreshStage(){
+  if(selRoot||selEnd){ ghost.hidden=true; } else { ghost.hidden=false; }
+  slotRoot.hidden=!selRoot; slotPlus.hidden=!(selRoot&&selEnd); slotEnd.hidden=!selEnd;
+  slotRoot.textContent=selRoot?selRoot.label:""; slotEnd.textContent=selEnd?("-"+selEnd.id):"";
+}
+function pickRoot(btn,r){
+  if(btn.classList.contains("done")) return;
+  $$(".forge-chip.root").forEach(x=>{x.classList.remove("sel"); x.setAttribute("aria-pressed","false");});
+  if(selRoot&&selRoot.id===r.id){ selRoot=null; } else { selRoot=r; btn.classList.add("sel"); btn.setAttribute("aria-pressed","true"); }
+  refreshStage(); tryForge();
+}
+function pickEnd(btn,e){
+  $$(".forge-chip.end").forEach(x=>{x.classList.remove("sel"); x.setAttribute("aria-pressed","false");});
+  if(selEnd&&selEnd.id===e.id){ selEnd=null; } else { selEnd=e; btn.classList.add("sel"); btn.setAttribute("aria-pressed","true"); }
+  refreshStage(); tryForge();
+}
+function clearSel(){
+  selRoot=null; selEnd=null;
+  $$(".forge-chip").forEach(x=>{x.classList.remove("sel"); x.setAttribute("aria-pressed","false");});
+  refreshStage();
+}
+function tryForge(){
+  if(!(selRoot&&selEnd)) return;
+  const key=selRoot.id+"|"+selEnd.id;
+  const hit=FORGE[key];
+  if(hit){
+    if(found.has(hit.word)){ forgeFb.className="forge-fb bad"; forgeFb.textContent="You’ve already forged “"+hit.word+"”. Try another pair."; clearSel(); return; }
+    found.add(hit.word);
+    forgeFb.className="forge-fb good"; forgeFb.textContent="✓ Forged “"+hit.word+"” — "+hit.mean+".";
+    // mark the root done (each root forges one word)
+    const rb=$$(".forge-chip.root").find(x=>x.dataset.id===selRoot.id); if(rb){ rb.classList.add("done"); rb.setAttribute("aria-disabled","true"); }
+    const item=document.createElement("div"); item.className="forged-item";
+    item.innerHTML='<span class="w">'+hit.word+'</span><span class="m">'+hit.mean+'</span>'+(hit.stretch?'<span class="star">★ stretch</span>':'');
+    forgedList.appendChild(item);
+    if(!hit.stretch){ coreForged++; forgeCount.textContent=coreForged+" of "+CORE_TOTAL+" core words forged."; }
+    announce("Forged "+hit.word+". "+hit.mean);
+    if(coreForged===CORE_TOTAL){ forgeCount.textContent="🎉 All 6 core words forged! Try the stretch word with de-."; }
+    clearSel();
+  }else{
+    forgeFb.className="forge-fb bad";
+    forgeFb.innerHTML="“"+selRoot.label+"” + “-"+selEnd.id+"” isn’t one of our words. <b>"+selRoot.label+"</b> means “"+selRoot.mean+"” — pick an ending that matches that meaning.";
+    announce("Not a real word. "+selRoot.label+" means "+selRoot.mean+". Try again.");
+    clearSel();
+  }
+}
+$("#forgeHint").addEventListener("click",()=>{
+  const next=Object.values(FORGE).find(v=>!found.has(v.word));
+  if(!next){ forgeFb.className="forge-fb good"; forgeFb.textContent="Every word is forged. 🎉"; return; }
+  // find its root meaning + a definition nudge
+  const entry=Object.entries(FORGE).find(([k,v])=>v.word===next.word);
+  const rootId=entry[0].split("|")[0];
+  const root=ROOTS.find(r=>r.id===rootId);
+  forgeFb.className="forge-fb bad";
+  forgeFb.innerHTML="Hint: which word means “"+next.mean+"”? Start with the root <b>"+root.label+"</b> (“"+root.mean+"”).";
+  announce(forgeFb.textContent);
+});
+
+/* 5. CRACK THE CASE */
+const writebox=$("#writebox"), exampleBtn=$("#exampleBtn"), lockMsg=$("#lockMsg"), exampleBox=$("#exampleBox");
+writebox.addEventListener("input",()=>{
+  if(writebox.value.trim().length>=15){ exampleBtn.disabled=false; exampleBtn.textContent="Show a worked example"; lockMsg.style.display="none"; }
+  else{ exampleBtn.disabled=true; exampleBtn.textContent="Show a worked example 🔒"; if(!exampleBox.classList.contains("show")) lockMsg.style.display="block"; }
+});
+exampleBtn.addEventListener("click",()=>{ exampleBox.classList.add("show"); lockMsg.style.display="none"; exampleBox.scrollIntoView({block:"nearest"}); });
+const helpBtn=$("#helpBtn"), helpBox=$("#helpBox");
+helpBtn.addEventListener("click",()=>{ const open=helpBox.classList.toggle("show"); helpBtn.setAttribute("aria-expanded",open?"true":"false"); helpBtn.textContent=open?"Hide the hand ▴":"I need a hand ▾"; });
+$$(".wb").forEach(chip=>{ chip.addEventListener("click",()=>{ const w=chip.textContent; const needsSpace=writebox.value.length>0 && !/\s$/.test(writebox.value); writebox.value+=(needsSpace?" ":"")+w+" "; writebox.focus(); writebox.dispatchEvent(new Event("input")); }); });
+
+/* 6. CONFIDENCE */
+$$("#confi button").forEach(b=>b.addEventListener("click",()=>{ $$("#confi button").forEach(x=>x.setAttribute("aria-pressed","false")); b.setAttribute("aria-pressed","true"); }));
+</script>
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7 — The Cartographer's Code | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4; --ink:#1b2a4a; --amber:#e8930c; --teal:#0e7c7b; --card:#fff;
+    --line:#e6e1d6; --amber-soft:#fdf0d9; --amber-edge:#f2c785; --teal-soft:#e1efee;
+    --ink-soft:#56607a; --good:#1f7a4d; --good-soft:#e3f3ea; --bad:#c0392b; --bad-soft:#fdeceb;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06); --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Atkinson Hyperlegible",system-ui,sans-serif; font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%}
+  h1,h2,h3,.eyebrow,.pill,.uns-letter,.slot-letter,.pair-w,.cellL{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  header.band{background:var(--ink); color:#fff; padding:30px 22px 26px}
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px}
+  .band h1{font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em}
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:62ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1}
+
+  nav.pills{position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px}
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto; font-family:"Space Grotesk"}
+  .lead{color:var(--ink-soft); max-width:66ch}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0}
+
+  button{font-family:inherit}
+  .btn{background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"}
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  /* warm-up quiz */
+  .q{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .q .stem{font-weight:700; margin-bottom:10px}
+  .opts{display:grid; gap:8px}
+  .opt{text-align:left; background:#fcfbf7; border:1.5px solid var(--line); color:var(--ink); padding:11px 14px; border-radius:10px; cursor:pointer; min-height:44px; font-size:.95rem}
+  .opt:hover{border-color:var(--teal)}
+  .opt.correct{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .opt.wrong{background:var(--bad-soft); border-color:var(--bad); color:#a8261b}
+  .opt[disabled]{cursor:default}
+  .fixup{margin-top:10px; background:var(--amber-soft); border-left:5px solid var(--amber); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none}
+  .fixup.show{display:block}
+  .fixup b{color:#a8540b}
+  .scorebar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:12px 16px}
+  .scorebar strong{font-family:"Space Grotesk"; font-size:1.15rem}
+
+  /* teaching cards */
+  .teach-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  @media(max-width:760px){.teach-grid{grid-template-columns:1fr}}
+  .teach .svg-wrap{background:#fbfaf6; border:1px solid var(--line); border-radius:12px; padding:12px; margin:.3em 0 .6em}
+  .remember{background:var(--teal-soft); border:1px solid #bfdedc; border-radius:10px; padding:10px 13px; font-size:.9rem; margin-top:8px}
+  .remember b{color:var(--teal); font-family:"Space Grotesk"}
+  .graph-fam{display:flex; flex-wrap:wrap; gap:6px; margin-top:4px}
+  .graph-fam span{font-size:.82rem; background:#fbfaf6; border:1px solid var(--line); border-radius:8px; padding:4px 9px; font-family:"Space Grotesk"; font-weight:600}
+  .graph-fam b{color:var(--teal)}
+
+  /* unscramble */
+  .unscram{display:grid; gap:14px}
+  .unscram-card{background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:16px; box-shadow:var(--shadow)}
+  .uns-clue{color:var(--ink-soft); font-size:.92rem; margin-bottom:10px}
+  .uns-clue b{color:var(--ink)}
+  .uns-answer{display:flex; gap:5px; flex-wrap:wrap; min-height:54px; background:#fbfaf6; border:2px dashed var(--amber-edge); border-radius:10px; padding:8px; margin-bottom:10px; align-items:center}
+  .uns-answer.solved{border-style:solid; border-color:var(--good); background:var(--good-soft)}
+  .uns-answer .ph{color:var(--ink-soft); font-size:.85rem; font-family:"Space Grotesk"; padding:0 6px}
+  .slot-letter{width:38px; height:44px; border-radius:8px; background:var(--ink); color:#fff; border:none; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.2rem; cursor:pointer}
+  .uns-answer.solved .slot-letter{background:var(--good)}
+  .uns-pool{display:flex; gap:6px; flex-wrap:wrap}
+  .uns-letter{width:44px; height:50px; border-radius:9px; border:2px solid var(--line); background:#fff; font-weight:700; font-size:1.3rem; cursor:pointer; color:var(--ink)}
+  .uns-letter:hover{border-color:var(--teal)}
+  .uns-letter.used{opacity:.28; pointer-events:none}
+  .uns-foot{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:12px}
+  .uns-msg{font-family:"Space Grotesk"; font-weight:700}
+  .uns-msg.good{color:var(--good)} .uns-msg.bad{color:var(--bad)}
+  .uns-tally{font-family:"Space Grotesk"; font-weight:700; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:11px 16px; margin-bottom:4px}
+
+  /* pair match */
+  .pair-grid{display:grid; grid-template-columns:200px 1fr; gap:14px}
+  @media(max-width:640px){.pair-grid{grid-template-columns:1fr}}
+  .pair-col{display:flex; flex-direction:column; gap:9px}
+  .pair-w{border:2px solid var(--line); background:#fff; border-radius:11px; padding:13px; font-weight:700; cursor:pointer; min-height:48px; color:var(--ink); text-align:left}
+  .pair-w[aria-pressed=true]{border-color:var(--ink); background:#f1efe9}
+  .pair-w.done{background:var(--good-soft); border-color:var(--good); color:var(--good); cursor:default}
+  .pair-m{border:1.5px solid var(--line); background:#fcfbf7; border-radius:11px; padding:13px; cursor:pointer; min-height:48px; text-align:left; color:var(--ink); font-size:.96rem}
+  .pair-m:hover{border-color:var(--teal)}
+  .pair-m.done{background:var(--good-soft); border-color:var(--good); color:var(--good); cursor:default}
+  .pair-m.nope{background:var(--bad-soft); border-color:var(--bad)}
+  .pair-msg{font-family:"Space Grotesk"; font-weight:700; margin-top:10px}
+
+  /* spell-it */
+  .spell-card{border:1.5px solid var(--line); border-radius:14px; padding:16px; margin:12px 0; background:#fff}
+  .spell-clue{font-weight:700; margin-bottom:4px}
+  .spell-clue .tag{font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); display:block; font-weight:600; margin-bottom:2px; font-family:"Space Grotesk"}
+  .spell-row{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:8px}
+  .spell-input{flex:1 1 220px; min-width:180px; border:1.5px solid var(--line); border-radius:10px; padding:11px 13px; font-family:"Atkinson Hyperlegible"; font-size:1.05rem; background:#fff; color:var(--ink)}
+  .spell-cells{display:flex; gap:5px; flex-wrap:wrap; margin-top:10px; min-height:6px}
+  .cellL{width:36px; height:44px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.15rem; border:1.5px solid var(--line); background:#fff}
+  .cellL.ok{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .cellL.no{background:var(--bad-soft); border-color:var(--bad); color:#a8261b}
+  .spell-msg{margin-top:8px; font-weight:700; font-family:"Space Grotesk"; min-height:1.3em}
+  .spell-msg.good{color:var(--good)} .spell-msg.bad{color:var(--bad)}
+  .spell-help{display:none; margin-top:10px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:10px; padding:11px 13px; font-size:.92rem}
+  .spell-help.show{display:block}
+
+  /* evidence + checklist */
+  .evidence{display:flex; gap:12px; align-items:flex-start; background:#fff7e9; border:1.5px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:14px 0; font-size:.92rem}
+  .evidence svg{flex:0 0 auto; margin-top:2px}
+  .evidence b{color:#a8540b}
+  .check-list{list-style:none; padding:0; margin:.4em 0}
+  .check-list li{display:flex; gap:11px; align-items:flex-start; padding:9px 0; border-bottom:1px dashed var(--line)}
+  .check-list input{width:24px; height:24px; margin-top:2px; accent-color:var(--teal); flex:0 0 auto}
+  .confi{display:flex; gap:9px; flex-wrap:wrap; margin-top:10px}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:10px 14px; min-height:44px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .confi button[aria-pressed=true]{background:var(--teal); color:#fff; border-color:var(--teal)}
+
+  footer{max-width:1000px; margin:0 auto; padding:24px 18px 50px; color:var(--ink-soft); font-size:.85rem}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Year 6 Spelling · Word Detectives · Lesson 7</p>
+    <h1>The Cartographer's Code</h1>
+    <p class="hook">New territory: geography. Mapmakers built their words from Greek and Latin roots — crack the code and you can read and spell the language of the land.</p>
+    <div class="meta-row" aria-label="Lesson details">
+      <span>HASS: Geography</span>
+      <span>Focus: roots · -graph, topo-, carto-</span>
+      <span>AC9E6LY09</span>
+      <span>20 minutes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Jump to a section">
+  <div class="pills-inner">
+    <a class="pill" href="#briefing">Survey Briefing</a>
+    <a class="pill" href="#notes">Field Notes</a>
+    <a class="pill" href="#crack">Coordinate Crack</a>
+    <a class="pill" href="#match">Survey Match</a>
+    <a class="pill" href="#spell">Spell-It Lab</a>
+    <a class="pill" href="#closed">Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- 1. WARM-UP -->
+  <section id="briefing">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>Survey Briefing</h2><p class="lead">A quick survey before you map the territory. Tap an answer — wrong ones reveal an orange <b>fix-up</b>.</p></div></div>
+    <div id="quiz"></div>
+    <div class="scorebar" role="status" aria-live="polite">
+      <span>Score: <strong id="score">0</strong> / <strong id="total">5</strong></span>
+      <button class="btn ghost" id="jumpFix" disabled>Jump to my first fix-up ↧</button>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot before you close.</b> Nothing here is saved — capture your score, then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 2. TEACHING -->
+  <section id="notes">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Field Notes</h2><p class="lead">A surveyor’s toolkit of roots. Learn these and the long words start to make sense.</p></div></div>
+    <div class="teach-grid">
+      <div class="card teach">
+        <h3>“-graph” = write / record</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 300 64" width="100%" height="64" role="img" aria-label="The root graph means write or record, as in topography and cartography.">
+            <text x="10" y="30" font-family="Space Grotesk" font-weight="700" font-size="17" fill="#0e7c7b">-graph / -graphy</text>
+            <text x="10" y="52" font-family="Atkinson Hyperlegible" font-size="14" fill="#1b2a4a">= to write or record something down</text>
+          </svg>
+        </div>
+        <p>You already know it: photo<b>graph</b>, auto<b>graph</b>, geo<b>graphy</b>.</p>
+        <div class="graph-fam"><span>topo<b>graphy</b></span><span>carto<b>graphy</b></span><span>geo<b>graphy</b></span></div>
+        <div class="remember"><b>Remember:</b> the /f/ in -graphy is spelt <b>ph</b>.</div>
+      </div>
+      <div class="card teach">
+        <h3>Map roots: topo- &amp; carto-</h3>
+        <p><b>topo-</b> = place / land · <b>carto-</b> = map.</p>
+        <p>So <b>topography</b> = recording the shape of the land, and <b>cartography</b> = map-making.</p>
+        <div class="remember"><b>Remember:</b> root + -graphy tells you what is being recorded.</div>
+      </div>
+      <div class="card teach">
+        <h3>Tricky Latin twins</h3>
+        <p><b>latitude</b> lines run a-cross (like a <b>lad</b>der); <b>longitude</b> lines are <b>long</b>, top to bottom.</p>
+        <p><b>peninsula</b> = <i>paene</i> (almost) + <i>insula</i> (island).</p>
+        <div class="remember"><b>Remember:</b> a memory hook beats a lucky guess.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. COORDINATE CRACK (unscramble) -->
+  <section id="crack">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>Coordinate Crack</h2><p class="lead">The survey words have been scrambled. Tap the letters <b>in the right order</b> to rebuild each one — use the clue. Tap a placed letter to send it back. Need a leg-up? Hit <b>Hint</b>.</p></div></div>
+
+    <div class="uns-tally" role="status" aria-live="polite" id="unsTally">Words cracked: 0 of 5</div>
+    <div id="unscramCards" class="unscram"></div>
+
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot your cracked words.</b> Then write each one in your book.</div>
+    </div>
+  </section>
+
+  <!-- 4. SURVEY MATCH -->
+  <section id="match">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>Survey Match</h2><p class="lead">Tap a term, then tap its meaning. Correct pairs lock green; a wrong tap flashes red.</p></div></div>
+    <div class="card">
+      <div class="pair-grid">
+        <div class="pair-col" id="pairWords" aria-label="Terms"></div>
+        <div class="pair-col" id="pairMeanings" aria-label="Meanings"></div>
+      </div>
+      <p class="pair-msg" id="pairMsg" role="status" aria-live="polite"></p>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot all-green.</b> Then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 5. SPELL-IT -->
+  <section id="spell">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>Spell-It Lab</h2><p class="lead">Read the clue, type the word, press <b>Check</b>. Each letter turns green when it’s right. Stuck? Tap <b>I need a hand</b>.</p></div></div>
+    <div id="spellCards"></div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>This box does not save.</b> Screenshot your green words now and upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 6. CASE CLOSED -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">06</span><div><h2>Case Closed</h2><p class="lead">Exit check. Tick your evidence, rate your confidence, capture everything.</p></div></div>
+    <div class="card">
+      <h3>Exit ticket — without looking back, can you…</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="x1"><label for="x1">Say what <b>-graph</b> and <b>carto-</b> mean</label></li>
+        <li><input type="checkbox" id="x2"><label for="x2">Spell <b>topography</b> from memory (try it in your book)</label></li>
+        <li><input type="checkbox" id="x3"><label for="x3">Explain the difference between <b>latitude</b> and <b>longitude</b></label></li>
+      </ul>
+      <h3 style="margin-top:18px">Evidence to capture (screenshot or photograph)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">Survey Briefing score + fix-ups</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My cracked words (Coordinate Crack)</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">My all-green Survey Match</label></li>
+        <li><input type="checkbox" id="c4"><label for="c4">My green Spell-It Lab words</label></li>
+      </ul>
+      <h3 style="margin-top:18px">How confident am I with these mapping words?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+      <div class="evidence" style="margin-top:18px;margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing here is saved.</b> Take your final screenshots now, then upload everything to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer><p>Year 6 Spelling · Word Detectives · Lesson 7: The Cartographer's Code · Linked to ACARA v9 AC9E6LY09. All content original. Works offline — no data is collected or stored.</p></footer>
+
+<div class="sr-only" id="liveRegion" aria-live="assertive" style="position:fixed;bottom:0;left:0"></div>
+
+<script>
+"use strict";
+const $=(s,el=document)=>el.querySelector(s);
+const $$=(s,el=document)=>Array.from(el.querySelectorAll(s));
+const announce=(m)=>{const r=$("#liveRegion");r.textContent="";setTimeout(()=>r.textContent=m,30);};
+const shuffle=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(p=>p[1]);
+
+/* ---------- 1. WARM-UP ---------- */
+const QUIZ=[
+ {stem:"The root “-graph” means…",opts:["to measure heat","to write or record","to break apart"],correct:1,
+  fix:"-graph = write/record. A photograph records light; cartography records the land as a map."},
+ {stem:"A “peninsula” is…",opts:["a flat area of high land","land almost surrounded by water","a wearing away of rock"],correct:1,
+  fix:"A peninsula is land almost surrounded by water — from paene (almost) + insula (island)."},
+ {stem:"Which spelling is correct?",opts:["topografy","topographey","topography"],correct:2,
+  fix:"It’s “topography” — topo (place) + graphy, with the /f/ spelt “ph”."},
+ {stem:"“carto-” means map, so “cartography” is…",opts:["the study of caves","the art of making maps","drawing cartoons"],correct:1,
+  fix:"carto- = map, so cartography is map-making."},
+ {stem:"Which letters spell the /f/ sound in “topography”?",opts:["the “f”","the “ph”","the “gh”"],correct:1,
+  fix:"The “ph” — just like atmosphere from last week. -graphy always uses ph."},
+];
+let score=0,firstFix=null;
+$("#total").textContent=QUIZ.length;
+const quizEl=$("#quiz");
+QUIZ.forEach((q,qi)=>{
+  const card=document.createElement("div");card.className="q";card.id="q"+qi;
+  const stem=document.createElement("p");stem.className="stem";stem.textContent=(qi+1)+". "+q.stem;
+  const opts=document.createElement("div");opts.className="opts";opts.setAttribute("role","group");opts.setAttribute("aria-label",q.stem);
+  q.opts.forEach((t,oi)=>{const b=document.createElement("button");b.className="opt";b.type="button";b.textContent=t;b.addEventListener("click",()=>ans(card,opts,b,q,qi,oi));opts.appendChild(b);});
+  const fix=document.createElement("div");fix.className="fixup";fix.id="fix"+qi;fix.innerHTML='<b>Fix-up:</b> '+q.fix;
+  card.append(stem,opts,fix);quizEl.appendChild(card);
+});
+function ans(card,opts,btn,q,qi,oi){
+  if(card.dataset.done)return;card.dataset.done="1";
+  $$(".opt",opts).forEach(b=>b.setAttribute("disabled",""));
+  opts.children[q.correct].classList.add("correct");
+  if(oi===q.correct){btn.classList.add("correct");score++;$("#score").textContent=score;announce("Correct. Score "+score);}
+  else{btn.classList.add("wrong");$("#fix"+qi).classList.add("show");if(firstFix===null){firstFix=qi;$("#jumpFix").disabled=false;}announce("Not quite. Read the fix-up.");}
+}
+$("#jumpFix").addEventListener("click",()=>{if(firstFix!==null)$("#q"+firstFix).scrollIntoView({block:"center"});});
+
+/* ---------- 3. COORDINATE CRACK (unscramble) ---------- */
+const UNS=[
+ {word:"contour",  clue:"A map line joining points of equal height."},
+ {word:"plateau",  clue:"A flat area of high land."},
+ {word:"erosion",  clue:"The wearing away of land by wind or water."},
+ {word:"latitude", clue:"Lines that run east–west around the globe."},
+ {word:"peninsula",clue:"Land almost surrounded by water."},
+];
+let unsSolved=0;
+const unsWrap=$("#unscramCards");
+function scrambleLetters(word){
+  let arr;
+  do{arr=shuffle(word.split(""));}while(arr.join("")===word);
+  return arr;
+}
+UNS.forEach((item,ui)=>{
+  const card=document.createElement("div");card.className="unscram-card";
+  const clue=document.createElement("div");clue.className="uns-clue";clue.innerHTML='<b>Clue '+(ui+1)+':</b> '+item.clue+' ('+item.word.length+' letters)';
+  const ansEl=document.createElement("div");ansEl.className="uns-answer";ansEl.setAttribute("aria-label","Your answer for clue "+(ui+1));
+  const poolEl=document.createElement("div");poolEl.className="uns-pool";poolEl.setAttribute("aria-label","Scrambled letters");
+  const foot=document.createElement("div");foot.className="uns-foot";
+  const hintBtn=document.createElement("button");hintBtn.type="button";hintBtn.className="btn ghost";hintBtn.textContent="Hint";
+  const resetBtn=document.createElement("button");resetBtn.type="button";resetBtn.className="btn ghost";resetBtn.textContent="Reset";
+  const msg=document.createElement("div");msg.className="uns-msg";
+  foot.append(hintBtn,resetBtn,msg);
+  card.append(clue,ansEl,poolEl,foot);unsWrap.appendChild(card);
+
+  const scrambled=scrambleLetters(item.word);
+  let answer=[]; // {ch, idx}
+  let solved=false;
+
+  function render(){
+    // answer slots
+    ansEl.innerHTML="";
+    if(answer.length===0){const ph=document.createElement("span");ph.className="ph";ph.textContent="tap letters below…";ansEl.appendChild(ph);}
+    answer.forEach((a,pos)=>{
+      const b=document.createElement("button");b.type="button";b.className="slot-letter";b.textContent=a.ch;b.setAttribute("aria-label","remove "+a.ch);
+      b.addEventListener("click",()=>{if(solved)return;answer.splice(pos,1);render();});
+      ansEl.appendChild(b);
+    });
+    // pool
+    $$(".uns-letter",poolEl).forEach(btn=>{
+      const used=answer.some(a=>a.idx===+btn.dataset.idx);
+      btn.classList.toggle("used",used);
+    });
+  }
+  scrambled.forEach((ch,idx)=>{
+    const b=document.createElement("button");b.type="button";b.className="uns-letter";b.textContent=ch;b.dataset.idx=idx;b.setAttribute("aria-label","letter "+ch);
+    b.addEventListener("click",()=>{if(solved)return;answer.push({ch,idx});render();check();});
+    poolEl.appendChild(b);
+  });
+  function check(){
+    if(answer.length!==item.word.length)return;
+    const built=answer.map(a=>a.ch).join("");
+    if(built===item.word){
+      solved=true;ansEl.classList.add("solved");msg.textContent="✓ Cracked!";msg.className="uns-msg good";
+      hintBtn.disabled=true;
+      unsSolved++;$("#unsTally").textContent="Words cracked: "+unsSolved+" of "+UNS.length+(unsSolved===UNS.length?" 🎉":"");
+      announce(item.word+" cracked.");
+    }else{
+      msg.textContent="Not quite — tap a letter to send it back and rethink.";msg.className="uns-msg bad";
+    }
+  }
+  hintBtn.addEventListener("click",()=>{
+    if(solved)return;
+    const pos=answer.length;const need=item.word[pos];
+    const cand=scrambled.findIndex((ch,idx)=>ch===need && !answer.some(a=>a.idx===idx));
+    if(cand>=0){answer.push({ch:need,idx:cand});render();check();if(!solved){msg.textContent="Hint used — next letter placed.";msg.className="uns-msg";}}
+  });
+  resetBtn.addEventListener("click",()=>{if(solved)return;answer=[];render();msg.textContent="";});
+  render();
+});
+
+/* ---------- 4. SURVEY MATCH ---------- */
+const PAIRS=[
+ {w:"topography",m:"The shape and features of the land — its hills and valleys."},
+ {w:"cartography",m:"The art and science of making maps."},
+ {w:"peninsula",m:"Land that is almost completely surrounded by water."},
+ {w:"plateau",m:"A flat area of high land."},
+ {w:"erosion",m:"The wearing away of land by wind or water."},
+ {w:"contour",m:"A map line joining points of equal height."},
+];
+let selW=null, matched=0;
+const wCol=$("#pairWords"), mCol=$("#pairMeanings");
+PAIRS.forEach(p=>{const b=document.createElement("button");b.type="button";b.className="pair-w";b.dataset.w=p.w;b.textContent=p.w;b.setAttribute("aria-pressed","false");
+  b.addEventListener("click",()=>{if(b.classList.contains("done"))return;selW=b;$$(".pair-w",wCol).forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");$("#pairMsg").textContent="Now tap the meaning of “"+p.w+"”.";});
+  wCol.appendChild(b);});
+shuffle(PAIRS).forEach(p=>{const b=document.createElement("button");b.type="button";b.className="pair-m";b.dataset.w=p.w;b.textContent=p.m;
+  b.addEventListener("click",()=>{
+    if(b.classList.contains("done"))return;
+    if(!selW){$("#pairMsg").textContent="Tap a term on the left first.";return;}
+    if(selW.dataset.w===p.w){b.classList.add("done");selW.classList.add("done");selW.setAttribute("aria-pressed","false");matched++;
+      $("#pairMsg").textContent=matched===PAIRS.length?"🎉 All matched! Screenshot it.":"✓ Matched — "+matched+" of "+PAIRS.length+".";announce("Correct match.");selW=null;}
+    else{b.classList.add("nope");setTimeout(()=>b.classList.remove("nope"),500);$("#pairMsg").textContent="Not a match — try again.";announce("Not a match.");}
+  });
+  mCol.appendChild(b);});
+
+/* ---------- 5. SPELL-IT ---------- */
+const SPELL=[
+ {clue:"The shape and features of the land.",word:"topography",tip:"topo + graphy. The /f/ is “ph”."},
+ {clue:"The art of making maps.",word:"cartography",tip:"carto + graphy."},
+ {clue:"Land almost surrounded by water.",word:"peninsula",tip:"paene (almost) + insula (island)."},
+ {clue:"Lines running east–west around the globe.",word:"latitude",tip:"Think ladder rungs going across."},
+];
+const spWrap=$("#spellCards");
+SPELL.forEach((s,si)=>{
+  const card=document.createElement("div");card.className="spell-card";
+  const clue=document.createElement("div");clue.className="spell-clue";clue.innerHTML='<span class="tag">Clue '+(si+1)+' · '+s.word.length+' letters</span>'+s.clue;
+  const row=document.createElement("div");row.className="spell-row";
+  const input=document.createElement("input");input.className="spell-input";input.type="text";input.autocomplete="off";input.autocapitalize="off";input.spellcheck=false;input.setAttribute("aria-label","Type the word for: "+s.clue);input.placeholder="type the word…";
+  const checkBtn=document.createElement("button");checkBtn.type="button";checkBtn.className="btn";checkBtn.textContent="Check";
+  const helpBtn=document.createElement("button");helpBtn.type="button";helpBtn.className="btn ghost";helpBtn.textContent="I need a hand";helpBtn.setAttribute("aria-expanded","false");
+  row.append(input,checkBtn,helpBtn);
+  const cells=document.createElement("div");cells.className="spell-cells";
+  const msg=document.createElement("div");msg.className="spell-msg";
+  const help=document.createElement("div");help.className="spell-help";help.innerHTML='Starts with <b>'+s.word.slice(0,2)+'…</b><br>'+s.tip;
+  function check(){
+    const val=input.value.trim().toLowerCase();
+    if(!val){msg.textContent="Type your attempt first.";msg.className="spell-msg bad";return;}
+    cells.innerHTML="";const target=s.word.toLowerCase();let allOk=val.length===target.length;
+    for(let i=0;i<target.length;i++){const c=document.createElement("span");c.className="cellL";const got=val[i]||"";c.textContent=got||"·";if(got===target[i])c.classList.add("ok");else{c.classList.add("no");allOk=false;}cells.appendChild(c);}
+    if(allOk){msg.textContent="✓ Perfect spelling!";msg.className="spell-msg good";input.setAttribute("disabled","");}
+    else{msg.textContent="Not yet — green letters are right. Check the rest and try again.";msg.className="spell-msg bad";}
+    announce(allOk?"Correct spelling of "+s.word:"Keep trying.");
+  }
+  checkBtn.addEventListener("click",check);
+  input.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();check();}});
+  helpBtn.addEventListener("click",()=>{const o=help.classList.toggle("show");helpBtn.setAttribute("aria-expanded",o?"true":"false");helpBtn.textContent=o?"Hide the hand":"I need a hand";});
+  card.append(clue,row,cells,msg,help);spWrap.appendChild(card);
+});
+
+/* ---------- 6. CONFIDENCE ---------- */
+$$("#confi button").forEach(b=>b.addEventListener("click",()=>{$$("#confi button").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");}));
+</script>
+</body>
+</html>

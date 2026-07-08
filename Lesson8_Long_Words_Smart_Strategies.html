@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8 — Long Words, Smart Strategies | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4; --ink:#1b2a4a; --amber:#e8930c; --teal:#0e7c7b; --card:#fff;
+    --line:#e6e1d6; --amber-soft:#fdf0d9; --amber-edge:#f2c785; --teal-soft:#e1efee;
+    --ink-soft:#56607a; --good:#1f7a4d; --good-soft:#e3f3ea; --bad:#c0392b; --bad-soft:#fdeceb;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06); --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Atkinson Hyperlegible",system-ui,sans-serif; font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%}
+  h1,h2,h3,.eyebrow,.pill,.syb-chip,.syb-slot,.beat-word,.beat-btn,.lcwc-word{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  header.band{background:var(--ink); color:#fff; padding:30px 22px 26px}
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px}
+  .band h1{font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em}
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:62ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1}
+
+  nav.pills{position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px}
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto; font-family:"Space Grotesk"}
+  .lead{color:var(--ink-soft); max-width:66ch}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0}
+
+  button{font-family:inherit}
+  .btn{background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"}
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  /* warm-up quiz */
+  .q{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .q .stem{font-weight:700; margin-bottom:10px}
+  .opts{display:grid; gap:8px}
+  .opt{text-align:left; background:#fcfbf7; border:1.5px solid var(--line); color:var(--ink); padding:11px 14px; border-radius:10px; cursor:pointer; min-height:44px; font-size:.95rem}
+  .opt:hover{border-color:var(--teal)}
+  .opt.correct{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .opt.wrong{background:var(--bad-soft); border-color:var(--bad); color:#a8261b}
+  .opt[disabled]{cursor:default}
+  .fixup{margin-top:10px; background:var(--amber-soft); border-left:5px solid var(--amber); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none}
+  .fixup.show{display:block}
+  .fixup b{color:#a8540b}
+  .scorebar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:12px 16px}
+  .scorebar strong{font-family:"Space Grotesk"; font-size:1.15rem}
+
+  /* teaching cards */
+  .teach-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  @media(max-width:760px){.teach-grid{grid-template-columns:1fr}}
+  .remember{background:var(--teal-soft); border:1px solid #bfdedc; border-radius:10px; padding:10px 13px; font-size:.9rem; margin-top:8px}
+  .remember b{color:var(--teal); font-family:"Space Grotesk"}
+  .teach .svg-wrap{background:#fbfaf6; border:1px solid var(--line); border-radius:12px; padding:12px; margin:.3em 0 .6em}
+
+  /* syllable builder */
+  .syb{display:grid; gap:14px}
+  .syb-card{background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:16px; box-shadow:var(--shadow)}
+  .syb-clue{color:var(--ink-soft); font-size:.92rem; margin-bottom:10px}
+  .syb-clue b{color:var(--ink)}
+  .syb-answer{display:flex; gap:6px; flex-wrap:wrap; min-height:56px; background:#fbfaf6; border:2px dashed var(--amber-edge); border-radius:10px; padding:9px; align-items:center; margin-bottom:10px}
+  .syb-answer.solved{border-style:solid; border-color:var(--good); background:var(--good-soft)}
+  .syb-answer .ph{color:var(--ink-soft); font-size:.85rem; font-family:"Space Grotesk"; padding:0 6px}
+  .syb-slot{background:var(--ink); color:#fff; border:none; border-radius:8px; padding:9px 15px; font-weight:700; font-size:1.15rem; cursor:pointer}
+  .syb-answer.solved .syb-slot{background:var(--good)}
+  .syb-pool{display:flex; gap:8px; flex-wrap:wrap}
+  .syb-chip{border:2px solid var(--line); background:#fff; border-radius:10px; padding:11px 17px; font-weight:700; font-size:1.2rem; cursor:pointer; color:var(--ink)}
+  .syb-chip:hover{border-color:var(--teal)}
+  .syb-chip.used{opacity:.28; pointer-events:none}
+  .syb-foot{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:12px}
+  .syb-msg{font-family:"Space Grotesk"; font-weight:700}
+  .syb-msg.good{color:var(--good)} .syb-msg.bad{color:var(--bad)}
+  .syb-tally{font-family:"Space Grotesk"; font-weight:700; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:11px 16px; margin-bottom:4px}
+
+  /* beat the count */
+  .beat-stats{display:flex; gap:20px; align-items:center; flex-wrap:wrap; font-family:"Space Grotesk"; font-weight:600; margin-bottom:10px}
+  .beat-stats .lab{font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); display:block}
+  .beat-stats .big{font-size:1.5rem; line-height:1}
+  .progress-track{height:10px; background:#ece7dc; border-radius:999px; overflow:hidden; flex:1 1 160px; min-width:140px}
+  .progress-fill{height:100%; background:var(--teal); width:0%; transition:width .25s}
+  .beat-card{background:#fff; border:1.5px solid var(--line); border-radius:16px; padding:24px 18px; text-align:center; box-shadow:var(--shadow)}
+  .beat-word{font-weight:700; font-size:2.6rem; margin-bottom:4px}
+  .beat-q{color:var(--ink-soft); margin-bottom:16px}
+  .beat-btns{display:grid; grid-template-columns:repeat(4,1fr); gap:10px}
+  .beat-btn{min-height:62px; border:2px solid var(--line); background:#fff; border-radius:12px; font-weight:700; font-size:1.5rem; cursor:pointer; color:var(--ink)}
+  .beat-btn:hover{border-color:var(--teal)}
+  .beat-fb{min-height:1.5em; margin-top:14px; font-weight:700; font-family:"Space Grotesk"}
+  .beat-fb.good{color:var(--good)} .beat-fb.bad{color:var(--bad)}
+  .beat-report{text-align:center}
+  .beat-report .big{font-family:"Space Grotesk"; font-weight:700; font-size:2.6rem; color:var(--teal)}
+
+  /* LCWC slider */
+  .lcwc-stage{position:relative; overflow:hidden; border:1.5px solid var(--line); border-radius:14px; background:#fff; height:120px; display:flex; align-items:center; justify-content:center}
+  .lcwc-word{font-weight:700; font-size:2.1rem; letter-spacing:.01em; color:var(--ink)}
+  .lcwc-cover{position:absolute; inset:0; background:repeating-linear-gradient(45deg,var(--ink),var(--ink) 12px,#243a63 12px,#243a63 24px); transition:transform .05s linear; will-change:transform}
+  .lcwc-cover::after{content:"covered — write it now"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-family:"Space Grotesk"; font-weight:600; letter-spacing:.04em; font-size:.9rem}
+  .slider-wrap{margin-top:12px}
+  .slide-hint{display:inline-flex; align-items:center; gap:8px; font-family:"Space Grotesk"; font-weight:600; font-size:.82rem; color:var(--teal); background:var(--teal-soft); border:1px solid #bfdedc; border-radius:999px; padding:6px 13px; margin-bottom:9px}
+  .slide-hint .arrows{display:inline-block; font-size:1rem; animation:bob 1.3s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+  .slide-hint.gone{display:none}
+  @media (prefers-reduced-motion: reduce){ .slide-hint .arrows{animation:none} }
+  input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:36px; background:transparent; cursor:grab; margin:0; display:block}
+  input[type=range]:active{cursor:grabbing}
+  input[type=range]:focus{outline:none}
+  input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px var(--amber), 0 2px 6px rgba(27,42,74,.3)}
+  input[type=range]::-webkit-slider-runnable-track{height:18px; border-radius:999px; border:1px solid #cfc8ba; background:linear-gradient(90deg,var(--teal) 0 var(--fill,100%), #ece7dc var(--fill,100%) 100%)}
+  input[type=range]::-moz-range-track{height:18px; border-radius:999px; border:1px solid #cfc8ba; background:#ece7dc}
+  input[type=range]::-moz-range-progress{height:18px; border-radius:999px; background:var(--teal)}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:36px; height:36px; margin-top:-10px; border-radius:50%; background:#fff; border:3px solid var(--teal); box-shadow:0 2px 7px rgba(27,42,74,.3); background-image:repeating-linear-gradient(90deg,var(--teal) 0 2px,#fff 2px 5px); background-repeat:no-repeat; background-size:13px 14px; background-position:center}
+  input[type=range]::-moz-range-thumb{width:36px; height:36px; border-radius:50%; background:#fff; border:3px solid var(--teal); box-shadow:0 2px 7px rgba(27,42,74,.3); background-image:repeating-linear-gradient(90deg,var(--teal) 0 2px,#fff 2px 5px); background-repeat:no-repeat; background-size:13px 14px; background-position:center}
+  .slide-ends{display:flex; justify-content:space-between; font-family:"Space Grotesk"; font-weight:600; font-size:.78rem; color:var(--ink-soft); margin-top:5px}
+  .lcwc-controls{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:14px}
+  .counter{font-size:.85rem; color:var(--ink-soft)}
+
+  /* evidence + checklist */
+  .evidence{display:flex; gap:12px; align-items:flex-start; background:#fff7e9; border:1.5px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:14px 0; font-size:.92rem}
+  .evidence svg{flex:0 0 auto; margin-top:2px}
+  .evidence b{color:#a8540b}
+  .check-list{list-style:none; padding:0; margin:.4em 0}
+  .check-list li{display:flex; gap:11px; align-items:flex-start; padding:9px 0; border-bottom:1px dashed var(--line)}
+  .check-list input{width:24px; height:24px; margin-top:2px; accent-color:var(--teal); flex:0 0 auto}
+  .confi{display:flex; gap:9px; flex-wrap:wrap; margin-top:10px}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:10px 14px; min-height:44px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .confi button[aria-pressed=true]{background:var(--teal); color:#fff; border-color:var(--teal)}
+
+  footer{max-width:1000px; margin:0 auto; padding:24px 18px 50px; color:var(--ink-soft); font-size:.85rem}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Year 6 Spelling · Word Detectives · Lesson 8</p>
+    <h1>Long Words, Smart Strategies</h1>
+    <p class="hook">The longest geography words look scary — until you break them into beats. Chunk by chunk, you can spell anything.</p>
+    <div class="meta-row" aria-label="Lesson details">
+      <span>HASS: Geography</span>
+      <span>Focus: syllables &amp; morphemes</span>
+      <span>AC9E6LY08</span>
+      <span>20 minutes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Jump to a section">
+  <div class="pills-inner">
+    <a class="pill" href="#recall">Recall Check</a>
+    <a class="pill" href="#notes">Strategy Notes</a>
+    <a class="pill" href="#builder">Syllable Builder</a>
+    <a class="pill" href="#beat">Beat the Count</a>
+    <a class="pill" href="#lcwc">Look · Cover · Write · Check</a>
+    <a class="pill" href="#closed">Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- 1. WARM-UP -->
+  <section id="recall">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>Recall Check</h2><p class="lead">Pick up yesterday’s trail and warm up for the long words. Tap an answer — wrong ones reveal an orange <b>fix-up</b>.</p></div></div>
+    <div id="quiz"></div>
+    <div class="scorebar" role="status" aria-live="polite">
+      <span>Score: <strong id="score">0</strong> / <strong id="total">5</strong></span>
+      <button class="btn ghost" id="jumpFix" disabled>Jump to my first fix-up ↧</button>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot before you close.</b> Nothing here is saved — capture your score, then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 2. TEACHING -->
+  <section id="notes">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Strategy Notes</h2><p class="lead">Three moves that shrink any long word down to size.</p></div></div>
+    <div class="teach-grid">
+      <div class="card teach">
+        <h3>Chunk it into beats</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 300 60" width="100%" height="60" role="img" aria-label="Topography splits into to, pog, ra, phy.">
+            <text x="12" y="38" font-family="Space Grotesk" font-weight="700" font-size="19" fill="#1b2a4a">to<tspan fill="#e8930c"> · </tspan>pog<tspan fill="#e8930c"> · </tspan>ra<tspan fill="#e8930c"> · </tspan>phy</text>
+          </svg>
+        </div>
+        <p>Say the word slowly and clap each beat. Spell one chunk at a time.</p>
+        <div class="remember"><b>Remember:</b> 4 small chunks are easier than 1 long word.</div>
+      </div>
+      <div class="card teach">
+        <h3>Spot the ending</h3>
+        <p>Many long words share an ending: <b>-graphy</b> (topography), <b>-tude</b> (latitude), <b>-sion</b> (erosion).</p>
+        <div class="remember"><b>Remember:</b> learn the ending once, reuse it everywhere.</div>
+      </div>
+      <div class="card teach">
+        <h3>Say it to spell it</h3>
+        <p>Pronounce every syllable on purpose — <b>pe·nin·su·la</b> — even the quiet ones. Your voice guides your pen.</p>
+        <div class="remember"><b>Remember:</b> if you can say the beats, you can spell the word.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SYLLABLE BUILDER -->
+  <section id="builder">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>Syllable Builder</h2><p class="lead">The beats have been jumbled. Tap the syllable chunks <b>in the right order</b> to rebuild each word. Tap a placed chunk to send it back. Say each beat aloud as you place it.</p></div></div>
+
+    <div class="syb-tally" role="status" aria-live="polite" id="sybTally">Words built: 0 of 4</div>
+    <div id="sybCards" class="syb"></div>
+
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot your built words.</b> Then write each one, chunk by chunk, in your book.</div>
+    </div>
+  </section>
+
+  <!-- 4. BEAT THE COUNT -->
+  <section id="beat">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>Beat the Count</h2><p class="lead">Say each word in your head and clap the beats. How many syllables? Tap the number. You’ll see the chunks after each one.</p></div></div>
+    <div class="card">
+      <div class="beat-stats">
+        <div><span class="lab">Score</span><span class="big" id="beatScore">0</span></div>
+        <div style="flex:1 1 160px"><span class="lab" id="beatProgLab">Word 1 of 6</span><div class="progress-track"><div class="progress-fill" id="beatProg"></div></div></div>
+      </div>
+      <div id="beatArea"></div>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot your final score.</b> Then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 5. LCWC -->
+  <section id="lcwc">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>Look · Cover · Write · Check</h2><p class="lead">Lock the long words into memory. <b>Slide right</b> to look, <b>slide left</b> to cover and write in your book, then <b>slide right</b> to check.</p></div></div>
+    <div class="card">
+      <div class="lcwc-stage">
+        <span class="lcwc-word" id="lcwcWord" aria-live="polite">topography</span>
+        <div class="lcwc-cover" id="lcwcCover" aria-hidden="true"></div>
+      </div>
+      <div class="slider-wrap">
+        <div class="slide-hint" id="slideHint"><span class="arrows" aria-hidden="true">⟷</span> Drag the slider to cover &amp; reveal</div>
+        <label for="lcwcSlide" class="sr-only">Slide to cover or reveal the word</label>
+        <input type="range" id="lcwcSlide" min="0" max="100" value="100" aria-label="Cover or reveal the word">
+        <div class="slide-ends" aria-hidden="true"><span>◀ Covered</span><span>Revealed ▶</span></div>
+      </div>
+      <div class="lcwc-controls">
+        <button class="btn ghost" id="lcwcPrev">‹ Previous</button>
+        <span class="counter" id="lcwcCount">Word 1 of 8</span>
+        <button class="btn ghost" id="lcwcNext">Next ›</button>
+      </div>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Your written attempts live in your book.</b> Tick them off in Case Closed and snap a photo.</div>
+    </div>
+  </section>
+
+  <!-- 6. CASE CLOSED -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">06</span><div><h2>Case Closed</h2><p class="lead">Exit check. Tick your evidence, rate your confidence, capture everything.</p></div></div>
+    <div class="card">
+      <h3>Exit ticket — without looking back, can you…</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="x1"><label for="x1">Spell <b>latitude</b> from memory (try it in your book)</label></li>
+        <li><input type="checkbox" id="x2"><label for="x2">Split <b>cartography</b> into its syllables out loud</label></li>
+        <li><input type="checkbox" id="x3"><label for="x3">Name the ending shared by <b>topography</b> and <b>cartography</b></label></li>
+      </ul>
+      <h3 style="margin-top:18px">Evidence to capture (screenshot or photograph)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">Recall Check score + fix-ups</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My built words (Syllable Builder)</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">My Beat the Count score</label></li>
+      </ul>
+      <h3 style="margin-top:18px">How confident am I with these long words?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+      <div class="evidence" style="margin-top:18px;margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing here is saved.</b> Take your final screenshots now, then upload everything to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer><p>Year 6 Spelling · Word Detectives · Lesson 8: Long Words, Smart Strategies · Linked to ACARA v9 AC9E6LY08. All content original. Works offline — no data is collected or stored.</p></footer>
+
+<div class="sr-only" id="liveRegion" aria-live="assertive" style="position:fixed;bottom:0;left:0"></div>
+
+<script>
+"use strict";
+const $=(s,el=document)=>el.querySelector(s);
+const $$=(s,el=document)=>Array.from(el.querySelectorAll(s));
+const announce=(m)=>{const r=$("#liveRegion");r.textContent="";setTimeout(()=>r.textContent=m,30);};
+const shuffle=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(p=>p[1]);
+
+/* ---------- 1. WARM-UP ---------- */
+const QUIZ=[
+ {stem:"How many syllables are in “peninsula”?",opts:["3","4","5"],correct:1,
+  fix:"Four: pe · nin · su · la. Clap the beats to count them."},
+ {stem:"The ending of “topography” and “cartography” is spelt…",opts:["-grafy","-graphy","-graphey"],correct:1,
+  fix:"It’s “-graphy” — the /f/ sound uses “ph”."},
+ {stem:"Breaking a long word into syllables helps you…",opts:["make it longer","spell one chunk at a time","skip the hard letters"],correct:1,
+  fix:"Chunking lets you spell one small beat at a time — much easier than the whole word."},
+ {stem:"Which spelling is correct?",opts:["cartografy","cartographey","cartography"],correct:2,
+  fix:"It’s “cartography” — carto (map) + graphy."},
+ {stem:"The /zhun/ sound at the end of “erosion” is spelt…",opts:["-tion","-sion","-cion"],correct:1,
+  fix:"It’s “-sion”: erode → erosion. The soft /zh/ sound usually takes -sion."},
+];
+let score=0,firstFix=null;
+$("#total").textContent=QUIZ.length;
+const quizEl=$("#quiz");
+QUIZ.forEach((q,qi)=>{
+  const card=document.createElement("div");card.className="q";card.id="q"+qi;
+  const stem=document.createElement("p");stem.className="stem";stem.textContent=(qi+1)+". "+q.stem;
+  const opts=document.createElement("div");opts.className="opts";opts.setAttribute("role","group");opts.setAttribute("aria-label",q.stem);
+  q.opts.forEach((t,oi)=>{const b=document.createElement("button");b.className="opt";b.type="button";b.textContent=t;b.addEventListener("click",()=>ans(card,opts,b,q,qi,oi));opts.appendChild(b);});
+  const fix=document.createElement("div");fix.className="fixup";fix.id="fix"+qi;fix.innerHTML='<b>Fix-up:</b> '+q.fix;
+  card.append(stem,opts,fix);quizEl.appendChild(card);
+});
+function ans(card,opts,btn,q,qi,oi){
+  if(card.dataset.done)return;card.dataset.done="1";
+  $$(".opt",opts).forEach(b=>b.setAttribute("disabled",""));
+  opts.children[q.correct].classList.add("correct");
+  if(oi===q.correct){btn.classList.add("correct");score++;$("#score").textContent=score;announce("Correct. Score "+score);}
+  else{btn.classList.add("wrong");$("#fix"+qi).classList.add("show");if(firstFix===null){firstFix=qi;$("#jumpFix").disabled=false;}announce("Not quite. Read the fix-up.");}
+}
+$("#jumpFix").addEventListener("click",()=>{if(firstFix!==null)$("#q"+firstFix).scrollIntoView({block:"center"});});
+
+/* ---------- 3. SYLLABLE BUILDER ---------- */
+const SYB=[
+ {word:"topography", syl:["to","pog","ra","phy"], clue:"The shape and features of the land."},
+ {word:"cartography",syl:["car","tog","ra","phy"], clue:"The art of making maps."},
+ {word:"peninsula",  syl:["pe","nin","su","la"],   clue:"Land almost surrounded by water."},
+ {word:"latitude",   syl:["lat","i","tude"],        clue:"Lines running east–west around the globe."},
+];
+let sybSolved=0;
+const sybWrap=$("#sybCards");
+function scrambleArr(arr){let s;do{s=shuffle(arr);}while(s.join("|")===arr.join("|"));return s;}
+SYB.forEach((item,ui)=>{
+  const card=document.createElement("div");card.className="syb-card";
+  const clue=document.createElement("div");clue.className="syb-clue";clue.innerHTML='<b>Clue '+(ui+1)+':</b> '+item.clue+' ('+item.syl.length+' beats)';
+  const ansEl=document.createElement("div");ansEl.className="syb-answer";ansEl.setAttribute("aria-label","Your build for clue "+(ui+1));
+  const poolEl=document.createElement("div");poolEl.className="syb-pool";poolEl.setAttribute("aria-label","Scrambled syllables");
+  const foot=document.createElement("div");foot.className="syb-foot";
+  const resetBtn=document.createElement("button");resetBtn.type="button";resetBtn.className="btn ghost";resetBtn.textContent="Reset";
+  const msg=document.createElement("div");msg.className="syb-msg";
+  foot.append(resetBtn,msg);
+  card.append(clue,ansEl,poolEl,foot);sybWrap.appendChild(card);
+
+  const scrambled=scrambleArr(item.syl);
+  let answer=[]; let solved=false;
+  function render(){
+    ansEl.innerHTML="";
+    if(answer.length===0){const ph=document.createElement("span");ph.className="ph";ph.textContent="tap chunks below…";ansEl.appendChild(ph);}
+    answer.forEach((a,pos)=>{const b=document.createElement("button");b.type="button";b.className="syb-slot";b.textContent=a.s;b.setAttribute("aria-label","remove "+a.s);
+      b.addEventListener("click",()=>{if(solved)return;answer.splice(pos,1);render();});ansEl.appendChild(b);});
+    $$(".syb-chip",poolEl).forEach(btn=>{btn.classList.toggle("used",answer.some(a=>a.idx===+btn.dataset.idx));});
+  }
+  scrambled.forEach((s,idx)=>{const b=document.createElement("button");b.type="button";b.className="syb-chip";b.textContent=s;b.dataset.idx=idx;b.setAttribute("aria-label","syllable "+s);
+    b.addEventListener("click",()=>{if(solved)return;answer.push({s,idx});render();check();});poolEl.appendChild(b);});
+  function check(){
+    if(answer.length!==item.syl.length)return;
+    const built=answer.map(a=>a.s).join("");
+    if(built===item.word){solved=true;ansEl.classList.add("solved");msg.textContent="✓ Built: "+item.syl.join(" · ");msg.className="syb-msg good";
+      sybSolved++;$("#sybTally").textContent="Words built: "+sybSolved+" of "+SYB.length+(sybSolved===SYB.length?" 🎉":"");announce(item.word+" built.");}
+    else{msg.textContent="Not in order yet — tap a chunk to send it back and rethink.";msg.className="syb-msg bad";}
+  }
+  resetBtn.addEventListener("click",()=>{if(solved)return;answer=[];render();msg.textContent="";});
+  render();
+});
+
+/* ---------- 4. BEAT THE COUNT ---------- */
+const BEAT=[
+ {word:"contour",   count:2, syl:"con · tour"},
+ {word:"plateau",   count:2, syl:"pla · teau"},
+ {word:"erosion",   count:3, syl:"e · ro · sion"},
+ {word:"latitude",  count:3, syl:"lat · i · tude"},
+ {word:"peninsula", count:4, syl:"pe · nin · su · la"},
+ {word:"topography",count:4, syl:"to · pog · ra · phy"},
+];
+let bI=0,bScore=0;
+const beatArea=$("#beatArea");
+function renderBeat(){
+  const item=BEAT[bI];
+  $("#beatProgLab").textContent="Word "+(bI+1)+" of "+BEAT.length;
+  $("#beatProg").style.width=Math.round(bI/BEAT.length*100)+"%";
+  beatArea.innerHTML="";
+  const card=document.createElement("div");card.className="beat-card";
+  const w=document.createElement("div");w.className="beat-word";w.textContent=item.word;
+  const q=document.createElement("div");q.className="beat-q";q.textContent="How many syllables?";
+  const btns=document.createElement("div");btns.className="beat-btns";
+  [2,3,4,5].forEach(n=>{const b=document.createElement("button");b.type="button";b.className="beat-btn";b.textContent=n;b.setAttribute("aria-label",n+" syllables");
+    b.addEventListener("click",()=>choose(n,card,fb,btns,item));btns.appendChild(b);});
+  const fb=document.createElement("div");fb.className="beat-fb";
+  card.append(w,q,btns,fb);beatArea.appendChild(card);
+}
+function choose(n,card,fb,btns,item){
+  if(card.dataset.done)return;card.dataset.done="1";
+  $$(".beat-btn",btns).forEach(b=>b.setAttribute("disabled",""));
+  if(n===item.count){bScore++;fb.textContent="✓ Yes — "+item.syl;fb.className="beat-fb good";}
+  else{fb.innerHTML="✗ It’s <b>"+item.count+"</b> — "+item.syl;fb.className="beat-fb bad";}
+  $("#beatScore").textContent=bScore;announce(n===item.count?"Correct":"Incorrect, "+item.count+" syllables");
+  const next=document.createElement("button");next.className="btn amber";next.style.marginTop="14px";next.textContent=bI<BEAT.length-1?"Next word ›":"See result";
+  next.addEventListener("click",()=>{bI++;if(bI<BEAT.length)renderBeat();else beatReport();});
+  card.appendChild(next);
+}
+function beatReport(){
+  $("#beatProg").style.width="100%";$("#beatProgLab").textContent="Done!";
+  beatArea.innerHTML='<div class="beat-report"><div class="big">'+bScore+' / '+BEAT.length+'</div><p class="lead" style="margin:4px auto 12px">'+(bScore===BEAT.length?"Perfect ear for beats!":bScore>=BEAT.length*0.7?"Strong counting — screenshot it.":"Good go — say each word slowly and try again.")+'</p><button class="btn amber" id="beatAgain">Play again ↺</button></div>';
+  $("#beatAgain").addEventListener("click",()=>{bI=0;bScore=0;$("#beatScore").textContent=0;renderBeat();});
+}
+renderBeat();
+
+/* ---------- 5. LCWC SLIDER ---------- */
+const LCWC=["topography","cartography","latitude","longitude","peninsula","plateau","erosion","contour"];
+let li=0,hintGone=false;
+const cover=$("#lcwcCover"),slide=$("#lcwcSlide"),wordEl=$("#lcwcWord"),countEl=$("#lcwcCount"),slideHint=$("#slideHint");
+function paintCover(){const v=+slide.value;cover.style.transform="translateX("+v+"%)";slide.style.setProperty("--fill",v+"%");}
+function setWord(){wordEl.textContent=LCWC[li];countEl.textContent="Word "+(li+1)+" of "+LCWC.length;slide.value=100;paintCover();}
+slide.addEventListener("input",()=>{paintCover();if(!hintGone){slideHint.classList.add("gone");hintGone=true;}});
+$("#lcwcNext").addEventListener("click",()=>{li=(li+1)%LCWC.length;setWord();});
+$("#lcwcPrev").addEventListener("click",()=>{li=(li-1+LCWC.length)%LCWC.length;setWord();});
+setWord();
+
+/* ---------- 6. CONFIDENCE ---------- */
+$$("#confi button").forEach(b=>b.addEventListener("click",()=>{$$("#confi button").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");}));
+</script>
+</body>
+</html>

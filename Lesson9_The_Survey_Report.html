@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9 — The Survey Report | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4; --ink:#1b2a4a; --amber:#e8930c; --teal:#0e7c7b; --card:#fff;
+    --line:#e6e1d6; --amber-soft:#fdf0d9; --amber-edge:#f2c785; --teal-soft:#e1efee;
+    --ink-soft:#56607a; --good:#1f7a4d; --good-soft:#e3f3ea; --bad:#c0392b; --bad-soft:#fdeceb;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06); --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Atkinson Hyperlegible",system-ui,sans-serif; font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%}
+  h1,h2,h3,.eyebrow,.pill,.timer,.order-badge,.chip{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  header.band{background:var(--ink); color:#fff; padding:30px 22px 26px}
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px}
+  .band h1{font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em}
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:62ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1}
+
+  nav.pills{position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px}
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto; font-family:"Space Grotesk"}
+  .lead{color:var(--ink-soft); max-width:66ch}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0}
+
+  button{font-family:inherit}
+  .btn{background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"}
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  /* memory sprint */
+  .sprint-top{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
+  .timer{font-weight:700; font-size:3rem; min-width:90px; color:var(--ink)}
+  .timer.low{color:var(--bad)}
+  .sprint-bar{flex:1 1 200px; height:12px; background:#ece7dc; border-radius:999px; overflow:hidden; min-width:160px}
+  .sprint-fill{height:100%; width:100%; background:var(--teal); transition:width 1s linear}
+  textarea{width:100%; min-height:90px; border:1.5px solid var(--line); border-radius:12px; padding:13px; font-family:"Atkinson Hyperlegible"; font-size:1rem; resize:vertical; background:#fff; color:var(--ink)}
+  textarea:disabled{background:#f6f4ee}
+  .recall-grid{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+  .recall-chip{display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--line); border-radius:10px; padding:8px 12px; background:#fff; cursor:pointer; min-height:44px; font-family:"Space Grotesk"; font-weight:600}
+  .recall-chip[aria-pressed=true]{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .recall-chip .box{width:18px; height:18px; border:2px solid var(--line); border-radius:4px; flex:0 0 auto}
+  .recall-chip[aria-pressed=true] .box{background:var(--good); border-color:var(--good)}
+  .scene-count{font-family:"Space Grotesk"; font-weight:700}
+  .scene-count.met{color:var(--good)}
+
+  /* order the report */
+  .order-list{display:grid; gap:10px}
+  .order-item{display:flex; gap:12px; align-items:flex-start; border:1.5px solid var(--line); background:#fff; border-radius:12px; padding:13px 14px; cursor:pointer; text-align:left; width:100%; color:var(--ink); font-size:1rem}
+  .order-item:hover{border-color:var(--teal)}
+  .order-badge{flex:0 0 36px; height:36px; border-radius:50%; border:2px solid var(--line); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--ink-soft); background:#fff}
+  .order-item.picked .order-badge{background:var(--ink); color:#fff; border-color:var(--ink)}
+  .order-item.ok{background:var(--good-soft); border-color:var(--good)}
+  .order-item.ok .order-badge{background:var(--good); color:#fff; border-color:var(--good)}
+  .order-item.no{background:var(--bad-soft); border-color:var(--bad)}
+  .order-item.no .order-badge{background:var(--bad); color:#fff; border-color:var(--bad)}
+  .order-text{flex:1}
+  .order-foot{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:12px}
+  .order-msg{font-family:"Space Grotesk"; font-weight:700}
+  .order-msg.good{color:var(--good)} .order-msg.bad{color:var(--bad)}
+
+  /* write the scene */
+  .scene-tracker{display:flex; flex-wrap:wrap; gap:7px; margin:.5em 0}
+  .chip{font-size:.82rem; border:1.5px solid var(--line); border-radius:999px; padding:6px 11px; background:#fff; color:var(--ink-soft); font-weight:600}
+  .chip.used{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+
+  /* weekly test */
+  .test-stats{display:flex; gap:20px; align-items:center; flex-wrap:wrap; font-family:"Space Grotesk"; font-weight:600; margin-bottom:8px}
+  .test-stats .lab{font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); display:block}
+  .test-stats .big{font-size:1.5rem; line-height:1}
+  .progress-track{height:10px; background:#ece7dc; border-radius:999px; overflow:hidden; flex:1 1 160px; min-width:140px}
+  .progress-fill{height:100%; background:var(--teal); width:0%; transition:width .25s}
+  .test-card{background:#fff; border:1.5px solid var(--line); border-radius:16px; padding:22px; box-shadow:var(--shadow)}
+  .test-sentence{font-size:1.25rem; line-height:1.7}
+  .test-blank{display:inline-block; min-width:120px; border-bottom:3px solid var(--amber); margin:0 4px}
+  .test-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+  .test-input{flex:1 1 220px; min-width:180px; border:1.5px solid var(--line); border-radius:10px; padding:12px 14px; font-family:"Atkinson Hyperlegible"; font-size:1.1rem; background:#fff; color:var(--ink)}
+  .test-fb{margin-top:12px; font-weight:700; font-family:"Space Grotesk"; min-height:1.3em}
+  .test-fb.good{color:var(--good)} .test-fb.bad{color:var(--bad)}
+  .report{text-align:center; padding:8px}
+  .report .big{font-family:"Space Grotesk"; font-weight:700; font-size:2.8rem; color:var(--teal)}
+  .report ul{display:inline-block; text-align:left; margin-top:8px}
+
+  /* evidence + checklist */
+  .evidence{display:flex; gap:12px; align-items:flex-start; background:#fff7e9; border:1.5px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:14px 0; font-size:.92rem}
+  .evidence svg{flex:0 0 auto; margin-top:2px}
+  .evidence b{color:#a8540b}
+  .check-list{list-style:none; padding:0; margin:.4em 0}
+  .check-list li{display:flex; gap:11px; align-items:flex-start; padding:9px 0; border-bottom:1px dashed var(--line)}
+  .check-list input{width:24px; height:24px; margin-top:2px; accent-color:var(--teal); flex:0 0 auto}
+  .confi{display:flex; gap:9px; flex-wrap:wrap; margin-top:10px}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:10px 14px; min-height:44px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .confi button[aria-pressed=true]{background:var(--teal); color:#fff; border-color:var(--teal)}
+
+  footer{max-width:1000px; margin:0 auto; padding:24px 18px 50px; color:var(--ink-soft); font-size:.85rem}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Year 6 Spelling · Word Detectives · Lesson 9</p>
+    <h1>The Survey Report</h1>
+    <p class="hook">Final survey of the week. Recall the mapping words at speed, put a jumbled field report in order, write your own — then crack the weekly test.</p>
+    <div class="meta-row" aria-label="Lesson details">
+      <span>HASS: Geography</span>
+      <span>Apply + weekly test</span>
+      <span>AC9E6LY08 · AC9E6LY09</span>
+      <span>20 minutes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Jump to a section">
+  <div class="pills-inner">
+    <a class="pill" href="#sprint">Memory Sprint</a>
+    <a class="pill" href="#order">Order the Report</a>
+    <a class="pill" href="#scene">Write the Scene</a>
+    <a class="pill" href="#test">The Weekly Test</a>
+    <a class="pill" href="#closed">Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- 1. MEMORY SPRINT -->
+  <section id="sprint">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>Memory Sprint</h2><p class="lead">30 seconds on the clock. Type every geography word you can remember — spelling counts. When the buzzer goes, reveal the list and tick the ones you nailed.</p></div></div>
+    <div class="card">
+      <div class="sprint-top">
+        <span class="timer" id="timer">0:30</span>
+        <div class="sprint-bar" aria-hidden="true"><div class="sprint-fill" id="sprintFill"></div></div>
+        <button class="btn amber" id="sprintStart">Start the sprint ▶</button>
+      </div>
+      <label for="sprintBox" class="sr-only">Type the words you remember</label>
+      <textarea id="sprintBox" placeholder="Press start, then type words separated by spaces or new lines…" style="margin-top:14px" disabled></textarea>
+      <div id="recallReveal" style="display:none">
+        <p style="font-weight:700;margin-top:14px">Tick each word you spelled correctly:</p>
+        <div class="recall-grid" id="recallGrid"></div>
+        <p class="scene-count" id="recallScore" style="margin-top:10px"></p>
+      </div>
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Screenshot before you close.</b> Nothing here saves. Snap your sprint result and upload to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ORDER THE REPORT -->
+  <section id="order">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Order the Report</h2><p class="lead">A field report on how a coastline forms has been jumbled. Tap the sentences <b>in the order they should appear</b> (you’ll see 1, 2, 3, 4), then press <b>Check order</b>.</p></div></div>
+
+    <div class="card">
+      <div class="order-list" id="orderList"></div>
+      <div class="order-foot">
+        <button class="btn amber" id="orderCheck">Check order ✓</button>
+        <button class="btn ghost" id="orderReset">Reset</button>
+        <span class="order-msg" id="orderMsg" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot your ordered report.</b> Then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 3. WRITE THE SCENE -->
+  <section id="scene">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>Write the Scene</h2><p class="lead">Now write 2–3 sentences describing a landform of your choice (a coastline, mountain or plateau). Use at least <b>3</b> focus words — they light up green below. Underline each in your book.</p></div></div>
+
+    <div class="card">
+      <div class="scene-tracker" id="sceneTracker" aria-label="Focus words used"></div>
+      <p class="scene-count" id="sceneCount">0 of 8 focus words used — aim for at least 3.</p>
+      <label for="sceneBox" class="sr-only">Write your sentences</label>
+      <textarea id="sceneBox" placeholder="e.g. Powerful waves caused erosion along the coast, leaving a narrow peninsula…"></textarea>
+
+      <div class="test-row">
+        <button class="btn ghost" id="sceneHelp" aria-expanded="false">I need a hand ▾</button>
+      </div>
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>This box does not save.</b> Screenshot your sentences now and upload to OneNote.</div>
+      </div>
+      <div class="card" id="sceneHelpBox" style="display:none;background:var(--teal-soft);border-color:#bfdedc">
+        <b>Sentence starters</b>
+        <p>• Over many years, <b>erosion</b> …<br>• The map’s <b>contour</b> lines show …<br>• A high, flat <b>plateau</b> rises …<br>• Geographers use <b>cartography</b> to …</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. WEEKLY TEST -->
+  <section id="test">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>The Weekly Test</h2><p class="lead">Eight sentences, one missing word each. Read it, type the word, press <b>Check</b>. It marks itself — your running score is up top.</p></div></div>
+    <div class="card">
+      <div class="test-stats">
+        <div><span class="lab">Score</span><span class="big" id="tScore">0</span></div>
+        <div style="flex:1 1 160px"><span class="lab" id="tProgLab">Question 1 of 8</span><div class="progress-track"><div class="progress-fill" id="tProg"></div></div></div>
+      </div>
+      <div id="testArea"></div>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot your report card.</b> Record your score out of 8 and any words to practise.</div>
+    </div>
+  </section>
+
+  <!-- 5. CASE CLOSED -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>Case Closed</h2><p class="lead">Tick your evidence, rate your confidence, capture everything.</p></div></div>
+    <div class="card">
+      <h3>Evidence to capture (screenshot or photograph)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">My Memory Sprint result</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My ordered field report</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">My 2–3 landform sentences (focus words underlined)</label></li>
+        <li><input type="checkbox" id="c4"><label for="c4">My Weekly Test report card (score / 8)</label></li>
+      </ul>
+      <h3 style="margin-top:18px">How confident am I with this week’s geography words?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+      <div class="evidence" style="margin-top:18px;margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing here is saved.</b> Take your final screenshots now, then upload everything to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer><p>Year 6 Spelling · Word Detectives · Lesson 9: The Survey Report · Linked to ACARA v9 AC9E6LY08 &amp; AC9E6LY09. All content original. Works offline — no data is collected or stored.</p></footer>
+
+<div class="sr-only" id="liveRegion" aria-live="assertive" style="position:fixed;bottom:0;left:0"></div>
+
+<script>
+"use strict";
+const $=(s,el=document)=>el.querySelector(s);
+const $$=(s,el=document)=>Array.from(el.querySelectorAll(s));
+const announce=(m)=>{const r=$("#liveRegion");r.textContent="";setTimeout(()=>r.textContent=m,30);};
+const shuffle=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(p=>p[1]);
+const FOCUS=["topography","cartography","latitude","longitude","peninsula","plateau","erosion","contour"];
+
+/* ---------- 1. MEMORY SPRINT ---------- */
+let sprintT=null, sprintLeft=30;
+const timerEl=$("#timer"), fillEl=$("#sprintFill"), boxEl=$("#sprintBox"), startBtn=$("#sprintStart");
+function fmt(s){return "0:"+String(s).padStart(2,"0");}
+startBtn.addEventListener("click",()=>{
+  if(sprintT)return;
+  sprintLeft=30; timerEl.textContent=fmt(30); timerEl.classList.remove("low");
+  boxEl.disabled=false; boxEl.value=""; boxEl.focus();
+  $("#recallReveal").style.display="none";
+  startBtn.disabled=true; startBtn.textContent="Sprinting…"; fillEl.style.width="100%";
+  sprintT=setInterval(()=>{
+    sprintLeft--; timerEl.textContent=fmt(Math.max(sprintLeft,0)); fillEl.style.width=Math.max(sprintLeft,0)/30*100+"%";
+    if(sprintLeft<=5)timerEl.classList.add("low");
+    if(sprintLeft<=0)endSprint();
+  },1000);
+});
+function endSprint(){
+  clearInterval(sprintT); sprintT=null; boxEl.disabled=true;
+  startBtn.disabled=false; startBtn.textContent="Go again ↺";
+  announce("Time! Reveal the list and tick the words you got.");
+  $("#recallReveal").style.display="block"; $("#recallReveal").scrollIntoView({block:"nearest"});
+}
+const recallGrid=$("#recallGrid");
+FOCUS.forEach(w=>{
+  const b=document.createElement("button");b.type="button";b.className="recall-chip";b.setAttribute("aria-pressed","false");
+  b.innerHTML='<span class="box" aria-hidden="true"></span>'+w;
+  b.addEventListener("click",()=>{const on=b.getAttribute("aria-pressed")==="true";b.setAttribute("aria-pressed",on?"false":"true");
+    const got=$$("#recallGrid .recall-chip[aria-pressed=true]").length;$("#recallScore").textContent="You recalled "+got+" of 8 words correctly.";});
+  recallGrid.appendChild(b);
+});
+
+/* ---------- 2. ORDER THE REPORT ---------- */
+const SENTENCES=[
+ {pos:1, t:"A rocky coastline begins where solid land meets the restless sea."},
+ {pos:2, t:"Day after day, powerful waves cause erosion that wears the softer rock away."},
+ {pos:3, t:"What remains is often a narrow peninsula reaching out into the water."},
+ {pos:4, t:"Finally, geographers use cartography to map its changing topography."},
+];
+const orderListEl=$("#orderList");
+let pickOrder=[]; // array of item elements in clicked order
+let orderDone=false;
+shuffle(SENTENCES).forEach(s=>{
+  const b=document.createElement("button");b.type="button";b.className="order-item";b.dataset.pos=s.pos;
+  b.innerHTML='<span class="order-badge" aria-hidden="true">·</span><span class="order-text">'+s.t+'</span>';
+  b.setAttribute("aria-label","Sentence: "+s.t);
+  b.addEventListener("click",()=>{
+    if(orderDone)return;
+    if(pickOrder.includes(b))return; // already numbered; use Reset to change
+    pickOrder.push(b); repaintOrder();
+  });
+  orderListEl.appendChild(b);
+});
+function repaintOrder(){
+  $$(".order-item",orderListEl).forEach(it=>{
+    const idx=pickOrder.indexOf(it);
+    const badge=$(".order-badge",it);
+    if(idx>=0){it.classList.add("picked");badge.textContent=idx+1;}
+    else{it.classList.remove("picked");badge.textContent="·";}
+  });
+}
+$("#orderCheck").addEventListener("click",()=>{
+  if(orderDone)return;
+  if(pickOrder.length!==SENTENCES.length){$("#orderMsg").textContent="Number all "+SENTENCES.length+" sentences first.";$("#orderMsg").className="order-msg bad";return;}
+  orderDone=true;let correct=0;
+  pickOrder.forEach((it,i)=>{
+    const ok=+it.dataset.pos===i+1;
+    it.classList.remove("picked");
+    it.classList.add(ok?"ok":"no");
+    if(ok)correct++;
+  });
+  if(correct===SENTENCES.length){$("#orderMsg").textContent="🎉 Perfect order! A clear, logical report.";$("#orderMsg").className="order-msg good";}
+  else{$("#orderMsg").textContent="You got "+correct+" of "+SENTENCES.length+" in place. Green = right spot, red = needs moving. Hit Reset to retry.";$("#orderMsg").className="order-msg bad";}
+  announce(correct+" of "+SENTENCES.length+" sentences correctly ordered.");
+});
+$("#orderReset").addEventListener("click",()=>{
+  orderDone=false;pickOrder=[];
+  $$(".order-item",orderListEl).forEach(it=>{it.classList.remove("ok","no","picked");$(".order-badge",it).textContent="·";});
+  $("#orderMsg").textContent="";
+});
+
+/* ---------- 3. WRITE THE SCENE ---------- */
+const sceneTracker=$("#sceneTracker"), sceneBox=$("#sceneBox");
+FOCUS.forEach(w=>{const c=document.createElement("span");c.className="chip";c.dataset.w=w;c.textContent=w;sceneTracker.appendChild(c);});
+sceneBox.addEventListener("input",()=>{
+  const text=" "+sceneBox.value.toLowerCase()+" ";let used=0;
+  FOCUS.forEach(w=>{const re=new RegExp("\\b"+w+"\\b","i");const chip=$('.chip[data-w="'+w+'"]',sceneTracker);if(re.test(text)){chip.classList.add("used");used++;}else chip.classList.remove("used");});
+  const cnt=$("#sceneCount");cnt.textContent=used+" of 8 focus words used"+(used>=3?" — target met! ✓":" — aim for at least 3.");cnt.classList.toggle("met",used>=3);
+});
+$("#sceneHelp").addEventListener("click",()=>{
+  const box=$("#sceneHelpBox");const open=box.style.display==="none";box.style.display=open?"block":"none";
+  $("#sceneHelp").setAttribute("aria-expanded",open?"true":"false");$("#sceneHelp").textContent=open?"Hide the hand ▴":"I need a hand ▾";
+});
+
+/* ---------- 4. WEEKLY TEST ---------- */
+const TEST=[
+ {word:"topography", before:"The ",                         after:" of the area showed steep hills and deep valleys."},
+ {word:"cartography",before:"",                             after:" is the science of making accurate maps."},
+ {word:"latitude",   before:"Lines of ",                    after:" run east to west around the globe."},
+ {word:"longitude",  before:"Lines of ",                    after:" run from the North Pole to the South Pole."},
+ {word:"peninsula",  before:"A ",                           after:" is a piece of land almost surrounded by water."},
+ {word:"plateau",    before:"The flat-topped ",             after:" rose high above the plain."},
+ {word:"erosion",    before:"",                             after:" slowly wore away the soft rock along the coast."},
+ {word:"contour",    before:"Each ",                        after:" line on the map joins points of equal height."},
+];
+let tI=0,tScore=0,tMissed=[];
+const testArea=$("#testArea");
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function renderTest(){
+  const q=TEST[tI];
+  $("#tProgLab").textContent="Question "+(tI+1)+" of "+TEST.length;
+  $("#tProg").style.width=Math.round(tI/TEST.length*100)+"%";
+  testArea.innerHTML="";
+  const card=document.createElement("div");card.className="test-card";
+  const sent=document.createElement("p");sent.className="test-sentence";
+  sent.innerHTML=esc(q.before)+'<span class="test-blank">&nbsp;</span>'+esc(q.after);
+  const row=document.createElement("div");row.className="test-row";
+  const inp=document.createElement("input");inp.className="test-input";inp.type="text";inp.autocomplete="off";inp.autocapitalize="off";inp.spellcheck=false;
+  inp.setAttribute("aria-label","Type the missing word for question "+(tI+1));inp.placeholder="type the missing word…";
+  const btn=document.createElement("button");btn.className="btn";btn.textContent="Check";
+  row.append(inp,btn);
+  const fb=document.createElement("div");fb.className="test-fb";
+  card.append(sent,row,fb);testArea.appendChild(card);inp.focus();
+  function submit(){
+    if(card.dataset.done)return;
+    const val=inp.value.trim().toLowerCase();
+    if(!val){fb.textContent="Type the word first.";fb.className="test-fb bad";return;}
+    card.dataset.done="1";inp.setAttribute("disabled","");btn.textContent="Next ›";btn.classList.add("amber");
+    if(val===q.word){tScore++;fb.textContent="✓ Correct — "+q.word;fb.className="test-fb good";}
+    else{tMissed.push(q.word);fb.innerHTML="✗ Not quite. The word is <b>"+q.word+"</b>.";fb.className="test-fb bad";}
+    $("#tScore").textContent=tScore;announce(val===q.word?"Correct":"Incorrect, the word is "+q.word);
+    btn.onclick=()=>{tI++;if(tI<TEST.length)renderTest();else report();};
+  }
+  btn.addEventListener("click",submit);
+  inp.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();if(card.dataset.done){tI++;if(tI<TEST.length)renderTest();else report();}else submit();}});
+}
+function report(){
+  $("#tProg").style.width="100%";$("#tProgLab").textContent="Complete!";
+  const pct=Math.round(tScore/TEST.length*100);
+  let line=pct===100?"Perfect score — every word nailed!":pct>=75?"Strong work — at standard and beyond.":pct>=50?"Good effort — a few to practise.":"Keep going — practise these and try again.";
+  let prac=tMissed.length?'<p style="font-family:Space Grotesk;font-weight:600;margin-top:6px">Words to practise:</p><ul>'+[...new Set(tMissed)].map(w=>"<li>"+w+"</li>").join("")+"</ul>":'<p style="margin-top:6px">No words to re-practise. 🎉</p>';
+  testArea.innerHTML='<div class="report"><div class="big">'+tScore+' / '+TEST.length+'</div><p class="lead" style="margin:4px auto">'+line+'</p>'+prac+'<button class="btn amber" id="tAgain" style="margin-top:10px">Retake the test ↺</button></div>';
+  $("#tAgain").addEventListener("click",()=>{tI=0;tScore=0;tMissed=[];$("#tScore").textContent=0;renderTest();});
+}
+renderTest();
+
+/* ---------- 5. CONFIDENCE ---------- */
+$$("#confi button").forEach(b=>b.addEventListener("click",()=>{$$("#confi button").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");}));
+</script>
+</body>
+</html>

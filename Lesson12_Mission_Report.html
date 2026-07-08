@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12 — Mission Report | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4; --ink:#1b2a4a; --amber:#e8930c; --teal:#0e7c7b; --card:#fff;
+    --line:#e6e1d6; --amber-soft:#fdf0d9; --amber-edge:#f2c785; --teal-soft:#e1efee;
+    --ink-soft:#56607a; --good:#1f7a4d; --good-soft:#e3f3ea; --bad:#c0392b; --bad-soft:#fdeceb;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06); --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Atkinson Hyperlegible",system-ui,sans-serif; font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%}
+  h1,h2,h3,.eyebrow,.pill,.sprint-num,.chip,.tw,.report-score{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  header.band{background:var(--ink); color:#fff; padding:30px 22px 26px}
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px}
+  .band h1{font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em}
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:62ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1}
+
+  nav.pills{position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px}
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto; font-family:"Space Grotesk"}
+  .lead{color:var(--ink-soft); max-width:66ch}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0}
+
+  button{font-family:inherit}
+  .btn{background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"}
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  .evidence{display:flex; gap:12px; align-items:flex-start; background:#fff7e9; border:1.5px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:14px 0; font-size:.92rem}
+  .evidence svg{flex:0 0 auto; margin-top:2px}
+  .evidence b{color:#a8540b}
+
+  /* sprint */
+  .sprint-top{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
+  .sprint-num{font-size:2.6rem; font-weight:700; color:var(--teal); min-width:2.4ch; text-align:center}
+  .sprint-area textarea{width:100%; min-height:90px; border:1.5px solid var(--line); border-radius:10px; padding:12px; font-family:"Atkinson Hyperlegible"; font-size:1rem; margin-top:12px; resize:vertical; background:#fff; color:var(--ink)}
+  .sprint-area textarea:disabled{background:#f6f4ee}
+  .sprint-result{margin-top:10px; font-weight:700; font-family:"Space Grotesk"; color:var(--teal); min-height:1.3em}
+
+  /* tracker */
+  .tw-area textarea{width:100%; min-height:130px; border:1.5px solid var(--line); border-radius:10px; padding:13px; font-family:"Atkinson Hyperlegible"; font-size:1.02rem; resize:vertical; background:#fff; color:var(--ink)}
+  .tracker{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+  .chip{border:1.5px solid var(--line); background:#fbfaf6; color:var(--ink-soft); border-radius:999px; padding:6px 13px; font-size:.86rem; font-weight:600}
+  .chip.lit{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .chip.lit::before{content:"✓ "}
+  .tw-count{margin-top:12px; font-weight:700; font-family:"Space Grotesk"}
+  .tw-count .hit{color:var(--good)}
+  .help-btn{margin-top:12px}
+  .help-box{display:none; margin-top:12px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:10px; padding:13px 15px; font-size:.93rem}
+  .help-box.show{display:block}
+  .help-box ul{margin:.3em 0; padding-left:1.2em}
+
+  /* proofread */
+  .transmission{font-size:1.08rem; line-height:2.1; background:#0f1830; color:#e7edff; border-radius:12px; padding:18px}
+  .tw{display:inline; border:none; background:transparent; color:#e7edff; font-size:1.05rem; cursor:pointer; padding:2px 4px; border-radius:6px; font-weight:600}
+  .tw.cand{border-bottom:2px dotted #6b7aa6}
+  .tw.cand:hover{background:#243a63}
+  .tw.flagged{background:#5a3a00; color:#ffd479; border-bottom:2px solid #ffd479}
+  .tw.caught{background:#14502f; color:#9fe6bd; border-bottom:2px solid #9fe6bd}
+  .tw.false{background:#5a1a14; color:#ffb4a8; border-bottom:2px solid #ffb4a8}
+  .tw.missed{background:#5a3a00; color:#ffd479; text-decoration:underline wavy #ffd479}
+  .proof-msg{margin-top:14px; font-weight:700; font-family:"Space Grotesk"; min-height:1.3em}
+  .fixlist{margin-top:10px; display:none}
+  .fixlist.show{display:block}
+  .fixlist li{margin:4px 0}
+  .fixlist .was{color:var(--bad); text-decoration:line-through} .fixlist .now{color:var(--good); font-weight:700}
+
+  /* weekly test */
+  .test-intro{background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:14px 16px; font-size:.94rem; margin-bottom:14px}
+  .test-prog{font-family:"Space Grotesk"; font-weight:600; color:var(--ink-soft); font-size:.85rem; letter-spacing:.03em}
+  .test-sentence{font-size:1.15rem; margin:12px 0; line-height:1.6}
+  .test-blank{display:inline-block; min-width:90px; border-bottom:3px solid var(--amber); color:var(--amber); font-weight:700; text-align:center}
+  .test-row{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:8px}
+  .test-input{flex:1 1 220px; min-width:180px; border:1.5px solid var(--line); border-radius:10px; padding:11px 13px; font-family:"Atkinson Hyperlegible"; font-size:1.05rem; background:#fff; color:var(--ink)}
+  .test-fb{margin-top:12px; font-weight:700; font-family:"Space Grotesk"; min-height:1.4em}
+  .test-fb.ok{color:var(--good)} .test-fb.no{color:var(--bad)}
+  .report{text-align:center; padding:6px}
+  .report-score{font-size:3rem; font-weight:700; color:var(--teal); line-height:1}
+  .report-list{list-style:none; padding:0; margin:16px 0; text-align:left; max-width:440px; margin-left:auto; margin-right:auto}
+  .report-list li{display:flex; justify-content:space-between; gap:10px; padding:8px 12px; border-radius:8px; margin:5px 0; border:1px solid var(--line)}
+  .report-list li.ok{background:var(--good-soft); border-color:var(--good)}
+  .report-list li.no{background:var(--bad-soft); border-color:var(--bad)}
+  .report-list .mark{font-weight:700}
+
+  /* checklist */
+  .check-list{list-style:none; padding:0; margin:.4em 0}
+  .check-list li{display:flex; gap:11px; align-items:flex-start; padding:9px 0; border-bottom:1px dashed var(--line)}
+  .check-list input{width:24px; height:24px; margin-top:2px; accent-color:var(--teal); flex:0 0 auto}
+  .confi{display:flex; gap:9px; flex-wrap:wrap; margin-top:10px}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:10px 14px; min-height:44px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .confi button[aria-pressed=true]{background:var(--teal); color:#fff; border-color:var(--teal)}
+
+  footer{max-width:1000px; margin:0 auto; padding:24px 18px 50px; color:var(--ink-soft); font-size:.85rem}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Year 6 Spelling · Word Detectives · Lesson 12</p>
+    <h1>Mission Report</h1>
+    <p class="hook">Final briefing for the Solar System case. Write your report, screen the transmission for spelling faults, then prove your spelling in the weekly test.</p>
+    <div class="meta-row" aria-label="Lesson details">
+      <span>Science: Earth &amp; Space</span>
+      <span>Apply + Weekly Test</span>
+      <span>AC9E6LY08 · AC9E6LY09</span>
+      <span>20 minutes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Jump to a section">
+  <div class="pills-inner">
+    <a class="pill" href="#recall">Pre-Launch Recall</a>
+    <a class="pill" href="#report">Mission Report</a>
+    <a class="pill" href="#signal">Signal Check</a>
+    <a class="pill" href="#test">Weekly Test</a>
+    <a class="pill" href="#closed">Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- 1. MEMORY SPRINT -->
+  <section id="recall">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>Pre-Launch Recall</h2><p class="lead">30-second countdown. Hit start, then type every Solar System word you can remember — no peeking.</p></div></div>
+    <div class="card">
+      <div class="sprint-top">
+        <span class="sprint-num" id="sprintNum" aria-live="polite">30</span>
+        <button class="btn" id="sprintStart">Start the countdown</button>
+        <button class="btn ghost" id="sprintReset" disabled>Reset</button>
+      </div>
+      <div class="sprint-area">
+        <label class="sr-only" for="sprintBox">Type space words from memory</label>
+        <textarea id="sprintBox" placeholder="astronomy, satellite, orbit…" disabled></textarea>
+      </div>
+      <p class="sprint-result" id="sprintResult" role="status" aria-live="polite"></p>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Nothing saves here.</b> Screenshot your count before moving on, then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 2. MISSION REPORT (tracker) -->
+  <section id="report">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Mission Report</h2><p class="lead">Write 3–4 sentences explaining something about the Solar System. <b>Aim to use 4+ focus words</b> — they light up as you type. Underline them in your book version.</p></div></div>
+    <div class="card">
+      <div class="tw-area">
+        <label class="sr-only" for="reportBox">Write your Solar System report</label>
+        <textarea id="reportBox" placeholder="The Earth takes one year to orbit the Sun. An astronaut uses a telescope to study…"></textarea>
+      </div>
+      <p class="tw-count" id="twCount">Focus words used: <span class="hit">0</span> / 8</p>
+      <div class="tracker" id="tracker" aria-label="Focus words used"></div>
+      <button class="btn ghost help-btn" id="helpBtn" aria-expanded="false">I need help ↓</button>
+      <div class="help-box" id="helpBox">
+        <b>Sentence starters:</b>
+        <ul>
+          <li>The Earth takes one year to <b>orbit</b> the Sun…</li>
+          <li>An <b>astronaut</b> uses a <b>telescope</b> to study a far-off <b>constellation</b>…</li>
+          <li>A <b>satellite</b> moves around a planet, while an <b>asteroid</b>…</li>
+          <li><b>Astronomy</b> helps us understand a <b>lunar</b> eclipse…</li>
+        </ul>
+      </div>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>This box does not save your writing.</b> Screenshot your report (with the lit-up words) and upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 3. SIGNAL CHECK (proofread) -->
+  <section id="signal">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>Signal Check</h2><p class="lead">This transmission came through with spelling faults. <b>Tap every word you think is misspelled</b>, then reveal the corrections to see how many you caught.</p></div></div>
+    <div class="card">
+      <div class="transmission" id="transmission" aria-label="Transmission to proofread"></div>
+      <div class="test-row">
+        <button class="btn" id="proofReveal" disabled>Reveal corrections</button>
+        <button class="btn ghost" id="proofReset">Start over</button>
+      </div>
+      <p class="proof-msg" id="proofMsg" role="status" aria-live="polite"></p>
+      <ul class="fixlist" id="fixlist"></ul>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot your caught/missed result.</b> Then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 4. WEEKLY TEST -->
+  <section id="test">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>Weekly Test</h2><p class="lead">The Solar System dictation — 8 words.</p></div></div>
+    <div class="test-intro">
+      <b>Two ways to do this:</b> (A) your teacher reads each sentence aloud and you write only the target word in your book, then self-mark — or (B) do it on screen below: read the sentence, type the missing word, press <b>Check</b>. Either way, screenshot your report card at the end.
+    </div>
+    <div class="card" id="testCard"></div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Your score is not saved.</b> Screenshot the report card and upload it to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 5. CASE CLOSED -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>Case Closed</h2><p class="lead">Exit check. Tick your evidence, rate your confidence, capture everything.</p></div></div>
+    <div class="card">
+      <h3>Evidence to capture (screenshot or photograph)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">My Pre-Launch Recall count</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My Mission Report (with focus words underlined in my book)</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">My Signal Check result</label></li>
+        <li><input type="checkbox" id="c4"><label for="c4">My Weekly Test report card</label></li>
+      </ul>
+      <h3 style="margin-top:18px">How confident am I with the Solar System words?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+      <div class="evidence" style="margin-top:18px;margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing here is saved.</b> Take your final screenshots now, then upload everything to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer><p>Year 6 Spelling · Word Detectives · Lesson 12: Mission Report · Linked to ACARA v9 AC9E6LY08 &amp; AC9E6LY09. All content original. Works offline — no data is collected or stored.</p></footer>
+
+<div class="sr-only" id="liveRegion" aria-live="assertive" style="position:fixed;bottom:0;left:0"></div>
+
+<script>
+"use strict";
+const $=(s,el=document)=>el.querySelector(s);
+const $$=(s,el=document)=>Array.from(el.querySelectorAll(s));
+const announce=(m)=>{const r=$("#liveRegion");r.textContent="";setTimeout(()=>r.textContent=m,30);};
+const FOCUS=["astronomy","astronaut","constellation","satellite","asteroid","telescope","lunar","orbit"];
+
+/* ---------- 1. MEMORY SPRINT ---------- */
+let sprintTimer=null;
+const sNum=$("#sprintNum"),sBox=$("#sprintBox"),sStart=$("#sprintStart"),sReset=$("#sprintReset"),sRes=$("#sprintResult");
+sStart.addEventListener("click",()=>{
+  let t=30;sNum.textContent=t;sBox.disabled=false;sBox.value="";sBox.focus();sStart.disabled=true;sReset.disabled=false;sRes.textContent="";
+  sprintTimer=setInterval(()=>{
+    t--;sNum.textContent=t;
+    if(t<=0){clearInterval(sprintTimer);sBox.disabled=true;
+      const words=sBox.value.split(/[\s,;]+/).filter(w=>w.trim().length>1);
+      sRes.textContent="⏱ Time! You recalled "+words.length+" word"+(words.length===1?"":"s")+" from memory. Screenshot it!";
+      announce("Time up. "+words.length+" words.");}
+  },1000);
+});
+sReset.addEventListener("click",()=>{clearInterval(sprintTimer);sNum.textContent=30;sBox.value="";sBox.disabled=true;sStart.disabled=false;sReset.disabled=true;sRes.textContent="";});
+
+/* ---------- 2. MISSION REPORT (tracker) ---------- */
+const tracker=$("#tracker");
+FOCUS.forEach(w=>{const s=document.createElement("span");s.className="chip";s.dataset.word=w;s.textContent=w;tracker.appendChild(s);});
+const reportBox=$("#reportBox");
+reportBox.addEventListener("input",()=>{
+  const txt=reportBox.value.toLowerCase();let n=0;
+  FOCUS.forEach(w=>{const used=new RegExp("\\b"+w+"\\b","i").test(txt);const chip=tracker.querySelector('[data-word="'+w+'"]');if(used){chip.classList.add("lit");n++;}else chip.classList.remove("lit");});
+  const hit=$("#twCount .hit");hit.textContent=n;
+});
+$("#helpBtn").addEventListener("click",()=>{const o=$("#helpBox").classList.toggle("show");$("#helpBtn").setAttribute("aria-expanded",o?"true":"false");$("#helpBtn").textContent=o?"Hide help ↑":"I need help ↓";});
+
+/* ---------- 3. SIGNAL CHECK (proofread) ---------- */
+/* tokens: plain strings, or {cand:true, text, error:bool, correct} */
+const TRANS=[
+ "Mission log:", {cand:true,text:"the",error:false},
+ {cand:true,text:"satelite",error:true,correct:"satellite"}, "passed the",
+ {cand:true,text:"asteriod",error:true,correct:"asteroid"}, "belt. Our",
+ {cand:true,text:"telescpe",error:true,correct:"telescope"}, "tracked its",
+ {cand:true,text:"orbit",error:false}, "around the Sun. The",
+ {cand:true,text:"astronaut",error:false}, "logged a",
+ {cand:true,text:"constelation",error:true,correct:"constellation"}, "overhead."
+];
+const transEl=$("#transmission");
+let proofState=[];
+function renderTrans(){
+  transEl.innerHTML="";proofState=[];
+  TRANS.forEach((tok)=>{
+    if(typeof tok==="string"){transEl.appendChild(document.createTextNode(" "+tok+" "));return;}
+    const b=document.createElement("button");b.type="button";b.className="tw cand";b.textContent=tok.text;
+    b.setAttribute("aria-pressed","false");b.setAttribute("aria-label","word: "+tok.text+". Tap if misspelled.");
+    const idx=proofState.length;proofState.push({tok,flagged:false,btn:b});
+    b.addEventListener("click",()=>{
+      if(transEl.dataset.done)return;
+      const st=proofState[idx];st.flagged=!st.flagged;b.classList.toggle("flagged",st.flagged);b.setAttribute("aria-pressed",st.flagged?"true":"false");
+      $("#proofReveal").disabled=!proofState.some(s=>s.flagged);
+    });
+    transEl.appendChild(b);
+  });
+  transEl.removeAttribute("data-done");$("#proofReveal").disabled=true;$("#proofMsg").textContent="";$("#fixlist").classList.remove("show");$("#fixlist").innerHTML="";
+}
+$("#proofReveal").addEventListener("click",()=>{
+  transEl.dataset.done="1";let caught=0,missed=0,falses=0;const fixes=[];
+  proofState.forEach(s=>{
+    s.btn.classList.remove("flagged");
+    if(s.tok.error){
+      if(s.flagged){s.btn.classList.add("caught");caught++;}else{s.btn.classList.add("missed");missed++;}
+      fixes.push(s.tok);
+    }else if(s.flagged){s.btn.classList.add("false");falses++;}
+  });
+  const totalErr=proofState.filter(s=>s.tok.error).length;
+  const msg=$("#proofMsg");
+  let tail="";
+  if(missed) tail=" · "+missed+" missed";
+  else if(!falses) tail=" · perfect sweep!";
+  msg.textContent="You caught "+caught+" of "+totalErr+" faults"+(falses?(" · "+falses+" false alarm"+(falses===1?"":"s")):"")+tail;
+  msg.style.color=(caught===totalErr&&!falses)?"var(--good)":"var(--ink)";
+  const fl=$("#fixlist");fl.innerHTML="<li><b>Corrections:</b></li>"+fixes.map(f=>'<li><span class="was">'+f.text+'</span> → <span class="now">'+f.correct+'</span></li>').join("");
+  fl.classList.add("show");
+  announce("Caught "+caught+" of "+totalErr+" faults.");
+});
+$("#proofReset").addEventListener("click",renderTrans);
+renderTrans();
+
+/* ---------- 4. WEEKLY TEST ---------- */
+const TEST=[
+ {word:"astronomy", sentence:"____ is the study of stars, planets and galaxies."},
+ {word:"astronaut", sentence:"The ____ floated gently inside the space station."},
+ {word:"constellation", sentence:"We traced the shape of the ____ in the night sky."},
+ {word:"satellite", sentence:"A ____ orbits the Earth and sends back signals."},
+ {word:"asteroid", sentence:"A rocky ____ drifted between Mars and Jupiter."},
+ {word:"telescope", sentence:"We used a ____ to see the craters on the Moon."},
+ {word:"lunar", sentence:"A ____ eclipse happens when the Earth blocks light from the Moon."},
+ {word:"orbit", sentence:"It takes one year for the Earth to ____ the Sun."},
+];
+let tI=0;const results=[];
+const testCard=$("#testCard");
+function renderTest(){
+  if(tI>=TEST.length){return renderReport();}
+  const q=TEST[tI];
+  const sentenceHTML=q.sentence.replace("____",'<span class="test-blank">?</span>');
+  testCard.innerHTML=
+    '<p class="test-prog">Word '+(tI+1)+' of '+TEST.length+'</p>'+
+    '<p class="test-sentence">'+sentenceHTML+'</p>'+
+    '<div class="test-row">'+
+      '<input class="test-input" id="testInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type the missing word…" aria-label="Type the missing word">'+
+      '<button class="btn" id="testCheck">Check</button>'+
+    '</div>'+
+    '<p class="test-fb" id="testFb"></p>';
+  const input=$("#testInput");input.focus();
+  $("#testCheck").addEventListener("click",checkTest);
+  input.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();checkTest();}});
+}
+function checkTest(){
+  const q=TEST[tI];const input=$("#testInput");const val=input.value.trim().toLowerCase();
+  if(!val){$("#testFb").textContent="Type your answer first.";$("#testFb").className="test-fb no";return;}
+  const ok=val===q.word.toLowerCase();results.push({word:q.word,ok});
+  input.setAttribute("disabled","");$("#testCheck").setAttribute("disabled","");
+  const fb=$("#testFb");
+  fb.innerHTML=ok?'✓ Correct — '+q.word:'✗ The word was <b>'+q.word+'</b>';fb.className="test-fb "+(ok?"ok":"no");
+  const next=document.createElement("button");next.className="btn amber";next.style.marginTop="12px";next.textContent=(tI===TEST.length-1)?"See my report card →":"Next word →";
+  next.addEventListener("click",()=>{tI++;renderTest();});
+  testCard.appendChild(next);next.focus();
+  announce(ok?"Correct.":"Incorrect. The word was "+q.word);
+}
+function renderReport(){
+  const correct=results.filter(r=>r.ok).length;
+  testCard.innerHTML=
+    '<div class="report">'+
+      '<p class="test-prog">Report card</p>'+
+      '<div class="report-score">'+correct+' / '+TEST.length+'</div>'+
+      '<p>'+(correct>=6?"Mission accomplished — at or above target (6/8)! 🚀":"Keep training — revisit the amber words and try again.")+'</p>'+
+      '<ul class="report-list">'+results.map(r=>'<li class="'+(r.ok?"ok":"no")+'"><span>'+r.word+'</span><span class="mark">'+(r.ok?"✓":"revisit")+'</span></li>').join("")+'</ul>'+
+      '<button class="btn" id="testAgain">Take it again ↺</button>'+
+    '</div>';
+  $("#testAgain").addEventListener("click",()=>{tI=0;results.length=0;renderTest();});
+  announce("Report card. "+correct+" out of "+TEST.length);
+}
+renderTest();
+
+/* ---------- 5. CONFIDENCE ---------- */
+$$("#confi button").forEach(b=>b.addEventListener("click",()=>{$$("#confi button").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");}));
+</script>
+</body>
+</html>

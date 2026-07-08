@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 20 — Zoom In: Tricky Parts &amp; the Australian -ise | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4;
+    --ink:#1b2a4a;
+    --amber:#e8930c;
+    --teal:#0e7c7b;
+    --card:#ffffff;
+    --line:#e6e1d6;
+    --amber-soft:#fdf0d9;
+    --amber-edge:#f2c785;
+    --teal-soft:#e1efee;
+    --ink-soft:#56607a;
+    --good:#1f7a4d;
+    --good-soft:#e3f3ea;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Atkinson Hyperlegible",system-ui,sans-serif;
+    font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%;
+  }
+  h1,h2,h3,.eyebrow,.pill,.tile,.opt,.word-chip{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  a{color:var(--teal)}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  header.band{background:var(--ink); color:#fff; padding:30px 22px 26px}
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px}
+  .band h1{font-family:"Space Grotesk"; font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em}
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:60ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1}
+
+  nav.pills{position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px}
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{font-family:"Space Grotesk"; font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto}
+  .lead{color:var(--ink-soft); max-width:66ch}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0}
+
+  button{font-family:inherit}
+  .btn{background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"}
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn.amber:hover{background:#d98509}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  .q{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .q .stem{font-weight:700; margin-bottom:10px}
+  .opts{display:grid; gap:8px}
+  .opt{text-align:left; background:#fcfbf7; border:1.5px solid var(--line); color:var(--ink); padding:11px 14px; border-radius:10px; cursor:pointer; min-height:44px; font-size:.95rem}
+  .opt:hover{border-color:var(--teal)}
+  .opt.correct{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .opt.wrong{background:#fdeceb; border-color:#c0392b; color:#a8261b}
+  .opt[disabled]{cursor:default}
+  .fixup{margin-top:10px; background:var(--amber-soft); border-left:5px solid var(--amber); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none}
+  .fixup.show{display:block}
+  .fixup b{color:#a8540b}
+  .scorebar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:12px 16px}
+  .scorebar strong{font-family:"Space Grotesk"; font-size:1.15rem}
+
+  .teach-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+  @media(max-width:680px){.teach-grid{grid-template-columns:1fr}}
+  .teach .svg-wrap{background:#fbfaf6; border:1px solid var(--line); border-radius:12px; padding:14px; margin:.4em 0 .7em; text-align:center}
+  .remember{background:var(--teal-soft); border:1px solid #bfdedc; border-radius:10px; padding:10px 13px; font-size:.92rem; margin-top:8px}
+  .remember b{color:var(--teal)}
+
+  /* ---------- tricky-part zoom ---------- */
+  .zoom-word{margin:18px 0; padding:16px; border:1px solid var(--line); border-radius:12px; background:#fff}
+  .zoom-word.done{border-color:var(--good)}
+  .tiles{display:flex; flex-wrap:wrap; gap:5px; margin:10px 0 6px}
+  .tile{min-width:44px; min-height:48px; padding:6px 4px; display:inline-flex; align-items:center; justify-content:center;
+    font-size:1.35rem; font-weight:700; background:#fcfbf7; border:2px solid var(--line); border-radius:9px; cursor:pointer; color:var(--ink)}
+  .tile:hover{border-color:var(--teal)}
+  .tile.zone{background:var(--amber-soft); border-color:var(--amber); color:#a8540b}
+  .tile.shake{background:#fdeceb; border-color:#c0392b}
+  .tile[disabled]{cursor:default}
+  .zoom-tip{display:none; margin-top:10px; background:var(--good-soft); border-left:5px solid var(--good); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem}
+  .zoom-tip.show{display:block}
+  .zoom-nudge{display:none; margin-top:10px; background:var(--amber-soft); border-left:5px solid var(--amber); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem}
+  .zoom-nudge.show{display:block}
+  .zoom-count{font-family:"Space Grotesk"; font-weight:700; color:var(--teal)}
+
+  /* ---------- LCWC ---------- */
+  .lcwc-stage{border:1px solid var(--line); border-radius:12px; padding:18px; background:#fff; text-align:center}
+  .lcwc-word{font-family:"Space Grotesk"; font-weight:700; font-size:2rem; letter-spacing:.04em; margin:10px 0}
+  .lcwc-word .hot{color:var(--amber); text-decoration:underline; text-decoration-thickness:3px; text-underline-offset:5px}
+  .lcwc-covered{font-size:1.4rem; letter-spacing:.35em; color:var(--ink-soft); margin:14px 0}
+  input[type=text]{font-family:"Atkinson Hyperlegible"; font-size:1.1rem; padding:11px 13px; border:1.5px solid var(--line); border-radius:10px; min-height:44px; width:min(340px,100%)}
+  input[type=text]:focus-visible{outline:3px solid var(--amber); outline-offset:2px}
+  .diff{font-family:"Space Grotesk"; font-size:1.3rem; letter-spacing:.12em; margin-top:10px}
+  .diff .ok{color:var(--good)}
+  .diff .bad{color:#c0392b; text-decoration:underline}
+  .lcwc-progress{display:flex; gap:6px; justify-content:center; margin-top:12px; flex-wrap:wrap}
+  .lcwc-progress span{width:14px; height:14px; border-radius:50%; background:#eee7d9; border:1px solid var(--line)}
+  .lcwc-progress span.hit{background:var(--good); border-color:var(--good)}
+
+  /* ---------- -ise check ---------- */
+  .ise-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+  @media(max-width:680px){.ise-grid{grid-template-columns:1fr}}
+
+  .evidence{display:flex; gap:12px; align-items:flex-start; background:var(--amber-soft); border:1px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:16px 0; font-size:.95rem}
+  .help-reveal{display:none; margin-top:12px}
+  .help-reveal.show{display:block}
+  .locked-note{display:none; margin-top:12px}
+  .locked-note.show{display:block}
+
+  .check-list{list-style:none; padding:0; margin:.5em 0}
+  .check-list li{display:flex; gap:10px; align-items:flex-start; padding:7px 0}
+  .check-list input{width:22px; height:22px; margin-top:2px; accent-color:var(--teal)}
+  .confi{display:flex; gap:8px; flex-wrap:wrap}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:999px; padding:10px 16px; min-height:44px; cursor:pointer; font-size:.92rem}
+  .confi button[aria-pressed="true"]{background:var(--teal); border-color:var(--teal); color:#fff}
+
+  footer{border-top:1px solid var(--line); color:var(--ink-soft); font-size:.82rem; padding:18px 22px 34px; text-align:center}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Word Detectives · Week 7 · Session 2</p>
+    <h1>Zoom In: Tricky Parts &amp; the Australian -ise</h1>
+    <p class="hook">Every hard word has one spot where spellers slip. Today you find that spot, zoom in on it, and set a trap so it never catches you again.</p>
+    <div class="meta-row">
+      <span>Year 6 · Spelling</span><span>AC9E6LY08</span><span>20 minutes</span><span>Boy Overboard theme words</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Lesson sections">
+  <div class="pills-inner">
+    <a class="pill" href="#briefing">1 · The Briefing</a>
+    <a class="pill" href="#notes">2 · Case Notes</a>
+    <a class="pill" href="#zoom">3 · Tricky-Part Zoom</a>
+    <a class="pill" href="#lcwc">4 · Look·Cover·Write·Check</a>
+    <a class="pill" href="#ise">5 · The -ise Check</a>
+    <a class="pill" href="#closed">6 · Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ===================== 1. BRIEFING ===================== -->
+  <section id="briefing">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>The Briefing</h2><p class="lead">Warm-up: five quick questions from this week's case. Wrong answers get a fix-up note, not a red cross and a shrug.</p></div></div>
+
+    <div class="card" id="quiz">
+      <div class="q" data-answer="1">
+        <p class="stem">1. A witness wrote <em>sanctury</em>. Which spelling is actually correct?</p>
+        <div class="opts">
+          <button class="opt">sanctury</button>
+          <button class="opt">sanctuary</button>
+          <button class="opt">sancturey</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> The trap is a hidden <b>a</b>. Say it slowly: sanc-tu-<b>a</b>-ry. The ending is <b>-ary</b> (like <em>library</em> and <em>February</em>), never -ury.</div>
+      </div>
+
+      <div class="q" data-answer="2">
+        <p class="stem">2. What does the suffix <strong>-ment</strong> do in <em>displacement</em>?</p>
+        <div class="opts">
+          <button class="opt">It makes the word mean the opposite</button>
+          <button class="opt">It shows something happened in the past</button>
+          <button class="opt">It turns the verb <em>displace</em> into a noun — the state or result of being displaced</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> -ment builds a <b>noun</b> from a verb: displace → displace<b>ment</b>, belong → (a sense of) belonging. The "opposite" job belongs to the prefix <b>dis-</b> at the front.</div>
+      </div>
+
+      <div class="q" data-answer="0">
+        <p class="stem">3. Which word means <em>being treated cruelly or unfairly, especially because of your beliefs</em>?</p>
+        <div class="opts">
+          <button class="opt">persecution</button>
+          <button class="opt">compassion</button>
+          <button class="opt">resilience</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> <b>Persecution</b> is cruel, unfair treatment — the reason many refugees flee. <em>Compassion</em> is caring about someone's suffering; <em>resilience</em> is bouncing back from hardship.</div>
+      </div>
+
+      <div class="q" data-answer="2">
+        <p class="stem">4. Which is the correct spelling?</p>
+        <div class="opts">
+          <button class="opt">resiliance</button>
+          <button class="opt">resillience</button>
+          <button class="opt">resilience</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> One <b>l</b>, and the ending is <b>-ence</b> (like <em>difference</em> and <em>silence</em>). Say it in four robot beats: re-sil-i-ence.</div>
+      </div>
+
+      <div class="q" data-answer="1">
+        <p class="stem">5. In <em>compassion</em>, which letters make the /sh/ sound?</p>
+        <div class="opts">
+          <button class="opt">the ti</button>
+          <button class="opt">the ssi</button>
+          <button class="opt">the on</button>
+        </div>
+        <div class="fixup"><b>Fix-up:</b> In compassion the /sh/ is spelt <b>ssi</b> — compa<b>ssi</b>on. Words like <em>action</em> use <b>ti</b> for the same sound. That's exactly why this word is a trap: your ears can't tell you which one to write.</div>
+      </div>
+
+      <div class="scorebar">
+        <div>Score: <strong id="score">0</strong> / 5</div>
+        <button class="btn ghost" id="jumpFix" disabled>Jump to my first fix-up</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. CASE NOTES ===================== -->
+  <section id="notes">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Case Notes</h2><p class="lead">Four cards to teach from now — and to come back to when you're studying later.</p></div></div>
+
+    <div class="teach-grid">
+      <div class="card teach">
+        <h3>What is a "tricky part"?</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 300 110" width="100%" style="max-width:290px" role="img" aria-label="The word sanctuary with a magnifying glass zoomed in on the letters t, u, a">
+            <text x="16" y="66" font-family="Space Grotesk" font-weight="700" font-size="30" fill="#1b2a4a">sanc</text>
+            <text x="176" y="66" font-family="Space Grotesk" font-weight="700" font-size="30" fill="#1b2a4a">ry</text>
+            <circle cx="136" cy="56" r="40" fill="#fdf0d9" stroke="#e8930c" stroke-width="4"/>
+            <text x="136" y="67" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="32" fill="#a8540b">tua</text>
+            <line x1="166" y1="86" x2="196" y2="106" stroke="#e8930c" stroke-width="8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p>Most of a long word is easy — it sounds exactly how it looks. The <strong>tricky part</strong> is the small zone where the sound and the spelling don't match, or where a vowel goes quiet. Good spellers don't memorise whole words; they zoom in on the danger zone.</p>
+        <p class="remember"><b>Remember:</b> Find the tricky part, and the rest of the word almost spells itself.</p>
+      </div>
+
+      <div class="card teach">
+        <h3>The mumbling vowel (schwa)</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 300 120" width="100%" style="max-width:290px" role="img" aria-label="The word persecution split into four syllable blocks: per, se, cu, tion, with the se block highlighted and labelled says uh when you talk">
+            <rect x="10" y="30" width="62" height="44" rx="8" fill="#e1efee" stroke="#0e7c7b" stroke-width="2"/>
+            <text x="41" y="59" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="20" fill="#0e7c7b">per</text>
+            <rect x="80" y="30" width="52" height="44" rx="8" fill="#fdf0d9" stroke="#e8930c" stroke-width="3"/>
+            <text x="106" y="59" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="20" fill="#a8540b">se</text>
+            <rect x="140" y="30" width="52" height="44" rx="8" fill="#e1efee" stroke="#0e7c7b" stroke-width="2"/>
+            <text x="166" y="59" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="20" fill="#0e7c7b">cu</text>
+            <rect x="200" y="30" width="76" height="44" rx="8" fill="#e1efee" stroke="#0e7c7b" stroke-width="2"/>
+            <text x="238" y="59" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="20" fill="#0e7c7b">tion</text>
+            <text x="106" y="100" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="14" fill="#56607a">says "uh" when you talk</text>
+          </svg>
+        </div>
+        <p>In fast speech, unstressed vowels collapse into a lazy "uh" sound — that's the <strong>schwa</strong>. Your ears hear <em>pers-uh-cution</em>, so they can't tell you whether to write a, e, i, o or u. The fix: say the word like a robot, one clear syllable at a time — <em>per-SE-cu-tion</em> — and the hidden vowel shows itself.</p>
+        <p class="remember"><b>Remember:</b> When a vowel mumbles, robot-talk the word to make it confess.</p>
+      </div>
+
+      <div class="card teach">
+        <h3>The /sh/ disguise: -ssion and -tion</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 300 120" width="100%" style="max-width:290px" role="img" aria-label="A speech bubble saying the sound shun, with two arrows pointing to two spellings: ssion as in compassion and tion as in persecution">
+            <ellipse cx="150" cy="26" rx="58" ry="20" fill="#1b2a4a"/>
+            <text x="150" y="32" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#ffffff">/shun/</text>
+            <line x1="120" y1="46" x2="70" y2="72" stroke="#56607a" stroke-width="2.5"/>
+            <line x1="180" y1="46" x2="230" y2="72" stroke="#56607a" stroke-width="2.5"/>
+            <rect x="12" y="74" width="120" height="38" rx="8" fill="#fdf0d9" stroke="#e8930c" stroke-width="2.5"/>
+            <text x="72" y="98" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#a8540b">compa·ssion</text>
+            <rect x="168" y="74" width="120" height="38" rx="8" fill="#e1efee" stroke="#0e7c7b" stroke-width="2.5"/>
+            <text x="228" y="98" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#0e7c7b">persecu·tion</text>
+          </svg>
+        </div>
+        <p>The ending sound /shun/ wears two disguises in this week's words: <strong>-ssion</strong> in <em>compassion</em> and <strong>-tion</strong> in <em>persecution</em>. Your ears hear the exact same thing — only your <strong>eyes</strong> can learn which word wears which disguise.</p>
+        <p class="remember"><b>Remember:</b> compa<b>ssion</b> = double s. persecu<b>tion</b> = t. Photograph both with your eyes.</p>
+      </div>
+
+      <div class="card teach">
+        <h3>The Australian -ise generalisation</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 300 120" width="100%" style="max-width:290px" role="img" aria-label="A signpost with two arrows: one labelled Australian English pointing to organise with s, one labelled American English pointing to organize with z. The Australian arrow is ticked.">
+            <rect x="146" y="20" width="8" height="90" rx="3" fill="#56607a"/>
+            <rect x="30" y="24" width="122" height="34" rx="7" fill="#e1efee" stroke="#0e7c7b" stroke-width="2.5"/>
+            <text x="88" y="40" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="11" fill="#0e7c7b">Australian English</text>
+            <text x="88" y="54" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#0e7c7b">organi·se ✓</text>
+            <rect x="150" y="66" width="122" height="34" rx="7" fill="#f3f1ec" stroke="#c9c3b4" stroke-width="2"/>
+            <text x="211" y="82" text-anchor="middle" font-family="Atkinson Hyperlegible" font-size="11" fill="#56607a">American English</text>
+            <text x="211" y="96" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#56607a">organize</text>
+          </svg>
+        </div>
+        <p>Australian English spells these verbs with <strong>-ise</strong>: organ<em>ise</em>, recogn<em>ise</em>, summar<em>ise</em>. American books and websites use -ize, so you'll see both — but in your writing, choose <strong>s</strong>. Phonics twist: that s still <strong>sounds</strong> like /z/! And one rebel takes <strong>-yse</strong>: anal<em>yse</em>.</p>
+        <p class="remember"><b>Remember:</b> In Australia we organise with an <b>s</b> — even though it sounds like a z. And it's anal<b>yse</b>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. TRICKY-PART ZOOM ===================== -->
+  <section id="zoom">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>Tricky-Part Zoom</h2><p class="lead">Six theme words, six hidden traps. Tap the letters where the trap is hiding. Wrong taps cost nothing — they just give you a clue.</p></div></div>
+
+    <div class="card">
+      <p>Say each word out loud first (robot-style if you need to), then <strong>tap a letter inside the danger zone</strong>. Found: <span class="zoom-count"><span id="zoomFound">0</span> / 6</span></p>
+      <div id="zoomWords"></div>
+      <div class="evidence">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>This page doesn't save.</b> When all six zones are found, <b>screenshot your board</b> (with the memory tips showing) and upload it to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. LOOK COVER WRITE CHECK ===================== -->
+  <section id="lcwc">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>Look · Cover · Write · Check</h2><p class="lead">The four trickiest words, two rounds each. Look hard at the danger zone, cover the word, write it from memory, then check letter by letter.</p></div></div>
+
+    <div class="card">
+      <div class="lcwc-stage" id="lcwcStage">
+        <p style="margin:0 0 4px"><span class="eyebrow" style="color:var(--teal)" id="lcwcStep">Step 1 · Look</span></p>
+        <p id="lcwcRound" style="margin:0; color:var(--ink-soft); font-size:.9rem">Word 1 of 4 · Round 1 of 2</p>
+        <div class="lcwc-word" id="lcwcWord" aria-live="polite"></div>
+        <p id="lcwcHint" style="color:var(--ink-soft); font-size:.92rem; max-width:52ch; margin:6px auto"></p>
+        <div id="lcwcControls">
+          <button class="btn" id="lcwcCover">I've looked — cover it</button>
+        </div>
+        <div id="lcwcWriteArea" style="display:none">
+          <p class="lcwc-covered" aria-hidden="true">▪ ▪ ▪ ▪ ▪ ▪</p>
+          <label for="lcwcInput" style="display:block; font-size:.9rem; color:var(--ink-soft); margin-bottom:6px">Type the word from memory:</label>
+          <input type="text" id="lcwcInput" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Type the covered word from memory">
+          <div style="margin-top:10px"><button class="btn amber" id="lcwcCheck">Check my spelling</button></div>
+          <div class="diff" id="lcwcDiff" aria-live="polite"></div>
+          <div class="fixup" id="lcwcFix"></div>
+          <div style="margin-top:12px"><button class="btn ghost" id="lcwcNext" style="display:none">Next</button></div>
+        </div>
+        <div class="lcwc-progress" id="lcwcDots" aria-label="Progress through eight rounds"></div>
+      </div>
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Screenshot your finished progress dots</b> (all eight green) and upload to OneNote. Also write the four words once each in your book.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. -ISE CHECK ===================== -->
+  <section id="ise">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>The -ise Check</h2><p class="lead">Four rapid-fire calls: which spelling belongs in Australian writing?</p></div></div>
+
+    <div class="card">
+      <div class="ise-grid" id="iseGrid">
+        <div class="q" data-answer="0">
+          <p class="stem">The detective must ____ her case notes.</p>
+          <div class="opts">
+            <button class="opt">organise</button>
+            <button class="opt">organize</button>
+          </div>
+          <div class="fixup"><b>Fix-up:</b> Australian English uses <b>-ise</b>: organ<b>ise</b>. The z version is American.</div>
+        </div>
+        <div class="q" data-answer="1">
+          <p class="stem">Did you ____ the pattern in those words?</p>
+          <div class="opts">
+            <button class="opt">recognize</button>
+            <button class="opt">recognise</button>
+          </div>
+          <div class="fixup"><b>Fix-up:</b> Recogn<b>ise</b> — s, not z. It still sounds like /z/ when you say it, which is exactly why your ears can't be trusted here.</div>
+        </div>
+        <div class="q" data-answer="0">
+          <p class="stem">Scientists ____ their results before reporting them.</p>
+          <div class="opts">
+            <button class="opt">analyse</button>
+            <button class="opt">analize</button>
+          </div>
+          <div class="fixup"><b>Fix-up:</b> This one's the rebel: anal<b>yse</b> takes <b>-yse</b>, not -ise or -ize. It's in the same family as <em>paralyse</em>.</div>
+        </div>
+        <div class="q" data-answer="1">
+          <p class="stem">Can you ____ the chapter in three sentences?</p>
+          <div class="opts">
+            <button class="opt">summarize</button>
+            <button class="opt">summarise</button>
+          </div>
+          <div class="fixup"><b>Fix-up:</b> Summar<b>ise</b> with an s. Quick test for any of these verbs: if you're writing in Australia, reach for <b>s</b> first — then check for the -yse rebels.</div>
+        </div>
+      </div>
+      <div class="scorebar">
+        <div>-ise calls correct first try: <strong id="iseScore">0</strong> / 4</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. CASE CLOSED ===================== -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">06</span><div><h2>Case Closed</h2><p class="lead">Exit ticket, evidence list, and your confidence call.</p></div></div>
+
+    <div class="card">
+      <h3>Exit ticket: spell <em>identity</em> from memory</h3>
+      <p style="color:var(--ink-soft); font-size:.95rem">No peeking at the sections above. Type it, then unlock the check.</p>
+      <label for="exitInput" style="display:block; font-size:.9rem; color:var(--ink-soft); margin-bottom:6px">Your attempt:</label>
+      <input type="text" id="exitInput" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Spell the word identity from memory">
+      <div style="margin-top:10px">
+        <button class="btn amber" id="exitCheck" disabled>Unlock the check (type your attempt first)</button>
+      </div>
+      <div class="locked-note" id="exitResult">
+        <div class="fixup show" id="exitFix"></div>
+      </div>
+
+      <h3 style="margin-top:22px">Evidence to capture (screenshot or photograph each one)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">Briefing score and any fix-up notes I read</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My Tricky-Part Zoom board — all six zones found</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">Look·Cover·Write·Check progress dots (all eight green)</label></li>
+        <li><input type="checkbox" id="c4"><label for="c4">The four words written once each in my book</label></li>
+        <li><input type="checkbox" id="c5"><label for="c5">My -ise Check score</label></li>
+        <li><input type="checkbox" id="c6"><label for="c6">My exit-ticket attempt at <em>identity</em></label></li>
+      </ul>
+
+      <h3 style="margin-top:18px">How confident am I with these words?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+
+      <div class="evidence" style="margin-top:18px; margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing on this page is saved.</b> Take your final screenshots now, then upload everything to OneNote. Closing the tab clears it all.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Year 6 Spelling · Word Detectives · Lesson 20: Zoom In — Tricky Parts &amp; the Australian -ise · Linked to ACARA v9 AC9E6LY08. All content original.</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- warm-up quiz + -ise check (shared MCQ engine) ---------- */
+  function wireQuiz(rootSel, scoreEl, jumpBtn){
+    var root = document.querySelector(rootSel);
+    if(!root) return;
+    var qs = Array.prototype.slice.call(root.querySelectorAll(".q"));
+    var score = 0, firstFix = null;
+    qs.forEach(function(q){
+      var ans = parseInt(q.getAttribute("data-answer"), 10);
+      var opts = Array.prototype.slice.call(q.querySelectorAll(".opt"));
+      var fix = q.querySelector(".fixup");
+      var answered = false;
+      opts.forEach(function(opt, i){
+        opt.addEventListener("click", function(){
+          if(answered) return;
+          if(i === ans){
+            answered = true;
+            opt.classList.add("correct");
+            opts.forEach(function(o){ o.disabled = true; });
+            score++;
+            if(scoreEl) scoreEl.textContent = String(score);
+          } else {
+            opt.classList.add("wrong");
+            opt.disabled = true;
+            if(fix){ fix.classList.add("show"); }
+            if(jumpBtn && !firstFix){ firstFix = q; jumpBtn.disabled = false; }
+          }
+        });
+      });
+    });
+    if(jumpBtn){
+      jumpBtn.addEventListener("click", function(){
+        if(firstFix){ firstFix.scrollIntoView({behavior:"smooth", block:"center"}); }
+      });
+    }
+  }
+  wireQuiz("#quiz", document.getElementById("score"), document.getElementById("jumpFix"));
+  wireQuiz("#iseGrid", document.getElementById("iseScore"), null);
+
+  /* ---------- tricky-part zoom ---------- */
+  var ZOOM = [
+    { word:"persecution", zone:[3,6],
+      tip:"per-SE-CU-tion. Two mumbling vowels in a row: the hidden e in 'se' and the u in 'cu'. Robot-talk it before you write it.",
+      nudge:"Not there — that part sounds exactly how it looks. The trap is in the middle, where your voice mumbles the vowels." },
+    { word:"sanctuary", zone:[4,6],
+      tip:"sanc-TU-A-ry. There's a hidden 'tu' and a hidden 'a' before the -ry. Never 'sanctury'.",
+      nudge:"Close, but that bit is safe. Say it slowly — where does a whole syllable almost disappear?" },
+    { word:"displacement", zone:[5,7],
+      tip:"dis + PLACE + ment. Keep the whole base word 'place' — the silent e stays even with -ment stuck on.",
+      nudge:"That part follows the rules. Think about the base word hiding in the middle — which of its letters is silent?" },
+    { word:"compassion", zone:[5,7],
+      tip:"compa-SSI-on. The /sh/ sound is spelt with DOUBLE S + i here — not 'ti' like in 'action'.",
+      nudge:"Not the trap. Listen for the /sh/ sound — which letters are secretly making it?" },
+    { word:"resilience", zone:[5,9],
+      tip:"re-sil-I-ENCE. One l, then i-e-n-c-e. The ending is -ence (like 'silence'), never -ance.",
+      nudge:"That end of the word behaves itself. The danger zone is where -ence and -ance sound identical." },
+    { word:"identity", zone:[4,5],
+      tip:"i-den-TI-ty. The mumbled vowel is an i — i-den-TI-ty, not 'identaty'. Nearly every vowel in this word is an i!",
+      nudge:"Not quite — that part is honest. Robot-talk it: which syllable mumbles when you say it fast?" }
+  ];
+
+  var zoomHost = document.getElementById("zoomWords");
+  var zoomFoundEl = document.getElementById("zoomFound");
+  var zoomFound = 0;
+
+  ZOOM.forEach(function(item, wi){
+    var box = document.createElement("div");
+    box.className = "zoom-word";
+    var label = document.createElement("h3");
+    label.textContent = (wi+1) + ". " + item.word;
+    box.appendChild(label);
+
+    var tiles = document.createElement("div");
+    tiles.className = "tiles";
+    tiles.setAttribute("role","group");
+    tiles.setAttribute("aria-label","Letters of the word " + item.word + ". Tap the tricky part.");
+    var tileBtns = [];
+    item.word.split("").forEach(function(ch, ci){
+      var t = document.createElement("button");
+      t.className = "tile";
+      t.type = "button";
+      t.textContent = ch;
+      t.setAttribute("aria-label","Letter " + ch + ", position " + (ci+1));
+      t.addEventListener("click", function(){
+        if(box.classList.contains("done")) return;
+        if(ci >= item.zone[0] && ci <= item.zone[1]){
+          box.classList.add("done");
+          tileBtns.forEach(function(b, bi){
+            b.disabled = true;
+            if(bi >= item.zone[0] && bi <= item.zone[1]){ b.classList.add("zone"); b.classList.remove("shake"); }
+          });
+          nudge.classList.remove("show");
+          tipBox.classList.add("show");
+          zoomFound++;
+          zoomFoundEl.textContent = String(zoomFound);
+        } else {
+          t.classList.add("shake");
+          t.disabled = true;
+          nudge.textContent = item.nudge;
+          nudge.classList.add("show");
+        }
+      });
+      tiles.appendChild(t);
+      tileBtns.push(t);
+    });
+    box.appendChild(tiles);
+
+    var nudge = document.createElement("div");
+    nudge.className = "zoom-nudge";
+    nudge.setAttribute("aria-live","polite");
+    box.appendChild(nudge);
+
+    var tipBox = document.createElement("div");
+    tipBox.className = "zoom-tip";
+    tipBox.setAttribute("aria-live","polite");
+    tipBox.innerHTML = "<b>Trap found!</b> Memory tip: " + item.tip;
+    box.appendChild(tipBox);
+
+    zoomHost.appendChild(box);
+  });
+
+  /* ---------- look cover write check ---------- */
+  var LCWC_WORDS = [
+    { word:"displacement", hot:[5,7], hint:"dis + place + ment — the silent e in 'place' survives." },
+    { word:"persecution",  hot:[3,6], hint:"Robot-talk it: per-SE-CU-tion." },
+    { word:"sanctuary",    hot:[4,6], hint:"sanc-tu-A-ry — don't lose the hidden a." },
+    { word:"compassion",   hot:[5,7], hint:"Double s + i makes the /sh/." }
+  ];
+  var TOTAL_ROUNDS = LCWC_WORDS.length * 2;
+  var lcwcIndex = 0; // 0..7 ; word = index % 4, round = floor(index/4)+1  -> actually two rounds per word consecutively
+  // Order: word1 r1, word1 r2, word2 r1, word2 r2, ...
+  var stageWord = document.getElementById("lcwcWord");
+  var stageHint = document.getElementById("lcwcHint");
+  var stageStep = document.getElementById("lcwcStep");
+  var stageRound = document.getElementById("lcwcRound");
+  var coverBtn = document.getElementById("lcwcCover");
+  var writeArea = document.getElementById("lcwcWriteArea");
+  var controls = document.getElementById("lcwcControls");
+  var input = document.getElementById("lcwcInput");
+  var checkBtn = document.getElementById("lcwcCheck");
+  var diffEl = document.getElementById("lcwcDiff");
+  var fixEl = document.getElementById("lcwcFix");
+  var nextBtn = document.getElementById("lcwcNext");
+  var dots = document.getElementById("lcwcDots");
+
+  for(var d=0; d<TOTAL_ROUNDS; d++){
+    var dot = document.createElement("span");
+    dots.appendChild(dot);
+  }
+
+  function currentWord(){ return LCWC_WORDS[Math.floor(lcwcIndex/2)]; }
+  function currentRound(){ return (lcwcIndex % 2) + 1; }
+
+  function renderLook(){
+    var cw = currentWord();
+    var html = "";
+    cw.word.split("").forEach(function(ch, i){
+      if(i >= cw.hot[0] && i <= cw.hot[1]) html += '<span class="hot">' + ch + '</span>';
+      else html += ch;
+    });
+    stageWord.innerHTML = html;
+    stageWord.style.display = "";
+    stageHint.textContent = cw.hint;
+    stageStep.textContent = "Step 1 · Look";
+    stageRound.textContent = "Word " + (Math.floor(lcwcIndex/2)+1) + " of 4 · Round " + currentRound() + " of 2";
+    controls.style.display = "";
+    writeArea.style.display = "none";
+    diffEl.innerHTML = "";
+    fixEl.classList.remove("show");
+    fixEl.innerHTML = "";
+    nextBtn.style.display = "none";
+    input.value = "";
+  }
+
+  coverBtn.addEventListener("click", function(){
+    stageWord.style.display = "none";
+    stageHint.textContent = "";
+    stageStep.textContent = "Step 2 · Cover, then Write";
+    controls.style.display = "none";
+    writeArea.style.display = "";
+    input.focus();
+  });
+
+  function letterDiff(target, attempt){
+    var html = "";
+    var maxLen = Math.max(target.length, attempt.length);
+    var allOk = (target === attempt);
+    for(var i=0; i<maxLen; i++){
+      var t = target[i] || "";
+      var a = attempt[i] || "·";
+      if(t !== "" && a === target[i]) html += '<span class="ok">' + a + '</span>';
+      else html += '<span class="bad">' + (a === "" ? "·" : a) + '</span>';
+    }
+    return { html: html, ok: allOk };
+  }
+
+  checkBtn.addEventListener("click", function(){
+    var attempt = input.value.trim().toLowerCase();
+    if(attempt === ""){
+      fixEl.innerHTML = "<b>Write first:</b> have a go from memory before checking — that's the whole trick of Look·Cover·Write·Check.";
+      fixEl.classList.add("show");
+      return;
+    }
+    var cw = currentWord();
+    stageStep.textContent = "Step 3 · Check";
+    var res = letterDiff(cw.word, attempt);
+    diffEl.innerHTML = res.html;
+    if(res.ok){
+      fixEl.classList.remove("show");
+      fixEl.innerHTML = "";
+      dots.children[lcwcIndex].classList.add("hit");
+      if(lcwcIndex < TOTAL_ROUNDS - 1){
+        nextBtn.textContent = "Next";
+        nextBtn.style.display = "";
+      } else {
+        nextBtn.style.display = "none";
+        stageStep.textContent = "All eight rounds green — screenshot your dots!";
+      }
+    } else {
+      fixEl.innerHTML = "<b>Nearly.</b> The word is <b>" + cw.word + "</b> — the underlined letters show where your attempt drifted. " + cw.hint + " Look again, cover, and rewrite.";
+      fixEl.classList.add("show");
+      nextBtn.textContent = "Look again";
+      nextBtn.style.display = "";
+    }
+  });
+
+  nextBtn.addEventListener("click", function(){
+    if(nextBtn.textContent === "Next"){ lcwcIndex++; }
+    renderLook();
+  });
+
+  input.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){ e.preventDefault(); checkBtn.click(); }
+  });
+
+  renderLook();
+
+  /* ---------- exit ticket (locked until attempt) ---------- */
+  var exitInput = document.getElementById("exitInput");
+  var exitCheck = document.getElementById("exitCheck");
+  var exitResult = document.getElementById("exitResult");
+  var exitFix = document.getElementById("exitFix");
+
+  exitInput.addEventListener("input", function(){
+    var has = exitInput.value.trim().length > 0;
+    exitCheck.disabled = !has;
+    exitCheck.textContent = has ? "Check my spelling" : "Unlock the check (type your attempt first)";
+  });
+
+  exitCheck.addEventListener("click", function(){
+    var attempt = exitInput.value.trim().toLowerCase();
+    if(attempt === "") return;
+    if(attempt === "identity"){
+      exitFix.innerHTML = "<b>Correct!</b> i-den-ti-ty — you dodged the mumbling vowel. Screenshot this for your evidence.";
+    } else {
+      exitFix.innerHTML = "<b>Not this time.</b> You wrote <b>" + attempt.replace(/</g,"&lt;").replace(/>/g,"&gt;") + "</b>; the word is <b>identity</b> — i-den-TI-ty, the mumbled vowel is an <b>i</b>. Say it robot-style and try writing it once more in your book.";
+    }
+    exitResult.classList.add("show");
+  });
+
+  /* ---------- confidence buttons ---------- */
+  var confi = document.getElementById("confi");
+  Array.prototype.slice.call(confi.querySelectorAll("button")).forEach(function(b){
+    b.addEventListener("click", function(){
+      Array.prototype.slice.call(confi.querySelectorAll("button")).forEach(function(o){ o.setAttribute("aria-pressed","false"); });
+      b.setAttribute("aria-pressed","true");
+    });
+  });
+
+})();
+</script>
+</body>
+</html>

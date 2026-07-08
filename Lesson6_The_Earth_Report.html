@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6 — The Earth Report | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4; --ink:#1b2a4a; --amber:#e8930c; --teal:#0e7c7b; --card:#fff;
+    --line:#e6e1d6; --amber-soft:#fdf0d9; --amber-edge:#f2c785; --teal-soft:#e1efee;
+    --ink-soft:#56607a; --good:#1f7a4d; --good-soft:#e3f3ea; --bad:#c0392b; --bad-soft:#fdeceb;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06); --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Atkinson Hyperlegible",system-ui,sans-serif; font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%}
+  h1,h2,h3,.eyebrow,.pill,.bank-chip,.layer-name,.blank,.chip{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  header.band{background:var(--ink); color:#fff; padding:30px 22px 26px}
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px}
+  .band h1{font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em}
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:62ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1}
+
+  nav.pills{position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px}
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto; font-family:"Space Grotesk"}
+  .lead{color:var(--ink-soft); max-width:66ch}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0}
+
+  button{font-family:inherit}
+  .btn{background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"}
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  /* warm-up quiz */
+  .q{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .q .stem{font-weight:700; margin-bottom:10px}
+  .opts{display:grid; gap:8px}
+  .opt{text-align:left; background:#fcfbf7; border:1.5px solid var(--line); color:var(--ink); padding:11px 14px; border-radius:10px; cursor:pointer; min-height:44px; font-size:.95rem}
+  .opt:hover{border-color:var(--teal)}
+  .opt.correct{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .opt.wrong{background:var(--bad-soft); border-color:var(--bad); color:#a8261b}
+  .opt[disabled]{cursor:default}
+  .fixup{margin-top:10px; background:var(--amber-soft); border-left:5px solid var(--amber); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none}
+  .fixup.show{display:block}
+  .fixup b{color:#a8540b}
+  .scorebar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:12px 16px}
+  .scorebar strong{font-family:"Space Grotesk"; font-size:1.15rem}
+
+  /* label the layers */
+  .bank{display:flex; flex-wrap:wrap; gap:9px; margin-bottom:14px}
+  .bank-chip{font-weight:700; cursor:pointer; background:var(--teal); color:#fff; border:none; border-radius:10px; padding:11px 15px; min-height:46px; box-shadow:0 3px 0 #0a5b5a}
+  .bank-chip[aria-pressed=true]{outline:3px dashed var(--ink); outline-offset:3px}
+  .bank-chip.used{opacity:.35; pointer-events:none; box-shadow:none}
+  .earth{display:flex; flex-direction:column; gap:5px; border-radius:14px; overflow:hidden; border:1px solid var(--line)}
+  .layer{display:flex; align-items:center; gap:14px; padding:12px 16px; text-align:left}
+  .layer .slot{flex:0 0 168px; min-height:48px; border:2.5px dashed #9bb0b8; border-radius:10px; background:rgba(255,255,255,.7); display:flex; align-items:center; justify-content:center; font-family:"Space Grotesk"; font-weight:700; color:#5a6678; cursor:pointer; padding:0 8px; text-align:center}
+  .layer .slot.over{border-color:var(--ink)}
+  .layer .slot.filled{border-style:solid; border-color:var(--good); color:var(--good); background:#fff; cursor:default}
+  .layer .desc{font-size:.96rem; color:#33415c}
+  .layer.locked .slot{border-color:var(--good)}
+  .label-msg{font-family:"Space Grotesk"; font-weight:700; margin-top:10px}
+
+  /* field report cloze */
+  .report-text{font-size:1.15rem; line-height:2.1}
+  .blank{display:inline-flex; align-items:center; justify-content:center; min-width:130px; min-height:40px; border:none; border-bottom:3px solid var(--amber); background:#fff7e9; border-radius:6px 6px 0 0; padding:2px 10px; margin:0 3px; cursor:pointer; font-weight:700; color:var(--ink-soft); font-family:"Space Grotesk"; vertical-align:middle}
+  .blank[aria-pressed=true]{box-shadow:0 0 0 2px var(--ink) inset}
+  .blank.filled{color:var(--good); border-bottom-color:var(--good); background:var(--good-soft); cursor:default}
+  .cloze-bank{display:flex; flex-wrap:wrap; gap:9px; margin:14px 0 4px}
+  .cloze-chip{font-weight:700; cursor:pointer; background:#fff; border:1.5px solid var(--line); color:var(--ink); border-radius:10px; padding:10px 14px; min-height:44px; font-family:"Space Grotesk"}
+  .cloze-chip:hover{border-color:var(--teal)}
+  .cloze-chip.used{opacity:.35; pointer-events:none}
+  .cloze-msg{font-family:"Space Grotesk"; font-weight:700; margin-top:8px; min-height:1.3em}
+  .cloze-msg.good{color:var(--good)} .cloze-msg.bad{color:var(--bad)}
+
+  /* write your own tracker */
+  .scene-tracker{display:flex; flex-wrap:wrap; gap:7px; margin:.5em 0}
+  .chip{font-size:.82rem; border:1.5px solid var(--line); border-radius:999px; padding:6px 11px; background:#fff; color:var(--ink-soft); font-weight:600}
+  .chip.used{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .scene-count{font-family:"Space Grotesk"; font-weight:700}
+  .scene-count.met{color:var(--good)}
+  textarea{width:100%; min-height:90px; border:1.5px solid var(--line); border-radius:12px; padding:13px; font-family:"Atkinson Hyperlegible"; font-size:1rem; resize:vertical; background:#fff; color:var(--ink)}
+
+  /* weekly test */
+  .test-stats{display:flex; gap:20px; align-items:center; flex-wrap:wrap; font-family:"Space Grotesk"; font-weight:600; margin-bottom:8px}
+  .test-stats .lab{font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); display:block}
+  .test-stats .big{font-size:1.5rem; line-height:1}
+  .progress-track{height:10px; background:#ece7dc; border-radius:999px; overflow:hidden; flex:1 1 160px; min-width:140px}
+  .progress-fill{height:100%; background:var(--teal); width:0%; transition:width .25s}
+  .test-card{background:#fff; border:1.5px solid var(--line); border-radius:16px; padding:22px; box-shadow:var(--shadow)}
+  .test-sentence{font-size:1.25rem; line-height:1.7}
+  .test-blank{display:inline-block; min-width:120px; border-bottom:3px solid var(--amber); margin:0 4px}
+  .test-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+  .test-input{flex:1 1 220px; min-width:180px; border:1.5px solid var(--line); border-radius:10px; padding:12px 14px; font-family:"Atkinson Hyperlegible"; font-size:1.1rem; background:#fff; color:var(--ink)}
+  .test-fb{margin-top:12px; font-weight:700; font-family:"Space Grotesk"; min-height:1.3em}
+  .test-fb.good{color:var(--good)} .test-fb.bad{color:var(--bad)}
+  .report{text-align:center; padding:8px}
+  .report .big{font-family:"Space Grotesk"; font-weight:700; font-size:2.8rem; color:var(--teal)}
+  .report ul{display:inline-block; text-align:left; margin-top:8px}
+
+  /* evidence + checklist */
+  .evidence{display:flex; gap:12px; align-items:flex-start; background:#fff7e9; border:1.5px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:14px 0; font-size:.92rem}
+  .evidence svg{flex:0 0 auto; margin-top:2px}
+  .evidence b{color:#a8540b}
+  .check-list{list-style:none; padding:0; margin:.4em 0}
+  .check-list li{display:flex; gap:11px; align-items:flex-start; padding:9px 0; border-bottom:1px dashed var(--line)}
+  .check-list input{width:24px; height:24px; margin-top:2px; accent-color:var(--teal); flex:0 0 auto}
+  .confi{display:flex; gap:9px; flex-wrap:wrap; margin-top:10px}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:10px 14px; min-height:44px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .confi button[aria-pressed=true]{background:var(--teal); color:#fff; border-color:var(--teal)}
+
+  footer{max-width:1000px; margin:0 auto; padding:24px 18px 50px; color:var(--ink-soft); font-size:.85rem}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Year 6 Spelling · Word Detectives · Lesson 6</p>
+    <h1>The Earth Report</h1>
+    <p class="hook">Final report on the planet. Label the layers, complete the field report, then prove your spelling in the weekly test.</p>
+    <div class="meta-row" aria-label="Lesson details">
+      <span>Science: Earth &amp; Space</span>
+      <span>Apply + weekly test</span>
+      <span>AC9E6LY08 · AC9E6LY09</span>
+      <span>20 minutes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Jump to a section">
+  <div class="pills-inner">
+    <a class="pill" href="#briefing">Field Briefing</a>
+    <a class="pill" href="#label">Label the Layers</a>
+    <a class="pill" href="#report">Field Report</a>
+    <a class="pill" href="#test">The Weekly Test</a>
+    <a class="pill" href="#closed">Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- 1. WARM-UP -->
+  <section id="briefing">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>Field Briefing</h2><p class="lead">Quick check before you write up the report. Tap an answer — wrong ones show an orange <b>fix-up</b>.</p></div></div>
+    <div id="quiz"></div>
+    <div class="scorebar" role="status" aria-live="polite">
+      <span>Score: <strong id="score">0</strong> / <strong id="total">5</strong></span>
+      <button class="btn ghost" id="jumpFix" disabled>Jump to my first fix-up ↧</button>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot before you close.</b> Nothing here is saved — capture your score, then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 2. LABEL THE LAYERS -->
+  <section id="label">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Label the Layers</h2><p class="lead">Tap a label from the bank, then tap the layer it belongs to. Right answers lock in green; a wrong tap flashes red. Use the descriptions as clues.</p></div></div>
+
+    <div class="card">
+      <div class="bank" id="labelBank" aria-label="Layer labels"></div>
+      <div class="earth" id="earth" role="group" aria-label="Earth layers to label"></div>
+      <p class="label-msg" id="labelMsg" role="status" aria-live="polite"></p>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot your labelled diagram.</b> Then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 3. FIELD REPORT -->
+  <section id="report">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>Field Report</h2><p class="lead">Complete the report. Tap a gap, then tap the word that fills it (one word is a decoy). Correct words lock in green.</p></div></div>
+
+    <div class="card">
+      <p class="report-text" id="reportText"></p>
+      <div class="cloze-bank" id="clozeBank" aria-label="Words to choose from"></div>
+      <p class="cloze-msg" id="clozeMsg" role="status" aria-live="polite"></p>
+
+      <hr style="border:none;border-top:1px dashed var(--line);margin:18px 0">
+      <h3>Now write two of your own</h3>
+      <p class="lead" style="margin-top:0">Write 2 sentences about Earth’s layers using at least <b>3</b> focus words — they light up green below.</p>
+      <div class="scene-tracker" id="sceneTracker" aria-label="Focus words used"></div>
+      <p class="scene-count" id="sceneCount">0 of 8 focus words used — aim for at least 3.</p>
+      <label for="sceneBox" class="sr-only">Write your sentences</label>
+      <textarea id="sceneBox" placeholder="e.g. The atmosphere protects the Earth, while the hydrosphere holds all the water…"></textarea>
+
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>This box does not save.</b> Screenshot your completed report and sentences, then upload to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. WEEKLY TEST -->
+  <section id="test">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>The Weekly Test</h2><p class="lead">Eight sentences, one missing word each. Read it, type the word, press <b>Check</b>. It marks itself — your running score is up top.</p></div></div>
+    <div class="card">
+      <div class="test-stats">
+        <div><span class="lab">Score</span><span class="big" id="tScore">0</span></div>
+        <div style="flex:1 1 160px"><span class="lab" id="tProgLab">Question 1 of 8</span><div class="progress-track"><div class="progress-fill" id="tProg"></div></div></div>
+      </div>
+      <div id="testArea"></div>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot your report card.</b> Record your score out of 8 and any words to practise.</div>
+    </div>
+  </section>
+
+  <!-- 5. CASE CLOSED -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>Case Closed</h2><p class="lead">Tick your evidence, rate your confidence, capture everything.</p></div></div>
+    <div class="card">
+      <h3>Evidence to capture (screenshot or photograph)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">My labelled Earth diagram</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My completed Field Report + 2 sentences</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">My Weekly Test report card (score / 8)</label></li>
+      </ul>
+      <h3 style="margin-top:18px">How confident am I with this week’s Earth-science words?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+      <div class="evidence" style="margin-top:18px;margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing here is saved.</b> Take your final screenshots now, then upload everything to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer><p>Year 6 Spelling · Word Detectives · Lesson 6: The Earth Report · Linked to ACARA v9 AC9E6LY08 &amp; AC9E6LY09. All content original. Works offline — no data is collected or stored.</p></footer>
+
+<div class="sr-only" id="liveRegion" aria-live="assertive" style="position:fixed;bottom:0;left:0"></div>
+
+<script>
+"use strict";
+const $=(s,el=document)=>el.querySelector(s);
+const $$=(s,el=document)=>Array.from(el.querySelectorAll(s));
+const announce=(m)=>{const r=$("#liveRegion");r.textContent="";setTimeout(()=>r.textContent=m,30);};
+const shuffle=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(p=>p[1]);
+const FOCUS=["atmosphere","hydrosphere","lithosphere","biosphere","geosphere","geology","rotation","gravity"];
+
+/* ---------- 1. WARM-UP ---------- */
+const QUIZ=[
+ {stem:"The root “geo-” means…",opts:["water","earth","air"],correct:1,
+  fix:"geo- means earth — geology is the study of the Earth."},
+ {stem:"In “atmosphere”, the /f/ sound is spelt…",opts:["f","ph","gh"],correct:1,
+  fix:"It’s “ph” — atmos-PH-ere. The same goes for hydrosphere and lithosphere."},
+ {stem:"Which word is NOT built from “-sphere”?",opts:["biosphere","gravity","atmosphere"],correct:1,
+  fix:"gravity isn’t a -sphere word — it comes from Latin gravis, “heavy”."},
+ {stem:"The “hydrosphere” is…",opts:["all the water on Earth","the air around Earth","the Earth’s core"],correct:0,
+  fix:"hydro- = water, so the hydrosphere is all the Earth’s water."},
+ {stem:"Which spelling is correct?",opts:["biosfere","biospere","biosphere"],correct:2,
+  fix:"It’s “biosphere” — bio (life) + sphere, with the /f/ spelt “ph”."},
+];
+let score=0,firstFix=null;
+$("#total").textContent=QUIZ.length;
+const quizEl=$("#quiz");
+QUIZ.forEach((q,qi)=>{
+  const card=document.createElement("div");card.className="q";card.id="q"+qi;
+  const stem=document.createElement("p");stem.className="stem";stem.textContent=(qi+1)+". "+q.stem;
+  const opts=document.createElement("div");opts.className="opts";opts.setAttribute("role","group");opts.setAttribute("aria-label",q.stem);
+  q.opts.forEach((t,oi)=>{const b=document.createElement("button");b.className="opt";b.type="button";b.textContent=t;b.addEventListener("click",()=>ans(card,opts,b,q,qi,oi));opts.appendChild(b);});
+  const fix=document.createElement("div");fix.className="fixup";fix.id="fix"+qi;fix.innerHTML='<b>Fix-up:</b> '+q.fix;
+  card.append(stem,opts,fix);quizEl.appendChild(card);
+});
+function ans(card,opts,btn,q,qi,oi){
+  if(card.dataset.done)return;card.dataset.done="1";
+  $$(".opt",opts).forEach(b=>b.setAttribute("disabled",""));
+  opts.children[q.correct].classList.add("correct");
+  if(oi===q.correct){btn.classList.add("correct");score++;$("#score").textContent=score;announce("Correct. Score "+score);}
+  else{btn.classList.add("wrong");$("#fix"+qi).classList.add("show");if(firstFix===null){firstFix=qi;$("#jumpFix").disabled=false;}announce("Not quite. Read the fix-up.");}
+}
+$("#jumpFix").addEventListener("click",()=>{if(firstFix!==null)$("#q"+firstFix).scrollIntoView({block:"center"});});
+
+/* ---------- 2. LABEL THE LAYERS ---------- */
+const LAYERS=[
+ {ans:"atmosphere", desc:"The blanket of gases (air) we breathe", bg:"#dce9f5"},
+ {ans:"hydrosphere",desc:"All the water — oceans, rivers and ice", bg:"#cfe8e6"},
+ {ans:"biosphere",  desc:"The zone where all living things exist", bg:"#dcefdc"},
+ {ans:"lithosphere",desc:"The solid rocky outer shell", bg:"#ece0cd"},
+ {ans:"geosphere",  desc:"The whole solid Earth, crust to core", bg:"#ddd7c9"},
+];
+let selLabel=null, placed=0;
+const labelBank=$("#labelBank"), earthEl=$("#earth");
+shuffle(LAYERS.map(l=>l.ans)).forEach(w=>{
+  const b=document.createElement("button");b.type="button";b.className="bank-chip";b.dataset.w=w;b.textContent=w;b.setAttribute("aria-pressed","false");
+  b.addEventListener("click",()=>{if(b.classList.contains("used"))return;selLabel=b;$$(".bank-chip",labelBank).forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");$("#labelMsg").textContent="Now tap the layer that “"+w+"” labels.";});
+  labelBank.appendChild(b);
+});
+LAYERS.forEach((L,i)=>{
+  const row=document.createElement("div");row.className="layer";row.style.background=L.bg;
+  const slot=document.createElement("button");slot.type="button";slot.className="slot";slot.dataset.ans=L.ans;slot.textContent="tap a label";slot.setAttribute("aria-label","Layer: "+L.desc+". Place the matching label here.");
+  const desc=document.createElement("span");desc.className="desc";desc.textContent=L.desc;
+  slot.addEventListener("click",()=>{
+    if(slot.classList.contains("filled"))return;
+    if(!selLabel){$("#labelMsg").textContent="Pick a label from the bank first.";return;}
+    if(selLabel.dataset.w===L.ans){
+      slot.textContent=L.ans;slot.classList.add("filled");row.classList.add("locked");
+      selLabel.classList.add("used");selLabel.setAttribute("aria-pressed","false");selLabel=null;
+      placed++;$("#labelMsg").textContent=placed===LAYERS.length?"🎉 All layers labelled! Screenshot it.":"✓ Correct — "+placed+" of "+LAYERS.length+" placed.";
+      announce("Correct. "+L.ans);
+    }else{
+      slot.classList.add("over");setTimeout(()=>slot.classList.remove("over"),450);
+      $("#labelMsg").textContent="Not that layer — read the description again.";announce("Not a match.");
+    }
+  });
+  row.append(slot,desc);earthEl.appendChild(row);
+});
+
+/* ---------- 3. FIELD REPORT (cloze) ---------- */
+const SEGMENTS=[
+ "Earth is built from layers. The ",{ans:"atmosphere"}," is the blanket of gases we breathe. Beneath it, the ",
+ {ans:"hydrosphere"}," holds all the water in oceans and rivers. Every living thing belongs to the ",
+ {ans:"biosphere"},". The solid rocky shell is the ",{ans:"lithosphere"},", while the ",
+ {ans:"rotation"}," of the Earth gives us day and night."
+];
+const CLOZE_WORDS=["atmosphere","hydrosphere","biosphere","lithosphere","rotation","gravity"];
+let selBlank=null, filled=0;
+const totalBlanks=SEGMENTS.filter(s=>typeof s!=="string").length;
+const reportText=$("#reportText");
+SEGMENTS.forEach((seg,i)=>{
+  if(typeof seg==="string"){reportText.appendChild(document.createTextNode(seg));}
+  else{
+    const b=document.createElement("button");b.type="button";b.className="blank";b.dataset.ans=seg.ans;b.textContent="( ? )";b.setAttribute("aria-pressed","false");b.setAttribute("aria-label","gap to fill");
+    b.addEventListener("click",()=>{if(b.classList.contains("filled"))return;selBlank=b;$$(".blank",reportText).forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");$("#clozeMsg").textContent="Now tap the word that fills this gap.";});
+    reportText.appendChild(b);
+  }
+});
+const clozeBank=$("#clozeBank");
+shuffle(CLOZE_WORDS).forEach(w=>{
+  const c=document.createElement("button");c.type="button";c.className="cloze-chip";c.dataset.w=w;c.textContent=w;
+  c.addEventListener("click",()=>{
+    if(c.classList.contains("used"))return;
+    if(!selBlank){$("#clozeMsg").textContent="Tap a gap in the report first.";return;}
+    if(selBlank.dataset.ans===w){
+      selBlank.textContent=w;selBlank.classList.add("filled");selBlank.setAttribute("aria-pressed","false");
+      c.classList.add("used");selBlank=null;filled++;
+      $("#clozeMsg").textContent=filled===totalBlanks?"🎉 Report complete! Screenshot it.":"✓ Correct — "+filled+" of "+totalBlanks+" gaps filled.";
+      $("#clozeMsg").className="cloze-msg good";announce("Correct. "+w);
+    }else{
+      c.style.outline="3px solid var(--bad)";setTimeout(()=>c.style.outline="",450);
+      $("#clozeMsg").textContent="“"+w+"” doesn’t fit that gap — try another word.";$("#clozeMsg").className="cloze-msg bad";announce("Not a match.");
+    }
+  });
+  clozeBank.appendChild(c);
+});
+
+/* ---------- write your own (tracker) ---------- */
+const sceneTracker=$("#sceneTracker"), sceneBox=$("#sceneBox");
+FOCUS.forEach(w=>{const c=document.createElement("span");c.className="chip";c.dataset.w=w;c.textContent=w;sceneTracker.appendChild(c);});
+sceneBox.addEventListener("input",()=>{
+  const text=" "+sceneBox.value.toLowerCase()+" ";let used=0;
+  FOCUS.forEach(w=>{const re=new RegExp("\\b"+w+"\\b","i");const chip=$('.chip[data-w="'+w+'"]',sceneTracker);if(re.test(text)){chip.classList.add("used");used++;}else chip.classList.remove("used");});
+  const cnt=$("#sceneCount");cnt.textContent=used+" of 8 focus words used"+(used>=3?" — target met! ✓":" — aim for at least 3.");cnt.classList.toggle("met",used>=3);
+});
+
+/* ---------- 4. WEEKLY TEST ---------- */
+const TEST=[
+ {word:"atmosphere", before:"The ",                         after:" is the layer of gases surrounding the Earth."},
+ {word:"hydrosphere",before:"All the water on Earth makes up the ", after:"."},
+ {word:"lithosphere",before:"The ",                         after:" includes the crust and the upper mantle."},
+ {word:"biosphere",  before:"Every living thing on Earth belongs to the ", after:"."},
+ {word:"geosphere",  before:"The rocky ",                    after:" lies deep beneath our feet."},
+ {word:"geology",    before:"",                              after:" is the study of the Earth’s rocks and structure."},
+ {word:"rotation",   before:"The ",                          after:" of the Earth gives us day and night."},
+ {word:"gravity",    before:"",                              after:" is the force that pulls objects towards the Earth."},
+];
+let tI=0,tScore=0,tMissed=[];
+const testArea=$("#testArea");
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function renderTest(){
+  const q=TEST[tI];
+  $("#tProgLab").textContent="Question "+(tI+1)+" of "+TEST.length;
+  $("#tProg").style.width=Math.round(tI/TEST.length*100)+"%";
+  testArea.innerHTML="";
+  const card=document.createElement("div");card.className="test-card";
+  const sent=document.createElement("p");sent.className="test-sentence";
+  sent.innerHTML=esc(q.before)+'<span class="test-blank">&nbsp;</span>'+esc(q.after);
+  const row=document.createElement("div");row.className="test-row";
+  const inp=document.createElement("input");inp.className="test-input";inp.type="text";inp.autocomplete="off";inp.autocapitalize="off";inp.spellcheck=false;
+  inp.setAttribute("aria-label","Type the missing word for question "+(tI+1));inp.placeholder="type the missing word…";
+  const btn=document.createElement("button");btn.className="btn";btn.textContent="Check";
+  row.append(inp,btn);
+  const fb=document.createElement("div");fb.className="test-fb";
+  card.append(sent,row,fb);testArea.appendChild(card);inp.focus();
+  function submit(){
+    if(card.dataset.done)return;
+    const val=inp.value.trim().toLowerCase();
+    if(!val){fb.textContent="Type the word first.";fb.className="test-fb bad";return;}
+    card.dataset.done="1";inp.setAttribute("disabled","");btn.textContent="Next ›";btn.classList.add("amber");
+    if(val===q.word){tScore++;fb.textContent="✓ Correct — "+q.word;fb.className="test-fb good";}
+    else{tMissed.push(q.word);fb.innerHTML="✗ Not quite. The word is <b>"+q.word+"</b>.";fb.className="test-fb bad";}
+    $("#tScore").textContent=tScore;announce(val===q.word?"Correct":"Incorrect, the word is "+q.word);
+    btn.onclick=()=>{tI++;if(tI<TEST.length)renderTest();else report();};
+  }
+  btn.addEventListener("click",submit);
+  inp.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();if(card.dataset.done){tI++;if(tI<TEST.length)renderTest();else report();}else submit();}});
+}
+function report(){
+  $("#tProg").style.width="100%";$("#tProgLab").textContent="Complete!";
+  const pct=Math.round(tScore/TEST.length*100);
+  let line=pct===100?"Perfect score — every word nailed!":pct>=75?"Strong work — at standard and beyond.":pct>=50?"Good effort — a few to practise.":"Keep going — practise these and try again.";
+  let prac=tMissed.length?'<p style="font-family:Space Grotesk;font-weight:600;margin-top:6px">Words to practise:</p><ul>'+[...new Set(tMissed)].map(w=>"<li>"+w+"</li>").join("")+"</ul>":'<p style="margin-top:6px">No words to re-practise. 🎉</p>';
+  testArea.innerHTML='<div class="report"><div class="big">'+tScore+' / '+TEST.length+'</div><p class="lead" style="margin:4px auto">'+line+'</p>'+prac+'<button class="btn amber" id="tAgain" style="margin-top:10px">Retake the test ↺</button></div>';
+  $("#tAgain").addEventListener("click",()=>{tI=0;tScore=0;tMissed=[];$("#tScore").textContent=0;renderTest();});
+}
+renderTest();
+
+/* ---------- 5. CONFIDENCE ---------- */
+$$("#confi button").forEach(b=>b.addEventListener("click",()=>{$$("#confi button").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");}));
+</script>
+</body>
+</html>

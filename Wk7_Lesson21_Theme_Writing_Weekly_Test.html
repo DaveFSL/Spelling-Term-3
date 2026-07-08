@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 21 — Case File Final: Theme Writing + Weekly Test | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4;
+    --ink:#1b2a4a;
+    --amber:#e8930c;
+    --teal:#0e7c7b;
+    --card:#ffffff;
+    --line:#e6e1d6;
+    --amber-soft:#fdf0d9;
+    --amber-edge:#f2c785;
+    --teal-soft:#e1efee;
+    --ink-soft:#56607a;
+    --good:#1f7a4d;
+    --good-soft:#e3f3ea;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Atkinson Hyperlegible",system-ui,sans-serif;
+    font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%;
+  }
+  h1,h2,h3,.eyebrow,.pill,.opt,.word-chip{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  a{color:var(--teal)}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  header.band{background:var(--ink); color:#fff; padding:30px 22px 26px}
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px}
+  .band h1{font-family:"Space Grotesk"; font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em}
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:60ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1}
+
+  nav.pills{position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px}
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{font-family:"Space Grotesk"; font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto}
+  .lead{color:var(--ink-soft); max-width:66ch}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0}
+
+  button{font-family:inherit}
+  .btn{background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"}
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn.amber:hover{background:#d98509}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  input[type=text], textarea{font-family:"Atkinson Hyperlegible"; font-size:1.05rem; padding:11px 13px; border:1.5px solid var(--line); border-radius:10px; min-height:44px}
+  input[type=text]:focus-visible, textarea:focus-visible{outline:3px solid var(--amber); outline-offset:2px}
+  textarea{width:100%; min-height:130px; resize:vertical; line-height:1.55}
+
+  .fixup{margin-top:10px; background:var(--amber-soft); border-left:5px solid var(--amber); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none}
+  .fixup.show{display:block}
+  .fixup b{color:#a8540b}
+  .goodnote{margin-top:10px; background:var(--good-soft); border-left:5px solid var(--good); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none}
+  .goodnote.show{display:block}
+  .scorebar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:12px 16px}
+  .scorebar strong{font-family:"Space Grotesk"; font-size:1.15rem}
+
+  /* ---------- memory sprint ---------- */
+  .sprint-timer{font-family:"Space Grotesk"; font-weight:700; font-size:2.6rem; letter-spacing:-.02em; color:var(--teal)}
+  .sprint-timer.low{color:#c0392b}
+  .word-chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+  .word-chip{border:1.5px solid var(--line); background:#fcfbf7; color:var(--ink-soft); border-radius:999px; padding:8px 14px; font-size:.9rem; font-weight:600}
+  .word-chip.hit{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .word-chip.missed{background:var(--amber-soft); border-color:var(--amber); color:#a8540b}
+
+  /* ---------- word wall ---------- */
+  .wall{display:grid; grid-template-columns:repeat(4,1fr); gap:10px}
+  @media(max-width:760px){.wall{grid-template-columns:repeat(2,1fr)}}
+  .wall div{border:1px solid var(--line); border-radius:10px; padding:10px 12px; background:#fff; text-align:center; font-family:"Space Grotesk"; font-weight:600}
+  .wall .hot{color:var(--amber); text-decoration:underline; text-decoration-thickness:3px; text-underline-offset:4px}
+
+  /* ---------- writing ---------- */
+  .use-count{font-family:"Space Grotesk"; font-weight:700}
+  .use-count.ok{color:var(--good)}
+  .used-chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px}
+  .help-reveal{display:none; margin-top:12px}
+  .help-reveal.show{display:block}
+  .locked-note{display:none; margin-top:12px}
+  .locked-note.show{display:block}
+  .exemplar{background:#fbfaf6; border:1px dashed var(--teal); border-radius:12px; padding:14px}
+
+  /* ---------- weekly test ---------- */
+  .test-item{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .test-item.right{border-color:var(--good)}
+  .test-item .sentence{font-size:1.05rem}
+  .test-item .gap{display:inline-block; min-width:120px; border-bottom:3px solid var(--amber); text-align:center; font-weight:700}
+  .test-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; align-items:center}
+  .diff{font-family:"Space Grotesk"; font-size:1.15rem; letter-spacing:.1em; margin-top:8px}
+  .diff .ok{color:var(--good)}
+  .diff .bad{color:#c0392b; text-decoration:underline}
+
+  .evidence{display:flex; gap:12px; align-items:flex-start; background:var(--amber-soft); border:1px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:16px 0; font-size:.95rem}
+
+  .check-list{list-style:none; padding:0; margin:.5em 0}
+  .check-list li{display:flex; gap:10px; align-items:flex-start; padding:7px 0}
+  .check-list input{width:22px; height:22px; margin-top:2px; accent-color:var(--teal)}
+  .confi{display:flex; gap:8px; flex-wrap:wrap}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:999px; padding:10px 16px; min-height:44px; cursor:pointer; font-size:.92rem}
+  .confi button[aria-pressed="true"]{background:var(--teal); border-color:var(--teal); color:#fff}
+
+  footer{border-top:1px solid var(--line); color:var(--ink-soft); font-size:.82rem; padding:18px 22px 34px; text-align:center}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Word Detectives · Week 7 · Session 3</p>
+    <h1>Case File Final: Theme Writing + Weekly Test</h1>
+    <p class="hook">Time to close the Week 7 case. Sprint your memory, write like an author, then prove all eight theme words in the Weekly Test.</p>
+    <div class="meta-row">
+      <span>Year 6 · Spelling</span><span>AC9E6LY08 · AC9E6LY09</span><span>20 minutes</span><span>Boy Overboard theme words</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Lesson sections">
+  <div class="pills-inner">
+    <a class="pill" href="#sprint">1 · Memory Sprint</a>
+    <a class="pill" href="#wall">2 · Word Wall</a>
+    <a class="pill" href="#writing">3 · Theme Writing</a>
+    <a class="pill" href="#proofread">4 · Proofread</a>
+    <a class="pill" href="#test">5 · Weekly Test</a>
+    <a class="pill" href="#closed">6 · Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ===================== 1. MEMORY SPRINT ===================== -->
+  <section id="sprint">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>30-Second Memory Sprint</h2><p class="lead">How many of this week's eight focus words can you type from memory in 30 seconds? No peeking below — the Word Wall stays hidden until your sprint ends.</p></div></div>
+
+    <div class="card">
+      <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap">
+        <div class="sprint-timer" id="sprintTimer" aria-live="polite">30</div>
+        <button class="btn amber" id="sprintStart">Start my 30-second sprint</button>
+      </div>
+      <div style="margin-top:14px">
+        <label for="sprintInput" style="display:block; font-size:.9rem; color:var(--ink-soft); margin-bottom:6px">Type each word, then press space or Enter:</label>
+        <input type="text" id="sprintInput" autocomplete="off" autocapitalize="none" spellcheck="false" disabled aria-label="Type focus words from memory during the sprint" style="width:min(420px,100%)">
+      </div>
+      <p style="margin-top:10px">Words captured: <span class="use-count" id="sprintCount">0</span> / 8</p>
+      <div class="word-chips" id="sprintChips" aria-live="polite"></div>
+      <div class="goodnote" id="sprintDone"></div>
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>This page doesn't save.</b> Screenshot your sprint result (hits and misses) and upload it to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. WORD WALL ===================== -->
+  <section id="wall">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Word Wall</h2><p class="lead">All eight theme words, with each tricky part underlined in amber. One last look before you write.</p></div></div>
+
+    <div class="card">
+      <div class="wall" role="list" aria-label="Week 7 focus words with tricky parts underlined">
+        <div role="listitem">cour<span class="hot">age</span></div>
+        <div role="listitem">resil<span class="hot">ience</span></div>
+        <div role="listitem">displa<span class="hot">ce</span>ment</div>
+        <div role="listitem">belon<span class="hot">g</span>ing</div>
+        <div role="listitem">iden<span class="hot">ti</span>ty</div>
+        <div role="listitem">compa<span class="hot">ssi</span>on</div>
+        <div role="listitem">per<span class="hot">secu</span>tion</div>
+        <div role="listitem">sanc<span class="hot">tua</span>ry</div>
+      </div>
+      <p style="color:var(--ink-soft); font-size:.92rem; margin-top:12px">Missed some in the sprint? Robot-talk each missed word twice now: say every syllable clearly, eyes on the amber zone.</p>
+    </div>
+  </section>
+
+  <!-- ===================== 3. THEME WRITING ===================== -->
+  <section id="writing">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>Theme Writing: Spelling in Context</h2><p class="lead">Write 2–3 sentences about how a character shows courage or finds belonging. Use at least three focus words — the counter tracks them for you.</p></div></div>
+
+    <div class="card">
+      <label for="writeBox" style="display:block; font-weight:700; margin-bottom:6px">Your sentences:</label>
+      <textarea id="writeBox" spellcheck="false" aria-label="Write two to three sentences using at least three focus words"></textarea>
+      <p style="margin-top:8px">Focus words used: <span class="use-count" id="useCount">0</span> / 3 minimum</p>
+      <div class="used-chips" id="usedChips" aria-live="polite"></div>
+
+      <div class="test-row">
+        <button class="btn ghost" id="helpBtn">I need help — show me sentence starters</button>
+        <button class="btn" id="exemplarBtn" disabled>Unlock an example (write something first)</button>
+      </div>
+
+      <div class="help-reveal" id="helpBox">
+        <div class="exemplar">
+          <h3 style="margin-top:0">Sentence starters</h3>
+          <p>· It took great ________ for the character to ________.</p>
+          <p>· Even after losing their home, the family showed ________ by ________.</p>
+          <p>· A sense of ________ finally came when ________.</p>
+          <p>· The strangers treated them with ________, which meant ________.</p>
+          <p style="margin-bottom:0; color:var(--ink-soft); font-size:.88rem">Fill the gaps with focus words from the Word Wall, then finish each idea in your own words.</p>
+        </div>
+      </div>
+
+      <div class="locked-note" id="exemplarBox">
+        <div class="exemplar">
+          <h3 style="margin-top:0">One way it could look</h3>
+          <p>Leaving home took enormous <u>courage</u>, but the children faced their <u>displacement</u> with quiet <u>resilience</u>. When a stranger finally showed them <u>compassion</u>, they felt the first flicker of <u>belonging</u> in their new <u>sanctuary</u>.</p>
+          <p style="margin-bottom:0; color:var(--ink-soft); font-size:.88rem">That uses six focus words — yours only needs three. Check each of yours against the Word Wall spelling.</p>
+        </div>
+      </div>
+
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>This box does not save.</b> When your sentences are done, <b>screenshot them now</b> and upload to OneNote before moving on.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. PROOFREAD ===================== -->
+  <section id="proofread">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>Proofread Swap</h2><p class="lead">Swap screens (or read your own work like a stranger wrote it). Tick each check honestly before the test.</p></div></div>
+
+    <div class="card">
+      <ul class="check-list">
+        <li><input type="checkbox" id="p1"><label for="p1">Every focus word matches the Word Wall spelling exactly</label></li>
+        <li><input type="checkbox" id="p2"><label for="p2">Each focus word is underlined (do this in OneNote after your screenshot, or list them below your writing)</label></li>
+        <li><input type="checkbox" id="p3"><label for="p3">I found and fixed at least one error — or checked twice and found none</label></li>
+        <li><input type="checkbox" id="p4"><label for="p4">My partner (or my second read-through) agrees the spelling is correct</label></li>
+      </ul>
+      <p style="color:var(--ink-soft); font-size:.92rem; margin-bottom:0">Detective habit: read your writing <em>backwards</em>, last word to first. Your brain can't skim, so spelling slips stand out.</p>
+    </div>
+  </section>
+
+  <!-- ===================== 5. WEEKLY TEST ===================== -->
+  <section id="test">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>Weekly Test</h2><p class="lead">Eight sentences, eight target words. Your teacher may read each sentence aloud twice — or read it yourself below. Type only the missing word, then check. It marks itself.</p></div></div>
+
+    <div class="card">
+      <p style="color:var(--ink-soft); font-size:.92rem; margin-top:0"><b>Rules:</b> No scrolling back to the Word Wall — this is the real test. Type your answer <em>before</em> the check button will work. One attempt counts for your score, but you can retry to fix it up afterwards.</p>
+      <div id="testItems"></div>
+      <div class="scorebar">
+        <div>My score (first attempts): <strong id="testScore">0</strong> / 8</div>
+        <span id="testMsg" style="font-size:.92rem; color:var(--ink-soft)"></span>
+      </div>
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Screenshot your marked test and score</b> and upload to OneNote — this is your main evidence for the week. Also record your score out of 8 in your book.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. CASE CLOSED ===================== -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">06</span><div><h2>Case Closed</h2><p class="lead">Week 7 wrapped. Tick your evidence and make your confidence call.</p></div></div>
+
+    <div class="card">
+      <h3>Evidence to capture (screenshot or photograph each one)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">My Memory Sprint result (hits and misses)</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My 2–3 theme sentences with focus words</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">My proofread checklist, honestly ticked</label></li>
+        <li><input type="checkbox" id="c4"><label for="c4">My marked Weekly Test with score out of 8</label></li>
+        <li><input type="checkbox" id="c5"><label for="c5">Score recorded in my book</label></li>
+      </ul>
+
+      <h3 style="margin-top:18px">How confident am I with the Week 7 words?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+
+      <div class="evidence" style="margin-top:18px; margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing on this page is saved.</b> Take your final screenshots now, then upload everything to OneNote. Closing the tab clears it all.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Year 6 Spelling · Word Detectives · Lesson 21: Case File Final — Theme Writing + Weekly Test · Linked to ACARA v9 AC9E6LY08 &amp; AC9E6LY09. All content original.</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var FOCUS = ["courage","resilience","displacement","belonging","identity","compassion","persecution","sanctuary"];
+
+  /* ---------- memory sprint ---------- */
+  var sprintTimerEl = document.getElementById("sprintTimer");
+  var sprintStart = document.getElementById("sprintStart");
+  var sprintInput = document.getElementById("sprintInput");
+  var sprintCount = document.getElementById("sprintCount");
+  var sprintChips = document.getElementById("sprintChips");
+  var sprintDone = document.getElementById("sprintDone");
+  var sprintHits = {};
+  var sprintTicker = null;
+  var sprintSeconds = 30;
+  var sprintRunning = false;
+
+  var chipEls = {};
+  FOCUS.forEach(function(w){
+    var chip = document.createElement("span");
+    chip.className = "word-chip";
+    chip.textContent = "?????";
+    chip.setAttribute("data-word", w);
+    sprintChips.appendChild(chip);
+    chipEls[w] = chip;
+  });
+
+  function captureSprintWord(raw){
+    var w = raw.trim().toLowerCase().replace(/[^a-z]/g, "");
+    if(!w) return;
+    if(FOCUS.indexOf(w) !== -1 && !sprintHits[w]){
+      sprintHits[w] = true;
+      chipEls[w].textContent = w;
+      chipEls[w].classList.add("hit");
+      sprintCount.textContent = String(Object.keys(sprintHits).length);
+    }
+  }
+
+  function endSprint(){
+    sprintRunning = false;
+    clearInterval(sprintTicker);
+    captureSprintWord(sprintInput.value);
+    sprintInput.value = "";
+    sprintInput.disabled = true;
+    sprintTimerEl.textContent = "0";
+    var got = Object.keys(sprintHits).length;
+    FOCUS.forEach(function(w){
+      if(!sprintHits[w]){
+        chipEls[w].textContent = w;
+        chipEls[w].classList.add("missed");
+      }
+    });
+    var msg;
+    if(got === 8){ msg = "<b>All eight from memory — outstanding!</b> You're ready for the test."; }
+    else if(got >= 5){ msg = "<b>" + got + " out of 8 — strong recall.</b> The amber chips are your misses: robot-talk each one twice at the Word Wall before the test."; }
+    else { msg = "<b>" + got + " captured.</b> No stress — the amber chips show what to revise. Spend one minute at the Word Wall on those exact words before the test."; }
+    sprintDone.innerHTML = msg;
+    sprintDone.classList.add("show");
+    sprintStart.textContent = "Sprint again";
+    sprintStart.disabled = false;
+  }
+
+  sprintStart.addEventListener("click", function(){
+    sprintHits = {};
+    FOCUS.forEach(function(w){
+      chipEls[w].textContent = "?????";
+      chipEls[w].classList.remove("hit","missed");
+    });
+    sprintCount.textContent = "0";
+    sprintDone.classList.remove("show");
+    sprintSeconds = 30;
+    sprintTimerEl.textContent = "30";
+    sprintTimerEl.classList.remove("low");
+    sprintInput.disabled = false;
+    sprintInput.value = "";
+    sprintInput.focus();
+    sprintStart.disabled = true;
+    sprintRunning = true;
+    sprintTicker = setInterval(function(){
+      sprintSeconds--;
+      sprintTimerEl.textContent = String(sprintSeconds);
+      if(sprintSeconds <= 5) sprintTimerEl.classList.add("low");
+      if(sprintSeconds <= 0) endSprint();
+    }, 1000);
+  });
+
+  sprintInput.addEventListener("keydown", function(e){
+    if(!sprintRunning) return;
+    if(e.key === " " || e.key === "Enter"){
+      e.preventDefault();
+      captureSprintWord(sprintInput.value);
+      sprintInput.value = "";
+    }
+  });
+
+  /* ---------- theme writing ---------- */
+  var writeBox = document.getElementById("writeBox");
+  var useCount = document.getElementById("useCount");
+  var usedChips = document.getElementById("usedChips");
+  var helpBtn = document.getElementById("helpBtn");
+  var helpBox = document.getElementById("helpBox");
+  var exemplarBtn = document.getElementById("exemplarBtn");
+  var exemplarBox = document.getElementById("exemplarBox");
+
+  function refreshWriting(){
+    var text = writeBox.value.toLowerCase();
+    var used = FOCUS.filter(function(w){ return text.indexOf(w) !== -1; });
+    useCount.textContent = String(used.length);
+    useCount.classList.toggle("ok", used.length >= 3);
+    usedChips.innerHTML = "";
+    used.forEach(function(w){
+      var chip = document.createElement("span");
+      chip.className = "word-chip hit";
+      chip.textContent = w;
+      usedChips.appendChild(chip);
+    });
+    var hasAttempt = writeBox.value.trim().length >= 15;
+    exemplarBtn.disabled = !hasAttempt;
+    exemplarBtn.textContent = hasAttempt ? "Unlock an example" : "Unlock an example (write something first)";
+  }
+  writeBox.addEventListener("input", refreshWriting);
+
+  helpBtn.addEventListener("click", function(){
+    helpBox.classList.toggle("show");
+    helpBtn.textContent = helpBox.classList.contains("show") ? "Hide the sentence starters" : "I need help — show me sentence starters";
+  });
+
+  exemplarBtn.addEventListener("click", function(){
+    if(exemplarBtn.disabled) return;
+    exemplarBox.classList.add("show");
+  });
+
+  /* ---------- weekly test ---------- */
+  var TEST = [
+    { word:"courage",      before:"It took great ",  after:" to leave everything behind.",
+      tip:"cour-AGE — the -age ending, like 'village'." },
+    { word:"resilience",   before:"The family showed ", after:" by never giving up hope.",
+      tip:"One l, ending -ence: re-sil-i-ence." },
+    { word:"displacement", before:"War caused the ", after:" of thousands of families.",
+      tip:"dis + place + ment — keep the silent e in 'place'." },
+    { word:"belonging",    before:"Everyone deserves a sense of ", after:" and safety.",
+      tip:"belong + ing — no doubled letters." },
+    { word:"identity",     before:"The children held on to their language and their ", after:".",
+      tip:"i-den-TI-ty — the mumbled vowel is an i." },
+    { word:"compassion",   before:"The strangers treated the refugees with kindness and ", after:".",
+      tip:"Double s + i makes the /sh/: compa-ssion." },
+    { word:"persecution",  before:"They fled ", after:" because of their beliefs.",
+      tip:"per-SE-CU-tion — robot-talk the mumbling middle." },
+    { word:"sanctuary",    before:"They finally found ", after:" in a safe new home.",
+      tip:"sanc-tu-A-ry — don't lose the hidden a." }
+  ];
+
+  var testHost = document.getElementById("testItems");
+  var testScoreEl = document.getElementById("testScore");
+  var testMsg = document.getElementById("testMsg");
+  var testScore = 0;
+  var answeredCount = 0;
+
+  function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+  function letterDiff(target, attempt){
+    var html = "";
+    var maxLen = Math.max(target.length, attempt.length);
+    for(var i=0; i<maxLen; i++){
+      var a = attempt[i] || "·";
+      if(attempt[i] !== undefined && attempt[i] === target[i]) html += '<span class="ok">' + esc(a) + '</span>';
+      else html += '<span class="bad">' + esc(a === "" ? "·" : a) + '</span>';
+    }
+    return html;
+  }
+
+  TEST.forEach(function(item, i){
+    var div = document.createElement("div");
+    div.className = "test-item";
+
+    var sentence = document.createElement("p");
+    sentence.className = "sentence";
+    var beforeSpan = document.createElement("span");
+    beforeSpan.textContent = (i+1) + ". " + item.before;
+    var gap = document.createElement("span");
+    gap.className = "gap";
+    gap.textContent = "\u00A0";
+    gap.setAttribute("aria-label","missing word");
+    var afterSpan = document.createElement("span");
+    afterSpan.textContent = item.after;
+    sentence.appendChild(beforeSpan);
+    sentence.appendChild(gap);
+    sentence.appendChild(afterSpan);
+    div.appendChild(sentence);
+
+    var row = document.createElement("div");
+    row.className = "test-row";
+    var input = document.createElement("input");
+    input.type = "text";
+    input.autocomplete = "off";
+    input.autocapitalize = "none";
+    input.spellcheck = false;
+    input.setAttribute("aria-label", "Answer for sentence " + (i+1));
+    input.style.width = "min(280px,100%)";
+    var btn = document.createElement("button");
+    btn.className = "btn amber";
+    btn.textContent = "Check (type your answer first)";
+    btn.disabled = true;
+    row.appendChild(input);
+    row.appendChild(btn);
+    div.appendChild(row);
+
+    var diff = document.createElement("div");
+    diff.className = "diff";
+    diff.setAttribute("aria-live","polite");
+    div.appendChild(diff);
+
+    var fix = document.createElement("div");
+    fix.className = "fixup";
+    div.appendChild(fix);
+
+    var good = document.createElement("div");
+    good.className = "goodnote";
+    div.appendChild(good);
+
+    var firstAttemptMade = false;
+
+    input.addEventListener("input", function(){
+      var has = input.value.trim().length > 0;
+      btn.disabled = !has;
+      btn.textContent = has ? "Check" : "Check (type your answer first)";
+    });
+    input.addEventListener("keydown", function(e){
+      if(e.key === "Enter" && !btn.disabled){ e.preventDefault(); btn.click(); }
+    });
+
+    btn.addEventListener("click", function(){
+      var attempt = input.value.trim().toLowerCase();
+      if(attempt === "") return;
+      var correct = (attempt === item.word);
+      diff.innerHTML = letterDiff(item.word, attempt);
+      if(!firstAttemptMade){
+        firstAttemptMade = true;
+        answeredCount++;
+        if(correct){
+          testScore++;
+          testScoreEl.textContent = String(testScore);
+        }
+        if(answeredCount === TEST.length){
+          if(testScore === 8) testMsg.textContent = "Perfect case — 8/8!";
+          else if(testScore >= 6) testMsg.textContent = "Target met (6+/8). Fix up any misses below, then screenshot.";
+          else testMsg.textContent = "Under 6 this time — retry your misses now, and add those words to next week's revision list.";
+        }
+      }
+      if(correct){
+        div.classList.add("right");
+        gap.textContent = item.word;
+        fix.classList.remove("show");
+        good.innerHTML = "<b>Correct.</b> " + esc(item.tip);
+        good.classList.add("show");
+        input.disabled = true;
+        btn.disabled = true;
+      } else {
+        fix.innerHTML = "<b>Fix-up:</b> the word is <b>" + item.word + "</b>. " + esc(item.tip) + " The underlined letters above show where your attempt drifted — rewrite it and check again (your first-attempt score is already recorded).";
+        fix.classList.add("show");
+        good.classList.remove("show");
+      }
+    });
+
+    testHost.appendChild(div);
+  });
+
+  /* ---------- confidence buttons ---------- */
+  var confi = document.getElementById("confi");
+  Array.prototype.slice.call(confi.querySelectorAll("button")).forEach(function(b){
+    b.addEventListener("click", function(){
+      Array.prototype.slice.call(confi.querySelectorAll("button")).forEach(function(o){ o.setAttribute("aria-pressed","false"); });
+      b.setAttribute("aria-pressed","true");
+    });
+  });
+
+})();
+</script>
+</body>
+</html>

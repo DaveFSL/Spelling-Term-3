@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 13 — Data Detectives | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4; --ink:#1b2a4a; --amber:#e8930c; --teal:#0e7c7b; --card:#fff;
+    --line:#e6e1d6; --amber-soft:#fdf0d9; --amber-edge:#f2c785; --teal-soft:#e1efee;
+    --ink-soft:#56607a; --good:#1f7a4d; --good-soft:#e3f3ea; --bad:#c0392b; --bad-soft:#fdeceb;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06); --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Atkinson Hyperlegible",system-ui,sans-serif; font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%}
+  h1,h2,h3,.eyebrow,.pill,.bas-tile,.bas-piece,.bas-msg,.cellL,.mchip,.layer-name{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  header.band{background:var(--ink); color:#fff; padding:30px 22px 26px}
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px}
+  .band h1{font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em}
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:62ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1}
+
+  nav.pills{position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px}
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center}
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto; font-family:"Space Grotesk"}
+  .lead{color:var(--ink-soft); max-width:66ch}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0}
+
+  button{font-family:inherit}
+  .btn{background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"}
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  /* warm-up quiz */
+  .q{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .q .stem{font-weight:700; margin-bottom:10px}
+  .opts{display:grid; gap:8px}
+  .opt{text-align:left; background:#fcfbf7; border:1.5px solid var(--line); color:var(--ink); padding:11px 14px; border-radius:10px; cursor:pointer; min-height:44px; font-size:.95rem}
+  .opt:hover{border-color:var(--teal)}
+  .opt.correct{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .opt.wrong{background:var(--bad-soft); border-color:var(--bad); color:#a8261b}
+  .opt[disabled]{cursor:default}
+  .fixup{margin-top:10px; background:var(--amber-soft); border-left:5px solid var(--amber); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none}
+  .fixup.show{display:block}
+  .fixup b{color:#a8540b}
+  .scorebar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:12px 16px}
+  .scorebar strong{font-family:"Space Grotesk"; font-size:1.15rem}
+
+  /* teaching cards */
+  .teach-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  @media(max-width:760px){.teach-grid{grid-template-columns:1fr}}
+  .remember{background:var(--teal-soft); border:1px solid #bfdedc; border-radius:10px; padding:10px 13px; font-size:.9rem; margin-top:8px}
+  .remember b{color:var(--teal); font-family:"Space Grotesk"}
+  .root-key{display:flex; flex-wrap:wrap; gap:6px; margin-top:4px}
+  .root-key span{font-size:.82rem; background:#fbfaf6; border:1px solid var(--line); border-radius:8px; padding:4px 9px; font-family:"Space Grotesk"; font-weight:600}
+  .root-key b{color:var(--teal)}
+
+  /* morpheme breakdown */
+  .mb-wrap{display:grid; grid-template-columns:1fr 1.1fr; gap:18px; align-items:start}
+  @media(max-width:680px){.mb-wrap{grid-template-columns:1fr}}
+  .mchips{display:flex; flex-direction:column; gap:9px}
+  .mchip{border:1.5px solid var(--line); background:#fff; border-radius:12px; padding:12px 14px; cursor:pointer; font-weight:700; font-size:1.05rem; color:var(--ink); text-align:left}
+  .mchip:hover{border-color:var(--teal)}
+  .mchip[aria-pressed=true]{border-color:var(--ink); background:#0f1830; color:#fff}
+  .mb-info{background:#0f1830; color:#eaf0ff; border:1px solid #243a63; border-radius:14px; padding:18px; min-height:180px}
+  .mb-info .layer-name{font-size:1.5rem; font-weight:700; color:#fff; margin-bottom:10px}
+  .mb-parts{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px}
+  .mb-part{border-radius:8px; padding:6px 11px; font-family:"Space Grotesk"; font-weight:700; font-size:1rem}
+  .mb-part.p0{background:#ffd479; color:#3a2400}
+  .mb-part.p1{background:#7fd0cf; color:#053b3a}
+  .mb-part.p2{background:#c9b3ff; color:#2a1a52}
+  .mb-mean{margin:6px 0}
+  .mb-mean .lab{color:#ffd479; font-family:"Space Grotesk"; font-weight:600; font-size:.8rem; text-transform:uppercase; letter-spacing:.06em}
+  .mb-info .ph{color:#aebbdc}
+
+  /* build-a-stat */
+  .bas{border:1.5px solid var(--line); border-radius:14px; padding:16px; margin:12px 0; background:#fff}
+  .bas-clue{font-weight:700; margin-bottom:2px}
+  .bas-clue .tag{display:block; font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); font-weight:600; margin-bottom:3px; font-family:"Space Grotesk"}
+  .bas-strip{display:flex; gap:6px; flex-wrap:wrap; align-items:center; min-height:50px; margin:10px 0; padding:8px 10px; border:1.5px dashed var(--line); border-radius:10px; background:#fbfaf6}
+  .bas-slot{min-width:56px; height:40px; border-radius:8px; border:1.5px dashed var(--amber-edge); display:flex; align-items:center; justify-content:center; color:#b9a06a; font-size:.78rem; font-family:"Space Grotesk"}
+  .bas-piece{height:40px; padding:0 14px; border-radius:8px; background:var(--ink); color:#fff; border:none; cursor:pointer; font-weight:700; font-size:1rem}
+  .bas-piece:hover{background:#243a63}
+  .bas-tiles{display:flex; gap:8px; flex-wrap:wrap}
+  .bas-tile{padding:10px 15px; border-radius:10px; border:1.5px solid var(--line); background:#fbfaf6; color:var(--ink); font-weight:700; font-size:1rem; cursor:pointer; min-height:44px}
+  .bas-tile:hover{border-color:var(--teal)}
+  .bas-tile:disabled{opacity:.3; cursor:default}
+  .bas.done{border-color:var(--good); background:var(--good-soft)}
+  .bas.done .bas-strip{border-color:var(--good); background:#d8efe1}
+  .bas.done .bas-piece{background:var(--good)}
+  .bas-msg{margin-top:8px; min-height:1.3em; font-weight:700}
+  .bas-msg.good{color:var(--good)} .bas-msg.bad{color:var(--bad)}
+  .bas-ctrl{display:flex; gap:8px; margin-top:8px; flex-wrap:wrap}
+  .bas-prog{font-family:"Space Grotesk"; font-weight:700; margin-bottom:4px}
+  .bas-prog .hit{color:var(--good)}
+
+  /* spell-it */
+  .spell-card{border:1.5px solid var(--line); border-radius:14px; padding:16px; margin:12px 0; background:#fff}
+  .spell-clue{font-weight:700; margin-bottom:4px}
+  .spell-clue .tag{font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); display:block; font-weight:600; margin-bottom:2px; font-family:"Space Grotesk"}
+  .spell-row{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:8px}
+  .spell-input{flex:1 1 220px; min-width:180px; border:1.5px solid var(--line); border-radius:10px; padding:11px 13px; font-family:"Atkinson Hyperlegible"; font-size:1.05rem; background:#fff; color:var(--ink)}
+  .spell-cells{display:flex; gap:5px; flex-wrap:wrap; margin-top:10px; min-height:6px}
+  .cellL{width:34px; height:44px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem; border:1.5px solid var(--line); background:#fff}
+  .cellL.ok{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .cellL.no{background:var(--bad-soft); border-color:var(--bad); color:#a8261b}
+  .spell-msg{margin-top:8px; font-weight:700; font-family:"Space Grotesk"; min-height:1.3em}
+  .spell-msg.good{color:var(--good)} .spell-msg.bad{color:var(--bad)}
+  .spell-help{display:none; margin-top:10px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:10px; padding:11px 13px; font-size:.92rem}
+  .spell-help.show{display:block}
+
+  /* evidence + checklist */
+  .evidence{display:flex; gap:12px; align-items:flex-start; background:#fff7e9; border:1.5px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:14px 0; font-size:.92rem}
+  .evidence svg{flex:0 0 auto; margin-top:2px}
+  .evidence b{color:#a8540b}
+  .check-list{list-style:none; padding:0; margin:.4em 0}
+  .check-list li{display:flex; gap:11px; align-items:flex-start; padding:9px 0; border-bottom:1px dashed var(--line)}
+  .check-list input{width:24px; height:24px; margin-top:2px; accent-color:var(--teal); flex:0 0 auto}
+  .confi{display:flex; gap:9px; flex-wrap:wrap; margin-top:10px}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:10px 14px; min-height:44px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .confi button[aria-pressed=true]{background:var(--teal); color:#fff; border-color:var(--teal)}
+
+  footer{max-width:1000px; margin:0 auto; padding:24px 18px 50px; color:var(--ink-soft); font-size:.85rem}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Year 6 Spelling · Word Detectives · Lesson 13</p>
+    <h1>Data Detectives</h1>
+    <p class="hook">A column graph turns up with every label wiped clean. To read data you need its words — and those words are built from <b>stat</b>, <b>per</b> and <b>cent</b>. Crack the roots and label the case.</p>
+    <div class="meta-row" aria-label="Lesson details">
+      <span>Maths: Statistics &amp; Data</span>
+      <span>Focus: roots · stat-, per-, cent-</span>
+      <span>AC9E6LY09</span>
+      <span>20 minutes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Jump to a section">
+  <div class="pills-inner">
+    <a class="pill" href="#briefing">Data Briefing</a>
+    <a class="pill" href="#lab">Root Lab</a>
+    <a class="pill" href="#build">Build-a-Stat</a>
+    <a class="pill" href="#spell">Spell-It Lab</a>
+    <a class="pill" href="#closed">Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- 1. WARM-UP -->
+  <section id="briefing">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>Data Briefing</h2><p class="lead">Open the case file. Tap an answer — wrong ones reveal an orange <b>fix-up</b> that names the fix.</p></div></div>
+    <div id="quiz"></div>
+    <div class="scorebar" role="status" aria-live="polite">
+      <span>Score: <strong id="score">0</strong> / <strong id="total">5</strong></span>
+      <button class="btn ghost" id="jumpFix" disabled>Jump to my first fix-up ↧</button>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot before you close.</b> Nothing here is saved — capture your score, then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 2. ROOT LAB -->
+  <section id="lab">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Root Lab</h2><p class="lead">Read the root toolkit, then tap a word to break it into its parts and see what each one means.</p></div></div>
+
+    <div class="teach-grid">
+      <div class="card teach">
+        <h3>stat- = stand / state</h3>
+        <p>From the idea of facts that <b>stand</b> firm: <b>stat</b>istics, <b>stat</b>istic, <b>stat</b>istician.</p>
+        <div class="remember"><b>Remember:</b> statistics make data stand up as facts.</div>
+      </div>
+      <div class="card teach">
+        <h3>per- + cent- </h3>
+        <p><b>per</b> = for each · <b>cent</b> = hundred. So <b>per cent</b> means “for each hundred”, and <b>%</b> is a part out of 100.</p>
+        <div class="remember"><b>Remember:</b> percentage = a score out of one hundred.</div>
+      </div>
+      <div class="card teach">
+        <h3>Suffix signposts</h3>
+        <div class="root-key"><span><b>-tion/-ation</b> a process</span><span><b>-ity</b> a state</span><span><b>-ical</b> relating to</span></div>
+        <div class="remember"><b>Remember:</b> the suffix tells you the word’s job.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Break it down — tap a word</h3>
+      <div class="mb-wrap">
+        <div class="mchips" id="mchips" role="group" aria-label="Words to break into parts"></div>
+        <div class="mb-info" id="mbInfo" role="status" aria-live="polite">
+          <p class="ph">Tap <b>percentage</b>, <b>estimation</b>, <b>probability</b> or <b>frequency</b> to split it into morphemes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. BUILD-A-STAT -->
+  <section id="build">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>Build-a-Stat</h2><p class="lead">Read the meaning, then tap the word-parts <b>in order</b> to build the statistics word. Tap a placed part to send it back. Ignore the decoy tiles!</p></div></div>
+    <div class="card">
+      <p class="bas-prog">Words built: <span class="hit" id="basHit">0</span> / 5</p>
+      <div id="basWrap"></div>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot your green built words.</b> Then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 4. SPELL-IT -->
+  <section id="spell">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>Spell-It Lab</h2><p class="lead">Read the clue, type the word, press <b>Check</b>. Each letter turns green when it’s right. Stuck? Tap <b>I need a hand</b>.</p></div></div>
+    <div id="spellCards"></div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>This box does not save.</b> Screenshot your green words now and upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- 5. CASE CLOSED -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>Case Closed</h2><p class="lead">Exit check. Tick your evidence, rate your confidence, capture everything.</p></div></div>
+    <div class="card">
+      <h3>Exit ticket — without looking back, can you…</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="x1"><label for="x1">Say what <b>per-</b> and <b>cent-</b> mean in “percentage”</label></li>
+        <li><input type="checkbox" id="x2"><label for="x2">Spell <b>statistics</b> and <b>percentage</b> from memory (try them in your book)</label></li>
+        <li><input type="checkbox" id="x3"><label for="x3">Name the suffix (-tion / -ity / -ical) in 3 words</label></li>
+      </ul>
+      <h3 style="margin-top:18px">Evidence to capture (screenshot or photograph)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">Data Briefing score + fix-ups</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My 5 built words in Build-a-Stat</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">My green Spell-It Lab words</label></li>
+      </ul>
+      <h3 style="margin-top:18px">How confident am I with these data words?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+      <div class="evidence" style="margin-top:18px;margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing here is saved.</b> Take your final screenshots now, then upload everything to OneNote.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer><p>Year 6 Spelling · Word Detectives · Lesson 13: Data Detectives · Linked to ACARA v9 AC9E6LY09. All content original. Works offline — no data is collected or stored.</p></footer>
+
+<div class="sr-only" id="liveRegion" aria-live="assertive" style="position:fixed;bottom:0;left:0"></div>
+
+<script>
+"use strict";
+const $=(s,el=document)=>el.querySelector(s);
+const $$=(s,el=document)=>Array.from(el.querySelectorAll(s));
+const announce=(m)=>{const r=$("#liveRegion");r.textContent="";setTimeout(()=>r.textContent=m,30);};
+const shuffle=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(p=>p[1]);
+
+/* ---------- 1. WARM-UP ---------- */
+const QUIZ=[
+ {stem:"Which spelling is correct?",opts:["satelite","satellite","sattelite"],correct:1,
+  fix:"From yesterday: satellite — one t, double l (sate-ll-ite)."},
+ {stem:"The word part “cent-” means…",opts:["hundred","centre","fast"],correct:0,
+  fix:"cent- means hundred: a century is 100 years, a centimetre is 1/100 of a metre."},
+ {stem:"The word part “per-” often means…",opts:["under","for each","again"],correct:1,
+  fix:"per- means “for each”: 60 km per hour = for each hour."},
+ {stem:"So “per cent” literally means…",opts:["for each hundred","one part","centre point"],correct:0,
+  fix:"per (for each) + cent (hundred) = “for each hundred”. That’s what % means."},
+ {stem:"Which spelling is correct?",opts:["statistcs","statisitcs","statistics"],correct:2,
+  fix:"statistics = stat + istics. Say it slowly: sta-tis-tics."},
+];
+let score=0,firstFix=null;
+$("#total").textContent=QUIZ.length;
+const quizEl=$("#quiz");
+QUIZ.forEach((q,qi)=>{
+  const card=document.createElement("div");card.className="q";card.id="q"+qi;
+  const stem=document.createElement("p");stem.className="stem";stem.textContent=(qi+1)+". "+q.stem;
+  const opts=document.createElement("div");opts.className="opts";opts.setAttribute("role","group");opts.setAttribute("aria-label",q.stem);
+  q.opts.forEach((t,oi)=>{const b=document.createElement("button");b.className="opt";b.type="button";b.textContent=t;b.addEventListener("click",()=>ans(card,opts,b,q,qi,oi));opts.appendChild(b);});
+  const fix=document.createElement("div");fix.className="fixup";fix.id="fix"+qi;fix.innerHTML='<b>Fix-up:</b> '+q.fix;
+  card.append(stem,opts,fix);quizEl.appendChild(card);
+});
+function ans(card,opts,btn,q,qi,oi){
+  if(card.dataset.done)return;card.dataset.done="1";
+  $$(".opt",opts).forEach(b=>b.setAttribute("disabled",""));
+  opts.children[q.correct].classList.add("correct");
+  if(oi===q.correct){btn.classList.add("correct");score++;$("#score").textContent=score;announce("Correct. Score "+score);}
+  else{btn.classList.add("wrong");$("#fix"+qi).classList.add("show");if(firstFix===null){firstFix=qi;$("#jumpFix").disabled=false;}announce("Not quite. Read the fix-up.");}
+}
+$("#jumpFix").addEventListener("click",()=>{if(firstFix!==null)$("#q"+firstFix).scrollIntoView({block:"center"});});
+
+/* ---------- 2. MORPHEME BREAKDOWN ---------- */
+const MB=[
+ {word:"percentage", parts:[["per","for each"],["cent","hundred"],["age","noun ending"]], mean:"a part out of every hundred"},
+ {word:"estimation", parts:[["estimat","to judge roughly"],["ion","the process of"]], mean:"the process of making a rough judgement"},
+ {word:"probability", parts:[["probabil","likely"],["ity","state of being"]], mean:"how likely something is to happen"},
+ {word:"frequency", parts:[["frequ","often"],["ency","state of"]], mean:"how often something happens"},
+];
+const mchips=$("#mchips");
+MB.forEach(m=>{
+  const b=document.createElement("button");b.type="button";b.className="mchip";b.setAttribute("aria-pressed","false");b.textContent=m.word;
+  b.addEventListener("click",()=>{
+    $$(".mchip",mchips).forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");
+    const parts=m.parts.map((p,i)=>'<span class="mb-part p'+i+'">'+p[0]+'</span>').join("");
+    const means=m.parts.map((p,i)=>'<div class="mb-mean"><span class="mb-part p'+i+'" style="font-size:.85rem">'+p[0]+'</span> = '+p[1]+'</div>').join("");
+    $("#mbInfo").innerHTML='<div class="layer-name">'+m.word+'</div><div class="mb-parts">'+parts+'</div>'+means+'<div class="mb-mean" style="margin-top:10px"><span class="lab">whole word</span><br>'+m.mean+'</div>';
+    announce(m.word+" breaks into "+m.parts.map(p=>p[0]).join(", "));
+  });
+  mchips.appendChild(b);
+});
+
+/* ---------- 3. BUILD-A-STAT ---------- */
+const STATS=[
+ {word:"percentage", parts:["per","cent","age"], clue:"a part out of every hundred", distract:["meter","ity"]},
+ {word:"estimation", parts:["estim","ation"], clue:"the process of working out a rough amount", distract:["graph","ical"]},
+ {word:"frequency", parts:["frequ","ency"], clue:"how often something happens", distract:["age","stat"]},
+ {word:"categorical", parts:["categor","ical"], clue:"data sorted into groups or categories", distract:["ation","cent"]},
+ {word:"statistics", parts:["stat","istics"], clue:"the maths of collecting and reading data", distract:["per","ency"]},
+];
+const basWrap=$("#basWrap");
+let basDone=0;
+STATS.forEach((s,si)=>{
+  const box=document.createElement("div");box.className="bas";box.id="bas"+si;
+  box.innerHTML=
+    '<div class="bas-clue"><span class="tag">Build word '+(si+1)+' · '+s.parts.length+' parts</span>'+s.clue+'</div>'+
+    '<div class="bas-strip" id="strip'+si+'" aria-label="word being built"></div>'+
+    '<div class="bas-tiles" id="tiles'+si+'"></div>'+
+    '<div class="bas-ctrl"><button class="btn ghost" id="hint'+si+'">Hint</button><button class="btn ghost" id="reset'+si+'">Reset</button></div>'+
+    '<p class="bas-msg" id="bmsg'+si+'"></p>';
+  basWrap.appendChild(box);
+
+  const strip=$("#strip"+si,box),tilesEl=$("#tiles"+si,box),msg=$("#bmsg"+si,box);
+  let selected=[]; // {piece, tileBtn}
+  let locked=false;
+  const tilePieces=shuffle(s.parts.concat(s.distract));
+  const tileBtns=[];
+  tilePieces.forEach(piece=>{
+    const t=document.createElement("button");t.type="button";t.className="bas-tile";t.textContent=piece;
+    t.addEventListener("click",()=>{if(locked||t.disabled)return;place(piece,t);});
+    tilesEl.appendChild(t);tileBtns.push(t);
+  });
+  function renderStrip(){
+    strip.innerHTML="";
+    selected.forEach((sel,k)=>{
+      const p=document.createElement("button");p.type="button";p.className="bas-piece";p.textContent=sel.piece;p.setAttribute("aria-label","remove "+sel.piece);
+      p.addEventListener("click",()=>{if(locked)return;sel.tileBtn.disabled=false;selected.splice(k,1);renderStrip();msg.textContent="";msg.className="bas-msg";});
+      strip.appendChild(p);
+    });
+    for(let i=selected.length;i<s.parts.length;i++){const slot=document.createElement("span");slot.className="bas-slot";slot.textContent="part "+(i+1);strip.appendChild(slot);}
+  }
+  function place(piece,tileBtn){
+    if(selected.length>=s.parts.length)return;
+    selected.push({piece,tileBtn});tileBtn.disabled=true;renderStrip();
+    if(selected.length===s.parts.length)check();
+  }
+  function check(){
+    const built=selected.map(x=>x.piece).join("");
+    if(built===s.word){
+      locked=true;box.classList.add("done");msg.textContent="✓ Built it: "+s.word;msg.className="bas-msg good";
+      tileBtns.forEach(t=>t.disabled=true);basDone++;$("#basHit").textContent=basDone;
+      announce("Correct. "+s.word);
+    }else{
+      msg.textContent="Not quite — “"+built+"” isn’t right. Tap a part to send it back, or Reset.";msg.className="bas-msg bad";
+      announce("Not quite. Try the order again.");
+    }
+  }
+  $("#hint"+si,box).addEventListener("click",()=>{if(locked)return;msg.textContent="Hint: it starts with “"+s.parts[0]+"”.";msg.className="bas-msg";});
+  $("#reset"+si,box).addEventListener("click",()=>{if(locked)return;selected.forEach(x=>x.tileBtn.disabled=false);selected=[];renderStrip();msg.textContent="";msg.className="bas-msg";});
+  renderStrip();
+});
+
+/* ---------- 4. SPELL-IT ---------- */
+const SPELL=[
+ {clue:"The maths of collecting and reading data.",word:"statistics",tip:"stat + istics. Say sta-tis-tics."},
+ {clue:"A part out of every hundred.",word:"percentage",tip:"per + cent + age."},
+ {clue:"Data sorted into groups or categories.",word:"categorical",tip:"category → categor + ical."},
+ {clue:"How likely something is to happen.",word:"probability",tip:"probable → probabil + ity."},
+];
+const spWrap=$("#spellCards");
+SPELL.forEach((s,si)=>{
+  const card=document.createElement("div");card.className="spell-card";
+  const clue=document.createElement("div");clue.className="spell-clue";clue.innerHTML='<span class="tag">Clue '+(si+1)+' · '+s.word.length+' letters</span>'+s.clue;
+  const row=document.createElement("div");row.className="spell-row";
+  const input=document.createElement("input");input.className="spell-input";input.type="text";input.autocomplete="off";input.autocapitalize="off";input.spellcheck=false;input.setAttribute("aria-label","Type the word for: "+s.clue);input.placeholder="type the word…";
+  const checkBtn=document.createElement("button");checkBtn.type="button";checkBtn.className="btn";checkBtn.textContent="Check";
+  const helpBtn=document.createElement("button");helpBtn.type="button";helpBtn.className="btn ghost";helpBtn.textContent="I need a hand";helpBtn.setAttribute("aria-expanded","false");
+  row.append(input,checkBtn,helpBtn);
+  const cells=document.createElement("div");cells.className="spell-cells";
+  const msg=document.createElement("div");msg.className="spell-msg";
+  const help=document.createElement("div");help.className="spell-help";help.innerHTML='Starts with <b>'+s.word.slice(0,3)+'…</b><br>'+s.tip;
+  function check(){
+    const val=input.value.trim().toLowerCase();
+    if(!val){msg.textContent="Type your attempt first.";msg.className="spell-msg bad";return;}
+    cells.innerHTML="";const target=s.word.toLowerCase();let allOk=val.length===target.length;
+    for(let i=0;i<target.length;i++){const c=document.createElement("span");c.className="cellL";const got=val[i]||"";c.textContent=got||"·";if(got===target[i])c.classList.add("ok");else{c.classList.add("no");allOk=false;}cells.appendChild(c);}
+    if(allOk){msg.textContent="✓ Perfect spelling!";msg.className="spell-msg good";input.setAttribute("disabled","");}
+    else{msg.textContent="Not yet — green letters are right. Check the rest and try again.";msg.className="spell-msg bad";}
+    announce(allOk?"Correct spelling of "+s.word:"Keep trying.");
+  }
+  checkBtn.addEventListener("click",check);
+  input.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();check();}});
+  helpBtn.addEventListener("click",()=>{const o=help.classList.toggle("show");helpBtn.setAttribute("aria-expanded",o?"true":"false");helpBtn.textContent=o?"Hide the hand":"I need a hand";});
+  card.append(clue,row,cells,msg,help);spWrap.appendChild(card);
+});
+
+/* ---------- 5. CONFIDENCE ---------- */
+$$("#confi button").forEach(b=>b.addEventListener("click",()=>{$$("#confi button").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");}));
+</script>
+</body>
+</html>

@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 14 — Long Words, Smart Strategies | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4;
+    --ink:#1b2a4a;
+    --amber:#e8930c;
+    --teal:#0e7c7b;
+    --card:#ffffff;
+    --line:#e6e1d6;
+    --amber-soft:#fdf0d9;
+    --amber-edge:#f2c785;
+    --teal-soft:#e1efee;
+    --ink-soft:#56607a;
+    --good:#1f7a4d;
+    --good-soft:#e3f3ea;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Atkinson Hyperlegible",system-ui,sans-serif;
+    font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%;
+  }
+  h1,h2,h3,.eyebrow,.pill,.opt,.chunk,.wb{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  a{color:var(--teal)}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  /* ---------- header ---------- */
+  header.band{ background:var(--ink); color:#fff; padding:30px 22px 26px; }
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{ text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--amber); margin:0 0 8px; }
+  .band h1{ font-family:"Space Grotesk"; font-weight:700; font-size:2.4rem; line-height:1.05; margin:0 0 10px; letter-spacing:-.02em; }
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:62ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1; }
+
+  /* ---------- sticky nav ---------- */
+  nav.pills{ position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px; }
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{ flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink); padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500; cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center; }
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  /* ---------- layout ---------- */
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{ font-family:"Space Grotesk"; font-weight:700; color:var(--amber); font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px; padding:2px 9px; flex:0 0 auto; }
+  .lead{color:var(--ink-soft); max-width:68ch}
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin:14px 0; }
+
+  /* ---------- buttons ---------- */
+  button{font-family:inherit}
+  .btn{ background:var(--ink); color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px; font-family:"Space Grotesk"; }
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn.amber:hover{background:#d98509}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  /* ---------- warm-up quiz ---------- */
+  .q{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .q .stem{font-weight:700; margin-bottom:10px}
+  .opts{display:grid; gap:8px}
+  .opt{ text-align:left; background:#fcfbf7; border:1.5px solid var(--line); color:var(--ink); padding:11px 14px; border-radius:10px; cursor:pointer; min-height:44px; font-size:.95rem; }
+  .opt:hover{border-color:var(--teal)}
+  .opt.correct{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .opt.wrong{background:#fdeceb; border-color:#c0392b; color:#a8261b}
+  .opt[disabled]{cursor:default}
+  .fixup{ margin-top:10px; background:var(--amber-soft); border-left:5px solid var(--amber); border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none; }
+  .fixup.show{display:block}
+  .fixup b{color:#a8540b}
+  .scorebar{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:12px 16px; }
+  .scorebar strong{font-family:"Space Grotesk"; font-size:1.15rem}
+
+  /* ---------- teaching cards ---------- */
+  .teach-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+  @media(max-width:680px){.teach-grid{grid-template-columns:1fr}}
+  .teach .svg-wrap{background:#fbfaf6; border:1px solid var(--line); border-radius:12px; padding:14px; margin:.4em 0 .7em}
+  .remember{ background:var(--teal-soft); border:1px solid #bfdedc; border-radius:10px; padding:10px 13px; font-size:.92rem; margin-top:8px; }
+  .remember b{color:var(--teal); font-family:"Space Grotesk"}
+
+  /* ---------- syllable splitter (signature) ---------- */
+  .syl-card{border:1.5px solid var(--line); border-radius:14px; padding:16px; margin:12px 0; background:#fff}
+  .syl-head{display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:space-between; margin-bottom:10px}
+  .syl-head h3{margin:0}
+  .syl-beats{font-family:"Space Grotesk"; font-weight:600; font-size:.9rem; color:var(--ink-soft); background:#fbfaf6; border:1px solid var(--line); border-radius:999px; padding:5px 12px}
+  .syl-beats b{color:var(--teal); font-size:1.05rem}
+  .syl-word{display:flex; flex-wrap:wrap; align-items:stretch; gap:0; margin:.3em 0 .2em}
+  .syl-letter{ font-family:"Space Grotesk"; font-weight:700; font-size:1.5rem; min-width:34px; height:54px; display:inline-flex; align-items:center; justify-content:center; color:var(--ink); background:#fcfbf7; border:1.5px solid var(--line); border-radius:8px; }
+  .syl-gap{ width:18px; height:54px; padding:0; margin:0 1px; border:none; background:transparent; cursor:pointer; position:relative; border-radius:6px; }
+  .syl-gap::before{ content:""; position:absolute; left:50%; top:9px; bottom:9px; width:3px; transform:translateX(-50%); background:#d9d3c6; border-radius:3px; opacity:.5; }
+  .syl-gap:hover::before{background:var(--amber); opacity:.7}
+  .syl-gap.on::before{background:var(--amber); opacity:1; width:5px}
+  .syl-gap.hint::before{background:var(--teal); opacity:.9; width:4px; animation:pulse 1s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+  @media (prefers-reduced-motion: reduce){ .syl-gap.hint::before{animation:none} }
+  .syl-controls{display:flex; flex-wrap:wrap; gap:9px; margin-top:12px}
+  .syl-fb{margin-top:10px; font-size:.92rem; min-height:1.2em}
+  .syl-fb.bad{color:#a8540b}
+  .syl-fb.good{color:var(--good); font-weight:700; font-family:"Space Grotesk"}
+  .syl-result{display:none; margin-top:10px; flex-wrap:wrap; gap:8px; align-items:center}
+  .syl-result.show{display:flex}
+  .chunk{ font-family:"Space Grotesk"; font-weight:700; font-size:1.15rem; background:var(--good-soft); color:var(--good); border:1.5px solid var(--good); border-radius:9px; padding:6px 12px; }
+  .syl-card.done{background:var(--good-soft); border-color:var(--good)}
+  .syl-card.done .syl-letter{border-color:#bfe0cb}
+
+  /* ---------- ending explorer ---------- */
+  .end-tabs{display:flex; flex-wrap:wrap; gap:9px; margin-bottom:6px}
+  .end-tab{ font-family:"Space Grotesk"; font-weight:700; font-size:1.05rem; background:#fff; color:var(--ink); border:1.5px solid var(--line); border-radius:12px; padding:12px 18px; min-height:48px; cursor:pointer; }
+  .end-tab:hover{border-color:var(--teal)}
+  .end-tab[aria-expanded=true]{background:var(--teal); color:#fff; border-color:var(--teal)}
+  .end-panel{display:none; margin-top:6px}
+  .end-panel.show{display:block}
+
+  /* ---------- LCWC slider ---------- */
+  .lcwc-stage{position:relative; overflow:hidden; border:1.5px solid var(--line); border-radius:14px; background:#fff; height:120px; display:flex; align-items:center; justify-content:center}
+  .lcwc-word{font-family:"Space Grotesk"; font-weight:700; font-size:2.2rem; letter-spacing:.01em; color:var(--ink); text-align:center; padding:0 10px}
+  .lcwc-cover{position:absolute; inset:0; background:repeating-linear-gradient(45deg,var(--ink),var(--ink) 12px,#243a63 12px,#243a63 24px); transition:transform .05s linear; will-change:transform}
+  .lcwc-cover::after{content:"covered — write it now"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-family:"Space Grotesk"; font-weight:600; letter-spacing:.04em; font-size:.9rem}
+  .slider-wrap{margin-top:12px}
+  .slide-hint{ display:inline-flex; align-items:center; gap:8px; font-family:"Space Grotesk"; font-weight:600; font-size:.82rem; color:var(--teal); background:var(--teal-soft); border:1px solid #bfdedc; border-radius:999px; padding:6px 13px; margin-bottom:9px; }
+  .slide-hint .arrows{display:inline-block; font-size:1rem; animation:bob 1.3s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+  .slide-hint.gone{display:none}
+  @media (prefers-reduced-motion: reduce){ .slide-hint .arrows{animation:none} }
+  input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:36px; background:transparent; cursor:grab; margin:0; display:block}
+  input[type=range]:active{cursor:grabbing}
+  input[type=range]:focus{outline:none}
+  input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px var(--amber), 0 2px 6px rgba(27,42,74,.3)}
+  input[type=range]:focus-visible::-moz-range-thumb{box-shadow:0 0 0 3px var(--amber), 0 2px 6px rgba(27,42,74,.3)}
+  input[type=range]::-webkit-slider-runnable-track{ height:18px; border-radius:999px; border:1px solid #cfc8ba; background:linear-gradient(90deg,var(--teal) 0 var(--fill,100%), #ece7dc var(--fill,100%) 100%); }
+  input[type=range]::-moz-range-track{height:18px; border-radius:999px; border:1px solid #cfc8ba; background:#ece7dc}
+  input[type=range]::-moz-range-progress{height:18px; border-radius:999px; background:var(--teal)}
+  input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:36px; height:36px; margin-top:-10px; border-radius:50%; background:#fff; border:3px solid var(--teal); box-shadow:0 2px 7px rgba(27,42,74,.3); background-image:repeating-linear-gradient(90deg,var(--teal) 0 2px,#fff 2px 5px); background-repeat:no-repeat; background-size:13px 14px; background-position:center; }
+  input[type=range]::-moz-range-thumb{ width:36px; height:36px; border-radius:50%; background:#fff; border:3px solid var(--teal); box-shadow:0 2px 7px rgba(27,42,74,.3); background-image:repeating-linear-gradient(90deg,var(--teal) 0 2px,#fff 2px 5px); background-repeat:no-repeat; background-size:13px 14px; background-position:center; }
+  .slide-ends{display:flex; justify-content:space-between; font-family:"Space Grotesk"; font-weight:600; font-size:.78rem; color:var(--ink-soft); margin-top:5px}
+  .lcwc-controls{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:14px}
+  .counter{font-size:.85rem; color:var(--ink-soft)}
+
+  /* ---------- writing / locked ---------- */
+  textarea{ width:100%; min-height:120px; border:1.5px solid var(--line); border-radius:12px; padding:13px; font-family:"Atkinson Hyperlegible"; font-size:1rem; resize:vertical; background:#fff; color:var(--ink); }
+  .wordbank-chips{display:flex; flex-wrap:wrap; gap:7px; margin:.5em 0}
+  .wb{font-size:.85rem; background:#fff; border:1.5px solid var(--line); border-radius:999px; padding:5px 11px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .wb:hover{border-color:var(--teal); color:var(--teal)}
+  .locked{ border:1.5px dashed var(--amber-edge); background:var(--amber-soft); border-radius:12px; padding:14px; margin-top:12px; text-align:center; color:#7a4a06; }
+  .reveal-box{display:none; margin-top:12px}
+  .reveal-box.show{display:block}
+  .help-box{display:none; margin-top:12px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:14px}
+  .help-box.show{display:block}
+
+  /* ---------- evidence callout ---------- */
+  .evidence{ display:flex; gap:12px; align-items:flex-start; background:#fff7e9; border:1.5px solid var(--amber-edge); border-radius:12px; padding:13px 15px; margin:14px 0; font-size:.92rem; }
+  .evidence svg{flex:0 0 auto; margin-top:2px}
+  .evidence b{color:#a8540b}
+
+  /* ---------- checklist / confidence ---------- */
+  .check-list{list-style:none; padding:0; margin:.4em 0}
+  .check-list li{display:flex; gap:11px; align-items:flex-start; padding:9px 0; border-bottom:1px dashed var(--line)}
+  .check-list input{width:24px; height:24px; margin-top:2px; accent-color:var(--teal); flex:0 0 auto}
+  .confi{display:flex; gap:9px; flex-wrap:wrap; margin-top:10px}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:10px 14px; min-height:44px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .confi button[aria-pressed=true]{background:var(--teal); color:#fff; border-color:var(--teal)}
+
+  footer{max-width:1000px; margin:0 auto; padding:24px 18px 50px; color:var(--ink-soft); font-size:.85rem}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+  .live{position:fixed; bottom:0; left:0}
+  kbd{font-family:"Space Grotesk"; font-size:.8rem; background:#fff; border:1px solid var(--line); border-bottom-width:2px; border-radius:6px; padding:1px 6px}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Year 6 Spelling · Word Detectives · Lesson 14</p>
+    <h1>Long Words, Smart Strategies</h1>
+    <p class="hook">A long data word looks scary until a detective breaks it into beats. Chunk it into syllables, master the <em>-tion · -ity · -ical</em> endings, and the spelling falls into place.</p>
+    <div class="meta-row" aria-label="Lesson details">
+      <span>Maths: Statistics &amp; Data</span>
+      <span>Focus: syllables + suffix endings</span>
+      <span>AC9E6LY08 · AC9E6LY09</span>
+      <span>20 minutes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Jump to a section">
+  <div class="pills-inner">
+    <a class="pill" href="#briefing">Data Briefing</a>
+    <a class="pill" href="#casenotes">Case Notes</a>
+    <a class="pill" href="#splitter">Syllable Splitter</a>
+    <a class="pill" href="#endings">Ending Detective</a>
+    <a class="pill" href="#lcwc">Look · Cover · Write · Check</a>
+    <a class="pill" href="#crack">Crack the Case</a>
+    <a class="pill" href="#closed">Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ===================== 1. WARM-UP ===================== -->
+  <section id="briefing">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>Data Briefing</h2><p class="lead">Five quick clues to warm up your spelling brain. Tap an answer for instant feedback. Get one wrong? Read the orange <b>fix-up</b> — it names the slip and how to fix it.</p></div></div>
+
+    <div id="quiz"></div>
+
+    <div class="scorebar" role="status" aria-live="polite">
+      <span>Score: <strong id="score">0</strong> / <strong id="total">5</strong></span>
+      <button class="btn ghost" id="jumpFix" disabled>Jump to my first fix-up ↧</button>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot before you close.</b> This page never saves your work. Capture your score and any fix-ups, then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. TEACHING CARDS ===================== -->
+  <section id="casenotes">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Case Notes</h2><p class="lead">Four facts every data detective keeps in their notebook. Come back to these any time you get stuck on a long word.</p></div></div>
+
+    <div class="teach-grid">
+
+      <div class="card teach">
+        <h3>1 · Chunk it into beats</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 320 92" width="100%" height="92" role="img" aria-label="Probability breaks into five beats: prob, a, bil, i, ty.">
+            <rect x="6"   y="30" width="64" height="34" rx="8" fill="#fbe7c8" stroke="#e8930c"/>
+            <text x="38"  y="53" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#1b2a4a">prob</text>
+            <rect x="76"  y="30" width="30" height="34" rx="8" fill="#e1efee" stroke="#0e7c7b"/>
+            <text x="91"  y="53" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#0e7c7b">a</text>
+            <rect x="112" y="30" width="52" height="34" rx="8" fill="#fbe7c8" stroke="#e8930c"/>
+            <text x="138" y="53" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#1b2a4a">bil</text>
+            <rect x="170" y="30" width="26" height="34" rx="8" fill="#e1efee" stroke="#0e7c7b"/>
+            <text x="183" y="53" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#0e7c7b">i</text>
+            <rect x="202" y="30" width="40" height="34" rx="8" fill="#fbe7c8" stroke="#e8930c"/>
+            <text x="222" y="53" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="16" fill="#1b2a4a">ty</text>
+            <text x="10" y="84" font-family="Atkinson Hyperlegible" font-size="13" fill="#56607a">5 beats — spell one chunk at a time.</text>
+          </svg>
+        </div>
+        <p>Break a long word into <b>syllables</b> (beats). Clap or tap each beat, then spell the chunks one by one — much safer than guessing the whole word.</p>
+        <div class="remember"><b>Remember:</b> Chop it into beats, spell each beat, then join them back up.</div>
+      </div>
+
+      <div class="card teach">
+        <h3>2 · “-tion” = an action or process</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 320 90" width="100%" height="90" role="img" aria-label="Estimate plus -tion becomes estimation, an action or process, with -tion said shun.">
+            <text x="10" y="40" font-family="Space Grotesk" font-weight="700" font-size="18" fill="#1b2a4a">estimate</text>
+            <text x="128" y="40" font-family="Space Grotesk" font-size="20" fill="#0e7c7b">→</text>
+            <text x="156" y="40" font-family="Space Grotesk" font-weight="700" font-size="18" fill="#1f7a4d">estima<tspan fill="#e8930c">tion</tspan></text>
+            <text x="10" y="70" font-family="Atkinson Hyperlegible" font-size="13" fill="#56607a">drop the “e”, add -tion · one beat, said /shun/</text>
+          </svg>
+        </div>
+        <p>The ending <b>-tion</b> turns a word into the <b>action or process</b> of doing it. It is one beat and sounds like <b>/shun/</b>.</p>
+        <div class="remember"><b>Remember:</b> -tion = a process (estima<b>tion</b>, rota<b>tion</b>) — always spelt t-i-o-n.</div>
+      </div>
+
+      <div class="card teach">
+        <h3>3 · “-ity” = a state or quality</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 320 90" width="100%" height="90" role="img" aria-label="Probable becomes probability; -ity makes a state or quality noun.">
+            <text x="10" y="40" font-family="Space Grotesk" font-weight="700" font-size="18" fill="#1b2a4a">probable</text>
+            <text x="132" y="40" font-family="Space Grotesk" font-size="20" fill="#0e7c7b">→</text>
+            <text x="160" y="40" font-family="Space Grotesk" font-weight="700" font-size="18" fill="#1f7a4d">probabil<tspan fill="#e8930c">ity</tspan></text>
+            <text x="10" y="70" font-family="Atkinson Hyperlegible" font-size="13" fill="#56607a">-ity makes a noun: the quality of being probable</text>
+          </svg>
+        </div>
+        <p>The ending <b>-ity</b> makes a noun meaning a <b>state or quality</b>. Listen for the “it-ee” at the end and spell it <b>i-t-y</b>.</p>
+        <div class="remember"><b>Remember:</b> -ity = a quality (probabil<b>ity</b>, abil<b>ity</b>, activ<b>ity</b>).</div>
+      </div>
+
+      <div class="card teach">
+        <h3>4 · “-ical” = to do with</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 320 90" width="100%" height="90" role="img" aria-label="Category becomes categorical; -ical means relating to or to do with.">
+            <text x="10" y="40" font-family="Space Grotesk" font-weight="700" font-size="18" fill="#1b2a4a">category</text>
+            <text x="132" y="40" font-family="Space Grotesk" font-size="20" fill="#0e7c7b">→</text>
+            <text x="160" y="40" font-family="Space Grotesk" font-weight="700" font-size="18" fill="#1f7a4d">categor<tspan fill="#e8930c">ical</tspan></text>
+            <text x="10" y="70" font-family="Atkinson Hyperlegible" font-size="13" fill="#56607a">-ical = relating to · spelt i-c-a-l, never i-c-l-e</text>
+          </svg>
+        </div>
+        <p>The ending <b>-ical</b> means <b>“relating to”</b> or <b>“to do with”</b>. It is spelt <b>i-c-a-l</b> — watch you don’t write “-icle”.</p>
+        <div class="remember"><b>Remember:</b> -ical = to do with (categor<b>ical</b>, statist<b>ical</b>, log<b>ical</b>).</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== 3. SYLLABLE SPLITTER (signature) ===================== -->
+  <section id="splitter">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>Syllable Splitter</h2><p class="lead">Drop a break between the beats. <b>Tap the gaps</b> between letters to split each word into syllables — the beat counter updates live. Press <kbd>Tab</kbd> to a gap and <kbd>Enter</kbd> to toggle it. Then press <b>Check splits</b>. Stuck? Tap <b>Hint</b>. Unlimited tries.</p></div></div>
+
+    <div class="card">
+      <div id="sylCards"></div>
+      <div role="status" aria-live="polite" id="sylMsg" class="counter" style="margin-top:6px">0 of 6 words split correctly.</div>
+    </div>
+
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot your six split words.</b> The green chunks are your spelling map for the test — the page won’t remember them.</div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. ENDING DETECTIVE ===================== -->
+  <section id="endings">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>Ending Detective</h2><p class="lead">Three endings do most of the heavy lifting in data words. Tap one to reveal what it means, how it’s spelt, and which words use it.</p></div></div>
+
+    <div class="card">
+      <div class="end-tabs" id="endTabs" role="group" aria-label="Choose an ending to explore">
+        <button class="end-tab" id="tab-tion" aria-expanded="false" aria-controls="panel-tion">-tion</button>
+        <button class="end-tab" id="tab-ity"  aria-expanded="false" aria-controls="panel-ity">-ity</button>
+        <button class="end-tab" id="tab-ical" aria-expanded="false" aria-controls="panel-ical">-ical</button>
+      </div>
+
+      <div class="end-panel" id="panel-tion" role="region" aria-labelledby="tab-tion">
+        <div class="remember"><b>-tion → an action or process.</b> One beat, said <b>/shun/</b>, always spelt <b>t-i-o-n</b>.</div>
+        <p style="margin-top:8px">In our words: <b>estima<span style="color:#0e7c7b">tion</span></b> (the act of estimating). You’ll meet it everywhere: rota<b>tion</b>, informa<b>tion</b>, popula<b>tion</b>.</p>
+      </div>
+      <div class="end-panel" id="panel-ity" role="region" aria-labelledby="tab-ity">
+        <div class="remember"><b>-ity → a state or quality.</b> Listen for “it-ee” and spell it <b>i-t-y</b>.</div>
+        <p style="margin-top:8px">In our words: <b>probabil<span style="color:#0e7c7b">ity</span></b> (how likely something is). Also: abil<b>ity</b>, activ<b>ity</b>, quant<b>ity</b>.</p>
+      </div>
+      <div class="end-panel" id="panel-ical" role="region" aria-labelledby="tab-ical">
+        <div class="remember"><b>-ical → relating to / to do with.</b> Spelt <b>i-c-a-l</b> — not “-icle”.</div>
+        <p style="margin-top:8px">In our words: <b>categor<span style="color:#0e7c7b">ical</span></b> (data sorted into groups). Also: statist<b>ical</b>, log<b>ical</b>, numer<b>ical</b>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. LCWC SLIDER ===================== -->
+  <section id="lcwc">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>Look · Cover · Write · Check</h2><p class="lead">The classic four-step strategy, with a working cover. <b>Slide right</b> to look. <b>Slide left</b> to cover, then write the word in your book. <b>Slide right</b> again to check.</p></div></div>
+
+    <div class="card">
+      <div class="lcwc-stage">
+        <span class="lcwc-word" id="lcwcWord" aria-live="polite">statistics</span>
+        <div class="lcwc-cover" id="lcwcCover" aria-hidden="true"></div>
+      </div>
+      <div class="slider-wrap">
+        <div class="slide-hint" id="slideHint"><span class="arrows" aria-hidden="true">⟷</span> Drag the slider to cover &amp; reveal</div>
+        <label for="lcwcSlide" class="sr-only">Slide to cover or reveal the word</label>
+        <input type="range" id="lcwcSlide" min="0" max="100" value="100" aria-label="Cover or reveal the word">
+        <div class="slide-ends" aria-hidden="true"><span>◀ Covered</span><span>Revealed ▶</span></div>
+      </div>
+      <div class="lcwc-controls">
+        <button class="btn ghost" id="lcwcPrev">‹ Previous</button>
+        <span class="counter" id="lcwcCount">Word 1 of 8</span>
+        <button class="btn ghost" id="lcwcNext">Next ›</button>
+      </div>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Your written attempts live in your book.</b> Tick them off in Case Closed and snap a photo.</div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. CRACK THE CASE ===================== -->
+  <section id="crack">
+    <div class="sec-head"><span class="sec-no">06</span><div><h2>Crack the Case</h2><p class="lead">Put the words to work. Write 2–3 sentences describing a graph or survey result. Use at least <b>three</b> focus words and underline each one.</p></div></div>
+
+    <div class="card">
+      <p style="font-size:.85rem;color:var(--ink-soft);margin-top:0">Focus words: <b>statistics · frequency · percentage · average · estimation · variable · categorical · probability</b></p>
+      <label for="writebox" class="sr-only">Write your sentences</label>
+      <textarea id="writebox" placeholder="Start writing here… e.g. Our frequency table showed that the average shoe size was…"></textarea>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+        <button class="btn ghost" id="helpBtn" aria-expanded="false">I need a hand ▾</button>
+        <button class="btn amber" id="exampleBtn" disabled>Show a worked example 🔒</button>
+      </div>
+
+      <div class="help-box" id="helpBox">
+        <h3 style="margin-top:0">Sentence starters</h3>
+        <p>• Our <b>frequency</b> table showed that …<br>• The <b>average</b> result was …<br>• A large <b>percentage</b> of the class …<br>• Favourite sport is <b>categorical</b> data because …</p>
+        <p style="margin-bottom:4px"><b>Cloze — fill the gaps:</b></p>
+        <p style="font-style:italic">We used ______ to study our survey. The ______ table showed the most common answer, and the ______ score was 7. Favourite colour is ______ data because it sorts into groups.</p>
+        <div class="wordbank-chips" aria-label="Word bank">
+          <button class="wb">statistics</button><button class="wb">frequency</button><button class="wb">percentage</button><button class="wb">average</button><button class="wb">estimation</button><button class="wb">variable</button><button class="wb">categorical</button><button class="wb">probability</button>
+        </div>
+        <p style="font-size:.82rem;color:var(--ink-soft);margin-bottom:0">Tap a word to drop it into your writing box.</p>
+      </div>
+
+      <div class="locked" id="lockMsg">🔒 Write at least one sentence of your own first — then the worked example unlocks.</div>
+      <div class="reveal-box" id="exampleBox">
+        <div class="remember" style="background:#fff;border:1.5px solid var(--line)">
+          <b style="color:var(--ink)">Worked example (one way to do it):</b><br>
+          <span style="display:block;margin-top:6px">We used <u>statistics</u> to make sense of our survey. The <u>frequency</u> table showed the most common shoe size, and the <u>average</u> was size 6. Favourite sport is <u>categorical</u> data, so the <u>probability</u> of picking a soccer fan was high.</span>
+          <span style="display:block;margin-top:8px;font-size:.85rem;color:var(--ink-soft)">That uses five focus words. Yours only needs three — check each is spelt correctly using your Case Notes.</span>
+        </div>
+      </div>
+
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>This box does not save.</b> When you’re happy with your sentences, <b>screenshot them now</b> and upload to OneNote before you close the page.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. CASE CLOSED ===================== -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">07</span><div><h2>Case Closed</h2><p class="lead">Quick exit check. Tick off your evidence, rate your confidence, and make sure everything is captured.</p></div></div>
+
+    <div class="card">
+      <h3>Evidence to capture (screenshot or photograph each one)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">Data Briefing score and any fix-up notes I read</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My six split words (green chunks) from the Syllable Splitter</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">My Look·Cover·Write·Check attempts in my book</label></li>
+        <li><input type="checkbox" id="c4"><label for="c4">My 2–3 sentences (with focus words underlined)</label></li>
+      </ul>
+
+      <h3 style="margin-top:18px">How confident am I with this week’s long data words?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+
+      <div class="evidence" style="margin-top:18px;margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing on this page is saved.</b> Take your final screenshots now, then upload everything to OneNote. Closing the tab clears it all.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Year 6 Spelling · Word Detectives · Lesson 14: Long Words, Smart Strategies · Linked to ACARA v9 AC9E6LY08 &amp; AC9E6LY09. All content original. Works offline — no data is collected or stored.</p>
+</footer>
+
+<div class="live sr-only" id="liveRegion" aria-live="assertive"></div>
+
+<script>
+"use strict";
+const $ = (s,el=document)=>el.querySelector(s);
+const $$ = (s,el=document)=>Array.from(el.querySelectorAll(s));
+const announce = (msg)=>{ const r=$("#liveRegion"); r.textContent=""; setTimeout(()=>r.textContent=msg,30); };
+
+/* =================================================================
+   1. WARM-UP QUIZ
+==================================================================*/
+const QUIZ = [
+  { stem:"How many syllables (beats) are in “probability”?",
+    opts:["3","4","5"],
+    correct:2,
+    fix:"Clap it: prob·a·bil·i·ty = <b>5 beats</b>. Two of those beats are single letters — “a” and “i”." },
+  { stem:"Which ending means “a state or quality”?",
+    opts:["-tion","-ity","-ical"],
+    correct:1,
+    fix:"<b>-ity</b> makes a noun meaning a state or quality — probabil<b>ity</b> is the quality of being probable." },
+  { stem:"Which is the correct spelling?",
+    opts:["catagorical","categorical","categorcal"],
+    correct:1,
+    fix:"It’s <b>categorical</b> — ca·te·gor·i·cal. Watch the <b>e</b> after “cat”, and the lonely <b>i</b> before “cal”." },
+  { stem:"The ending “-tion” in “estimation” is said like…",
+    opts:["/shun/","/tee-on/","/zhun/"],
+    correct:0,
+    fix:"<b>-tion</b> is one beat, pronounced <b>/shun/</b>, and always spelt t-i-o-n." },
+  { stem:"What’s the smartest first move with a long word like “statistics”?",
+    opts:["Guess and hope","Break it into syllables and spell each beat","Write it backwards"],
+    correct:1,
+    fix:"Chunk it: sta·tis·tics. Spell one beat at a time, then join them — that’s the detective’s method." },
+];
+let score=0, firstFixIndex=null;
+const quizEl=$("#quiz");
+$("#total").textContent=QUIZ.length;
+
+QUIZ.forEach((q,qi)=>{
+  const card=document.createElement("div"); card.className="q"; card.id="q"+qi;
+  const stem=document.createElement("p"); stem.className="stem"; stem.textContent=(qi+1)+". "+q.stem;
+  const opts=document.createElement("div"); opts.className="opts"; opts.setAttribute("role","group"); opts.setAttribute("aria-label",q.stem);
+  q.opts.forEach((text,oi)=>{
+    const b=document.createElement("button"); b.className="opt"; b.type="button"; b.innerHTML=text;
+    b.addEventListener("click",()=>handleAnswer(card,opts,b,q,qi,oi));
+    opts.appendChild(b);
+  });
+  const fix=document.createElement("div"); fix.className="fixup"; fix.id="fix"+qi; fix.tabIndex=-1;
+  fix.innerHTML='<b>Fix-up:</b> '+q.fix;
+  card.append(stem,opts,fix);
+  quizEl.appendChild(card);
+});
+
+function handleAnswer(card,opts,btn,q,qi,oi){
+  if(card.dataset.done) return;
+  card.dataset.done="1";
+  $$(".opt",opts).forEach(b=>b.setAttribute("disabled",""));
+  const correctBtn=opts.children[q.correct];
+  correctBtn.classList.add("correct");
+  if(oi===q.correct){
+    btn.classList.add("correct");
+    score++; $("#score").textContent=score;
+    announce("Correct. Score "+score+" of "+QUIZ.length);
+  }else{
+    btn.classList.add("wrong");
+    $("#fix"+qi).classList.add("show");
+    if(firstFixIndex===null){ firstFixIndex=qi; $("#jumpFix").disabled=false; }
+    announce("Not quite. Read the fix-up note.");
+  }
+}
+$("#jumpFix").addEventListener("click",()=>{
+  if(firstFixIndex!==null){ $("#q"+firstFixIndex).scrollIntoView({block:"center"}); $("#fix"+firstFixIndex).focus(); }
+});
+
+/* =================================================================
+   3. SYLLABLE SPLITTER  (break = index of the letter a break sits BEFORE)
+==================================================================*/
+const SYL=[
+  { word:"statistics",  breaks:[3,6],     tip:"sta·tis·tics — 3 beats. Two t-i pairs; don’t lose a letter." },
+  { word:"frequency",   breaks:[3,7],     tip:"fre·quen·cy — 3 beats. The q-u team stays together." },
+  { word:"percentage",  breaks:[3,6],     tip:"per·cen·tage — 3 beats. per- = for each, cent- = hundred." },
+  { word:"estimation",  breaks:[2,4,6],   tip:"es·ti·ma·tion — 4 beats. -tion is one beat said /shun/." },
+  { word:"categorical", breaks:[2,4,7,8], tip:"ca·te·gor·i·cal — 5 beats. Watch the lonely “i” beat before “cal”." },
+  { word:"probability", breaks:[4,5,8,9], tip:"prob·a·bil·i·ty — 5 beats. Two single-letter beats: a and i." },
+];
+let sylSolved=0;
+const sylWrap=$("#sylCards");
+
+function chunksFor(word,breaks){
+  const out=[]; let start=0; const sorted=[...breaks].sort((a,b)=>a-b);
+  sorted.forEach(b=>{ out.push(word.slice(start,b)); start=b; });
+  out.push(word.slice(start));
+  return out;
+}
+
+SYL.forEach((item,si)=>{
+  const card=document.createElement("div"); card.className="syl-card"; card.id="syl"+si;
+  const head=document.createElement("div"); head.className="syl-head";
+  const h=document.createElement("h3"); h.textContent="Word "+(si+1)+" of "+SYL.length;
+  const beats=document.createElement("span"); beats.className="syl-beats"; beats.id="beats"+si;
+  beats.innerHTML='Beats: <b>1</b>';
+  head.append(h,beats);
+
+  const wordRow=document.createElement("div"); wordRow.className="syl-word";
+  wordRow.setAttribute("aria-label","Word "+item.word+". Tap the gaps between letters to add syllable breaks.");
+  const letters=item.word.split("");
+  letters.forEach((ch,li)=>{
+    const L=document.createElement("span"); L.className="syl-letter"; L.textContent=ch; L.setAttribute("aria-hidden","true");
+    wordRow.appendChild(L);
+    if(li<letters.length-1){
+      const g=document.createElement("button"); g.type="button"; g.className="syl-gap";
+      g.dataset.pos=li+1; // break sits BEFORE letter index li+1
+      g.setAttribute("aria-label","Toggle syllable break between “"+ch+"” and “"+letters[li+1]+"”");
+      g.setAttribute("aria-pressed","false");
+      g.addEventListener("click",()=>{
+        if(card.dataset.done) return;
+        const on=g.classList.toggle("on");
+        g.classList.remove("hint");
+        g.setAttribute("aria-pressed",on?"true":"false");
+        updateBeats();
+      });
+      wordRow.appendChild(g);
+    }
+  });
+
+  function updateBeats(){
+    const n=$$(".syl-gap.on",wordRow).length+1;
+    beats.innerHTML='Beats: <b>'+n+'</b>';
+  }
+
+  const fb=document.createElement("div"); fb.className="syl-fb"; fb.id="sylfb"+si; fb.setAttribute("role","status"); fb.setAttribute("aria-live","polite");
+  const result=document.createElement("div"); result.className="syl-result"; result.id="sylres"+si;
+
+  const controls=document.createElement("div"); controls.className="syl-controls";
+  const checkBtn=document.createElement("button"); checkBtn.type="button"; checkBtn.className="btn"; checkBtn.textContent="Check splits";
+  const hintBtn=document.createElement("button"); hintBtn.type="button"; hintBtn.className="btn ghost"; hintBtn.textContent="Hint";
+  let hintStage=0;
+  controls.append(checkBtn,hintBtn);
+
+  checkBtn.addEventListener("click",()=>{
+    if(card.dataset.done) return;
+    const chosen=$$(".syl-gap.on",wordRow).map(g=>+g.dataset.pos).sort((a,b)=>a-b);
+    const target=[...item.breaks].sort((a,b)=>a-b);
+    const same=chosen.length===target.length && chosen.every((v,i)=>v===target[i]);
+    if(same){
+      card.dataset.done="1"; card.classList.add("done");
+      $$(".syl-gap",wordRow).forEach(g=>{ g.disabled=true; g.classList.remove("hint"); });
+      checkBtn.disabled=true; hintBtn.disabled=true;
+      fb.className="syl-fb good"; fb.textContent="✓ Split correctly — "+(item.breaks.length+1)+" beats.";
+      result.classList.add("show");
+      chunksFor(item.word,item.breaks).forEach(c=>{ const sp=document.createElement("span"); sp.className="chunk"; sp.textContent=c; result.appendChild(sp); });
+      const tip=document.createElement("div"); tip.className="remember"; tip.style.width="100%"; tip.innerHTML="<b>Why:</b> "+item.tip;
+      result.appendChild(tip);
+      sylSolved++;
+      $("#sylMsg").textContent=sylSolved+" of "+SYL.length+" words split correctly.";
+      announce(item.word+" split correctly. "+item.tip);
+      if(sylSolved===SYL.length){ $("#sylMsg").textContent="🎉 All six split! Screenshot your chunks."; }
+    }else{
+      const beatsTarget=item.breaks.length+1;
+      const beatsNow=chosen.length+1;
+      if(beatsNow!==beatsTarget){
+        fb.className="syl-fb bad";
+        fb.innerHTML="Not yet. You’ve made <b>"+beatsNow+"</b> beats — this word has <b>"+beatsTarget+"</b>. Clap it out and move your breaks.";
+      }else{
+        fb.className="syl-fb bad";
+        fb.innerHTML="Right number of beats (<b>"+beatsTarget+"</b>), but a break is in the wrong spot. Say each chunk slowly and listen for where it ends.";
+      }
+      announce("Not quite yet. Adjust your breaks and check again.");
+    }
+  });
+
+  hintBtn.addEventListener("click",()=>{
+    if(card.dataset.done) return;
+    const target=[...item.breaks].sort((a,b)=>a-b);
+    if(hintStage===0){
+      fb.className="syl-fb bad";
+      fb.innerHTML="Hint: this word has <b>"+(item.breaks.length+1)+"</b> beats, so you need <b>"+item.breaks.length+"</b> breaks.";
+      hintStage++;
+    }else{
+      const pos=target[(hintStage-1)%target.length];
+      const g=$$(".syl-gap",wordRow).find(x=>+x.dataset.pos===pos);
+      if(g){ g.classList.add("hint"); }
+      fb.className="syl-fb bad";
+      fb.innerHTML="Hint: a break belongs where the teal marker is pulsing. Tap it if it’s not on yet.";
+      hintStage++;
+    }
+    announce(fb.textContent);
+  });
+
+  card.append(head,wordRow,controls,fb,result);
+  sylWrap.appendChild(card);
+});
+
+/* =================================================================
+   4. ENDING DETECTIVE (reveal-on-interaction)
+==================================================================*/
+$$(".end-tab").forEach(tab=>{
+  tab.addEventListener("click",()=>{
+    const panel=$("#"+tab.getAttribute("aria-controls"));
+    const open=panel.classList.contains("show");
+    // close all
+    $$(".end-tab").forEach(t=>t.setAttribute("aria-expanded","false"));
+    $$(".end-panel").forEach(p=>p.classList.remove("show"));
+    if(!open){ tab.setAttribute("aria-expanded","true"); panel.classList.add("show"); announce(tab.textContent+" revealed."); }
+  });
+});
+
+/* =================================================================
+   5. LCWC SLIDER
+==================================================================*/
+const LCWC_WORDS=["statistics","frequency","percentage","average","estimation","variable","categorical","probability"];
+let lcwcIdx=0;
+const cover=$("#lcwcCover"), slide=$("#lcwcSlide"), wordEl=$("#lcwcWord"), countEl=$("#lcwcCount"), slideHint=$("#slideHint");
+let hintGone=false;
+function paintCover(){
+  const v=+slide.value;
+  cover.style.transform="translateX("+v+"%)";
+  slide.style.setProperty("--fill", v+"%");
+}
+function setWord(){
+  wordEl.textContent=LCWC_WORDS[lcwcIdx];
+  countEl.textContent="Word "+(lcwcIdx+1)+" of "+LCWC_WORDS.length;
+  slide.value=100; paintCover();
+}
+slide.addEventListener("input",()=>{
+  paintCover();
+  if(!hintGone){ slideHint.classList.add("gone"); hintGone=true; }
+});
+$("#lcwcNext").addEventListener("click",()=>{ lcwcIdx=(lcwcIdx+1)%LCWC_WORDS.length; setWord(); });
+$("#lcwcPrev").addEventListener("click",()=>{ lcwcIdx=(lcwcIdx-1+LCWC_WORDS.length)%LCWC_WORDS.length; setWord(); });
+setWord();
+
+/* =================================================================
+   6. CRACK THE CASE (help + locked example + word bank)
+==================================================================*/
+const writebox=$("#writebox");
+const exampleBtn=$("#exampleBtn"), lockMsg=$("#lockMsg"), exampleBox=$("#exampleBox");
+writebox.addEventListener("input",()=>{
+  if(writebox.value.trim().length>=15){
+    exampleBtn.disabled=false; exampleBtn.textContent="Show a worked example";
+    lockMsg.style.display="none";
+  }else{
+    exampleBtn.disabled=true; exampleBtn.textContent="Show a worked example 🔒";
+    if(!exampleBox.classList.contains("show")) lockMsg.style.display="block";
+  }
+});
+exampleBtn.addEventListener("click",()=>{
+  exampleBox.classList.add("show"); lockMsg.style.display="none";
+  exampleBox.scrollIntoView({block:"nearest"});
+});
+const helpBtn=$("#helpBtn"), helpBox=$("#helpBox");
+helpBtn.addEventListener("click",()=>{
+  const open=helpBox.classList.toggle("show");
+  helpBtn.setAttribute("aria-expanded",open?"true":"false");
+  helpBtn.textContent=open?"Hide the hand ▴":"I need a hand ▾";
+});
+$$(".wb").forEach(chip=>{
+  chip.addEventListener("click",()=>{
+    const w=chip.textContent;
+    const needsSpace=writebox.value.length>0 && !/\s$/.test(writebox.value);
+    writebox.value+=(needsSpace?" ":"")+w+" ";
+    writebox.focus();
+    writebox.dispatchEvent(new Event("input"));
+  });
+});
+
+/* =================================================================
+   7. CONFIDENCE
+==================================================================*/
+$$("#confi button").forEach(b=>{
+  b.addEventListener("click",()=>{
+    $$("#confi button").forEach(x=>x.setAttribute("aria-pressed","false"));
+    b.setAttribute("aria-pressed","true");
+  });
+});
+</script>
+</body>
+</html>

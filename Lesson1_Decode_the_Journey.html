@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1 — Decode the Journey | Year 6 Spelling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf9f4;
+    --ink:#1b2a4a;
+    --amber:#e8930c;
+    --teal:#0e7c7b;
+    --card:#ffffff;
+    --line:#e6e1d6;
+    --amber-soft:#fdf0d9;
+    --amber-edge:#f2c785;
+    --teal-soft:#e1efee;
+    --ink-soft:#56607a;
+    --good:#1f7a4d;
+    --good-soft:#e3f3ea;
+    --shadow:0 2px 5px rgba(27,42,74,.06), 0 10px 28px rgba(27,42,74,.06);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Atkinson Hyperlegible",system-ui,sans-serif;
+    font-size:18px; line-height:1.55; -webkit-text-size-adjust:100%;
+  }
+  h1,h2,h3,.eyebrow,.pill,.tile,.opt,.suffix,.word-chip{font-family:"Space Grotesk",system-ui,sans-serif}
+  h2{font-size:1.5rem; margin:0 0 .2em; letter-spacing:-.01em}
+  h3{font-size:1.12rem; margin:0 0 .35em}
+  p{margin:.4em 0}
+  a{color:var(--teal)}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:6px}
+
+  /* ---------- header ---------- */
+  header.band{
+    background:var(--ink); color:#fff; padding:30px 22px 26px;
+  }
+  .band-inner{max-width:1000px; margin:0 auto}
+  .eyebrow{
+    text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:600;
+    color:var(--amber); margin:0 0 8px;
+  }
+  .band h1{
+    font-family:"Space Grotesk"; font-weight:700; font-size:2.4rem; line-height:1.05;
+    margin:0 0 10px; letter-spacing:-.02em;
+  }
+  .hook{color:#c9d2e6; font-size:1.05rem; margin:0; max-width:60ch}
+  .meta-row{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .meta-row span{
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16);
+    padding:5px 11px; border-radius:999px; font-size:.78rem; color:#dde3f1;
+  }
+
+  /* ---------- sticky nav ---------- */
+  nav.pills{
+    position:sticky; top:0; z-index:40; background:rgba(251,249,244,.93);
+    backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:9px 12px;
+  }
+  .pills-inner{max-width:1000px; margin:0 auto; display:flex; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .pill{
+    flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--ink);
+    padding:8px 13px; border-radius:999px; font-size:.82rem; font-weight:500;
+    cursor:pointer; text-decoration:none; min-height:40px; display:inline-flex; align-items:center;
+  }
+  .pill:hover{border-color:var(--teal); color:var(--teal)}
+
+  /* ---------- layout ---------- */
+  main{max-width:1000px; margin:0 auto; padding:8px 18px 60px}
+  section{scroll-margin-top:64px; padding:30px 0 6px; border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+  .sec-no{
+    font-family:"Space Grotesk"; font-weight:700; color:var(--amber);
+    font-size:.95rem; border:2px solid var(--amber-edge); border-radius:8px;
+    padding:2px 9px; flex:0 0 auto;
+  }
+  .lead{color:var(--ink-soft); max-width:66ch}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:20px; margin:14px 0;
+  }
+
+  /* ---------- buttons ---------- */
+  button{font-family:inherit}
+  .btn{
+    background:var(--ink); color:#fff; border:none; border-radius:10px;
+    padding:11px 18px; font-size:.95rem; font-weight:700; cursor:pointer; min-height:44px;
+    font-family:"Space Grotesk";
+  }
+  .btn:hover{background:#243a63}
+  .btn.ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal); color:var(--teal)}
+  .btn.amber{background:var(--amber); color:#3a2400}
+  .btn.amber:hover{background:#d98509}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+
+  /* ---------- warm-up quiz ---------- */
+  .q{border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; background:#fff}
+  .q .stem{font-weight:700; margin-bottom:10px}
+  .opts{display:grid; gap:8px}
+  .opt{
+    text-align:left; background:#fcfbf7; border:1.5px solid var(--line); color:var(--ink);
+    padding:11px 14px; border-radius:10px; cursor:pointer; min-height:44px; font-size:.95rem;
+  }
+  .opt:hover{border-color:var(--teal)}
+  .opt.correct{background:var(--good-soft); border-color:var(--good); color:var(--good)}
+  .opt.wrong{background:#fdeceb; border-color:#c0392b; color:#a8261b}
+  .opt[disabled]{cursor:default}
+  .fixup{
+    margin-top:10px; background:var(--amber-soft); border-left:5px solid var(--amber);
+    border-radius:0 10px 10px 0; padding:11px 14px; font-size:.92rem; display:none;
+  }
+  .fixup.show{display:block}
+  .fixup b{color:#a8540b}
+  .scorebar{
+    display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px;
+    background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:12px 16px;
+  }
+  .scorebar strong{font-family:"Space Grotesk"; font-size:1.15rem}
+
+  /* ---------- teaching cards ---------- */
+  .teach-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+  @media(max-width:680px){.teach-grid{grid-template-columns:1fr}}
+  .teach .svg-wrap{background:#fbfaf6; border:1px solid var(--line); border-radius:12px; padding:14px; margin:.4em 0 .7em}
+  .remember{
+    background:var(--teal-soft); border:1px solid #bfdedc; border-radius:10px;
+    padding:10px 13px; font-size:.92rem; margin-top:8px;
+  }
+  .remember b{color:var(--teal); font-family:"Space Grotesk"}
+
+  /* ---------- suffix machine (signature) ---------- */
+  .machine{display:grid; grid-template-columns:1fr; gap:18px}
+  .tray{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+  .tray-label{font-size:.8rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); width:100%}
+  .suffix{
+    font-family:"Space Grotesk"; font-weight:700; font-size:1.05rem; cursor:grab;
+    background:var(--amber); color:#3a2400; border:none; border-radius:12px;
+    padding:12px 16px; min-height:48px; touch-action:none; user-select:none;
+    box-shadow:0 3px 0 #c47a08;
+  }
+  .suffix:active{cursor:grabbing; transform:translateY(2px); box-shadow:0 1px 0 #c47a08}
+  .suffix.picked{outline:3px dashed var(--ink); outline-offset:3px}
+  .bases{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px}
+  .base{
+    display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+    border:1.5px solid var(--line); border-radius:12px; padding:13px; background:#fcfbf7;
+  }
+  .base .bw{font-family:"Space Grotesk"; font-weight:700; font-size:1.15rem}
+  .slot{
+    min-width:74px; min-height:46px; border:2.5px dashed var(--amber-edge); border-radius:10px;
+    display:inline-flex; align-items:center; justify-content:center; background:#fff;
+    font-family:"Space Grotesk"; font-weight:700; color:var(--ink-soft); padding:0 8px; cursor:pointer;
+  }
+  .slot.over{background:var(--amber-soft); border-color:var(--amber)}
+  .base.done{background:var(--good-soft); border-color:var(--good)}
+  .base.done .slot{border-style:solid; border-color:var(--good); color:var(--good); background:#fff}
+  .built{font-family:"Space Grotesk"; font-weight:700; color:var(--good); font-size:1.05rem; width:100%}
+  .note{font-size:.85rem; color:var(--ink-soft); width:100%}
+  .note.warn{color:#a8540b}
+  .drag-ghost{
+    position:fixed; z-index:999; pointer-events:none; font-family:"Space Grotesk"; font-weight:700;
+    background:var(--amber); color:#3a2400; border-radius:12px; padding:12px 16px; box-shadow:0 8px 20px rgba(0,0,0,.2);
+  }
+  .hint-row{margin-top:6px}
+
+  /* ---------- meaning match ---------- */
+  .match-grid{display:grid; grid-template-columns:1fr; gap:18px}
+  @media(min-width:760px){.match-grid{grid-template-columns:170px 1fr}}
+  .word-bank{display:flex; flex-wrap:wrap; gap:9px; align-content:flex-start}
+  @media(min-width:760px){.word-bank{flex-direction:column}}
+  .word-chip{
+    font-family:"Space Grotesk"; font-weight:700; cursor:grab; background:var(--teal); color:#fff;
+    border:none; border-radius:10px; padding:11px 14px; min-height:46px; touch-action:none; user-select:none;
+    box-shadow:0 3px 0 #0a5b5a;
+  }
+  .word-chip.picked{outline:3px dashed var(--ink); outline-offset:3px}
+  .word-chip.used{opacity:.35; pointer-events:none; box-shadow:none}
+  .meanings{display:grid; gap:10px}
+  .meaning{display:flex; gap:12px; align-items:center; border:1.5px solid var(--line); border-radius:12px; padding:12px; background:#fcfbf7}
+  .m-slot{
+    flex:0 0 124px; min-height:46px; border:2.5px dashed #bcd9d8; border-radius:10px; background:#fff;
+    display:flex; align-items:center; justify-content:center; font-family:"Space Grotesk"; font-weight:700; color:var(--ink-soft); cursor:pointer; padding:0 6px; text-align:center;
+  }
+  .m-slot.over{background:var(--teal-soft); border-color:var(--teal)}
+  .meaning.right .m-slot{border-style:solid; border-color:var(--good); color:var(--good)}
+  .meaning.right{background:var(--good-soft); border-color:var(--good)}
+  .meaning.nope .m-slot{border-color:#c0392b; color:#a8261b}
+  .m-text{font-size:.95rem}
+
+  /* ---------- tricky part zoom ---------- */
+  .word-letters{display:flex; flex-wrap:wrap; gap:5px; margin:.4em 0}
+  .letter{
+    font-family:"Space Grotesk"; font-weight:700; font-size:1.3rem; width:42px; height:48px;
+    border:1.5px solid var(--line); border-radius:8px; background:#fff; cursor:pointer; color:var(--ink);
+  }
+  .letter.marked{background:var(--amber-soft); border-color:var(--amber)}
+  .letter.trap{background:var(--amber); color:#3a2400; border-color:var(--amber)}
+  .trap-tip{display:none; margin-top:8px}
+  .trap-tip.show{display:block}
+
+  /* ---------- LCWC slider ---------- */
+  .lcwc-stage{position:relative; overflow:hidden; border:1.5px solid var(--line); border-radius:14px; background:#fff; height:120px; display:flex; align-items:center; justify-content:center}
+  .lcwc-word{font-family:"Space Grotesk"; font-weight:700; font-size:2.4rem; letter-spacing:.01em; color:var(--ink)}
+  .lcwc-cover{position:absolute; inset:0; background:repeating-linear-gradient(45deg,var(--ink),var(--ink) 12px,#243a63 12px,#243a63 24px); transition:transform .05s linear; will-change:transform}
+  .lcwc-cover::after{content:"covered — write it now"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-family:"Space Grotesk"; font-weight:600; letter-spacing:.04em; font-size:.9rem}
+  /* LCWC slider — made obviously draggable */
+  .slider-wrap{margin-top:12px}
+  .slide-hint{
+    display:inline-flex; align-items:center; gap:8px; font-family:"Space Grotesk"; font-weight:600;
+    font-size:.82rem; color:var(--teal); background:var(--teal-soft); border:1px solid #bfdedc;
+    border-radius:999px; padding:6px 13px; margin-bottom:9px;
+  }
+  .slide-hint .arrows{display:inline-block; font-size:1rem; animation:bob 1.3s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+  .slide-hint.gone{display:none}
+  @media (prefers-reduced-motion: reduce){ .slide-hint .arrows{animation:none} }
+
+  input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:36px; background:transparent; cursor:grab; margin:0; display:block}
+  input[type=range]:active{cursor:grabbing}
+  input[type=range]:focus{outline:none}
+  input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px var(--amber), 0 2px 6px rgba(27,42,74,.3)}
+  input[type=range]:focus-visible::-moz-range-thumb{box-shadow:0 0 0 3px var(--amber), 0 2px 6px rgba(27,42,74,.3)}
+  /* track */
+  input[type=range]::-webkit-slider-runnable-track{
+    height:18px; border-radius:999px; border:1px solid #cfc8ba;
+    background:linear-gradient(90deg,var(--teal) 0 var(--fill,100%), #ece7dc var(--fill,100%) 100%);
+  }
+  input[type=range]::-moz-range-track{height:18px; border-radius:999px; border:1px solid #cfc8ba; background:#ece7dc}
+  input[type=range]::-moz-range-progress{height:18px; border-radius:999px; background:var(--teal)}
+  /* thumb — big, grippy, clearly a handle */
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none; appearance:none; width:36px; height:36px; margin-top:-10px; border-radius:50%;
+    background:#fff; border:3px solid var(--teal); box-shadow:0 2px 7px rgba(27,42,74,.3);
+    background-image:repeating-linear-gradient(90deg,var(--teal) 0 2px,#fff 2px 5px);
+    background-repeat:no-repeat; background-size:13px 14px; background-position:center;
+  }
+  input[type=range]::-moz-range-thumb{
+    width:36px; height:36px; border-radius:50%;
+    background:#fff; border:3px solid var(--teal); box-shadow:0 2px 7px rgba(27,42,74,.3);
+    background-image:repeating-linear-gradient(90deg,var(--teal) 0 2px,#fff 2px 5px);
+    background-repeat:no-repeat; background-size:13px 14px; background-position:center;
+  }
+  .slide-ends{display:flex; justify-content:space-between; font-family:"Space Grotesk"; font-weight:600; font-size:.78rem; color:var(--ink-soft); margin-top:5px}
+  .lcwc-controls{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:14px}
+  .counter{font-size:.85rem; color:var(--ink-soft)}
+
+  /* ---------- writing / locked ---------- */
+  textarea{
+    width:100%; min-height:120px; border:1.5px solid var(--line); border-radius:12px; padding:13px;
+    font-family:"Atkinson Hyperlegible"; font-size:1rem; resize:vertical; background:#fff; color:var(--ink);
+  }
+  .wordbank-chips{display:flex; flex-wrap:wrap; gap:7px; margin:.5em 0}
+  .wb{font-size:.85rem; background:#fff; border:1.5px solid var(--line); border-radius:999px; padding:5px 11px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .wb:hover{border-color:var(--teal); color:var(--teal)}
+  .locked{
+    border:1.5px dashed var(--amber-edge); background:var(--amber-soft); border-radius:12px;
+    padding:14px; margin-top:12px; text-align:center; color:#7a4a06;
+  }
+  .reveal-box{display:none; margin-top:12px}
+  .reveal-box.show{display:block}
+  .help-box{display:none; margin-top:12px; background:var(--teal-soft); border:1px solid #bfdedc; border-radius:12px; padding:14px}
+  .help-box.show{display:block}
+
+  /* ---------- evidence callout ---------- */
+  .evidence{
+    display:flex; gap:12px; align-items:flex-start; background:#fff7e9; border:1.5px solid var(--amber-edge);
+    border-radius:12px; padding:13px 15px; margin:14px 0; font-size:.92rem;
+  }
+  .evidence svg{flex:0 0 auto; margin-top:2px}
+  .evidence b{color:#a8540b}
+
+  /* ---------- checklist ---------- */
+  .check-list{list-style:none; padding:0; margin:.4em 0}
+  .check-list li{display:flex; gap:11px; align-items:flex-start; padding:9px 0; border-bottom:1px dashed var(--line)}
+  .check-list input{width:24px; height:24px; margin-top:2px; accent-color:var(--teal); flex:0 0 auto}
+  .confi{display:flex; gap:9px; flex-wrap:wrap; margin-top:10px}
+  .confi button{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:10px 14px; min-height:44px; cursor:pointer; font-family:"Space Grotesk"; font-weight:600}
+  .confi button[aria-pressed=true]{background:var(--teal); color:#fff; border-color:var(--teal)}
+
+  footer{max-width:1000px; margin:0 auto; padding:24px 18px 50px; color:var(--ink-soft); font-size:.85rem}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+  .live{position:fixed; bottom:0; left:0}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">Year 6 Spelling · Word Detectives · Lesson 1</p>
+    <h1>Decode the Journey</h1>
+    <p class="hook">Every long word hides smaller clues. Crack the base words and suffixes behind the vocabulary of <em>Boy Overboard</em> — then prove you can spell them.</p>
+    <div class="meta-row" aria-label="Lesson details">
+      <span>Novel Study: Boy Overboard</span>
+      <span>Focus: base words + suffixes</span>
+      <span>AC9E6LY08 · AC9E6LY09</span>
+      <span>20 minutes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Jump to a section">
+  <div class="pills-inner">
+    <a class="pill" href="#briefing">The Briefing</a>
+    <a class="pill" href="#casenotes">Case Notes</a>
+    <a class="pill" href="#machine">Suffix Machine</a>
+    <a class="pill" href="#match">Meaning Match</a>
+    <a class="pill" href="#zoom">Tricky-Part Zoom</a>
+    <a class="pill" href="#lcwc">Look · Cover · Write · Check</a>
+    <a class="pill" href="#crack">Crack the Case</a>
+    <a class="pill" href="#closed">Case Closed</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ===================== 1. WARM-UP ===================== -->
+  <section id="briefing">
+    <div class="sec-head"><span class="sec-no">01</span><div><h2>The Briefing</h2><p class="lead">Five quick clues to warm up your spelling brain. Tap an answer for instant feedback. Get one wrong? Read the orange <b>fix-up</b> — it tells you exactly what to fix.</p></div></div>
+
+    <div id="quiz"></div>
+
+    <div class="scorebar" role="status" aria-live="polite">
+      <span>Score: <strong id="score">0</strong> / <strong id="total">5</strong></span>
+      <button class="btn ghost" id="jumpFix" disabled>Jump to my first fix-up ↧</button>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a0 0 0 0 1 0 0v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot before you close.</b> This page never saves your work. Capture your score and any fix-ups, then upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. TEACHING CARDS ===================== -->
+  <section id="casenotes">
+    <div class="sec-head"><span class="sec-no">02</span><div><h2>Case Notes</h2><p class="lead">Four facts every word detective keeps in their notebook. Come back to these any time you get stuck.</p></div></div>
+
+    <div class="teach-grid">
+
+      <div class="card teach">
+        <h3>1 · A base word + a suffix</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 320 90" width="100%" height="90" role="img" aria-label="The base word danger plus the suffix -ous makes dangerous.">
+            <rect x="6" y="28" width="120" height="38" rx="8" fill="#fbe7c8" stroke="#e8930c"/>
+            <text x="66" y="53" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="20" fill="#1b2a4a">danger</text>
+            <text x="140" y="53" text-anchor="middle" font-family="Space Grotesk" font-size="22" fill="#0e7c7b">+</text>
+            <rect x="158" y="28" width="58" height="38" rx="8" fill="#e1efee" stroke="#0e7c7b"/>
+            <text x="187" y="53" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="18" fill="#0e7c7b">-ous</text>
+            <text x="232" y="53" text-anchor="middle" font-family="Space Grotesk" font-size="22" fill="#0e7c7b">→</text>
+            <text x="255" y="53" font-family="Space Grotesk" font-weight="700" font-size="19" fill="#1f7a4d">dangerous</text>
+          </svg>
+        </div>
+        <p>A <b>base word</b> is the core word we build from. A <b>suffix</b> is a word-part we add to the <b>end</b> to make a new word.</p>
+        <div class="remember"><b>Remember:</b> Find the base word first — the rest of the spelling falls into place.</div>
+      </div>
+
+      <div class="card teach">
+        <h3>2 · “-ous” means “full of”</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 320 90" width="100%" height="90" role="img" aria-label="Courage plus -ous becomes courageous, meaning full of courage.">
+            <text x="10" y="40" font-family="Space Grotesk" font-weight="700" font-size="18" fill="#1b2a4a">courage</text>
+            <text x="10" y="68" font-family="Atkinson Hyperlegible" font-size="13" fill="#56607a">(a noun)</text>
+            <text x="150" y="40" font-family="Space Grotesk" font-size="20" fill="#0e7c7b">→</text>
+            <text x="178" y="40" font-family="Space Grotesk" font-weight="700" font-size="18" fill="#1f7a4d">courageous</text>
+            <text x="178" y="68" font-family="Atkinson Hyperlegible" font-size="13" fill="#56607a">(an adjective: full of courage)</text>
+          </svg>
+        </div>
+        <p>Adding <b>-ous</b> turns a noun into an adjective that means <b>“full of”</b> or <b>“having”</b> that thing.</p>
+        <div class="remember"><b>Remember:</b> dangerous = full of danger · courageous = having courage.</div>
+      </div>
+
+      <div class="card teach">
+        <h3>3 · Soft “g” keeps its “e”</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 320 90" width="100%" height="90" role="img" aria-label="Courage keeps its e when adding -ous to keep the g sounding soft, making courageous.">
+            <text x="10" y="50" font-family="Space Grotesk" font-weight="700" font-size="22" fill="#1b2a4a">courag</text>
+            <text x="96" y="50" font-family="Space Grotesk" font-weight="700" font-size="22" fill="#e8930c">e</text>
+            <text x="112" y="50" font-family="Space Grotesk" font-weight="700" font-size="22" fill="#1b2a4a">ous</text>
+            <path d="M101 58 q0 14 -14 16" fill="none" stroke="#e8930c" stroke-width="2"/>
+            <text x="40" y="84" font-family="Atkinson Hyperlegible" font-size="13" fill="#a8540b">keep the “e” so the g stays soft (a /j/ sound)</text>
+          </svg>
+        </div>
+        <p>If we dropped the “e”, the “g” in <i>courag-ous</i> would go <b>hard</b>. The “e” protects the soft sound.</p>
+        <div class="remember"><b>Remember:</b> Keep the “e” after a soft <b>c</b> or <b>g</b> when the suffix starts with a, o or u.</div>
+      </div>
+
+      <div class="card teach">
+        <h3>4 · The suffix family</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 320 90" width="100%" height="90" role="img" aria-label="-dom makes freedom, -al makes survival by dropping the e, -ee makes refugee.">
+            <text x="10" y="28" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#0e7c7b">-dom</text>
+            <text x="70" y="28" font-family="Atkinson Hyperlegible" font-size="14" fill="#1b2a4a">free → freedom</text>
+            <text x="10" y="54" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#0e7c7b">-al</text>
+            <text x="70" y="54" font-family="Atkinson Hyperlegible" font-size="14" fill="#1b2a4a">surviv<tspan fill="#c0392b">e</tspan> → survival</text>
+            <text x="10" y="80" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#0e7c7b">-ee</text>
+            <text x="70" y="80" font-family="Atkinson Hyperlegible" font-size="14" fill="#1b2a4a">refuge → refugee</text>
+          </svg>
+        </div>
+        <p>Different suffixes carry different meanings — and some <b>change the base spelling</b>: survive <b>drops its “e”</b> before <b>-al</b>.</p>
+        <div class="remember"><b>Remember:</b> -dom = a state · -al = the act of · -ee = a person who.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== 3. SUFFIX MACHINE ===================== -->
+  <section id="machine">
+    <div class="sec-head"><span class="sec-no">03</span><div><h2>The Suffix Machine</h2><p class="lead">Feed each base word the right suffix. <b>Drag</b> a suffix into a slot — or tap a suffix, then tap a slot. Keyboard: press <kbd>Enter</kbd> on a suffix to pick it up, then <kbd>Enter</kbd> on a slot to drop it. Wrong suffix? It bounces back with a clue. Unlimited tries.</p></div></div>
+
+    <div class="card machine">
+      <div class="tray" id="tray">
+        <span class="tray-label">Suffix tray — these can be reused</span>
+        <!-- suffix buttons injected -->
+      </div>
+      <div class="bases" id="bases">
+        <!-- base words injected -->
+      </div>
+      <div role="status" aria-live="polite" id="machineMsg" class="counter"></div>
+      <div class="hint-row"><button class="btn ghost" id="machineHint">Need a hint?</button></div>
+    </div>
+
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Screenshot your finished machine.</b> Five green words = five solved cases. The page won’t remember them for you.</div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. MEANING MATCH ===================== -->
+  <section id="match">
+    <div class="sec-head"><span class="sec-no">04</span><div><h2>Meaning Match</h2><p class="lead">Drag each word onto its meaning (or tap word, then tap the slot). A wrong match turns red and sends the word back — try again as many times as you like.</p></div></div>
+
+    <div class="card">
+      <div class="match-grid">
+        <div class="word-bank" id="wordBank" aria-label="Word tiles"></div>
+        <div class="meanings" id="meanings"></div>
+      </div>
+      <div role="status" aria-live="polite" id="matchMsg" class="counter" style="margin-top:10px"></div>
+    </div>
+
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Capture all-green before moving on.</b> Screenshot and upload to OneNote.</div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. TRICKY-PART ZOOM ===================== -->
+  <section id="zoom">
+    <div class="sec-head"><span class="sec-no">05</span><div><h2>Tricky-Part Zoom</h2><p class="lead">Detectives spot the trap before it springs. For each word, <b>tap the letters you think are easy to get wrong</b>. Then unlock the answer to see the real traps — and a memory tip.</p></div></div>
+
+    <div id="zoomCards"></div>
+
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Photograph your traps and tips.</b> These are gold for revision later.</div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. LCWC SLIDER ===================== -->
+  <section id="lcwc">
+    <div class="sec-head"><span class="sec-no">06</span><div><h2>Look · Cover · Write · Check</h2><p class="lead">The classic four-step strategy, with a working cover. <b>Slide right</b> to look. <b>Slide left</b> to cover, then write the word in your book. <b>Slide right</b> again to check.</p></div></div>
+
+    <div class="card">
+      <div class="lcwc-stage">
+        <span class="lcwc-word" id="lcwcWord" aria-live="polite">refugee</span>
+        <div class="lcwc-cover" id="lcwcCover" aria-hidden="true"></div>
+      </div>
+      <div class="slider-wrap">
+        <div class="slide-hint" id="slideHint"><span class="arrows" aria-hidden="true">⟷</span> Drag the slider to cover &amp; reveal</div>
+        <label for="lcwcSlide" class="sr-only">Slide to cover or reveal the word</label>
+        <input type="range" id="lcwcSlide" min="0" max="100" value="100" aria-label="Cover or reveal the word">
+        <div class="slide-ends" aria-hidden="true"><span>◀ Covered</span><span>Revealed ▶</span></div>
+      </div>
+      <div class="lcwc-controls">
+        <button class="btn ghost" id="lcwcPrev">‹ Previous</button>
+        <span class="counter" id="lcwcCount">Word 1 of 8</span>
+        <button class="btn ghost" id="lcwcNext">Next ›</button>
+      </div>
+    </div>
+    <div class="evidence">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+      <div><b>Your written attempts live in your book.</b> Tick them off in Case Closed and snap a photo.</div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. CRACK THE CASE (writing) ===================== -->
+  <section id="crack">
+    <div class="sec-head"><span class="sec-no">07</span><div><h2>Crack the Case</h2><p class="lead">Put the words to work. Write 2–3 sentences about a refugee’s journey — you might picture Jamal from <em>Boy Overboard</em>. Use at least <b>three</b> focus words and underline each one.</p></div></div>
+
+    <div class="card">
+      <p style="font-size:.85rem;color:var(--ink-soft);margin-top:0">Focus words: <b>refugee · asylum · journey · survival · freedom · desperate · dangerous · courageous</b></p>
+      <label for="writebox" class="sr-only">Write your sentences</label>
+      <textarea id="writebox" placeholder="Start writing here… e.g. The refugee family began a dangerous journey across the sea…"></textarea>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+        <button class="btn ghost" id="helpBtn" aria-expanded="false">I need a hand ▾</button>
+        <button class="btn amber" id="exampleBtn" disabled>Show a worked example 🔒</button>
+      </div>
+
+      <div class="help-box" id="helpBox">
+        <h3 style="margin-top:0">Sentence starters</h3>
+        <p>• The <b>refugee</b> family began a …<br>• It was a <b>dangerous</b> …<br>• They were <b>desperate</b> to reach …<br>• More than anything, they hoped for <b>freedom</b> and …</p>
+        <p style="margin-bottom:4px"><b>Cloze — fill the gaps:</b></p>
+        <p style="font-style:italic">The ______ family began a dangerous ______ across the sea. They were ______ but ______, hoping to find ______ in a safer country.</p>
+        <div class="wordbank-chips" aria-label="Word bank">
+          <button class="wb">refugee</button><button class="wb">asylum</button><button class="wb">journey</button><button class="wb">survival</button><button class="wb">freedom</button><button class="wb">desperate</button><button class="wb">dangerous</button><button class="wb">courageous</button>
+        </div>
+        <p style="font-size:.82rem;color:var(--ink-soft);margin-bottom:0">Tap a word to drop it into your writing box.</p>
+      </div>
+
+      <div class="locked" id="lockMsg">🔒 Write at least one sentence of your own first — then the worked example unlocks.</div>
+      <div class="reveal-box" id="exampleBox">
+        <div class="remember" style="background:#fff;border:1.5px solid var(--line)">
+          <b style="color:var(--ink)">Worked example (one way to do it):</b><br>
+          <span style="display:block;margin-top:6px"><u>Desperate</u> for safety, the <u>refugee</u> family began a <u>dangerous</u> <u>journey</u> across the open sea. Their <u>survival</u> depended on staying brave, and they held onto the hope of <u>freedom</u> in a new country.</span>
+          <span style="display:block;margin-top:8px;font-size:.85rem;color:var(--ink-soft)">That uses six focus words. Yours only needs three — check each is spelt correctly using your Case Notes.</span>
+        </div>
+      </div>
+
+      <div class="evidence" style="margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>This box does not save.</b> When you’re happy with your sentences, <b>screenshot them now</b> and upload to OneNote before you close the page.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 8. CASE CLOSED ===================== -->
+  <section id="closed">
+    <div class="sec-head"><span class="sec-no">08</span><div><h2>Case Closed</h2><p class="lead">Quick exit check. Tick off your evidence, rate your confidence, and make sure everything is captured.</p></div></div>
+
+    <div class="card">
+      <h3>Evidence to capture (screenshot or photograph each one)</h3>
+      <ul class="check-list">
+        <li><input type="checkbox" id="c1"><label for="c1">Briefing score and any fix-up notes I read</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">My finished Suffix Machine (five green words)</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">My all-green Meaning Match</label></li>
+        <li><input type="checkbox" id="c4"><label for="c4">My Tricky-Part traps and tips</label></li>
+        <li><input type="checkbox" id="c5"><label for="c5">My 2–3 sentences (with focus words underlined)</label></li>
+        <li><input type="checkbox" id="c6"><label for="c6">My Look·Cover·Write·Check attempts in my book</label></li>
+      </ul>
+
+      <h3 style="margin-top:18px">How confident am I with these words?</h3>
+      <div class="confi" id="confi" role="group" aria-label="Confidence rating">
+        <button aria-pressed="false">Still cracking it</button>
+        <button aria-pressed="false">Getting there</button>
+        <button aria-pressed="false">Case closed ✓</button>
+      </div>
+
+      <div class="evidence" style="margin-top:18px;margin-bottom:0">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8930c" d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <div><b>Nothing on this page is saved.</b> Take your final screenshots now, then upload everything to OneNote. Closing the tab clears it all.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Year 6 Spelling · Word Detectives · Lesson 1: Decode the Journey · Linked to ACARA v9 AC9E6LY08 &amp; AC9E6LY09. All content original. Works offline — no data is collected or stored.</p>
+</footer>
+
+<div class="live sr-only" id="liveRegion" aria-live="assertive"></div>
+
+<script>
+"use strict";
+const $ = (s,el=document)=>el.querySelector(s);
+const $$ = (s,el=document)=>Array.from(el.querySelectorAll(s));
+const announce = (msg)=>{ const r=$("#liveRegion"); r.textContent=""; setTimeout(()=>r.textContent=msg,30); };
+
+/* =================================================================
+   1. WARM-UP QUIZ
+==================================================================*/
+const QUIZ = [
+  { stem:"What is a “base word”?",
+    opts:["The longest word in a sentence","The main word we build from, before adding a prefix or suffix","A word that has no vowels"],
+    correct:1,
+    fix:"A base word is the core word we build from — like <b>danger</b> in <b>dangerous</b>. We add the suffix to it." },
+  { stem:"Which word is “danger” + the suffix “-ous”?",
+    opts:["dangerious","dangerous","dangrous"],
+    correct:1,
+    fix:"Add <b>-ous</b> straight onto <b>danger</b> → <b>dangerous</b>. No extra “i”, and don’t lose the “e”." },
+  { stem:"The suffix “-ous” usually means…",
+    opts:["full of / having","without","before"],
+    correct:0,
+    fix:"<b>-ous</b> means “full of” or “having”. Dangerous = full of danger; courageous = having courage." },
+  { stem:"Which is the correct spelling?",
+    opts:["refugy","refugie","refugee"],
+    correct:2,
+    fix:"It’s <b>refugee</b> — “refuge” + “-ee”, ending in a double “e”. A refugee is a person who seeks refuge (safety)." },
+  { stem:"Why does “courage” keep its “e” in “courageous”?",
+    opts:["To make the word longer","To keep the “g” soft (a /j/ sound)","It’s just a spelling mistake"],
+    correct:1,
+    fix:"We keep the “e” so the “g” stays <b>soft</b>. Without it, “courag-ous” would have a hard /g/ sound." },
+];
+let score=0, answered=0, firstFixIndex=null;
+const quizEl=$("#quiz");
+$("#total").textContent=QUIZ.length;
+
+QUIZ.forEach((q,qi)=>{
+  const card=document.createElement("div"); card.className="q"; card.id="q"+qi;
+  const stem=document.createElement("p"); stem.className="stem"; stem.textContent=(qi+1)+". "+q.stem;
+  const opts=document.createElement("div"); opts.className="opts"; opts.setAttribute("role","group"); opts.setAttribute("aria-label",q.stem);
+  q.opts.forEach((text,oi)=>{
+    const b=document.createElement("button"); b.className="opt"; b.type="button"; b.innerHTML=text;
+    b.addEventListener("click",()=>handleAnswer(card,opts,b,q,qi,oi));
+    opts.appendChild(b);
+  });
+  const fix=document.createElement("div"); fix.className="fixup"; fix.id="fix"+qi;
+  fix.innerHTML='<b>Fix-up:</b> '+q.fix;
+  card.append(stem,opts,fix);
+  quizEl.appendChild(card);
+});
+
+function handleAnswer(card,opts,btn,q,qi,oi){
+  if(card.dataset.done) return;
+  card.dataset.done="1";
+  $$(".opt",opts).forEach(b=>b.setAttribute("disabled",""));
+  answered++;
+  const correctBtn=opts.children[q.correct];
+  correctBtn.classList.add("correct");
+  if(oi===q.correct){
+    btn.classList.add("correct");
+    score++; $("#score").textContent=score;
+    announce("Correct. Score "+score+" of "+QUIZ.length);
+  }else{
+    btn.classList.add("wrong");
+    $("#fix"+qi).classList.add("show");
+    if(firstFixIndex===null){ firstFixIndex=qi; $("#jumpFix").disabled=false; }
+    announce("Not quite. Read the fix-up note.");
+  }
+}
+$("#jumpFix").addEventListener("click",()=>{
+  if(firstFixIndex!==null){ $("#q"+firstFixIndex).scrollIntoView({block:"center"}); $("#q"+firstFixIndex).querySelector(".fixup").focus?.(); }
+});
+
+/* =================================================================
+   SHARED DRAG-AND-DROP (mouse + touch + tap + keyboard)
+==================================================================*/
+function makeDnD({tiles, zones, tileSel, zoneSel, onDrop}){
+  let picked=null, ghost=null;
+
+  function setPicked(t){
+    if(picked) picked.classList.remove("picked");
+    picked=t;
+    if(t){ t.classList.add("picked"); announce("Picked up "+(t.dataset.label||t.textContent.trim())+". Now choose a slot."); }
+  }
+  function clearPicked(){ if(picked) picked.classList.remove("picked"); picked=null; }
+
+  tiles.forEach(t=>{
+    t.setAttribute("tabindex","0");
+    // keyboard / tap select
+    t.addEventListener("keydown",e=>{
+      if(e.key==="Enter"||e.key===" "){ e.preventDefault(); setPicked(picked===t?null:t); }
+    });
+    // pointer drag
+    t.addEventListener("pointerdown",e=>{
+      if(t.classList.contains("used")) return;
+      e.preventDefault();
+      let moved=false; const sx=e.clientX, sy=e.clientY;
+      const startTile=t;
+      function move(ev){
+        if(!moved && (Math.abs(ev.clientX-sx)>6||Math.abs(ev.clientY-sy)>6)){
+          moved=true;
+          ghost=startTile.cloneNode(true); ghost.className="drag-ghost"; ghost.textContent=startTile.textContent;
+          document.body.appendChild(ghost);
+          startTile.style.opacity=".4";
+        }
+        if(moved && ghost){
+          ghost.style.left=(ev.clientX-ghost.offsetWidth/2)+"px";
+          ghost.style.top=(ev.clientY-ghost.offsetHeight/2)+"px";
+          highlightUnder(ev.clientX,ev.clientY);
+        }
+      }
+      function up(ev){
+        document.removeEventListener("pointermove",move);
+        document.removeEventListener("pointerup",up);
+        startTile.style.opacity="";
+        if(ghost){ ghost.remove(); ghost=null; }
+        clearHighlight();
+        const zone = zoneFromPoint(ev.clientX,ev.clientY);
+        if(moved){
+          if(zone){ onDrop(startTile,zone); }
+        }else{
+          // treat as tap-select
+          setPicked(picked===startTile?null:startTile);
+        }
+      }
+      document.addEventListener("pointermove",move);
+      document.addEventListener("pointerup",up);
+    });
+  });
+
+  function zoneFromPoint(x,y){
+    const el=document.elementFromPoint(x,y);
+    return el?el.closest(zoneSel):null;
+  }
+  function highlightUnder(x,y){ clearHighlight(); const z=zoneFromPoint(x,y); if(z) z.classList.add("over"); }
+  function clearHighlight(){ zones.forEach(z=>z.classList.remove("over")); }
+
+  zones.forEach(z=>{
+    z.setAttribute("tabindex","0");
+    const placeHere=()=>{ if(picked){ const t=picked; clearPicked(); onDrop(t,z); } };
+    z.addEventListener("click",placeHere);
+    z.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); placeHere(); } });
+  });
+
+  return { getPicked:()=>picked, clearPicked };
+}
+
+/* =================================================================
+   3. SUFFIX MACHINE
+==================================================================*/
+const BASES=[
+  { base:"danger",  suffix:"-ous", result:"dangerous",  note:"Just add -ous. danger + ous = dangerous." },
+  { base:"courage", suffix:"-ous", result:"courageous", note:"Keep the e! It keeps the g soft → courageous.", warn:true },
+  { base:"free",    suffix:"-dom", result:"freedom",    note:"Just add -dom. free + dom = freedom." },
+  { base:"survive", suffix:"-al",  result:"survival",   note:"Drop the e first: surviv + al = survival.", warn:true },
+  { base:"refuge",  suffix:"-ee",  result:"refugee",    note:"Drop one e: refug + ee = refugee.", warn:true },
+];
+const SUFFIXES=["-ous","-dom","-al","-ee","-ment","-ful"];
+let machineSolved=0;
+
+const trayEl=$("#tray");
+SUFFIXES.forEach(s=>{
+  const b=document.createElement("button"); b.type="button"; b.className="suffix"; b.textContent=s;
+  b.dataset.suffix=s; b.dataset.label="suffix "+s;
+  trayEl.appendChild(b);
+});
+const basesEl=$("#bases");
+BASES.forEach((item,i)=>{
+  const wrap=document.createElement("div"); wrap.className="base"; wrap.id="base"+i;
+  const bw=document.createElement("span"); bw.className="bw"; bw.textContent=item.base;
+  const slot=document.createElement("div"); slot.className="slot"; slot.id="slot"+i;
+  slot.dataset.idx=i; slot.textContent="＋?"; slot.setAttribute("role","button");
+  slot.setAttribute("aria-label","Add a suffix to "+item.base);
+  wrap.append(bw,slot);
+  basesEl.appendChild(wrap);
+});
+
+makeDnD({
+  tiles:$$(".suffix"), zones:$$(".slot"),
+  tileSel:".suffix", zoneSel:".slot",
+  onDrop:(tile,zone)=>{
+    const idx=+zone.dataset.idx; const item=BASES[idx]; const wrap=$("#base"+idx);
+    if(wrap.classList.contains("done")) return;
+    if(tile.dataset.suffix===item.suffix){
+      wrap.classList.add("done");
+      zone.textContent=item.suffix;
+      const built=document.createElement("div"); built.className="built"; built.textContent="✓ "+item.result;
+      const note=document.createElement("div"); note.className="note"+(item.warn?" warn":""); note.textContent=item.note;
+      wrap.append(built,note);
+      machineSolved++;
+      $("#machineMsg").textContent=machineSolved+" of "+BASES.length+" words built.";
+      announce(item.result+" built. "+item.note);
+      if(machineSolved===BASES.length){ $("#machineMsg").textContent="🎉 All five cases solved! Screenshot your machine."; }
+    }else{
+      zone.classList.add("over");
+      setTimeout(()=>zone.classList.remove("over"),350);
+      const meaning={"-ous":"“full of”","-dom":"“a state of”","-al":"“the act of”","-ee":"“a person who”","-ment":"“the result of”","-ful":"“full of”"}[tile.dataset.suffix]||"";
+      $("#machineMsg").textContent="Not for “"+item.base+"”. "+tile.dataset.suffix+" means "+meaning+". Try the suffix that fits its meaning.";
+      announce("Not quite. Try a different suffix.");
+    }
+  }
+});
+$("#machineHint").addEventListener("click",()=>{
+  $("#machineMsg").textContent="Clue: think about meaning. free + ? = a state of being free. surviv(e) + ? = the act of staying alive. Two words both take “-ous”.";
+});
+
+/* =================================================================
+   4. MEANING MATCH
+==================================================================*/
+const PAIRS=[
+  { word:"refugee",   mean:"A person forced to leave home to find safety." },
+  { word:"asylum",    mean:"Protection a country gives to someone fleeing danger." },
+  { word:"journey",   mean:"Travelling from one place to another, often far." },
+  { word:"survival",  mean:"Staying alive through hard or dangerous times." },
+  { word:"freedom",   mean:"The state of being free to live and choose." },
+  { word:"courageous",mean:"Brave; showing courage when things are frightening." },
+];
+let matchSolved=0;
+const shuffled=[...PAIRS].sort(()=>Math.random()-0.5);
+const bankEl=$("#wordBank");
+shuffled.forEach(p=>{
+  const b=document.createElement("button"); b.type="button"; b.className="word-chip"; b.textContent=p.word;
+  b.dataset.word=p.word; b.dataset.label="word "+p.word;
+  bankEl.appendChild(b);
+});
+const meaningsEl=$("#meanings");
+PAIRS.forEach((p,i)=>{
+  const row=document.createElement("div"); row.className="meaning"; row.id="mean"+i;
+  const slot=document.createElement("div"); slot.className="m-slot"; slot.id="mslot"+i;
+  slot.dataset.word=p.word; slot.textContent="drop here"; slot.setAttribute("role","button");
+  slot.setAttribute("aria-label","Drop the matching word for: "+p.mean);
+  const txt=document.createElement("div"); txt.className="m-text"; txt.textContent=p.mean;
+  row.append(slot,txt);
+  meaningsEl.appendChild(row);
+});
+makeDnD({
+  tiles:$$(".word-chip"), zones:$$(".m-slot"),
+  tileSel:".word-chip", zoneSel:".m-slot",
+  onDrop:(tile,zone)=>{
+    const row=zone.closest(".meaning");
+    if(row.classList.contains("right")) return;
+    if(tile.dataset.word===zone.dataset.word){
+      row.classList.remove("nope"); row.classList.add("right");
+      zone.textContent=tile.dataset.word;
+      tile.classList.add("used");
+      matchSolved++;
+      $("#matchMsg").textContent=matchSolved+" of "+PAIRS.length+" matched.";
+      announce(tile.dataset.word+" matched correctly.");
+      if(matchSolved===PAIRS.length){ $("#matchMsg").textContent="🎉 All matched! Screenshot it."; }
+    }else{
+      row.classList.add("nope");
+      setTimeout(()=>row.classList.remove("nope"),500);
+      $("#matchMsg").textContent="“"+tile.dataset.word+"” doesn’t fit that meaning — it went back to the bank. Try another.";
+      announce("Not a match. The word went back.");
+    }
+  }
+});
+
+/* =================================================================
+   5. TRICKY-PART ZOOM
+==================================================================*/
+const ZOOM=[
+  { word:"refugee",    traps:[4,5,6], tip:"Ends in a double “e” (refug-EE). Don’t write “-y” or “-ie”." },
+  { word:"asylum",     traps:[1,2],   tip:"The /i/ sound is spelt “sy”, not “si”. a-SY-lum." },
+  { word:"courageous", traps:[5,6],   tip:"Keep the “e” after “g” → courag-E-ous, so the g stays soft." },
+  { word:"survival",   traps:[7,8],   tip:"One “v”, and it ends “-al” (the act of), not “-el” or “-il”." },
+];
+const zoomWrap=$("#zoomCards");
+ZOOM.forEach((z,zi)=>{
+  const card=document.createElement("div"); card.className="card";
+  const h=document.createElement("h3"); h.textContent="Word "+(zi+1)+" of "+ZOOM.length;
+  const letters=document.createElement("div"); letters.className="word-letters"; letters.setAttribute("aria-label","Tap the tricky letters in "+z.word);
+  z.word.split("").forEach((ch,ci)=>{
+    const l=document.createElement("button"); l.type="button"; l.className="letter"; l.textContent=ch;
+    l.setAttribute("aria-label","letter "+ch);
+    l.addEventListener("click",()=>{ if(card.dataset.revealed) return; l.classList.toggle("marked"); });
+    letters.appendChild(l);
+  });
+  const btn=document.createElement("button"); btn.type="button"; btn.className="btn amber"; btn.textContent="Reveal the traps 🔒";
+  const tip=document.createElement("div"); tip.className="trap-tip remember";
+  tip.innerHTML='<b>The traps:</b> '+z.tip;
+  btn.addEventListener("click",()=>{
+    card.dataset.revealed="1";
+    const ls=$$(".letter",letters);
+    let hits=0, marked=0;
+    ls.forEach((l,i)=>{
+      const isTrap=z.traps.includes(i);
+      const isMarked=l.classList.contains("marked");
+      if(isMarked) marked++;
+      if(isTrap){ l.classList.remove("marked"); l.classList.add("trap"); if(isMarked) hits++; }
+    });
+    tip.classList.add("show");
+    const fb=document.createElement("p"); fb.style.fontSize=".85rem"; fb.style.color="var(--ink-soft)"; fb.style.margin="6px 0 0";
+    fb.textContent="You spotted "+hits+" of "+z.traps.length+" trap letters.";
+    tip.appendChild(fb);
+    btn.disabled=true; btn.textContent="Traps revealed ✓";
+    announce("Traps revealed for "+z.word+". "+z.tip);
+  });
+  card.append(h,letters,btn,tip);
+  zoomWrap.appendChild(card);
+});
+
+/* =================================================================
+   6. LCWC SLIDER
+==================================================================*/
+const LCWC_WORDS=["refugee","asylum","journey","survival","freedom","desperate","dangerous","courageous"];
+let lcwcIdx=0;
+const cover=$("#lcwcCover"), slide=$("#lcwcSlide"), wordEl=$("#lcwcWord"), countEl=$("#lcwcCount"), slideHint=$("#slideHint");
+let hintGone=false;
+function paintCover(){
+  // value 100 = fully revealed (cover pushed off right), 0 = fully covered
+  const v=+slide.value;
+  cover.style.transform="translateX("+v+"%)";
+  slide.style.setProperty("--fill", v+"%");  // teal fill grows as the word is revealed
+}
+function setWord(){
+  wordEl.textContent=LCWC_WORDS[lcwcIdx];
+  countEl.textContent="Word "+(lcwcIdx+1)+" of "+LCWC_WORDS.length;
+  slide.value=100; paintCover();
+}
+slide.addEventListener("input",()=>{
+  paintCover();
+  if(!hintGone){ slideHint.classList.add("gone"); hintGone=true; }
+});
+$("#lcwcNext").addEventListener("click",()=>{ lcwcIdx=(lcwcIdx+1)%LCWC_WORDS.length; setWord(); });
+$("#lcwcPrev").addEventListener("click",()=>{ lcwcIdx=(lcwcIdx-1+LCWC_WORDS.length)%LCWC_WORDS.length; setWord(); });
+setWord();
+
+/* =================================================================
+   7. CRACK THE CASE (help + locked example + word bank)
+==================================================================*/
+const writebox=$("#writebox");
+const exampleBtn=$("#exampleBtn"), lockMsg=$("#lockMsg"), exampleBox=$("#exampleBox");
+writebox.addEventListener("input",()=>{
+  if(writebox.value.trim().length>=15){
+    exampleBtn.disabled=false; exampleBtn.textContent="Show a worked example";
+    lockMsg.style.display="none";
+  }else{
+    exampleBtn.disabled=true; exampleBtn.textContent="Show a worked example 🔒";
+    if(!exampleBox.classList.contains("show")) lockMsg.style.display="block";
+  }
+});
+exampleBtn.addEventListener("click",()=>{
+  exampleBox.classList.add("show"); lockMsg.style.display="none";
+  exampleBox.scrollIntoView({block:"nearest"});
+});
+const helpBtn=$("#helpBtn"), helpBox=$("#helpBox");
+helpBtn.addEventListener("click",()=>{
+  const open=helpBox.classList.toggle("show");
+  helpBtn.setAttribute("aria-expanded",open?"true":"false");
+  helpBtn.textContent=open?"Hide the hand ▴":"I need a hand ▾";
+});
+$$(".wb").forEach(chip=>{
+  chip.addEventListener("click",()=>{
+    const w=chip.textContent;
+    const needsSpace=writebox.value.length>0 && !/\s$/.test(writebox.value);
+    writebox.value+=(needsSpace?" ":"")+w+" ";
+    writebox.focus();
+    writebox.dispatchEvent(new Event("input"));
+  });
+});
+
+/* =================================================================
+   8. CONFIDENCE
+==================================================================*/
+$$("#confi button").forEach(b=>{
+  b.addEventListener("click",()=>{
+    $$("#confi button").forEach(x=>x.setAttribute("aria-pressed","false"));
+    b.setAttribute("aria-pressed","true");
+  });
+});
+</script>
+</body>
+</html>
