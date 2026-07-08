@@ -9,15 +9,20 @@
 <style>
   :root{
     --paper:#fbf9f4; --ink:#1b2a4a; --amber:#e8930c; --teal:#0e7c7b;
-    --card:#ffffff; --line:#e6e1d6; --amber-soft:#fdf0d9; --teal-soft:#e1efee;
-    --ink-soft:#56607a; --muted:#8a93a8;
+    --card:#ffffff; --line:#e6e1d6; --ink-soft:#56607a; --muted:#8a93a8;
+    --english:#7c3aed; --english-soft:#f1e9fe;
+    --science:#1b4a8a; --science-soft:#e8f0fc;
+    --hass:#0e7c7b; --hass-soft:#e1efee;
+    --maths:#c47a08; --maths-soft:#fdf0d9;
+    --eco:#1f7a4d; --eco-soft:#e3f3ea;
+    --review:#5b6478; --review-soft:#eef1f6;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
     margin:0;background:var(--paper);color:var(--ink);
     font-family:"Atkinson Hyperlegible",system-ui,sans-serif;font-size:17px;line-height:1.55;
   }
-  h1,h2{font-family:"Space Grotesk",system-ui,sans-serif;line-height:1.2}
+  h1,h2,h3{font-family:"Space Grotesk",system-ui,sans-serif;line-height:1.2}
   a{color:var(--teal);text-decoration:none}
   a:hover{text-decoration:underline}
   a:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
@@ -25,80 +30,178 @@
     background:var(--ink);color:#f5f2ea;padding:40px 20px 48px;
     border-bottom:6px solid var(--amber);
   }
-  .hero{max-width:880px;margin:0 auto}
+  .hero{max-width:920px;margin:0 auto}
   .eyebrow{
     font-family:"Space Grotesk",sans-serif;letter-spacing:.18em;text-transform:uppercase;
     font-size:.78rem;color:var(--amber);margin:0 0 8px;
   }
   h1{font-size:clamp(1.7rem,4.5vw,2.5rem);margin:0 0 10px}
   .hero p{margin:0;color:#d8d4c8;max-width:640px}
-  .wrap{max-width:880px;margin:0 auto;padding:40px 20px 80px}
-  section h2{
-    font-size:1.25rem;margin:0 0 16px;padding-bottom:8px;border-bottom:3px solid var(--ink);
+  .wrap{max-width:920px;margin:0 auto;padding:40px 20px 80px}
+  .intro{color:var(--ink-soft);margin-bottom:32px;max-width:62ch}
+
+  .week-bundle{
+    border-radius:18px;border:1px solid var(--line);background:var(--card);
+    margin-bottom:20px;overflow:hidden;box-shadow:0 2px 12px rgba(27,42,74,.05);
   }
-  .card-list{list-style:none;display:grid;gap:10px}
-  .card-list li{
-    background:var(--card);border:1px solid var(--line);border-radius:16px;
-    transition:border-color .15s,box-shadow .15s;
+  .week-head{
+    padding:16px 20px;border-bottom:1px solid var(--line);
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;
   }
-  .card-list li:hover:not(.soon){border-color:var(--teal);box-shadow:0 4px 20px rgba(27,42,74,.08)}
-  .card-list li.soon{opacity:.55;background:#f5f3ee}
-  .card-list a{display:block;padding:14px 18px;color:var(--ink);text-decoration:none}
-  .card-list a:hover{text-decoration:none}
-  .card-list .inner{padding:14px 18px}
+  .week-label{
+    font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:.8rem;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .theme-badge{
+    font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:.82rem;
+    padding:5px 12px;border-radius:999px;
+  }
+  .week-bundle.english .week-head{border-left:6px solid var(--english);background:var(--english-soft)}
+  .week-bundle.english .theme-badge{background:#fff;color:var(--english);border:1px solid #d4c2f7}
+  .week-bundle.science .week-head{border-left:6px solid var(--science);background:var(--science-soft)}
+  .week-bundle.science .theme-badge{background:#fff;color:var(--science);border:1px solid #b8d0f0}
+  .week-bundle.hass .week-head{border-left:6px solid var(--hass);background:var(--hass-soft)}
+  .week-bundle.hass .theme-badge{background:#fff;color:var(--hass);border:1px solid #a8d8d6}
+  .week-bundle.maths .week-head{border-left:6px solid var(--maths);background:var(--maths-soft)}
+  .week-bundle.maths .theme-badge{background:#fff;color:#9a5f00;border:1px solid #f2c785}
+  .week-bundle.eco .week-head{border-left:6px solid var(--eco);background:var(--eco-soft)}
+  .week-bundle.eco .theme-badge{background:#fff;color:var(--eco);border:1px solid #a8d8bc}
+  .week-bundle.review .week-head{border-left:6px solid var(--review);background:var(--review-soft)}
+  .week-bundle.review .theme-badge{background:#fff;color:var(--review);border:1px solid #c5cad6}
+
+  .lesson-list{list-style:none;padding:8px}
+  .lesson-list li{margin:6px}
+  .lesson-list a{
+    display:flex;align-items:baseline;gap:12px;padding:12px 14px;
+    border-radius:12px;color:var(--ink);text-decoration:none;
+    transition:background .15s;
+  }
+  .lesson-list a:hover{background:#f7f5ef;text-decoration:none}
   .lesson-num{
-    display:inline-block;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:.72rem;
-    letter-spacing:.08em;text-transform:uppercase;background:var(--teal-soft);color:var(--teal);
-    padding:2px 10px;border-radius:999px;margin-bottom:6px;
+    flex:0 0 auto;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:.72rem;
+    letter-spacing:.06em;text-transform:uppercase;min-width:4.5rem;
   }
-  .lesson-num.soon{background:var(--line);color:var(--ink-soft)}
-  .card-list .title{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1.02rem;margin:0}
-  .card-list .soon-label{font-size:.85rem;color:var(--muted);font-style:italic;margin:4px 0 0}
+  .week-bundle.english .lesson-num{color:var(--english)}
+  .week-bundle.science .lesson-num{color:var(--science)}
+  .week-bundle.hass .lesson-num{color:var(--hass)}
+  .week-bundle.maths .lesson-num{color:var(--maths)}
+  .week-bundle.eco .lesson-num{color:var(--eco)}
+  .week-bundle.review .lesson-num{color:var(--review)}
+  .lesson-title{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1rem}
+
   footer{text-align:center;color:var(--ink-soft);font-size:.9rem;padding-top:24px;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
 <header>
   <div class="hero">
-    <p class="eyebrow">Year 6 · Term 3</p>
+    <p class="eyebrow">Year 6 · Term 3 · Word Detectives</p>
     <h1>Spelling Lessons</h1>
-    <p>Decode, discover, and report — all lessons in one place.</p>
+    <p>Three lessons a week — each bundle linked to the unit you're studying in class.</p>
   </div>
 </header>
 
 <main class="wrap">
-  <section>
-    <h2>Lessons</h2>
-    <ul class="card-list">
-      <li><a href="Lesson1_Decode_the_Journey.html"><span class="lesson-num">Lesson 1</span><p class="title">Decode the Journey</p></a></li>
-      <li><a href="Lesson2_The_Hidden_Letters.html"><span class="lesson-num">Lesson 2</span><p class="title">The Hidden Letters</p></a></li>
-      <li><a href="Lesson3_The_Final_Sweep.html"><span class="lesson-num">Lesson 3</span><p class="title">The Final Sweep</p></a></li>
-      <li><a href="Lesson4_Spheres_of_the_Earth.html"><span class="lesson-num">Lesson 4</span><p class="title">Spheres of the Earth</p></a></li>
-      <li><a href="Lesson5_The_f_Files.html"><span class="lesson-num">Lesson 5</span><p class="title">The /f/ Files</p></a></li>
-      <li><a href="Lesson6_The_Earth_Report.html"><span class="lesson-num">Lesson 6</span><p class="title">The Earth Report</p></a></li>
-      <li><a href="Lesson7_The_Cartographers_Code.html"><span class="lesson-num">Lesson 7</span><p class="title">The Cartographer's Code</p></a></li>
-      <li><a href="Lesson8_Long_Words_Smart_Strategies.html"><span class="lesson-num">Lesson 8</span><p class="title">Long Words, Smart Strategies</p></a></li>
-      <li><a href="Lesson9_The_Survey_Report.html"><span class="lesson-num">Lesson 9</span><p class="title">The Survey Report</p></a></li>
-      <li><a href="Lesson10_Reach_for_the_Stars.html"><span class="lesson-num">Lesson 10</span><p class="title">Reach for the Stars</p></a></li>
-      <li><a href="Lesson11_Double_or_Nothing.html"><span class="lesson-num">Lesson 11</span><p class="title">Double or Nothing</p></a></li>
-      <li><a href="Lesson12_Mission_Report.html"><span class="lesson-num">Lesson 12</span><p class="title">Mission Report</p></a></li>
-      <li><a href="Lesson13_Data_Detectives.html"><span class="lesson-num">Lesson 13</span><p class="title">Data Detectives</p></a></li>
-      <li><a href="Wk5_Lesson14_Long_Words_Smart_Strategies.html"><span class="lesson-num">Lesson 14</span><p class="title">Long Words, Smart Strategies</p></a></li>
-      <li><a href="Wk5_Lesson15_Data_Report.html"><span class="lesson-num">Lesson 15</span><p class="title">Data Report</p></a></li>
-      <li><a href="Wk6_Lesson16_Eco_Detectives_Environment_Roots.html"><span class="lesson-num">Lesson 16</span><p class="title">Eco Detectives: Environment Roots</p></a></li>
-      <li><a href="Wk6_Lesson17_Tricky_Eco_Spellings.html"><span class="lesson-num">Lesson 17</span><p class="title">Tricky Eco Spellings</p></a></li>
-      <li><a href="Wk6_Lesson18_Environment_Report_and_Weekly_Test.html"><span class="lesson-num">Lesson 18</span><p class="title">Environment Report &amp; Weekly Test</p></a></li>
-      <li><a href="Wk7_Lesson19_Detectives_of_Theme_Words_of_Courage.html"><span class="lesson-num">Lesson 19</span><p class="title">Detectives of Theme: Words of Courage</p></a></li>
-      <li><a href="Wk7_Lesson20_Zoom_In_Tricky_Parts.html"><span class="lesson-num">Lesson 20</span><p class="title">Zoom In: Tricky Parts &amp; the Australian -ise</p></a></li>
-      <li><a href="Wk7_Lesson21_Theme_Writing_Weekly_Test.html"><span class="lesson-num">Lesson 21</span><p class="title">Case File Final: Theme Writing + Weekly Test</p></a></li>
-      <li><a href="Wk8_Lesson22_The_ise_Files.html"><span class="lesson-num">Lesson 22</span><p class="title">The -ise Files: Australian Spelling Generalisations</p></a></li>
-      <li><a href="Wk8_Lesson23_Most_Misspelled_Memory_Tricks.html"><span class="lesson-num">Lesson 23</span><p class="title">Most-Misspelled: Memory Tricks</p></a></li>
-      <li><a href="Wk8_Lesson24_Detective_Final.html"><span class="lesson-num">Lesson 24</span><p class="title">Detective Final: Mixed Review + Quiz</p></a></li>
+  <p class="intro">Pick your week below. Each bundle has three sessions: learn the words, practise the tricky parts, then write and test.</p>
+
+  <article class="week-bundle english">
+    <div class="week-head">
+      <span class="week-label">Week 1</span>
+      <span class="theme-badge">English — Boy Overboard</span>
+    </div>
+    <ul class="lesson-list">
+      <li><a href="Lesson1_Decode_the_Journey.html"><span class="lesson-num">Lesson 1</span><span class="lesson-title">Decode the Journey</span></a></li>
+      <li><a href="Lesson2_The_Hidden_Letters.html"><span class="lesson-num">Lesson 2</span><span class="lesson-title">The Hidden Letters</span></a></li>
+      <li><a href="Lesson3_The_Final_Sweep.html"><span class="lesson-num">Lesson 3</span><span class="lesson-title">The Final Sweep</span></a></li>
     </ul>
-  </section>
+  </article>
+
+  <article class="week-bundle science">
+    <div class="week-head">
+      <span class="week-label">Week 2</span>
+      <span class="theme-badge">Science — Earth &amp; Space</span>
+    </div>
+    <ul class="lesson-list">
+      <li><a href="Lesson4_Spheres_of_the_Earth.html"><span class="lesson-num">Lesson 4</span><span class="lesson-title">Spheres of the Earth</span></a></li>
+      <li><a href="Lesson5_The_f_Files.html"><span class="lesson-num">Lesson 5</span><span class="lesson-title">The /f/ Files</span></a></li>
+      <li><a href="Lesson6_The_Earth_Report.html"><span class="lesson-num">Lesson 6</span><span class="lesson-title">The Earth Report</span></a></li>
+    </ul>
+  </article>
+
+  <article class="week-bundle hass">
+    <div class="week-head">
+      <span class="week-label">Week 3</span>
+      <span class="theme-badge">HASS — Geography</span>
+    </div>
+    <ul class="lesson-list">
+      <li><a href="Lesson7_The_Cartographers_Code.html"><span class="lesson-num">Lesson 7</span><span class="lesson-title">The Cartographer's Code</span></a></li>
+      <li><a href="Lesson8_Long_Words_Smart_Strategies.html"><span class="lesson-num">Lesson 8</span><span class="lesson-title">Long Words, Smart Strategies</span></a></li>
+      <li><a href="Lesson9_The_Survey_Report.html"><span class="lesson-num">Lesson 9</span><span class="lesson-title">The Survey Report</span></a></li>
+    </ul>
+  </article>
+
+  <article class="week-bundle science">
+    <div class="week-head">
+      <span class="week-label">Week 4</span>
+      <span class="theme-badge">Science — Solar System</span>
+    </div>
+    <ul class="lesson-list">
+      <li><a href="Lesson10_Reach_for_the_Stars.html"><span class="lesson-num">Lesson 10</span><span class="lesson-title">Reach for the Stars</span></a></li>
+      <li><a href="Lesson11_Double_or_Nothing.html"><span class="lesson-num">Lesson 11</span><span class="lesson-title">Double or Nothing</span></a></li>
+      <li><a href="Lesson12_Mission_Report.html"><span class="lesson-num">Lesson 12</span><span class="lesson-title">Mission Report</span></a></li>
+    </ul>
+  </article>
+
+  <article class="week-bundle maths">
+    <div class="week-head">
+      <span class="week-label">Week 5</span>
+      <span class="theme-badge">Maths — Statistics &amp; Data</span>
+    </div>
+    <ul class="lesson-list">
+      <li><a href="Lesson13_Data_Detectives.html"><span class="lesson-num">Lesson 13</span><span class="lesson-title">Data Detectives</span></a></li>
+      <li><a href="Wk5_Lesson14_Long_Words_Smart_Strategies.html"><span class="lesson-num">Lesson 14</span><span class="lesson-title">Long Words, Smart Strategies</span></a></li>
+      <li><a href="Wk5_Lesson15_Data_Report.html"><span class="lesson-num">Lesson 15</span><span class="lesson-title">Data Report</span></a></li>
+    </ul>
+  </article>
+
+  <article class="week-bundle eco">
+    <div class="week-head">
+      <span class="week-label">Week 6</span>
+      <span class="theme-badge">HASS — Environment &amp; Sustainability</span>
+    </div>
+    <ul class="lesson-list">
+      <li><a href="Wk6_Lesson16_Eco_Detectives_Environment_Roots.html"><span class="lesson-num">Lesson 16</span><span class="lesson-title">Eco Detectives: Environment Roots</span></a></li>
+      <li><a href="Wk6_Lesson17_Tricky_Eco_Spellings.html"><span class="lesson-num">Lesson 17</span><span class="lesson-title">Tricky Eco Spellings</span></a></li>
+      <li><a href="Wk6_Lesson18_Environment_Report_and_Weekly_Test.html"><span class="lesson-num">Lesson 18</span><span class="lesson-title">Environment Report &amp; Weekly Test</span></a></li>
+    </ul>
+  </article>
+
+  <article class="week-bundle english">
+    <div class="week-head">
+      <span class="week-label">Week 7</span>
+      <span class="theme-badge">English — Boy Overboard (Words of Courage)</span>
+    </div>
+    <ul class="lesson-list">
+      <li><a href="Wk7_Lesson19_Detectives_of_Theme_Words_of_Courage.html"><span class="lesson-num">Lesson 19</span><span class="lesson-title">Detectives of Theme: Words of Courage</span></a></li>
+      <li><a href="Wk7_Lesson20_Zoom_In_Tricky_Parts.html"><span class="lesson-num">Lesson 20</span><span class="lesson-title">Zoom In: Tricky Parts &amp; the Australian -ise</span></a></li>
+      <li><a href="Wk7_Lesson21_Theme_Writing_Weekly_Test.html"><span class="lesson-num">Lesson 21</span><span class="lesson-title">Case File Final: Theme Writing + Weekly Test</span></a></li>
+    </ul>
+  </article>
+
+  <article class="week-bundle review">
+    <div class="week-head">
+      <span class="week-label">Week 8</span>
+      <span class="theme-badge">Review — All Subjects</span>
+    </div>
+    <ul class="lesson-list">
+      <li><a href="Wk8_Lesson22_The_ise_Files.html"><span class="lesson-num">Lesson 22</span><span class="lesson-title">The -ise Files: Australian Spelling Generalisations</span></a></li>
+      <li><a href="Wk8_Lesson23_Most_Misspelled_Memory_Tricks.html"><span class="lesson-num">Lesson 23</span><span class="lesson-title">Most-Misspelled: Memory Tricks</span></a></li>
+      <li><a href="Wk8_Lesson24_Detective_Final.html"><span class="lesson-num">Lesson 24</span><span class="lesson-title">Detective Final: Mixed Review + Quiz</span></a></li>
+    </ul>
+  </article>
 
   <footer>
-    <p>Year 6 Spelling · Term 3</p>
+    <p>Year 6 Spelling · Term 3 · Word Detectives</p>
   </footer>
 </main>
 </body>
